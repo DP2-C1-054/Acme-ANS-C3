@@ -23,6 +23,7 @@
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-estlopper" action="https://www.youtube.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-manzurfer" action="https://www.chess.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link-adrdiavaz" action="https://www.twitch.tv"/>
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link-kevamacal" action="https://www.crunchyroll.com/es-es/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
