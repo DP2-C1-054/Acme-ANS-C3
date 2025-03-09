@@ -5,8 +5,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.datatypes.Money;
@@ -17,6 +19,7 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,10 +28,7 @@ import lombok.Setter;
 @Setter
 public class AssistanceAgents extends AbstractEntity {
 
-	// Serialization version 
 	private static final long	serialVersionUID	= 1L;
-
-	// Attributes
 
 	@Mandatory
 	@ValidString(pattern = "^[A-Z]{2,3}\\d{6}$")
@@ -36,14 +36,9 @@ public class AssistanceAgents extends AbstractEntity {
 	private String				employeeCode;
 
 	@Mandatory
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				spokenLanguages;
-
-	@Mandatory
-	@ValidString
-	@Automapped
-	private String				airline;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -51,7 +46,7 @@ public class AssistanceAgents extends AbstractEntity {
 	private Date				moment;
 
 	@Optional
-	@ValidString
+	@ValidString(max = 255)
 	@Automapped
 	private String				bio;
 
@@ -64,5 +59,10 @@ public class AssistanceAgents extends AbstractEntity {
 	@ValidUrl
 	@Automapped
 	private String				photoUrl;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				airline;
 
 }
