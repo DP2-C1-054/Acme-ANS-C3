@@ -1,6 +1,7 @@
 
 package acme.entities.aircrafts;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
 
@@ -27,7 +28,7 @@ public class Aircraft extends AbstractEntity {
 
 	@Mandatory
 	@ValidString(max = 50)
-	@Automapped
+	@Column(unique = true)
 	private String				registrationNumber;
 
 	@Mandatory
