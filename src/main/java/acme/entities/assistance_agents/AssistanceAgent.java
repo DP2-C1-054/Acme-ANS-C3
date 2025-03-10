@@ -19,8 +19,8 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAssistanceAgent;
 import acme.constraints.ValidEmployeeCode;
-import acme.constraints.ValidEmployeeCodePattern;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,14 +28,14 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@ValidEmployeeCode
+@ValidAssistanceAgent
 public class AssistanceAgent extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
 	@Column(unique = true)
-	@ValidEmployeeCodePattern
+	@ValidEmployeeCode
 	private String				employeeCode;
 
 	@Mandatory

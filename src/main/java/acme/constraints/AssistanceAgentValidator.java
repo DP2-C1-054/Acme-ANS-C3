@@ -8,10 +8,10 @@ import acme.client.components.validation.Validator;
 import acme.entities.assistance_agents.AssistanceAgent;
 
 @Validator
-public class AssistanceAgentValidator extends AbstractValidator<ValidEmployeeCode, AssistanceAgent> {
+public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceAgent, AssistanceAgent> {
 
 	@Override
-	protected void initialise(final ValidEmployeeCode annotation) {
+	protected void initialise(final ValidAssistanceAgent annotation) {
 		assert annotation != null;
 	}
 

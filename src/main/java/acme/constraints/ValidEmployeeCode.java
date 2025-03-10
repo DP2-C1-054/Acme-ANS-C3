@@ -8,11 +8,15 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.ReportAsSingleViolation;
+import javax.validation.constraints.Pattern;
 
-@Target(ElementType.TYPE)
+@Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = AssistanceAgentValidator.class)
+@Constraint(validatedBy = {})
+@ReportAsSingleViolation
 
+@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
 public @interface ValidEmployeeCode {
 
 	String message() default "";
