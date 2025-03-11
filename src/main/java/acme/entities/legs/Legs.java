@@ -15,8 +15,9 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidString;
 import acme.constraints.ValidFlightNumber;
+import acme.entities.aircrafts.Aircraft;
+import acme.entities.airport.Airport;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -43,14 +44,14 @@ public class Legs extends AbstractEntity {
 	private Date				scheduledArrival;
 
 	@Mandatory
-	@ValidString
+	@Valid
 	@Automapped
-	private String				departureAirport;
+	private Airport				departureAirport;
 
 	@Mandatory
-	@ValidString
+	@Valid
 	@Automapped
-	private String				arrivalAirport;
+	private Airport				arrivalAirport;
 
 	@Mandatory
 	@Valid
@@ -62,11 +63,10 @@ public class Legs extends AbstractEntity {
 	@Enumerated(EnumType.STRING)
 	private Status				status;
 
-	// Esto iria con el tipo aircraft, pero como todavia no esta implementado toca esperar y dejarlo asi provisionalmente
 	@Mandatory
 	@Valid
 	@Automapped
-	private String				aircraft;
+	private Aircraft			aircraft;
 
 
 	public enum Status {
