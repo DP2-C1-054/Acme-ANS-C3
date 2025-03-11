@@ -1,5 +1,5 @@
 
-package acme.entities.airlinemangers;
+package acme.entities.airline_managers;
 
 import java.util.Date;
 
@@ -16,13 +16,15 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidAirlineManager;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class AirlineManagers extends AbstractRole {
+@ValidAirlineManager
+public class AirlineManager extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
