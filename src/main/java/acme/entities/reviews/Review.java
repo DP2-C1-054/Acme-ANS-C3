@@ -4,6 +4,7 @@ package acme.entities.reviews;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -15,6 +16,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.datatypes.UserIdentity;
+import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,4 +57,15 @@ public class Review extends AbstractEntity {
 	@Valid
 	@Automapped
 	private Boolean				isRecommended;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private UserIdentity		reviewer;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Airline				airlineReviewed;
+
 }
