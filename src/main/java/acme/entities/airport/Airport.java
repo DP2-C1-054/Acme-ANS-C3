@@ -58,7 +58,7 @@ public class Airport extends AbstractEntity {
 
 	@Optional
 	@ValidString(pattern = "^+?\\d{6,15}$")
-	@Automapped
+	@Column(unique = true)
 	private String				contactPhone;
 
 }
