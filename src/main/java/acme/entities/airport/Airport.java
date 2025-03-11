@@ -4,12 +4,12 @@ package acme.entities.airport;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.Valid;
-import javax.validation.constraints.Pattern;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,7 +52,7 @@ public class Airport extends AbstractEntity {
 	private String				website;
 
 	@Optional
-	@Pattern(regexp = "^.+@.+\\..+$")
+	@ValidEmail
 	@Automapped
 	private String				email;
 
