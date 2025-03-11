@@ -1,0 +1,1 @@
+acme.validation.customer.identifier.message = The indentifier must have 2 or 3 letters correspond to your initials and 6 digits.
