@@ -1,16 +1,42 @@
 
 package acme.constraints;
 
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class FlightNumberValidator implements ConstraintValidator<ValidFlightNumber, String> {
+import acme.client.components.validation.AbstractValidator;
+import acme.client.components.validation.Validator;
+import acme.entities.legs.Legs;
 
-	private static final String FLIGHT_NUMBER_PATTERN = "^[A-Z]{2,3}\\d{4}$";
-
+@Validator
+public class LegsValidator extends AbstractValidator<ValidLegs, Legs> {
 
 	@Override
-	public boolean isValid(final String flightNumber, final ConstraintValidatorContext context) {
-		return flightNumber != null && flightNumber.matches(FlightNumberValidator.FLIGHT_NUMBER_PATTERN);
+	protected void initialise(final ValidLegs annotation) {
+		assert annotation != null;
 	}
+
+	@Override
+	public boolean isValid(final Legs leg, final ConstraintValidatorContext context) {
+		assert context != null;
+
+		boolean result;
+
+		if (leg == null)
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+		else {
+			boolean correctCode;
+			
+			try {
+				
+				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+				correctCode = leg.getFlightNumber().substring(0, 3).toUpperCase() == airlineIataCode.toUpperCase();
+				
+			}catch(Error e) {
+				correctCode = false;
+			}
+			
+			super.state(context, correctCode, "*", "acme.validation.legs.flight-number.message");
+		}result=!super.hasErrors(context);
+
+	return result;
 }

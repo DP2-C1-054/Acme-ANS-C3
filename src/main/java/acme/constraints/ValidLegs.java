@@ -8,20 +8,13 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.ReportAsSingleViolation;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = FlightNumberValidator.class)
-@ReportAsSingleViolation
+@Constraint(validatedBy = LegsValidator.class)
+public @interface ValidLegs {
 
-@NotBlank
-@Pattern(regexp = "^[A-Z]{2,3}\\d{4}$")
-public @interface ValidFlightNumber {
-
-	String message() default "El número de vuelo debe ser un código de 2 o 3 letras seguidas de 4 dígitos.";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
