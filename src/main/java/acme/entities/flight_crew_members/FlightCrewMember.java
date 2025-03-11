@@ -15,6 +15,7 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidEmployeeCode;
+import acme.constraints.ValidFlightCrewMember;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidFlightCrewMember
 public class FlightCrewMember extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
@@ -37,7 +39,7 @@ public class FlightCrewMember extends AbstractRole {
 	private String				phoneNumber;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString
 	@Automapped
 	private String				languageSkills;
 
@@ -57,7 +59,7 @@ public class FlightCrewMember extends AbstractRole {
 	private Money				salary;
 
 	@Optional
-	@ValidNumber(integer = 3)
+	@ValidNumber(integer = 2)
 	@Automapped
 	private Integer				experienceYears;
 }
