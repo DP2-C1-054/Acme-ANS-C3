@@ -7,13 +7,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Min;
 
 import acme.client.components.basis.AbstractRole;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +31,7 @@ public class AirlineManagers extends AbstractRole {
 	private String				identifierNumber;
 
 	@Mandatory
-	@Min(0)
+	@ValidNumber(min = 0)
 	@Automapped
 	private Integer				experience;
 
@@ -41,6 +41,7 @@ public class AirlineManagers extends AbstractRole {
 	private Date				birthdate;
 
 	@Optional
+	@ValidString
 	@Automapped
 	private String				linkPicture;
 
