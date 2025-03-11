@@ -15,6 +15,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.client.components.validation.ValidUrl;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,7 +42,7 @@ public class AirlineManagers extends AbstractRole {
 	private Date				birthdate;
 
 	@Optional
-	@ValidString
+	@ValidUrl
 	@Automapped
 	private String				linkPicture;
 
