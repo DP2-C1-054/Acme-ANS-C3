@@ -18,6 +18,8 @@ import acme.entities.assistance_agents.AssistanceAgent;
 
 public class Claim extends AbstractEntity {
 
+	// Falta validador para checkear que la Claim corresponda a un customer o a un passenger
+
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory

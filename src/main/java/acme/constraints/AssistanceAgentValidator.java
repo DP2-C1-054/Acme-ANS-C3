@@ -21,7 +21,9 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 
 		boolean result;
 
-		if (assistanceAgent != null) {
+		if (assistanceAgent == null)
+			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+		else {
 			boolean codeContaintsInitials;
 
 			try {
@@ -47,7 +49,7 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 				codeContaintsInitials = false;
 			}
 
-			super.state(context, codeContaintsInitials, "*", "acme.validation.employee-code.initials.message");
+			super.state(context, codeContaintsInitials, "*", "acme.validation.assistance-agent.employee-code.message");
 		}
 
 		result = !super.hasErrors(context);
