@@ -25,18 +25,20 @@ public class LegsValidator extends AbstractValidator<ValidLegs, Legs> {
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			boolean correctCode;
-			
+
 			try {
-				
+
 				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
 				correctCode = leg.getFlightNumber().substring(0, 3).toUpperCase() == airlineIataCode.toUpperCase();
-				
-			}catch(Error e) {
+
+			} catch (Error e) {
 				correctCode = false;
 			}
-			
-			super.state(context, correctCode, "*", "acme.validation.legs.flight-number.message");
-		}result=!super.hasErrors(context);
 
-	return result;
+			super.state(context, correctCode, "*", "acme.validation.legs.flight-number.message");
+		}
+		result = !super.hasErrors(context);
+
+		return result;
+	}
 }
