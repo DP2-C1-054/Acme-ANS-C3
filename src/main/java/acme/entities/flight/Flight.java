@@ -1,13 +1,21 @@
 
 package acme.entities.flight;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Entity;
-import javax.validation.constraints.Min;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
+import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.entities.airport.Airport;
+import acme.entities.legs.Legs;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,14 +32,43 @@ public class Flight extends AbstractEntity {
 	private String				tag;
 
 	@Mandatory
+	@Valid
 	@Automapped
 	private Boolean				requiresSelfTransfer;
 
 	@Mandatory
-	@Min(0)
+	@ValidNumber(min = 0)
 	@Automapped
 	private Integer				cost;
 
-	// Falta informacion debido a que viene de la clase Legs la cual esta en la siguiente tarea del Student 1
+	@Optional
+	@ValidString
+	@Automapped
+	private String				description;
 
+	@OneToMany()
+	@Valid
+	@Automapped
+	private List<Legs>			legs;
+
+
+	public Date getScheduledDeparture() {
+		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(0).getScheduledDeparture() : null;
+	}
+
+	public Date getScheduledArrival() {
+		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(this.legs.size() - 1).getScheduledArrival() : null;
+	}
+
+	public Airport getOriginCity() {
+		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(0).getDepartureAirport() : null;
+	}
+
+	public Airport getDestinationCity() {
+		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(this.legs.size() - 1).getArrivalAirport() : null;
+	}
+
+	public Integer getLayovers() {
+		return this.legs != null && !this.legs.isEmpty() ? this.legs.size() : 0;
+	}
 }
