@@ -11,8 +11,8 @@ import javax.validation.Payload;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = LegsValidator.class)
-public @interface ValidLegs {
+@Constraint(validatedBy = LegValidator.class)
+public @interface ValidLeg {
 
 	String message() default "";
 

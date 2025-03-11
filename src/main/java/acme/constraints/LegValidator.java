@@ -5,18 +5,18 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.legs.Legs;
+import acme.entities.legs.Leg;
 
 @Validator
-public class LegsValidator extends AbstractValidator<ValidLegs, Legs> {
+public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 	@Override
-	protected void initialise(final ValidLegs annotation) {
+	protected void initialise(final ValidLeg annotation) {
 		assert annotation != null;
 	}
 
 	@Override
-	public boolean isValid(final Legs leg, final ConstraintValidatorContext context) {
+	public boolean isValid(final Leg leg, final ConstraintValidatorContext context) {
 		assert context != null;
 
 		boolean result;
