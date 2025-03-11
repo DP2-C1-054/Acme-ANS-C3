@@ -15,7 +15,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.airport.Airport;
-import acme.entities.legs.Legs;
+import acme.entities.legs.Leg;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -49,7 +49,7 @@ public class Flight extends AbstractEntity {
 	@OneToMany()
 	@Valid
 	@Automapped
-	private List<Legs>			legs;
+	private List<Leg>			legs;
 
 
 	public Date getScheduledDeparture() {
