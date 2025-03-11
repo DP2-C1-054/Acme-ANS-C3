@@ -1,0 +1,2 @@
+acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.assistance-agent.employee-code.message = El código de empleado debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
