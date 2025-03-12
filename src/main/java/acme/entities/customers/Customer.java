@@ -11,7 +11,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidCustomer;
-import acme.constraints.ValidCustomerIdentifier;
+import acme.constraints.ValidRoleIdentifier;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,7 +24,7 @@ public class Customer extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidCustomerIdentifier
+	@ValidRoleIdentifier
 	@Column(unique = true)
 	private String				identifier;
 
@@ -49,7 +49,7 @@ public class Customer extends AbstractRole {
 	private String				country;
 
 	@Optional
-	@ValidNumber(max = 500000)
+	@ValidNumber(min = 0, max = 500000)
 	@Automapped
 	private Integer				earnedPoints;
 
