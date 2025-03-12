@@ -16,6 +16,7 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.entities.assistance_agents.AssistanceAgent;
+import acme.entities.legs.Leg;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +24,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Claim extends AbstractEntity {
-
-	// Falta validador para checkear que la Claim corresponda a un customer o a un passenger
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -57,5 +56,10 @@ public class Claim extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private AssistanceAgent		assistanceAgent;
+
+	@Mandatory
+	@Valid
+	@ManyToOne(optional = false)
+	private Leg					leg;
 
 }
