@@ -9,10 +9,11 @@ import javax.persistence.OneToMany;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.entities.airport.Airport;
 import acme.entities.legs.Leg;
@@ -37,9 +38,9 @@ public class Flight extends AbstractEntity {
 	private Boolean				requiresSelfTransfer;
 
 	@Mandatory
-	@ValidNumber(min = 0)
+	@ValidMoney(min = 0)
 	@Automapped
-	private Integer				cost;
+	private Money				cost;
 
 	@Optional
 	@ValidString
