@@ -1,4 +1,5 @@
 acme.validation.customer.identifier.message = The indentifier must have 2 or 3 letters correspond to your initials and 6 digits.
 acme.validation.assistance-agent.employee-code.message = The employee code must have 2 or 3 letters correspond to your initials and 6 digits.
-acme.validation.tracking-log.indicator.message = Error with the percentage and the status of the tracking log.
+acme.validation.tracking-log.status.message = Error with the percentage and the status of the tracking log.
 acme.validation.tracking-log.resolution.message = The status and the description of the tracking log do not match.
+acme.validation.tracking-log.percentage.message = The percentage must be higher than the previous tracking log.

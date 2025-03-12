@@ -1,4 +1,5 @@
 acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
 acme.validation.assistance-agent.employee-code.message = El código de empleado debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
-acme.validation.tracking-log.indicator.message = Error con el porcentaje y el estado de la tracking log.
+acme.validation.tracking-log.status.message = Error con el porcentaje y el estado de la tracking log.
 acme.validation.tracking-log.resolution.message = No concuerdan el estado y la descripción de la tracking log.
+acme.validation.tracking-log.percentage.message = El porcentaje debe ser mayor al del tracking log previo.

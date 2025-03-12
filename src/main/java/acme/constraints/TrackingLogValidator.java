@@ -30,26 +30,33 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 		if (trackingLog == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			Status trackingLogIndicator = trackingLog.getIndicator();
+			Status trackingLogStatus = trackingLog.getStatus();
 
 			{
+				boolean correctStatus = true;
 				double percentage = trackingLog.getPercentage();
-				boolean rest1 = percentage < 100.00 && trackingLogIndicator.equals(Status.PENDING);
-				boolean rest2 = percentage >= 100.00 && !trackingLogIndicator.equals(Status.PENDING);
+				if (percentage == 100.00 && trackingLogStatus.equals(Status.PENDING))
+					correctStatus = false;
+				if (percentage != 100.00 && !trackingLogStatus.equals(Status.PENDING))
+					correctStatus = false;
 
-				boolean correctIndicator = rest1 || rest2;
-
-				super.state(context, correctIndicator, "*", "acme.validation.tracking-log.indicator.message");
+				super.state(context, correctStatus, "*", "acme.validation.tracking-log.status.message");
 
 			}
+			{
+				boolean correctPercentage = true;
+				double maxPercentage = this.repository.findMayorPorcentaje(trackingLog.getClaim().getId()).orElse(0.0);
 
+				if (maxPercentage > trackingLog.getPercentage())
+					correctPercentage = false;
+				super.state(context, correctPercentage, "*", "acme.validation.tracking-log.resolution.message");
+			}
 			{
 				String resolution = trackingLog.getResolution();
-				boolean completa = !trackingLogIndicator.equals(Status.PENDING) && !resolution.isEmpty();
-				boolean incompleta = trackingLogIndicator.equals(Status.PENDING) && resolution.isEmpty();
 
-				boolean correctResolution = completa || incompleta;
-
+				boolean correctResolution = true;
+				if (!trackingLogStatus.equals(Status.PENDING) && resolution.isEmpty())
+					correctResolution = false;
 				super.state(context, correctResolution, "*", "acme.validation.tracking-log.resolution.message");
 			}
 		}
