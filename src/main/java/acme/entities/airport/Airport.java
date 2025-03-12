@@ -1,60 +1,65 @@
 
-package acme.entities.aircrafts;
+package acme.entities.airport;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
-import acme.client.components.validation.ValidNumber;
+import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidString;
-import acme.entities.airlines.Airline;
+import acme.client.components.validation.ValidUrl;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Aircraft extends AbstractEntity {
+public class Airport extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
 	@ValidString(max = 50)
 	@Automapped
-	private String				model;
+	private String				name;
+
+	@Mandatory
+	@ValidString(pattern = "^[A-Z]{3}$")
+	@Column(unique = true)
+	private String				iataCode;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private AirportType			operationalScope;
 
 	@Mandatory
 	@ValidString(max = 50)
-	@Column(unique = true)
-	private String				registrationNumber;
-
-	@Mandatory
-	@ValidNumber(integer = 4)
 	@Automapped
-	private Integer				capacity;
+	private String				city;
 
 	@Mandatory
-	@ValidNumber(min = 2000, max = 50000, integer = 5, fraction = 0)
+	@ValidString(max = 50)
 	@Automapped
-	private Integer				cargoWeight;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private AircraftStatus		aircraftStatus;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Airline				airline;
+	private String				country;
 
 	@Optional
-	@ValidString
+	@ValidUrl
 	@Automapped
-	private String				aircraftDetails;
+	private String				website;
+
+	@Optional
+	@ValidEmail
+	@Automapped
+	private String				email;
+
+	@Optional
+	@ValidString(pattern = "^+?\\d{6,15}$")
+	@Column(unique = true)
+	private String				contactPhone;
+
 }

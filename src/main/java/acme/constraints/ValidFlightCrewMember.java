@@ -8,18 +8,14 @@ import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
-import javax.validation.ReportAsSingleViolation;
-import javax.validation.constraints.Pattern;
 
-@Target(ElementType.FIELD)
+@Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = {})
-@ReportAsSingleViolation
+@Constraint(validatedBy = FlightCrewMemberValidator.class)
 
-@Pattern(regexp = "^[A-Z]{2,3}\\d{6}$")
-public @interface ValidEmployeeCode {
+public @interface ValidFlightCrewMember {
 
-	String message() default "{acme.validation.assistance-agent.employee-code.message}";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};

@@ -4,36 +4,35 @@ package acme.constraints;
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
-import acme.client.components.validation.Validator;
-import acme.entities.assistance_agents.AssistanceAgent;
+import acme.entities.flight_crew_members.FlightCrewMember;
 
-@Validator
-public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceAgent, AssistanceAgent> {
+public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrewMember, FlightCrewMember> {
 
 	@Override
-	protected void initialise(final ValidAssistanceAgent annotation) {
+	protected void initialise(final ValidFlightCrewMember annotation) {
 		assert annotation != null;
 	}
 
 	@Override
-	public boolean isValid(final AssistanceAgent assistanceAgent, final ConstraintValidatorContext context) {
+	public boolean isValid(final FlightCrewMember flightCrewMember, final ConstraintValidatorContext context) {
 		assert context != null;
 
 		boolean result;
 
-		if (assistanceAgent == null)
+		if (flightCrewMember == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			boolean codeContaintsInitials;
 
 			try {
-				String code = assistanceAgent.getEmployeeCode();
-				String name = assistanceAgent.getUserAccount().getIdentity().getName();
-				String surname = assistanceAgent.getUserAccount().getIdentity().getSurname();
+				String code = flightCrewMember.getEmployeeCode();
+				String name = flightCrewMember.getUserAccount().getIdentity().getName();
+				String surname = flightCrewMember.getUserAccount().getIdentity().getSurname();
 
 				String initials = code.substring(0, 2);
-
+				;
 				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
+
 				codeContaintsInitials = initials == expectedInitials;
 
 			} catch (Error e) {
