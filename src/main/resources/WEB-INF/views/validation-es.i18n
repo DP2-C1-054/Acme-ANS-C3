@@ -1,8 +1,7 @@
 acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
-acme.validation.assistance-agent.employee-code.message = El código de empleado debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.role.identifier.message = El código debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
 acme.validation.tracking-log.indicator.message = Error con el porcentaje y el estado de la tracking log.
 acme.validation.tracking-log.resolution.message = No concuerdan el estado y la descripción de la tracking log.
 acme.validation.service.promotionCode.message = El código de promoción debe tener el siguient formato: 4 letras en mayúscula y un guión seguido de 2 números que indican el año actual.
 acme.validation.service.promotionCodeAndDiscount.message = Si existe un código de descuento debe existir un descuento y viceversa.
 acme.validation.legs.flight-number.message = El número de vuelo debe estar compuesto por el código IATA de la aerolínea seguido de cuatro dígitos.
-acme.validation.airline-manager.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.

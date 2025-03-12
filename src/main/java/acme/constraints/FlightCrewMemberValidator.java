@@ -29,17 +29,9 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 				String name = flightCrewMember.getUserAccount().getIdentity().getName();
 				String surname = flightCrewMember.getUserAccount().getIdentity().getSurname();
 
-				int length = code.length();
-				String initials;
-				if (length == 8)
-					initials = code.substring(0, 2);
-				else
-					initials = code.substring(0, 3);
-
+				String initials = code.substring(0, 2);
+				;
 				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
-				String[] surnameParts = surname.split("\\s+");
-				if (surnameParts.length > 1)
-					expectedInitials += surnameParts[1].substring(0, 1).toUpperCase();
 
 				codeContaintsInitials = initials == expectedInitials;
 
@@ -47,7 +39,7 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 				codeContaintsInitials = false;
 			}
 
-			super.state(context, codeContaintsInitials, "*", "acme.validation.assistance-agent.employee-code.message");
+			super.state(context, codeContaintsInitials, "*", "acme.validation.role.identifier.message");
 		}
 
 		result = !super.hasErrors(context);

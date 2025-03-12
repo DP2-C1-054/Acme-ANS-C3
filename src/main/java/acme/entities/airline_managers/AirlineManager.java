@@ -18,7 +18,7 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidUrl;
 import acme.constraints.ValidAirlineManager;
-import acme.constraints.ValidEmployeeCode;
+import acme.constraints.ValidRoleIdentifier;
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +32,7 @@ public class AirlineManager extends AbstractRole {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidEmployeeCode
+	@ValidRoleIdentifier
 	@Column(unique = true)
 	private String				identifierNumber;
 

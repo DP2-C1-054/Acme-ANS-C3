@@ -31,17 +31,9 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 				String name = airlineManager.getUserAccount().getIdentity().getName();
 				String surname = airlineManager.getUserAccount().getIdentity().getSurname();
 
-				int length = code.length();
-				String initials;
-				if (length == 8)
-					initials = code.substring(0, 2);
-				else
-					initials = code.substring(0, 3);
+				String initials = code.substring(0, 2);
 
 				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
-				String[] surnameParts = surname.split("\\s+");
-				if (surnameParts.length > 1)
-					expectedInitials += surnameParts[1].substring(0, 1).toUpperCase();
 
 				codeContainsInitials = initials == expectedInitials;
 
@@ -49,7 +41,7 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 				codeContainsInitials = false;
 			}
 
-			super.state(context, codeContainsInitials, "*", "acme.validation.airline-manager.identifier.message");
+			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
 		}
 
 		result = !super.hasErrors(context);
