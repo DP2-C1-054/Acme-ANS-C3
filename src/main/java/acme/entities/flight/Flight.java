@@ -15,6 +15,7 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
 import acme.entities.airport.Airport;
 import acme.entities.legs.Leg;
 import lombok.Getter;
@@ -47,29 +48,39 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private String				description;
 
-	@OneToMany()
+	@OneToMany
 	@Valid
 	@Automapped
 	private List<Leg>			legs;
 
 
 	public Date getScheduledDeparture() {
-		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(0).getScheduledDeparture() : null;
+		FlightRepository repo = SpringHelper.getBean(FlightRepository.class);
+		List<Leg> legs = repo.getLegsByFlightId(this.getId());
+		return legs.isEmpty() ? null : legs.get(0).getScheduledDeparture();
 	}
 
 	public Date getScheduledArrival() {
-		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(this.legs.size() - 1).getScheduledArrival() : null;
+		FlightRepository repo = SpringHelper.getBean(FlightRepository.class);
+		List<Leg> legs = repo.getLegsByFlightId(this.getId());
+		return legs.isEmpty() ? null : legs.get(legs.size() - 1).getScheduledArrival();
 	}
 
 	public Airport getOriginCity() {
-		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(0).getDepartureAirport() : null;
+		FlightRepository repo = SpringHelper.getBean(FlightRepository.class);
+		List<Leg> legs = repo.getLegsByFlightId(this.getId());
+		return legs.isEmpty() ? null : legs.get(0).getDepartureAirport();
 	}
 
 	public Airport getDestinationCity() {
-		return this.legs != null && !this.legs.isEmpty() ? this.legs.get(this.legs.size() - 1).getArrivalAirport() : null;
+		FlightRepository repo = SpringHelper.getBean(FlightRepository.class);
+		List<Leg> legs = repo.getLegsByFlightId(this.getId());
+		return legs.isEmpty() ? null : legs.get(legs.size() - 1).getArrivalAirport();
 	}
 
 	public Integer getLayovers() {
-		return this.legs != null && !this.legs.isEmpty() ? this.legs.size() : 0;
+		FlightRepository repo = SpringHelper.getBean(FlightRepository.class);
+		List<Leg> legs = repo.getLegsByFlightId(this.getId());
+		return Math.max(0, legs.size() - 1);
 	}
 }
