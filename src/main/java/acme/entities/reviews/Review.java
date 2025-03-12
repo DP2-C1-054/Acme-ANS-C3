@@ -62,7 +62,7 @@ public class Review extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@ManyToOne(optional = false)
+	@Automapped
 	private UserIdentity		reviewer;
 
 	@Optional
