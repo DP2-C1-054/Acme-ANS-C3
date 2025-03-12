@@ -1,5 +1,5 @@
 
-package acme.entities.aircrafts;
+package acme.entities.service;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,54 +7,52 @@ import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.airlines.Airline;
+import acme.client.components.validation.ValidUrl;
+import acme.entities.airport.Airport;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
-public class Aircraft extends AbstractEntity {
+@Entity
+public class Service extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
 	@ValidString(max = 50)
 	@Automapped
-	private String				model;
+	private String				name;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@ValidUrl
+	@Automapped
+	private String				pictureUrl;
+
+	@Mandatory
+	@ValidNumber
+	@Automapped
+	private Double				averageDwellTime;
+
+	@Optional
+	@ValidString(pattern = "^[A-Z]{4}-[0-9]{2}$")
+	@Automapped
+	private String				promotionCode;
+
+	@Optional
+	@ValidMoney
 	@Column(unique = true)
-	private String				registrationNumber;
-
-	@Mandatory
-	@ValidNumber(integer = 4)
-	@Automapped
-	private Integer				capacity;
-
-	@Mandatory
-	@ValidNumber(min = 2000, max = 50000, integer = 5, fraction = 0)
-	@Automapped
-	private Integer				cargoWeight;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private AircraftStatus		aircraftStatus;
+	private Money				discount;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Airline				airline;
-
-	@Optional
-	@ValidString
-	@Automapped
-	private String				aircraftDetails;
+	private Airport				airport;
 }
