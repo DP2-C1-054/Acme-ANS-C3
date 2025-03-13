@@ -16,7 +16,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy = ReviewValidator.class)
 public @interface ValidReview {
 
-	String message() default "Invalid review. At least one of serviceReviewed, airlineReviewed, airportReviewed, or flightReviewed must be present.";
+	String message() default "";
 
 	Class<?>[] groups() default {};
 
