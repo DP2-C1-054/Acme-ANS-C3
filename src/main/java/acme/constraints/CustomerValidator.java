@@ -31,18 +31,9 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 				String name = customer.getUserAccount().getIdentity().getName();
 				String surname = customer.getUserAccount().getIdentity().getSurname();
 
-				int length = code.length();
-				String initials;
-				if (length == 8)
-					initials = code.substring(0, 2);
-				else
-					initials = code.substring(0, 3);
+				String initials = code.substring(0, 2);
 
 				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
-				String[] surnameParts = surname.split("\\s+");
-				if (surnameParts.length > 1)
-					expectedInitials += surnameParts[1].substring(0, 1).toUpperCase();
-
 				codeContaintsInitials = initials == expectedInitials;
 
 			} catch (Error e) {
