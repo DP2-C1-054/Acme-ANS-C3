@@ -4,6 +4,7 @@ package acme.entities.reviews;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.Valid;
@@ -15,12 +16,19 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidReview;
+import acme.datatypes.UserIdentity;
+import acme.entities.airlines.Airline;
+import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
+import acme.entities.service.Service;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@ValidReview
 public class Review extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -54,4 +62,30 @@ public class Review extends AbstractEntity {
 	@Valid
 	@Automapped
 	private Boolean				isRecommended;
+
+	@Mandatory
+	@Valid
+	@Automapped
+	private UserIdentity		reviewer;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Airline				airlineReviewed;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Service				serviceReviewed;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Airport				airportReviewed;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Flight				flightReviewed;
+
 }

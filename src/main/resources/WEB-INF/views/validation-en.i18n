@@ -9,6 +9,7 @@ acme.validation.tracking-log.indicator.message = Error with the percentage and t
 acme.validation.tracking-log.resolution.message = The status and the description of the tracking log do not match.
 acme.validation.service.promotionCode.message = The promotion code must follow the net pattern: 4 letters in uppercase , hyphen and 2 digits tha represents the actual year.
 acme.validation.service.promotionCodeAndDiscount.message = If there is a discount code, there must be a discount and vice versa.
+acme.validation.review.missingRelation.message = There must be an airport, airline, flight or service assigned to the review.
 acme.validation.airline-manager.identifier.message = The indentifier must have 2 or 3 letters correspond to your initials and 6 digits.
 acme.validation.iata-code.message = The IATA code must be 3 letters
 acme.validation.phone-number.message = The phone number could be the character + and must have between 6 and 15 digits.
