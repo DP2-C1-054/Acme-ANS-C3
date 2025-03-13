@@ -14,3 +14,4 @@ acme.validation.airline-manager.identifier.message = The indentifier must have 2
 acme.validation.iata-code.message = The IATA code must be 3 letters
 acme.validation.phone-number.message = The phone number could be the character + and must have between 6 and 15 digits.
 acme.validation.service.promotionCodeAndDiscount.message = If there is a discount code, there must be a discount and vice versa.
+acme.validation.maintenanceRecord.InspectionDueDateAfterMoment = The inspection date must be after the date of registration.
