@@ -44,14 +44,6 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			}
 			{
-				boolean correctPercentage = true;
-				double maxPercentage = this.repository.findMayorPorcentaje(trackingLog.getClaim().getId()).orElse(0.0);
-
-				if (maxPercentage > trackingLog.getPercentage())
-					correctPercentage = false;
-				super.state(context, correctPercentage, "*", "acme.validation.tracking-log.resolution.message");
-			}
-			{
 				String resolution = trackingLog.getResolution();
 
 				boolean correctResolution = true;
