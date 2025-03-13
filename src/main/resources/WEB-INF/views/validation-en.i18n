@@ -6,4 +6,4 @@ acme.validation.tracking-log.indicator.message = Error with the percentage and t
 acme.validation.tracking-log.resolution.message = The status and the description of the tracking log do not match.
 acme.validation.service.promotionCode.message = The promotion code must follow the net pattern: 4 letters in uppercase , hyphen and 2 digits tha represents the actual year.
 acme.validation.service.promotionCodeAndDiscount.message = If there is a discount code, there must be a discount and vice versa.
-
+acme.validation.review.missingRelation.message = There must be an airport, airline, flight or service assigned to the review.

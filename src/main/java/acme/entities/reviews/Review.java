@@ -16,9 +16,11 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidReview;
 import acme.datatypes.UserIdentity;
 import acme.entities.airlines.Airline;
 import acme.entities.airport.Airport;
+import acme.entities.flight.Flight;
 import acme.entities.service.Service;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +28,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@ValidReview
 public class Review extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -79,5 +82,10 @@ public class Review extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = true)
 	private Airport				airportReviewed;
+
+	@Optional
+	@Valid
+	@ManyToOne(optional = true)
+	private Flight				flightReviewed;
 
 }

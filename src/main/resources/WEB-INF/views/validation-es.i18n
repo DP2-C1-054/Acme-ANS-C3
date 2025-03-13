@@ -5,3 +5,4 @@ acme.validation.tracking-log.resolution.message = No concuerdan el estado y la d
 acme.validation.service.promotionCode.message = El código de promoción debe tener el siguient formato: 4 letras en mayúscula y un guión seguido de 2 números que indican el año actual.
 acme.validation.service.promotionCodeAndDiscount.message = Si existe un código de descuento debe existir un descuento y viceversa.
 acme.validation.legs.flight-number.message = El número de vuelo debe estar compuesto por el código IATA de la aerolínea seguido de cuatro dígitos.
+acme.validation.review.missingRelation.message = Debe de haber un aeropuerto, aerolinea, vuelo o servicio asignado a la reseña.
