@@ -1,4 +1,8 @@
 acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.assistance-agent.employee-code.message = El código de empleado debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.tracking-log.status.message = Error con el porcentaje y el estado de la tracking log.
+acme.validation.tracking-log.resolution.message = No concuerdan el estado y la descripción de la tracking log.
+acme.validation.tracking-log.percentage.message = El porcentaje debe ser mayor al del tracking log previo.
 acme.validation.role.identifier.message = El código debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
 acme.validation.tracking-log.indicator.message = Error con el porcentaje y el estado de la tracking log.
 acme.validation.tracking-log.resolution.message = No concuerdan el estado y la descripción de la tracking log.
@@ -6,3 +10,6 @@ acme.validation.service.promotionCode.message = El código de promoción debe te
 acme.validation.service.promotionCodeAndDiscount.message = Si existe un código de descuento debe existir un descuento y viceversa.
 acme.validation.legs.flight-number.message = El número de vuelo debe estar compuesto por el código IATA de la aerolínea seguido de cuatro dígitos.
 acme.validation.review.missingRelation.message = Debe de haber un aeropuerto, aerolinea, vuelo o servicio asignado a la reseña.
+acme.validation.airline-manager.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.iata-code.message = El codigo IATA debe tener 3 letras
+acme.validation.phone-number.message = El numero de telefono deberia tener el caracter + y tener entre 6 y 15 digitos.

@@ -1,11 +1,13 @@
 
 package acme.constraints;
 
-import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
+import acme.client.helpers.MomentHelper;
 import acme.entities.service.Service;
 
 public class ServiceValidator extends AbstractValidator<ValidService, Service> {
@@ -28,7 +30,11 @@ public class ServiceValidator extends AbstractValidator<ValidService, Service> {
 			try {
 				if (service.getDiscount() != null && service.getPromotionCode() != null) {
 					String discountCode = service.getPromotionCode();
-					String actualYear = String.valueOf(LocalDate.now().getYear()).substring(-2);
+
+					Date currentMoment = MomentHelper.getCurrentMoment();
+					Calendar calendar = Calendar.getInstance();
+					calendar.setTime(currentMoment);
+					String actualYear = String.valueOf(calendar.get(Calendar.YEAR)).substring(-2);
 					String yearInCode = discountCode.substring(-2);
 
 					codeContainsActualYear = yearInCode == actualYear;

@@ -4,7 +4,7 @@ package acme.constraints;
 import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
-import acme.entities.flight_crew_members.FlightCrewMember;
+import acme.realms.flight_crew_members.FlightCrewMember;
 
 public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrewMember, FlightCrewMember> {
 
@@ -22,24 +22,26 @@ public class FlightCrewMemberValidator extends AbstractValidator<ValidFlightCrew
 		if (flightCrewMember == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean codeContaintsInitials;
+			boolean codeContainsInitials = true;
 
 			try {
 				String code = flightCrewMember.getEmployeeCode();
 				String name = flightCrewMember.getUserAccount().getIdentity().getName();
 				String surname = flightCrewMember.getUserAccount().getIdentity().getSurname();
 
-				String initials = code.substring(0, 2);
-				;
-				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
+				char codeFirstChar = Character.toUpperCase(code.charAt(0));
+				char codeSecondChar = Character.toUpperCase(code.charAt(1));
+				char nameFirstChar = Character.toUpperCase(name.charAt(0));
+				char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
 
-				codeContaintsInitials = initials == expectedInitials;
+				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
+					codeContainsInitials = false;
 
 			} catch (Error e) {
-				codeContaintsInitials = false;
+				codeContainsInitials = false;
 			}
 
-			super.state(context, codeContaintsInitials, "*", "acme.validation.role.identifier.message");
+			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
 		}
 
 		result = !super.hasErrors(context);
