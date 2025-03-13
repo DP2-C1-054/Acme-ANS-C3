@@ -18,7 +18,7 @@ service-10,Lorem ipsum dolor sit ame,ftp://a,5.00,BGHM-25,EUR 25.00
 service-11,Lorem ipsum dolor sit ame,ftp://a.b,5.00,FRHM-25,EUR 25.00
 service-12,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,5.00,UIHM-25,EUR 25.00
 service-13,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,5.00,LKHM-25,EUR 25.00
-service-14,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,5.00,WFDM-25,EUR 25.00
+service-14,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,5.00,WFAM-25,EUR 25.00
 service-15,Lorem ipsum dolor sit ame,ftp://www.lorem-ipsum.org,5.00,ZAHM-25,EUR 25.00
 service-16,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,5.00,SWHM-25,EUR 25.00
 service-17,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,5.00,QWHM-25,EUR 25.00
@@ -27,9 +27,9 @@ service-19,Lorem ipsum dolor sit ame,http://example.org?,5.00,DIHM-25,EUR 25.00
 service-20,Lorem ipsum dolor sit ame,http://example.org?a,5.00,RTHM-25,EUR 25.00
 service-21,Lorem ipsum dolor sit ame,http://example.org?a&b,5.00,YUHM-25,EUR 25.00
 service-22,Lorem ipsum dolor sit ame,http://example.org/,5.00,POHM-25,EUR 25.00
-service-23,Lorem ipsum dolor sit ame,http://example.org/a,5.00,LKHM-25,EUR 25.00
+service-23,Lorem ipsum dolor sit ame,http://example.org/a,5.00,LLHM-25,EUR 25.00
 service-24,Lorem ipsum dolor sit ame,http://example.org/a/b,5.00,DDSM-25,EUR 25.00
-service-25,Lorem ipsum dolor sit ame,http://example.org/a/b?,5.00,FRHM-25,EUR 25.00
+service-25,Lorem ipsum dolor sit ame,http://example.org/a/b?,5.00,FRAM-25,EUR 25.00
 service-26,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,5.00,XZHM-25,EUR 25.00
 
 #averageDwellTime
@@ -38,13 +38,10 @@ service-28,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.01,JVHM-25,EUR 25.
 service-29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,9.99,WERM-25,EUR 25.00
 service-30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,10.00,TERM-25,EUR 25.00
 
-#promotionCode
+#promotionCode & discount
 service-31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,EQWE-25,EUR 25.00
-service-32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,null,EUR 25.00
-
-#discount
-service-33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,WUIE-25,EUR 0.00
-service-34,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,EQWS-25,EUR 0.01
-service-35,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,CHBH-25,EUR 49.99
-service-36,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,ASJH-25,EUR 50.00
-service-37,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,SKJC-25,null
+service-32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,WUIE-25,EUR 0.00
+service-33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,EQWS-25,EUR 0.01
+service-34,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,CHBH-25,EUR 49.99
+service-35,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,ASJH-25,EUR 50.00
+service-36,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,null,null
