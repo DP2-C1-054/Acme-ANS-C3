@@ -12,3 +12,8 @@ user-account-agent-00,true,"UserIdentity{name: 'Felipe', surname: 'Fernández', 
 user-account-manager-00,true,"UserIdentity{name: 'Antonio', surname: 'Fernández', email: 'antonio@acme.com'}",manager0,manager0
 user-account-member-00,true,"UserIdentity{name: 'Gonzalo', surname: 'Martínez', email: 'gonzalo@acme.com'}",member0,member0
 user-account-technician-00,true,"UserIdentity{name: 'Felipe', surname: 'Eduardo', email: 'felipeE@acme.com'}",technician0,technician0
+user-account-member-01,true,"UserIdentity{name: 'Anastasia', surname: 'González', email: 'anastasiaG@acme.com'}",member1,member1
+user-account-member-02,true,"UserIdentity{name: 'Pedro', surname: 'López', email: 'pedroL@acme.com'}",member2,member2
+user-account-member-03,true,"UserIdentity{name: 'Pepe', surname: 'Gotera', email: 'pepeG@acme.com'}",member3,member3
+user-account-member-04,true,"UserIdentity{name: 'Andrés', surname: 'Tamayo', email: 'andresT@acme.com'}",member4,member4
+user-account-member-05,true,"UserIdentity{name: 'Nicolás', surname: 'Romero López', email: 'nicolasR@acme.com'}",member,member

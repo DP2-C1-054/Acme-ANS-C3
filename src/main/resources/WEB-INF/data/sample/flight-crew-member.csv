@@ -1,3 +1,48 @@
 key,key:userAccount,employeeCode,phoneNumber,languageSkills,availability,salary,experienceYears,key:airline
+# base-entity
 flight-crew-member-00,user-account-member-00,GM123456,+4427703251,English,AVAILABLE,EUR 5000.00,30,airline-01
-	
+# userAccount
+flight-crew-member-01,user-account-member-01,AG972171,+4290092,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-02,user-account-member-02,PL636630,+64434720891,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-03,user-account-member-03,PG526271,+429722376196,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-04,user-account-member-04,AT053949,+5797650569837,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-05,user-account-member-05,NRL362233,+171167240,English,AVAILABLE,EUR 5000.00,30,airline-01
+# employeeCode
+flight-crew-member-06,user-account-member-00,GM123457,+4427703252,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-07,user-account-member-03,PG526781,+442670321,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-08,user-account-member-05,NRL362234,+6443470891,English,AVAILABLE,EUR 5000.00,30,airline-01
+# phoneNumber
+flight-crew-member-09,user-account-member-00,GM123337,+946252,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-10,user-account-member-00,GM123338,946752666666666,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-11,user-account-member-00,GM123339,946752,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-12,user-account-member-00,GM123340,+946252666666666,English,AVAILABLE,EUR 5000.00,30,airline-01
+# languageSkills
+flight-crew-member-13,user-account-member-00,GM012345,+4427703211,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-14,user-account-member-00,GM012346,+442770329,L,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-15,user-account-member-00,GM012347,+44277032,Lo,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-16,user-account-member-00,GM012348,+4427703,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-17,user-account-member-00,GM012349,+442770,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-18,user-account-member-00,GM012350,+3427704444,โลเร็ม อิปซัม,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-19,user-account-member-00,GM012351,+542770444,لوريم إيبسوم,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-20,user-account-member-00,GM012352,+642770444,洛伦·伊普森,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-21,user-account-member-00,GM012353,+742770444,<marquee>Hacked</marquee>,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-22,user-account-member-00,GM012354,+842770444,<script>alert(‘Hacked!’);</script>,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-23,user-account-member-00,GM012355,+942770444,' or 'A' = 'A ,AVAILABLE,EUR 5000.00,30,airline-01
+# availability
+flight-crew-member-24,user-account-member-00,GM012356,+392770444,English,AVAILABLE,EUR 5000.00,30,airline-01
+flight-crew-member-25,user-account-member-00,GM012357,+862770444,English,ON_VACATION,EUR 5000.00,30,airline-01
+flight-crew-member-26,user-account-member-00,GM012358,+8862770444,English,ON_LEAVE,EUR 5000.00,30,airline-01
+# salary
+flight-crew-member-27,user-account-member-00,GM012359,+8862770334,English,AVAILABLE,EUR 0,30,airline-01
+flight-crew-member-28,user-account-member-00,GM012360,+853262770444,English,AVAILABLE,EUR 500000.00,30,airline-01
+flight-crew-member-29,user-account-member-00,GM012361,+88622770314,English,AVAILABLE,EUR 999999.99,30,airline-01
+flight-crew-member-30,user-account-member-00,GM012362,+85326270634,English,AVAILABLE,EUR 1000000,30,airline-01
+flight-crew-member-31,user-account-member-00,GM012363,+8870334,English,AVAILABLE,EUR 1,30,airline-01
+# experienceYears
+flight-crew-member-32,user-account-member-00,GM012364,+85366644,English,AVAILABLE,EUR 5000.00,0,airline-01
+flight-crew-member-33,user-account-member-00,GM012365,+333333333,English,AVAILABLE,EUR 5000.00,1,airline-01
+flight-crew-member-34,user-account-member-00,GM012366,+34343434,English,AVAILABLE,EUR 5000.00,98,airline-01
+flight-crew-member-35,user-account-member-00,GM012367,+3535353535,English,AVAILABLE,EUR 5000.00,99,airline-01
+# airline
+flight-crew-member-36,user-account-member-00,GM012368,+7383294,English,AVAILABLE,EUR 5000.00,98,airline-01
+flight-crew-member-37,user-account-member-00,GM012369,1287973879,English,AVAILABLE,EUR 5000.00,99,airline-02
