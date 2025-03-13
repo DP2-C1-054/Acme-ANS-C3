@@ -2,10 +2,10 @@
 package acme.entities.passenger;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
-import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.entities.booking.Booking;
 import lombok.Getter;
@@ -20,12 +20,12 @@ public class Takes extends AbstractEntity {
 
 	@Mandatory
 	@Valid
-	@Automapped
+	@ManyToOne(optional = false)
 	private Passenger			passenger;
 
 	@Mandatory
 	@Valid
-	@Automapped
+	@ManyToOne(optional = false)
 	private Booking				booking;
 
 }

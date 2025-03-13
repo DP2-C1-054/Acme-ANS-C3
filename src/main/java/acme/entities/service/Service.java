@@ -47,7 +47,7 @@ public class Service extends AbstractEntity {
 
 	@Optional
 	@ValidMoney
-	@Column(unique = true)
+	@Automapped
 	private Money				discount;
 
 }
