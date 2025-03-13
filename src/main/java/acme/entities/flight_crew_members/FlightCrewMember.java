@@ -15,7 +15,9 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidFlightCrewMember;
+import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidRoleIdentifier;
+
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -34,7 +36,7 @@ public class FlightCrewMember extends AbstractRole {
 	private String				employeeCode;
 
 	@Mandatory
-	@ValidString(pattern = "^'\\+?\\d{6,15}$")
+	@ValidPhoneNumber
 	@Column(unique = true)
 	private String				phoneNumber;
 
