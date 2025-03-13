@@ -1,2 +1,33 @@
 key,moment,status,inspectionDueDate,estimatedCost,notes,key:assignedAircraft,key:assignedTechnician
-maintenance-record-00,2025/07/02 0:00,PENDING,2025/07/02 0:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#base-entity
+maintenance-record-00,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#moment
+maintenance-record-01,2025/06/01 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-02,2025/06/01 00:01,PENDING,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-03,2200/12/31 23:57,PENDING,2200/12/31 23:59,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-04,2200/12/31 23:58,PENDING,2200/12/31 23:59,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#status
+maintenance-record-05,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-06,2025/07/02 00:00,IN_PROGRESS,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-07,2025/07/02 00:00,COMPLETED,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#inspectionDueDate
+maintenance-record-08,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-09,2025/07/02 00:00,PENDING,2025/07/02 00:02,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-10,2025/07/02 00:00,PENDING,2200/12/31 23:58,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-11,2025/07/02 00:00,PENDING,2200/12/31 23:59,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#estimatedCost
+maintenance-record-12,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 0.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-13,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 0.01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-14,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 999999.99,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+maintenance-record-15,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 1000000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00
+#notes
+maintenance-record-16,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,L,aircraft-00,technician-00
+maintenance-record-17,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,Lo,aircraft-00,technician-00
+maintenance-record-18,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",aircraft-00,technician-00
+maintenance-record-19,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",aircraft-00,technician-00
+maintenance-record-20,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,โลเร็ม อิปซัม,aircraft-00,technician-00
+maintenance-record-21,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,لوريم إيبسوم,aircraft-00,technician-00
+maintenance-record-22,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,洛伦·伊普森,aircraft-00,technician-00
+maintenance-record-23,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,<marquee>Hacked</marquee>,aircraft-00,technician-00
+maintenance-record-24,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,<script>alert(‘Hacked!’);</script>,aircraft-00,technician-00
+maintenance-record-25,2025/07/02 00:00,PENDING,2025/07/02 00:01,EUR 500000.00,' or 'A' = 'A,aircraft-00,technician-00
