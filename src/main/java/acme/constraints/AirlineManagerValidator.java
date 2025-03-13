@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.entities.airline_managers.AirlineManager;
+import acme.realms.airline_managers.AirlineManager;
 
 @Validator
 public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManager, AirlineManager> {
@@ -24,18 +24,20 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 		if (airlineManager == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean codeContainsInitials;
+			boolean codeContainsInitials = true;
 
 			try {
 				String code = airlineManager.getIdentifierNumber();
 				String name = airlineManager.getUserAccount().getIdentity().getName();
 				String surname = airlineManager.getUserAccount().getIdentity().getSurname();
 
-				String initials = code.substring(0, 2);
+				char codeFirstChar = Character.toUpperCase(code.charAt(0));
+				char codeSecondChar = Character.toUpperCase(code.charAt(1));
+				char nameFirstChar = Character.toUpperCase(name.charAt(0));
+				char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
 
-				String expectedInitials = (name.substring(0, 1) + surname.substring(0, 1)).toUpperCase();
-
-				codeContainsInitials = initials == expectedInitials;
+				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
+					codeContainsInitials = false;
 
 			} catch (Error e) {
 				codeContainsInitials = false;
