@@ -1,0 +1,46 @@
+key,model,registrationNumber,capacity,cargoWeight,aircraftStatus,key:airline,aircraftDetails
+# base-entity
+aircraft-00,Emirates-A380,76591300,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# model
+aircraft-01,Emirates-A380Emirates-A380Emirates-A380Emirates-A3,76591302,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-02,E,76591303,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-03,โลเร็ม อิปซัม,76591304,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-04,لوريم إيبسوم,76591305,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-05,洛伦·伊普森,76591306,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-06,<marquee>Hacked</marquee>,76591307,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-07,<script>alert(‘Hacked!’);</script>,76591308,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-08,' or 'A' = 'A,7659130,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# registrationNumber
+aircraft-09,Emirates-A380,76591311765913117659131176591311765913117659131122,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-10,Emirates-A380,7,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-11,Emirates-A380,โลเร็ม อิปซัม,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-12,Emirates-A380,لوريم إيبسوم,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-13,Emirates-A380,洛伦·伊普森,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-14,Emirates-A380,<marquee>Hacked</marquee>,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-15,Emirates-A380,<script>alert(‘Hacked!’);</script>,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-16,Emirates-A380,' or 'A' = 'A,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# capacity
+aircraft-17,Emirates-A380,76591309,1,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-18,Emirates-A380,76591310,2,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-19,Emirates-A380,76591311,255,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# cargoWeight
+aircraft-20,Emirates-A380,76591312,200,2000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-21,Emirates-A380,76591313,200,2001,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-22,Emirates-A380,76591314,200,49999,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-23,Emirates-A380,76591315,200,50000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# aircraftStatus
+aircraft-24,Emirates-A380,76591316,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-25,Emirates-A380,76591317,200,20000,UNDER_MAINTENANCE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# airline
+aircraft-26,Emirates-A380,76591318,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+# aircraftDetails
+aircraft-27,Emirates-A380,76591319,200,20000,ACTIVE,airline-01,
+aircraft-28,Emirates-A380,76591320,200,20000,ACTIVE,airline-01,L
+aircraft-29,Emirates-A380,76591321,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+aircraft-30,Emirates-A380,76591322,200,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*
+aircraft-31,Emirates-A380,76591323,200,20000,ACTIVE,airline-01,โลเร็ม อิปซัม
+aircraft-32,Emirates-A380,76591324,200,20000,ACTIVE,airline-01,لوريم إيبسوم
+aircraft-33,Emirates-A380,76591325,200,20000,ACTIVE,airline-01,洛伦·伊普森
+aircraft-34,Emirates-A380,76591326,200,20000,ACTIVE,airline-01,<marquee>Hacked</marquee>
+aircraft-35,Emirates-A380,76591327,200,20000,ACTIVE,airline-01,<script>alert(‘Hacked!’);</script>
+aircraft-36,Emirates-A380,76591328,200,20000,ACTIVE,airline-01,' or 'A' = 'A

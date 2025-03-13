@@ -1,5 +1,5 @@
 
-package acme.entities.claims;
+package acme.entities.activity_logs;
 
 import java.util.Date;
 
@@ -12,18 +12,17 @@ import javax.validation.Valid;
 import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
-import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
+import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.entities.legs.Leg;
-import acme.realms.assistance_agents.AssistanceAgent;
+import acme.entities.flight_assignments.FlightAssignment;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Claim extends AbstractEntity {
+public class ActivityLog extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -33,33 +32,23 @@ public class Claim extends AbstractEntity {
 	private Date				registrationMoment;
 
 	@Mandatory
-	@ValidEmail
+	@ValidString(max = 50)
 	@Automapped
-	private String				passengerEmail;
+	private String				incidentType;
 
 	@Mandatory
-	@ValidString(max = 255)
+	@ValidString
 	@Automapped
-	private String				description;
+	private String				incidentDescription;
 
 	@Mandatory
-	@Valid
+	@ValidNumber(min = 0, max = 10)
 	@Automapped
-	private ClaimType			type;
-
-	@Mandatory
-	@Valid
-	@Automapped
-	private Boolean				isAccepted;
+	private Integer				severityLevel;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private AssistanceAgent		assistanceAgent;
-
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Leg					leg;
+	private FlightAssignment	flightAssignment;
 
 }

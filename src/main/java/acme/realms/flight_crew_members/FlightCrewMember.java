@@ -1,5 +1,5 @@
 
-package acme.entities.flight_crew_members;
+package acme.realms.flight_crew_members;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +17,6 @@ import acme.client.components.validation.ValidString;
 import acme.constraints.ValidFlightCrewMember;
 import acme.constraints.ValidPhoneNumber;
 import acme.constraints.ValidRoleIdentifier;
-
 import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
@@ -56,7 +55,7 @@ public class FlightCrewMember extends AbstractRole {
 	private AvailabilityStatus	availability;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0)
 	@Automapped
 	private Money				salary;
 
