@@ -1,2 +1,29 @@
 key,type,description,priority,estimatedDuration,key:assignedTechnician
+#base-entity
 task-00,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,25,technician-00
+#type
+task-01,INSPECTION,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,25,technician-00
+task-02,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,25,technician-00
+task-03,MAINTENANCE,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,25,technician-00
+task-04,SYSTEM_CHECK,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,25,technician-00
+#description
+task-05,REPAIR,L,5,25,technician-00
+task-06,REPAIR,Lo,5,25,technician-00
+task-07,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5,25,technician-00
+task-08,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,25,technician-00
+task-09,REPAIR,โลเร็ม อิปซัม,5,25,technician-00
+task-10,REPAIR,لوريم إيبسوم,5,25,technician-00
+task-11,REPAIR,洛伦·伊普森,5,25,technician-00
+task-12,REPAIR,<marquee>Hacked</marquee>,5,25,technician-00
+task-13,REPAIR,<script>alert(‘Hacked!’);</script>,5,25,technician-00
+task-14,REPAIR,' or 'A' = 'A,5,25,technician-00
+#priority
+task-15,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,0,25,technician-00
+task-16,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,1,25,technician-00
+task-17,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,9,25,technician-00
+task-18,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,10,25,technician-00
+#estimatedDuration
+task-19,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,0,technician-00
+task-20,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,1,technician-00
+task-21,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,99,technician-00
+task-22,REPAIR,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,5,100,technician-00

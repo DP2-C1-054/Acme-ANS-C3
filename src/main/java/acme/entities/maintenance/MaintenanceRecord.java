@@ -17,6 +17,7 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
+import acme.constraints.ValidInspectionDueDateAfterMoment;
 import acme.entities.aircrafts.Aircraft;
 import acme.realms.Technician;
 import lombok.Getter;
@@ -25,6 +26,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@ValidInspectionDueDateAfterMoment
 public class MaintenanceRecord extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
