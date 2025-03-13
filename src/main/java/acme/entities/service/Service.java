@@ -15,6 +15,7 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.client.components.validation.ValidUrl;
+import acme.constraints.ValidService;
 import acme.entities.airport.Airport;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@ValidService
 public class Service extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -37,7 +39,7 @@ public class Service extends AbstractEntity {
 	private String				pictureUrl;
 
 	@Mandatory
-	@ValidNumber
+	@ValidNumber(min = 0, max = 200)
 	@Automapped
 	private Double				averageDwellTime;
 
