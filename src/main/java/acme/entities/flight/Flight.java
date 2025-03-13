@@ -17,6 +17,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
+import acme.entities.airport.Airport;
+import acme.entities.legs.Leg;
 import acme.entities.airlines.Airline;
 import acme.entities.legs.LegRepository;
 import lombok.Getter;
@@ -40,7 +42,7 @@ public class Flight extends AbstractEntity {
 	private Boolean				requiresSelfTransfer;
 
 	@Mandatory
-	@ValidMoney
+	@ValidMoney(min = 0)
 	@Automapped
 	private Money				cost;
 
