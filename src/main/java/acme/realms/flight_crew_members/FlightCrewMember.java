@@ -1,57 +1,67 @@
 
-package acme.entities.customers;
+package acme.realms.flight_crew_members;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractRole;
+import acme.client.components.datatypes.Money;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
+import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
-import acme.constraints.ValidCustomer;
-import acme.constraints.ValidCustomerIdentifier;
+import acme.constraints.ValidFlightCrewMember;
 import acme.constraints.ValidPhoneNumber;
+import acme.constraints.ValidRoleIdentifier;
+
+import acme.entities.airlines.Airline;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@ValidCustomer
-public class Customer extends AbstractRole {
+@ValidFlightCrewMember
+public class FlightCrewMember extends AbstractRole {
 
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidCustomerIdentifier
+	@ValidRoleIdentifier
 	@Column(unique = true)
-	private String				identifier;
+	private String				employeeCode;
 
 	@Mandatory
 	@ValidPhoneNumber
-	@Automapped
+	@Column(unique = true)
 	private String				phoneNumber;
 
 	@Mandatory
 	@ValidString
 	@Automapped
-	private String				address;
+	private String				languageSkills;
 
 	@Mandatory
-	@ValidString(max = 50)
-	@Automapped
-	private String				city;
+	@Valid
+	@ManyToOne(optional = false)
+	private Airline				airline;
 
 	@Mandatory
-	@ValidString(max = 50)
+	@Valid
 	@Automapped
-	private String				country;
+	private AvailabilityStatus	availability;
+
+	@Mandatory
+	@ValidMoney
+	@Automapped
+	private Money				salary;
 
 	@Optional
-	@ValidNumber(max = 500000)
+	@ValidNumber(integer = 2)
 	@Automapped
-	private Integer				earnedPoints;
-
+	private Integer				experienceYears;
 }

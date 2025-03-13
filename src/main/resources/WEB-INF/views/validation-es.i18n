@@ -11,4 +11,4 @@ acme.validation.service.promotionCodeAndDiscount.message = Si existe un código 
 acme.validation.legs.flight-number.message = El número de vuelo debe estar compuesto por el código IATA de la aerolínea seguido de cuatro dígitos.
 acme.validation.airline-manager.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
 acme.validation.iata-code.message = El codigo IATA debe tener 3 letras
-acme.validation.phone-number.message = El numero de telefono debe tener el caracter + y tener entre 6 y 15 digitos.
+acme.validation.phone-number.message = El numero de telefono deberia tener el caracter + y tener entre 6 y 15 digitos.
