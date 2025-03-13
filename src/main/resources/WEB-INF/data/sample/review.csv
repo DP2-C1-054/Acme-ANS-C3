@@ -1,0 +1,49 @@
+key,name,moment,subject,text,score,isRecommended
+#base-entity
+review-00,Lorem,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+#name
+review-01,Lorem ipsum dolor sit amet consectetur adipiscing,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-02,Lorem ipsum dolor sit amet consectetur adipiscin,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-03,L,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-04,Lo,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-05,โลเร็ม อิปซัม,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-06,لوريم إيبسوم,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-07,洛伦·伊普森,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-08,<marquee>Hacked</marquee>,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-09,<script>alert(‘Hacked!’);</script>,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-10,' or 'A' = 'A,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+#moment
+review-11,Lorem,2000/01/01 0:00,Aerolinea,Malisima,1.00,false
+review-12,Lorem,2000/01/01 0:01,Aerolinea,Malisima,1.00,false
+review-13,Lorem,2024/12/31 23:59,Aerolinea,Malisima,1.00,false
+review-14,Lorem,2025/01/01 0:00,Aerolinea,Malisima,1.00,false
+#subject
+review-15,Lorem,2012/07/02 0:00,Lorem ipsum dolor sit amet consectetur adipiscing,Malisima,1.00,false
+review-16,Lorem,2012/07/02 0:00,Lorem ipsum dolor sit amet consectetur adipiscin,Malisima,1.00,false
+review-17,Lorem,2012/07/02 0:00,L,Malisima,1.00,false
+review-18,Lorem,2012/07/02 0:00,Lo,Malisima,1.00,false
+review-19,Lorem,2012/07/02 0:00,โลเร็ม อิปซัม,Malisima,1.00,false
+review-20,Lorem,2012/07/02 0:00,لوريم إيبسوم,Malisima,1.00,false
+review-21,Lorem,2012/07/02 0:00,洛伦·伊普森,Malisima,1.00,false
+review-22,Lorem,2012/07/02 0:00,<marquee>Hacked</marquee>,Malisima,1.00,false
+review-23,Lorem,2012/07/02 0:00,<script>alert(‘Hacked!’);</script>,Malisima,1.00,false
+review-24,Lorem,2012/07/02 0:00,' or 'A' = 'A,Malisima,1.00,false
+#text
+review-25,Lorem,2012/07/02 0:00,Aerolinea,Lorem ipsum dolor sit amet consectetur adipiscing,1.00,false
+review-26,Lorem,2012/07/02 0:00,Aerolinea,Lorem ipsum dolor sit amet consectetur adipiscin,1.00,false
+review-27,Lorem,2012/07/02 0:00,Aerolinea,L,1.00,false
+review-28,Lorem,2012/07/02 0:00,Aerolinea,Lo,1.00,false
+review-29,Lorem,2012/07/02 0:00,Aerolinea,โลเร็ม อิปซัม,1.00,false
+review-30,Lorem,2012/07/02 0:00,Aerolinea,لوريم إيبسوم,1.00,false
+review-31,Lorem,2012/07/02 0:00,Aerolinea,洛伦·伊普森,1.00,false
+review-32,Lorem,2012/07/02 0:00,Aerolinea,<marquee>Hacked</marquee>,1.00,false
+review-33,Lorem,2012/07/02 0:00,Aerolinea,<script>alert(‘Hacked!’);</script>,1.00,false
+review-34,Lorem,2012/07/02 0:00,Aerolinea,' or 'A' = 'A,1.00,false
+#score
+review-35,Lorem,2012/07/02 0:00,Aerolinea,Malisima,0.00,false
+review-36,Lorem,2012/07/02 0:00,Aerolinea,Malisima,0.01,false
+review-37,Lorem,2012/07/02 0:00,Aerolinea,Malisima,10.00,false
+review-38,Lorem,2012/07/02 0:00,Aerolinea,Malisima,9.99,false
+#isRecommended
+review-39,Lorem,2012/07/02 0:00,Aerolinea,Malisima,1.00,false
+review-40,Lorem,2012/07/02 0:00,Aerolinea,Malisima,1.00,true

@@ -29,7 +29,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 			try {
 
 				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
-				correctCode = leg.getFlightNumber().substring(0, 3).toUpperCase() == airlineIataCode.toUpperCase();
+				correctCode = leg.getFlightNumber().substring(0, 3).toUpperCase().equals(airlineIataCode.toUpperCase());
 
 			} catch (Error e) {
 				correctCode = false;

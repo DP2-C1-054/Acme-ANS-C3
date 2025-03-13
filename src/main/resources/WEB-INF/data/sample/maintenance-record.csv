@@ -1,0 +1,2 @@
+key,moment,status,inspectionDueDate,estimatedCost,notes,key:assignedAircraft,key:assignedTechnician
+maintenance-record-00,2025/07/02 0:00,PENDING,2025/07/02 0:01,EUR 500000.00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,aircraft-00,technician-00

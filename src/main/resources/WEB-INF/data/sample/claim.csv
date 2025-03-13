@@ -1,0 +1,2 @@
+key,registrationMoment,passengerEmail,description,type,isAccepted,key:assistanceAgent,key:leg
+claim-00,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,true,agent-00,leg-00

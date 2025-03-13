@@ -54,7 +54,7 @@ public class Booking extends AbstractEntity {
 	@Optional
 	@ValidNumber(min = 0, max = 9999)
 	@Automapped
-	private Integer				creditCardNiblle;
+	private Integer				creditCardNibble;
 
 	@Mandatory
 	@Valid
