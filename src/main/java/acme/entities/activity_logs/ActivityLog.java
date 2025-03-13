@@ -3,7 +3,6 @@ package acme.entities.activity_logs;
 
 import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -17,8 +16,6 @@ import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.entities.flight_assignments.FlightAssignment;
-import acme.entities.flight_crew_members.FlightCrewMember;
-import acme.entities.legs.Leg;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,11 +25,6 @@ import lombok.Setter;
 public class ActivityLog extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
-
-	@Mandatory
-	@Valid
-	@Column(unique = true)
-	private FlightCrewMember	logger;
 
 	@Mandatory
 	@ValidMoment(past = true)
@@ -59,8 +51,4 @@ public class ActivityLog extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private FlightAssignment	flightAssignment;
 
-	@Mandatory
-	@Valid
-	@ManyToOne(optional = false)
-	private Leg					leg;
 }
