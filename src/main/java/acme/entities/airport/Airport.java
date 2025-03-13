@@ -61,7 +61,7 @@ public class Airport extends AbstractEntity {
 
 	@Optional
 	@ValidPhoneNumber
-	@Column(unique = true)
+	@Automapped
 	private String				contactPhone;
 
 }

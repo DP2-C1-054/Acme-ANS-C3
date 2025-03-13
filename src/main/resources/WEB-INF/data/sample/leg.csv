@@ -1,0 +1,2 @@
+key,scheduledDeparture,scheduledArrival,key:departureAirport,key:arrivalAirport,status,key:aircraft,key:flight,flightNumber
+leg-00,2012/06/05 0:00,2012/06/06 0:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1234

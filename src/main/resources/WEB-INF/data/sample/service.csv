@@ -1,0 +1,20 @@
+key,name,pictureUrl,averageDwellTime,promotionCode,discount
+service-00,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,5.00,WWHM-25,EUR 25.00
+service-01,L,ftp://a,0.00,VPQS-25,EUR 00.00
+service-02,Lo,ftp://a.b,0.01,VRHH-25,EUR 0.01
+service-03,Lorem ipsum dolor sit amet consectetur adipiscin,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,9.99,VRZH-25,EUR 49.99
+service-04,Lorem ipsum dolor sit amet consectetur adipiscing,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,10.00,VROP-25,EUR 50.00
+service-05,โลเร็ม อิปซัม,https://www.lorem-ipsum.org,5.00,null,null
+service-06,لوريم إيبسوم,ftp://www.lorem-ipsum.org,5.00,null,null
+service-07,洛伦·伊普森,http://www.lorem-ipsum.org,5.00,null,null
+service-08,<marquee>Hacked</marquee>,http://www.lorem-ipsum.org/dolor/sit.html,5.00,null,null
+service-09,<script>alert('Hacked!');</script>,http://www.lorem-ipsum.org/dolor/sit.html#dolor,5.00,null,null
+service-10,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,5.00,null,null
+service-11,Lorem ipsum dolor sit ame,http://example.org?,5.00,null,null
+service-12,Lorem ipsum dolor sit ame,http://example.org?a,5.00,null,null
+service-13,Lorem ipsum dolor sit ame,http://example.org?a&b,5.00,null,null
+service-14,Lorem ipsum dolor sit ame,http://example.org/,5.00,null,null
+service-15,Lorem ipsum dolor sit ame,http://example.org/a,5.00,null,null
+service-16,Lorem ipsum dolor sit ame,http://example.org/a/b,5.00,null,null
+service-17,Lorem ipsum dolor sit ame,http://example.org/a/b?,5.00,null,null
+service-18,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,5.00,null,null

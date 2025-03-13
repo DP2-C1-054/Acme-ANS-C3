@@ -1,5 +1,5 @@
 
-package acme.entities.airline_managers;
+package acme.realms.airline_managers;
 
 import java.util.Date;
 
@@ -37,7 +37,7 @@ public class AirlineManager extends AbstractRole {
 	private String				identifierNumber;
 
 	@Mandatory
-	@ValidNumber(min = 0)
+	@ValidNumber(min = 0, max = 120)
 	@Automapped
 	private Integer				experience;
 
