@@ -34,10 +34,12 @@ public class PassengerValidator extends AbstractValidator<ValidPassenger, Passen
 			String passport = passenger.getPassport();
 			if (passport == null)
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			List<Passenger> passengers = this.repository.findAllPassengers();
-			boolean isUnique = passengers.stream().noneMatch(p -> p.getPassport().equals(passport) && !p.equals(passenger));
-			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.passenger.uniquePassport.message");
+			else {
+				List<Passenger> passengers = this.repository.findAllPassengers();
+				boolean isUnique = passengers.stream().noneMatch(p -> p.getPassport().equals(passport) && !p.equals(passenger));
+				if (!isUnique)
+					super.state(context, false, "*", "acme.validation.passenger.uniquePassport.message");
+			}
 		}
 		result = !super.hasErrors(context);
 
