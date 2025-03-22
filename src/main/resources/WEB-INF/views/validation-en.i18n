@@ -20,3 +20,7 @@ acme.validation.maintenanceRecord.InspectionDueDateAfterMoment = The inspection 
 acme.validation.airline.iata-code.message = The Iata Code must be unique.
 acme.validation.assistance-agent.code.message = The code must be unique.
 acme.validation.tracking-log.percentage-creciente.message
+acme.validation.customer.uniqueIdentifier.message = The identifier must be unique.
+acme.validation.booking.uniqueLocatorCode.message = The locatorCode must be unique.
+acme.validation.passenger.uniquePassport.message = The passport must be unique.
+acme.validation.service.uniquePromotionCode.message = The promotionCode must be unique.

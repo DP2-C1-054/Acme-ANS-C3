@@ -1,21 +1,28 @@
 
 package acme.constraints;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
 import acme.entities.service.Service;
+import acme.entities.service.ServiceRepository;
 
 @Validator
 public class ServiceValidator extends AbstractValidator<ValidService, Service> {
 
-	protected void initialise(final ValidCustomer annotation) {
+	@Autowired
+	private ServiceRepository repository;
+
+
+	@Override
+	protected void initialise(final ValidService annotation) {
 		assert annotation != null;
 	}
 
@@ -28,28 +35,19 @@ public class ServiceValidator extends AbstractValidator<ValidService, Service> {
 		if (service == null)
 			super.state(context, false, "", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean codeContainsActualYear;
-			boolean hasDiscountAndCode;
-			try {
-				if (service.getDiscount() != null && service.getPromotionCode() != null) {
-					String discountCode = service.getPromotionCode();
-
-					Date currentMoment = MomentHelper.getCurrentMoment();
-					Calendar calendar = Calendar.getInstance();
-					calendar.setTime(currentMoment);
-					String actualYear = String.valueOf(calendar.get(Calendar.YEAR)).substring(2);
-					String yearInCode = discountCode.substring(discountCode.length() - 2);
-
-					codeContainsActualYear = Objects.equals(yearInCode, actualYear);
-					hasDiscountAndCode = true;
-				} else if (service.getDiscount() != null && service.getPromotionCode() == null || service.getDiscount() == null && service.getPromotionCode() != null) {
-					codeContainsActualYear = false;
-					hasDiscountAndCode = false;
-				} else {
-					codeContainsActualYear = true;
-					hasDiscountAndCode = true;
-				}
-			} catch (Error e) {
+			boolean codeContainsActualYear = true;
+			boolean hasDiscountAndCode = true;
+			if (service.getDiscount() != null && service.getPromotionCode() != null) {
+				List<Service> services = this.repository.findAllServices();
+				String discountCode = service.getPromotionCode();
+				boolean isUnique = services.stream().noneMatch(s -> s.getPromotionCode() != null && s.getPromotionCode().equals(discountCode) && !s.equals(service));
+				int year = MomentHelper.getCurrentMoment().getYear() - 100;
+				String actualYear = String.valueOf(year);
+				String yearInCode = discountCode.substring(discountCode.length() - 2);
+				if (!isUnique)
+					super.state(context, false, "*", "acme.validation.service.uniquePromotionCode.message");
+				codeContainsActualYear = Objects.equals(yearInCode, actualYear);
+			} else if (service.getDiscount() != null && service.getPromotionCode() == null || service.getDiscount() == null && service.getPromotionCode() != null) {
 				codeContainsActualYear = false;
 				hasDiscountAndCode = false;
 			}
