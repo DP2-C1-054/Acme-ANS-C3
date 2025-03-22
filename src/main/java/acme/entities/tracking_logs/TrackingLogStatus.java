@@ -1,6 +1,6 @@
 
 package acme.entities.tracking_logs;
 
-public enum Status {
+public enum TrackingLogStatus {
 	PENDING, ACCEPTED, REJECTED
 }

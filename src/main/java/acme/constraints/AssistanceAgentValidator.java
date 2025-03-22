@@ -1,14 +1,23 @@
 
 package acme.constraints;
 
+import java.util.List;
+
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.realms.assistance_agents.AssistanceAgent;
+import acme.realms.assistance_agents.AssistanceAgentRepository;
 
 @Validator
 public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceAgent, AssistanceAgent> {
+
+	@Autowired
+	private AssistanceAgentRepository repository;
+
 
 	@Override
 	protected void initialise(final ValidAssistanceAgent annotation) {
@@ -26,24 +35,34 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 		else {
 			boolean codeContainsInitials = true;
 
-			try {
-				String code = assistanceAgent.getEmployeeCode();
-				String name = assistanceAgent.getUserAccount().getIdentity().getName();
-				String surname = assistanceAgent.getUserAccount().getIdentity().getSurname();
+			String code = assistanceAgent.getEmployeeCode();
+			if (code == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-				char codeFirstChar = Character.toUpperCase(code.charAt(0));
-				char codeSecondChar = Character.toUpperCase(code.charAt(1));
-				char nameFirstChar = Character.toUpperCase(name.charAt(0));
-				char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
+			String name = assistanceAgent.getUserAccount().getIdentity().getName();
+			if (name == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
-					codeContainsInitials = false;
+			String surname = assistanceAgent.getUserAccount().getIdentity().getSurname();
+			if (surname == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-			} catch (Error e) {
+			char codeFirstChar = code.charAt(0);
+			char codeSecondChar = code.charAt(1);
+			char nameFirstChar = name.charAt(0);
+			char surnameFirstChar = surname.charAt(0);
+
+			if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
 				codeContainsInitials = false;
-			}
 
 			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
+
+			List<AssistanceAgent> assitanceAgents = this.repository.findAllAssistanceAgent();
+			boolean isUnique = assitanceAgents.stream().filter(a -> a.getEmployeeCode().equals(code)).count() == 1;
+
+			if (!isUnique)
+				super.state(context, false, "*", "acme.validation.assistance-agent.code.message");
+
 		}
 
 		result = !super.hasErrors(context);
