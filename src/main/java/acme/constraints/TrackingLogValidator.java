@@ -9,11 +9,13 @@ import org.hibernate.annotations.common.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
+import acme.client.components.validation.Validator;
 import acme.entities.claims.Claim;
 import acme.entities.tracking_logs.TrackingLog;
 import acme.entities.tracking_logs.TrackingLogRepository;
 import acme.entities.tracking_logs.TrackingLogStatus;
 
+@Validator
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
 
 	@Autowired
