@@ -28,10 +28,13 @@ public class InspectionDueDateAfterMomentValidator extends AbstractValidator<Val
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			boolean isAfter;
-			Date moment = record.getMoment();
-			Date inspectionDueDate = record.getInspectionDueDate();
-			isAfter = MomentHelper.isAfter(inspectionDueDate, moment);
-			super.state(context, isAfter, "*", "acme.validation.maintenanceRecord.InspectionDueDateAfterMoment");
+			if (record.getMoment() != null && record.getInspectionDueDate() != null) {
+
+				Date moment = record.getMoment();
+				Date inspectionDueDate = record.getInspectionDueDate();
+				isAfter = MomentHelper.isAfter(inspectionDueDate, moment);
+				super.state(context, isAfter, "*", "acme.validation.maintenanceRecord.InspectionDueDateAfterMoment");
+			}
 		}
 		result = !super.hasErrors(context);
 		return result;

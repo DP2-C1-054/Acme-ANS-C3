@@ -30,13 +30,17 @@ public class TechnicianValidator extends AbstractValidator<ValidTechnician, Tech
 
 		if (value == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+		else {
+			List<Technician> existingTechnicians = this.technicianRepository.findAllTechnicians();
+			if (value.getLicenseNumber() != null) {
+				boolean isUnique = existingTechnicians.stream().noneMatch(t -> t.getLicenseNumber().equals(value.getLicenseNumber()) && t != value);
 
-		List<Technician> existingTechnicians = this.technicianRepository.findAllTechnicians();
-		boolean isUnique = existingTechnicians.stream().noneMatch(t -> t.getLicenseNumber().equals(value.getLicenseNumber()) && t.getId() != value.getId());
+				if (!isUnique)
+					super.state(context, false, "*", "acme.validation.technician.license-number-not-unique.message");
 
-		if (!isUnique)
-			super.state(context, false, "*", "acme.validation.technician.license-number-not-unique.message");
+			}
 
+		}
 		result = !super.hasErrors(context);
 		return result;
 
