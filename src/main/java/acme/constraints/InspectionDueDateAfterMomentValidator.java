@@ -7,6 +7,7 @@ import javax.validation.ConstraintValidatorContext;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
 import acme.entities.maintenance.MaintenanceRecord;
 
 @Validator
@@ -29,7 +30,7 @@ public class InspectionDueDateAfterMomentValidator extends AbstractValidator<Val
 			boolean isAfter;
 			Date moment = record.getMoment();
 			Date inspectionDueDate = record.getInspectionDueDate();
-			isAfter = inspectionDueDate.after(moment);
+			isAfter = MomentHelper.isAfter(inspectionDueDate, moment);
 			super.state(context, isAfter, "*", "acme.validation.maintenanceRecord.InspectionDueDateAfterMoment");
 		}
 		result = !super.hasErrors(context);

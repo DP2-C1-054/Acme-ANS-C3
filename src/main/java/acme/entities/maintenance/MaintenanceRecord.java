@@ -19,7 +19,7 @@ import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidInspectionDueDateAfterMoment;
 import acme.entities.aircrafts.Aircraft;
-import acme.realms.Technician;
+import acme.realms.technicians.Technician;
 import lombok.Getter;
 import lombok.Setter;
 

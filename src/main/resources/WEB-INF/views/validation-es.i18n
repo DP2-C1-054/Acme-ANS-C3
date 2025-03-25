@@ -21,3 +21,4 @@ acme.validation.assistance-agent.code.message = El código debe ser único.
 acme.validation.flight-crew-member.code.message = El código debe ser único.
 acme.validation.tracking-log.percentage-creciente.message = El porcentaje de la tracking log actual debe ser superior al de la anterior.
 acme.validation.aircraft.registration-number = El número de registro debe ser único.
+acme.validation.technician.license-number-not-unique.message = Este número de licencia ya existe.
