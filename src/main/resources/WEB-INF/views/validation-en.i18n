@@ -18,6 +18,7 @@ acme.validation.phone-number.message = The phone number could be the character +
 acme.validation.service.promotionCodeAndDiscount.message = If there is a discount code, there must be a discount and vice versa.
 acme.validation.maintenanceRecord.InspectionDueDateAfterMoment = The inspection date must be after the date of registration.
 acme.validation.airline.iata-code.message = The Iata Code must be unique.
+acme.validation.airport	.iata-code.message = The Iata Code must be unique.
 acme.validation.assistance-agent.code.message = The code must be unique.
 acme.validation.flight-crew-member.code.message = The code must be unique.
 acme.validation.tracking-log.percentage-creciente.message = The current tracking log's percentage must be higher than the previous one.
