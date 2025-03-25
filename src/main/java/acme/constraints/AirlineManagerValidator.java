@@ -40,7 +40,7 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 			String surname = airlineManager.getUserAccount().getIdentity().getSurname();
 
 			if (code != null && name != null && surname != null)
-				codeContainsInitials = code.substring(0, 2) == name.substring(0, 1) + surname.substring(0, 1);
+				codeContainsInitials = code.charAt(0) == name.charAt(0) && code.charAt(1) == surname.charAt(0);
 			else
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
