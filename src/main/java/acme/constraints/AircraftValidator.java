@@ -34,14 +34,15 @@ public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 		else {
-			String iataCode = aircraft.getRegistrationNumber();
+			boolean isUnique = false;
+			String registrationNumber = aircraft.getRegistrationNumber();
 
-			if (iataCode == null)
+			if (registrationNumber == null)
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
-			List<Aircraft> aircrafts = this.repository.findAllAircrafts();
-			boolean isUnique = aircrafts.stream().filter(a -> a.getRegistrationNumber().equals(iataCode)).count() == 1;
-
+			else {
+				List<Aircraft> aircrafts = this.repository.findAllAircrafts();
+				isUnique = aircrafts.stream().filter(a -> a.getRegistrationNumber().equals(registrationNumber)).count() == 1;
+			}
 			if (!isUnique)
 				super.state(context, false, "*", "acme.validation.aircraft.registration-number.message");
 		}
