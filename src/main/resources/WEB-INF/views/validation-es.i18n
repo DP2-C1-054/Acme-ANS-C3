@@ -19,6 +19,7 @@ acme.validation.maintenanceRecord.InspectionDueDateAfterMoment = La fecha de ins
 acme.validation.airline.iata-code.message = El código iata debe ser único.
 acme.validation.airport.iata-code.message = El código iata debe ser único.
 acme.validation.assistance-agent.code.message = El código debe ser único.
+acme.validation.airline-manager.identifier-number.message = El número de identificación debe ser único.
 acme.validation.flight-crew-member.code.message = El código debe ser único.
 acme.validation.tracking-log.percentage-creciente.message = El porcentaje de la tracking log actual debe ser superior al de la anterior.
 acme.validation.aircraft.registration-number = El número de registro debe ser único.

@@ -21,5 +21,6 @@ acme.validation.airline.iata-code.message = The Iata Code must be unique.
 acme.validation.airport	.iata-code.message = The Iata Code must be unique.
 acme.validation.assistance-agent.code.message = The code must be unique.
 acme.validation.flight-crew-member.code.message = The code must be unique.
+acme.validation.airline-manager.identifier-number.message = The identifier number must be unique.
 acme.validation.tracking-log.percentage-creciente.message = The current tracking log's percentage must be higher than the previous one.
 acme.validation.aircraft.registration-number.message = The registration number must be unique.
