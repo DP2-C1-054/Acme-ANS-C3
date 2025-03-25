@@ -47,13 +47,15 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			if (surname == null)
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-			char codeFirstChar = code.charAt(0);
-			char codeSecondChar = code.charAt(1);
-			char nameFirstChar = name.charAt(0);
-			char surnameFirstChar = surname.charAt(0);
+			if (!(code == null || name == null || surname == null)) {
+				char codeFirstChar = code.charAt(0);
+				char codeSecondChar = code.charAt(1);
+				char nameFirstChar = name.charAt(0);
+				char surnameFirstChar = surname.charAt(0);
 
-			if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
-				codeContainsInitials = false;
+				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
+					codeContainsInitials = false;
+			}
 
 			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
 
