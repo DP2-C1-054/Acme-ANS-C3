@@ -33,7 +33,7 @@ public class TechnicianValidator extends AbstractValidator<ValidTechnician, Tech
 		else {
 			List<Technician> existingTechnicians = this.technicianRepository.findAllTechnicians();
 			if (value.getLicenseNumber() != null) {
-				boolean isUnique = existingTechnicians.stream().noneMatch(t -> t.getLicenseNumber().equals(value.getLicenseNumber()) && t != value);
+				boolean isUnique = existingTechnicians.stream().noneMatch(t -> t.getLicenseNumber().equals(value.getLicenseNumber()) && t.getId() != value.getId());
 
 				if (!isUnique)
 					super.state(context, false, "*", "acme.validation.technician.license-number-not-unique.message");
