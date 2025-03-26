@@ -1,5 +1,5 @@
 
-package acme.entities.aircrafts;
+package acme.entities.service;
 
 import java.util.List;
 
@@ -9,9 +9,8 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 
 @Repository
-public interface AircraftRepository extends AbstractRepository {
+public interface ServiceRepository extends AbstractRepository {
 
-	@Query("SELECT a FROM Aircraft a")
-	List<Aircraft> findAllAircrafts();
-
+	@Query("SELECT s FROM Service s")
+	List<Service> findAllServices();
 }
