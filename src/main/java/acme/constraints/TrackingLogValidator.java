@@ -9,11 +9,13 @@ import org.hibernate.annotations.common.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
+import acme.client.components.validation.Validator;
 import acme.entities.claims.Claim;
 import acme.entities.tracking_logs.TrackingLog;
 import acme.entities.tracking_logs.TrackingLogRepository;
 import acme.entities.tracking_logs.TrackingLogStatus;
 
+@Validator
 public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, TrackingLog> {
 
 	@Autowired
@@ -35,56 +37,48 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			TrackingLogStatus trackingLogStatus = trackingLog.getStatus();
+			Double percentage = trackingLog.getPercentage();
+			boolean correctStatus = true;
 
-			if (trackingLogStatus == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
-			{
-				boolean correctStatus = true;
-				Double percentage = trackingLog.getPercentage();
-
-				if (percentage == null)
-					super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
+			if (trackingLogStatus != null && percentage != null) {
 				if (percentage == 100.00 && trackingLogStatus.equals(TrackingLogStatus.PENDING))
 					correctStatus = false;
 				if (percentage != 100.00 && !trackingLogStatus.equals(TrackingLogStatus.PENDING))
 					correctStatus = false;
-
-				super.state(context, correctStatus, "*", "acme.validation.tracking-log.status.message");
-
 			}
-			{
-				String resolution = trackingLog.getResolution();
 
-				boolean correctResolution = true;
-				if (!trackingLogStatus.equals(TrackingLogStatus.PENDING) && StringHelper.isEmpty(resolution))
-					correctResolution = false;
-				super.state(context, correctResolution, "*", "acme.validation.tracking-log.resolution.message");
-			}
-			{
-				Claim claim = trackingLog.getClaim();
+			super.state(context, correctStatus, "*", "acme.validation.tracking-log.status.message");
 
-				if (claim == null)
+			///////////////////////////////////////////////////////
+
+			String resolution = trackingLog.getResolution();
+			boolean correctResolution = true;
+
+			if (trackingLogStatus != null)
+				if (!trackingLogStatus.equals(TrackingLogStatus.PENDING) && StringHelper.isEmpty(resolution)) {
 					super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-				else {
-					List<TrackingLog> TLlist = this.repository.findTrackingLogsOrderByMoment(claim.getId());
-
-					if (TLlist.size() > 1) {
-						int index = TLlist.indexOf(trackingLog);
-						if (index + 1 < TLlist.size()) {
-							TrackingLog anterior = TLlist.get(index + 1);
-
-							Double percentageAnterior = anterior.getPercentage();
-							Double percentageActual = trackingLog.getPercentage();
-
-							if (percentageAnterior == null || percentageActual == null)
-								super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-							else if (percentageActual <= percentageAnterior)
-								super.state(context, false, "*", "acme.validation.tracking-log.percentage-creciente.message");
-						}
-					}
+					correctResolution = false;
 				}
+
+			super.state(context, correctResolution, "*", "acme.validation.tracking-log.resolution.message");
+
+			///////////////////////////////////////////////////////
+
+			Claim claim = trackingLog.getClaim();
+			if (claim != null) {
+				List<TrackingLog> TLlist = this.repository.findTrackingLogsOrderByMoment(claim.getId());
+				if (TLlist.size() >= 1) {
+					boolean estaOrdenada = true;
+					for (int i = 0; i < TLlist.size() - 1; i++)
+						if (TLlist.get(i).getPercentage() < TLlist.get(i + 1).getPercentage()) {
+							estaOrdenada = false;
+							break;
+						}
+
+					if (!estaOrdenada)
+						super.state(context, false, "*", "acme.validation.tracking-log.percentage-creciente.message");
+				}
+
 			}
 
 		}

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.realms.assistance_agents.AssistanceAgent;
 import acme.realms.assistance_agents.AssistanceAgentRepository;
 
@@ -36,31 +37,23 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 			boolean codeContainsInitials = true;
 
 			String code = assistanceAgent.getEmployeeCode();
-			if (code == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
 			String name = assistanceAgent.getUserAccount().getIdentity().getName();
-			if (name == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
 			String surname = assistanceAgent.getUserAccount().getIdentity().getSurname();
-			if (surname == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-			if (!(code == null || name == null || surname == null)) {
-				char codeFirstChar = code.charAt(0);
-				char codeSecondChar = code.charAt(1);
-				char nameFirstChar = name.charAt(0);
-				char surnameFirstChar = surname.charAt(0);
-
-				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
-					codeContainsInitials = false;
-			}
+			if (!(code == null || name == null || surname == null))
+				if (!(StringHelper.isBlank(code) || code.length() < 2 || StringHelper.isBlank(name) || StringHelper.isBlank(surname))) {
+					char codeFirstChar = code.charAt(0);
+					char codeSecondChar = code.charAt(1);
+					char nameFirstChar = name.charAt(0);
+					char surnameFirstChar = surname.charAt(0);
+					if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
+						codeContainsInitials = false;
+				}
 
 			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
 
-			List<AssistanceAgent> assitanceAgents = this.repository.findAllAssistanceAgent();
-			boolean isUnique = assitanceAgents.stream().filter(a -> a.getEmployeeCode().equals(code)).count() == 1;
+			List<AssistanceAgent> assistanceAgents = this.repository.findAllAssistanceAgent();
+			boolean isUnique = assistanceAgents.stream().noneMatch(a -> a.getEmployeeCode().equals(code) && !a.equals(assistanceAgent));
 
 			if (!isUnique)
 				super.state(context, false, "*", "acme.validation.assistance-agent.code.message");
