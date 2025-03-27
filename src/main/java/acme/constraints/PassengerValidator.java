@@ -8,6 +8,7 @@ import javax.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
+import acme.client.helpers.StringHelper;
 import acme.entities.passenger.Passenger;
 import acme.entities.passenger.PassengerRepository;
 
@@ -32,9 +33,7 @@ public class PassengerValidator extends AbstractValidator<ValidPassenger, Passen
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			String passport = passenger.getPassport();
-			if (passport == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			else {
+			if (!StringHelper.isBlank(passport)) {
 				List<Passenger> passengers = this.repository.findAllPassengers();
 				boolean isUnique = passengers.stream().noneMatch(p -> p.getPassport().equals(passport) && !p.equals(passenger));
 				if (!isUnique)

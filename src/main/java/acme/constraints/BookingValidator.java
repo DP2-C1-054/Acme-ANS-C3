@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.entities.booking.Booking;
 import acme.entities.booking.BookingRepository;
 
@@ -34,9 +35,7 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			String locatorCode = booking.getLocatorCode();
-			if (locatorCode == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			else {
+			if (!StringHelper.isBlank(locatorCode)) {
 				List<Booking> bookings = this.repository.findAllBookings();
 				boolean isUnique = bookings.stream().noneMatch(b -> b.getLocatorCode().equals(locatorCode) && !b.equals(booking));
 				if (!isUnique)

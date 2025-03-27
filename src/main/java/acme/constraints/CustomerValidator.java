@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.realms.customer.Customer;
 import acme.realms.customer.CustomerRepository;
 
@@ -38,9 +39,7 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 			String code = customer.getIdentifier();
 			String name = customer.getUserAccount().getIdentity().getName();
 			String surname = customer.getUserAccount().getIdentity().getSurname();
-			if (code == null || name == null || surname == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			if (!(code == null || name == null || surname == null)) {
+			if (!StringHelper.isBlank(code) && !StringHelper.isBlank(name) && !StringHelper.isBlank(surname) && code.length() >= 2) {
 				char codeFirstChar = code.charAt(0);
 				char codeSecondChar = code.charAt(1);
 				char nameFirstChar = name.charAt(0);
