@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
+import org.hibernate.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
@@ -36,7 +37,7 @@ public class AirlineValidator extends AbstractValidator<ValidAirline, Airline> {
 		else {
 			String iataCode = airline.getIataCode();
 
-			if (iataCode != null) {
+			if (iataCode != null && !StringHelper.isBlank(iataCode)) {
 				List<Airline> airlines = this.repository.findAllAirline();
 				boolean isUnique = airlines.stream().noneMatch(a -> a.getIataCode().equals(iataCode) && !a.equals(airline));
 

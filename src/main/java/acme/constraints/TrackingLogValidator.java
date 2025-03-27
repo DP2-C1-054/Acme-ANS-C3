@@ -49,7 +49,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			super.state(context, correctStatus, "*", "acme.validation.tracking-log.status.message");
 
-			///////////////////////////////////////////////////////
+			// /////////////////////////////////////////////////////
 
 			String resolution = trackingLog.getResolution();
 			boolean correctResolution = true;
@@ -62,7 +62,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			super.state(context, correctResolution, "*", "acme.validation.tracking-log.resolution.message");
 
-			///////////////////////////////////////////////////////
+			// /////////////////////////////////////////////////////
 
 			Claim claim = trackingLog.getClaim();
 			if (claim != null) {
