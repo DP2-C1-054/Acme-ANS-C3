@@ -1,0 +1,4 @@
+technician.maintenanceRecord.list.label.moment = Moment
+technician.maintenanceRecord.list.label.status = Status
+technician.maintenanceRecord.list.label.inspectionDueDate = Inspection Due Date
+technician.maintenanceRecord.list.label.estimatedCost = Estimated Cost
