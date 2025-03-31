@@ -25,3 +25,5 @@ acme.validation.passenger.uniquePassport.message = El pasaporte debe ser único.
 acme.validation.service.uniquePromotionCode.message = El código promocional debe ser único.
 acme.validation.aircraft.registration-number.message = El número de registro debe ser único.
 acme.validation.technician.license-number-not-unique.message = Este número de licencia ya existe.
+acme.validation.booking.draftModeWithouNibble.message = No puede estar publicado si no están registrados los últimos 4 digitos de una tarjeta de credito.
+acme.validation.booking.draftModeWithouPassenger.message = No puede estar publicado si no hay pasajeros
