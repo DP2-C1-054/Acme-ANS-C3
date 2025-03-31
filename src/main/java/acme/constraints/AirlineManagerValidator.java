@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.realms.airline_managers.AirlineManager;
 import acme.realms.airline_managers.AirlineManagerRepository;
 
@@ -39,7 +40,7 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 			String name = airlineManager.getUserAccount().getIdentity().getName();
 			String surname = airlineManager.getUserAccount().getIdentity().getSurname();
 
-			if (code != null && name != null && surname != null)
+			if (!StringHelper.isBlank(code) && !StringHelper.isBlank(name) && !StringHelper.isBlank(surname) && code.length() > 1 && name.length() > 0 && surname.length() > 0)
 				codeContainsInitials = code.charAt(0) == name.charAt(0) && code.charAt(1) == surname.charAt(0);
 			else
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");

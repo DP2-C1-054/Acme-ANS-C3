@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.entities.airport.Airport;
 import acme.entities.airport.AirportRepository;
 
@@ -36,7 +37,7 @@ public class AirportValidator extends AbstractValidator<ValidAirport, Airport> {
 		else {
 			String iataCode = airport.getIataCode();
 
-			if (iataCode == null)
+			if (!StringHelper.isBlank(iataCode))
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 			List<Airport> airports = this.repository.findAllAirports();

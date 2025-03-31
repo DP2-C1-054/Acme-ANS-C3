@@ -40,7 +40,7 @@ airport-27,Lorem ipsum dolor sit ame,INTERNATIONAL,SJA,Lorem ipsum dolor sit ame
 airport-28,Lorem ipsum dolor sit ame,INTERNATIONAL,CMN,Lorem ipsum dolor sit ame,โลเร็ม อิปซัม,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 airport-29,Lorem ipsum dolor sit ame,INTERNATIONAL,SAK,Lorem ipsum dolor sit ame,لوريم إيبسوم,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 airport-30,Lorem ipsum dolor sit ame,INTERNATIONAL,LDS,Lorem ipsum dolor sit ame,โลเร็ม อิปซัม,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
-airport-31,Lorem ipsum dolor sit ame,INTERNATIONAL,ÑDO,Lorem ipsum dolor sit ame,<marquee>Hacked</marquee>,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-31,Lorem ipsum dolor sit ame,INTERNATIONAL,NDO,Lorem ipsum dolor sit ame,<marquee>Hacked</marquee>,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 airport-32,Lorem ipsum dolor sit ame,INTERNATIONAL,OCK,Lorem ipsum dolor sit ame,' or 'A' = 'A ,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 airport-33,Lorem ipsum dolor sit ame,INTERNATIONAL,CMD,Lorem ipsum dolor sit ame,<script>alert(‘Hacked!’);</script>,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 
@@ -59,7 +59,7 @@ airport-44,Lorem ipsum dolor sit ame,INTERNATIONAL,SMO,Lorem ipsum dolor sit ame
 airport-45,Lorem ipsum dolor sit ame,INTERNATIONAL,MAI,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/,acme@lorem-ipsum.org,+34603589521
 airport-46,Lorem ipsum dolor sit ame,INTERNATIONAL,CSZ,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org?a&b,acme@lorem-ipsum.org,+34603589521
 airport-47,Lorem ipsum dolor sit ame,INTERNATIONAL,CPS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a,acme@lorem-ipsum.org,+34603589521
-airport-48,Lorem ipsum dolor sit ame,INTERNATIONAL,LFÑ,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b,acme@lorem-ipsum.org,+34603589521
+airport-48,Lorem ipsum dolor sit ame,INTERNATIONAL,LFN,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b,acme@lorem-ipsum.org,+34603589521
 airport-49,Lorem ipsum dolor sit ame,INTERNATIONAL,CNS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b?,acme@lorem-ipsum.org,+34603589521
 airport-50,Lorem ipsum dolor sit ame,INTERNATIONAL,CJS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,acme@lorem-ipsum.org,+34603589521
 
