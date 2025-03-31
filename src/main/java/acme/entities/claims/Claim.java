@@ -67,7 +67,7 @@ public class Claim extends AbstractEntity {
 
 
 	@Transient
-	public Status isAccepted() {
+	public Status indicator() {
 
 		ClaimRepository repository;
 		TrackingLog trackingLog;

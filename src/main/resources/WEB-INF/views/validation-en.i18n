@@ -23,7 +23,6 @@ acme.validation.booking.uniqueLocatorCode.message = The locatorCode must be uniq
 acme.validation.passenger.uniquePassport.message = The passport must be unique.
 acme.validation.service.uniquePromotionCode.message = The promotionCode must be unique.
 acme.validation.flight-crew-member.code.message = The code must be unique.
-acme.validation.tracking-log.percentage-creciente.message = The current tracking log's percentage must be higher than the previous one.
 acme.validation.aircraft.registration-number.message = The registration number must be unique.
 acme.validation.technician.license-number-not-unique.message = This license number already exists.
-acme.validation.aircraft.registration-number.message = The registration number must be unique.
+

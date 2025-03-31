@@ -1,53 +1,66 @@
 key,name,iataCode,website,type,foundationMoment,email,phoneNumber
 #base_entity
-airline-01,airbus,REI,http://airbus.com,STANDARD,2020/01/01 23:00,airbus@gmail.com,34606606606
-airline-02,iberia,ACB,http://iberia.com,LOW_COST,2020/01/02 23:00,iberia@gmail.com,34609525547
+airline-01,vueling,REI,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
 
 #name
-airline-03,u,VUE,http://vueling.com,LOW_COST,2000/01/03 15:00,vueling@gmail.com,34606987452
-airline-04,ua,VUA,http://vueling.com,LOW_COST,2000/01/04 15:00,vueling@gmail.com,34606987452
-airline-05,Loremipsumdolorsitametconsecteturadipiscingelit,VUS,http://vueling.com,LOW_COST,2000/01/05 15:00,vueling@gmail.com,34606987452
-airline-06,Loremipsumdolorsitametconsecteturadipiscingeli,VUD,http://vueling.com,LOW_COST,2000/01/06 15:00,vueling@gmail.com,34606987452
-airline-07,vueling,VUF,http://vueling.com,LUXURY,2000/01/07 15:00,vueling@gmail.com,34606987452
-airline-08,โลเร็ม อิปซัม,VUG,http://vueling.com,LOW_COST,2000/01/08 15:00,vueling@gmail.com,34606987452
-airline-09,شركة الطيران,VUH,http://vueling.com,LOW_COST,2000/01/09 15:00,vueling@gmail.com,34606987452
-airline-10,洛伦·伊普森,VUJ,http://vueling.com,LOW_COST,2000/01/10 15:00,vueling@gmail.com,34606987452
-airline-11,<marquee>Hacked</marquee>,VUK,http://vueling.com,LOW_COST,2000/01/11 15:00,vueling@gmail.com,34606987452
-airline-12,<script>alert('Hacked!');</script>,VUL,http://vueling.com,LOW_COST,2000/01/12 15:00,vueling@gmail.com,34606987452
-airline-13, ' or 'A' = 'A ,VUM,http://vueling.com,LOW_COST,2000/01/13 15:00,vueling@gmail.com,34606987452
-
-#iataCode
-airline-14,vueling,AAZ,http://vueling.com,LOW_COST,2000/01/14 15:00,vueling@gmail.com,34606987452
-airline-15,vueling,BYY,http://vueling.com,LOW_COST,2000/01/15 15:00,vueling@gmail.com,34606987452
-airline-16,vueling,ZZA,http://vueling.com,LOW_COST,2000/01/16 15:00,vueling@gmail.com,34606987452
+airline-02,Lorem ipsum dolor sit ame,AAA,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-03,L,AAB,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-04,Lo,AAC,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-05,Lorem ipsum dolor sit ametR consectetur adipiscin,AAD,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-06,Lorem ipsum dolor sit amet4 consectetur adipiscing,AAE,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-07,โลเร็ม อิปซัม,AAF,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-08,洛伦·伊普森,AAG,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-09,لوريم إيبسوم,AAH,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-10,<marquee>Hacked</marquee>,AAI,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-11,<script>alert(‘Hacked!’);</script>,AAJ,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-12,' or 'A' = 'A ,AAK,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
 
 #website
-airline-17,vueling,VUN,http://vueling.com,LOW_COST,2000/01/17 15:00,vueling@gmail.com,34606987452
-airline-18,vueling,VUB,http://lorem.com/ipsum,LOW_COST,2000/01/18 15:00,vueling@gmail.com,34606987452
-airline-19,vueling,VUV,ftp://a.b,LOW_COST,2000/01/19 15:00,vueling@gmail.com,34606987452
-airline-20,vueling,VUC,https://www.lorem-ipsum.org,LOW_COST,2000/01/20 15:00,vueling@gmail.com,34606987452
-airline-21,vueling,VUX,http://www.lorem-ipsum.org/dolor/sit.html,LOW_COST,2000/01/21 15:00,vueling@gmail.com,34606987452
-airline-22,vueling,VUZ,http://example.org/a/b?,LOW_COST,2000/01/22 15:00,vueling@gmail.com,34606987452
-airline-23,vueling,VAA,http://example.org?a=1&b=2,LOW_COST,2000/01/23 15:00,vueling@gmail.com,34606987452
+airline-13,vueling,AAL,ftp://a,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-14,vueling,AAM,ftp://a.b,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-15,vueling,AAN,http://lorem.com/ipsum,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-16,vueling,AAO,http://www.lorem-ipsum.org/dolor/sit/ametR/consectetur/adipiscing/elitT/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-17,vueling,AAP,http://www.lorem-ipsum.org/dolor/sit/ametS/consectetur/adipiscing/elitA/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-18,vueling,AAQ,https://www.lorem-ipsum.org,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-19,vueling,AAR,ftp://www.lorem-ipsum.org,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-20,vueling,AAS,http://www.lorem-ipsum.org/dolor/sit.html,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-21,vueling,AAT,http://www.lorem-ipsum.org/dolor/sit.html#dolor,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-22,vueling,AAU,http://example.org?a=1&b=2,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-23,vueling,AAV,http://example.org?,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-24,vueling,AAW,http://example.org?a,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-25,vueling,AAX,http://example.org?a&b,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-26,vueling,AAY,http://example.org/,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-27,vueling,AAZ,http://example.org/a,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-28,vueling,ABA,http://example.org/a/b,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-29,vueling,ACA,http://example.org/a/b?,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-30,vueling,ADA,http://example.org/a/b?a&b,STANDARD,2012/07/02 0:00,vueling@gmail.com,34606987452
+
+#type
+airline-31,vueling,AEA,http://vueling.com,LUXURY,2012/07/02 0:00,vueling@gmail.com,34606987452
+airline-32,vueling,AFA,http://vueling.com,LOW_COST,2012/07/02 0:00,vueling@gmail.com,34606987452
 
 #foundationMoment
-airline-24,vueling,VAB,http://vueling.com,LUXURY,2000/01/01 00:00,vueling@gmail.com,34606987452
-airline-25,vueling,VAC,http://vueling.com,LUXURY,2025/01/01 00:00,vueling@gmail.com,34606987452
-airline-26,vueling,VAD,http://vueling.com,LUXURY,2000/12/31 23:57,vueling@gmail.com,34606987452
-airline-27,vueling,VAE,http://vueling.com,LUXURY,2000/01/01 00:01,vueling@gmail.com,34606987452
+airline-33,vueling,AGA,http://vueling.com,STANDARD,2000/01/01 0:00,vueling@gmail.com,34606987452
+airline-34,vueling,AHA,http://vueling.com,STANDARD,2000/01/01 0:01,vueling@gmail.com,34606987452
+airline-35,vueling,AIA,http://vueling.com,STANDARD,2024/12/31 23:59,vueling@gmail.com,34606987452
+airline-36,vueling,AJA,http://vueling.com,STANDARD,2025/01/01 0:00,vueling@gmail.com,34606987452
 
 #email
-airline-28,vueling,VAF,http://vueling.com,LUXURY,2000/01/28 00:01,acme@lorem-ipsum.org,34606987452
-airline-29,vueling,VAG,http://vueling.com,LUXURY,2000/01/29 00:01,a@b.e,34606987452
-airline-30,vueling,VAH,http://vueling.com,LUXURY,2000/01/30 00:01,a@b.es,34606987452
-airline-31,vueling,VAI,http://vueling.com,LUXURY,2000/01/31 00:01,a@b.esx,34606987452
-airline-32,vueling,VAJ,http://vueling.com,LUXURY,2000/02/01 00:01,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,34606987452
+airline-37,vueling,AKA,http://vueling.com,STANDARD,2012/07/02 0:00,a@b.e,34606987452
+airline-38,vueling,ALA,http://vueling.com,STANDARD,2012/07/02 0:00,acme@lorem-ipsum.org,34606987452
+airline-39,vueling,AMA,http://vueling.com,STANDARD,2012/07/02 0:00,a@b.es,34606987452
+airline-40,vueling,ANA,http://vueling.com,STANDARD,2012/07/02 0:00,a@b.esx,34606987452
+airline-41,vueling,AOA,http://vueling.com,STANDARD,2012/07/02 0:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,34606987452
+airline-42,vueling,APA,http://vueling.com,STANDARD,2012/07/02 0:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,34606987452
 
 #phoneNumber
-airline-33,vueling,VAK,http://vueling.com,LUXURY,2000/02/02 00:01,vueling@gmail.com,+341235
-airline-34,vueling,VAL,http://vueling.com,LUXURY,2000/02/03 00:01,vueling@gmail.com,+65895689541569
-airline-35,vueling,VAM,http://vueling.com,LUXURY,2000/02/04 00:01,vueling@gmail.com,+801254524582122
-airline-36,vueling,VAN,http://vueling.com,LUXURY,2000/02/05 00:01,vueling@gmail.com,+3445454545462
+airline-43,vueling,AQA,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,+341235
+airline-44,vueling,ARA,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,+65895689541569
+airline-45,vueling,ASA,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,+801254524582122
+airline-46,vueling,ATA,http://vueling.com,STANDARD,2012/07/02 0:00,vueling@gmail.com,+3445454545462
+
+
+
 
 
 
