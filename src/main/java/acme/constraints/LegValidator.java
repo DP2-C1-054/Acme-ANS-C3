@@ -52,12 +52,11 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 			String flightNumber = leg.getFlightNumber();
 
-			List<Leg> airlines = this.repository.findAllLegs();
-			boolean isUnique = airlines.stream().filter(a -> a.getFlightNumber().equals(flightNumber)).count() == 1;
+			List<Leg> legs = this.repository.findAllLegs();
+			boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(flightNumber) && l.equals(legs));
 
 			if (!isUnique)
 				super.state(context, false, "*", "acme.validation.leg.flight-number.message");
-
 			if (!correctCode)
 				super.state(context, correct, "*", "acme.validation.legs.flight-number.message");
 			if (!correctDate)

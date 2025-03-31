@@ -44,8 +44,8 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 			else
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-			List<AirlineManager> airlines = this.repository.findAllAirlineManagers();
-			boolean isUnique = airlines.stream().filter(a -> a.getIdentifierNumber().equals(code)).count() == 1;
+			List<AirlineManager> airlineManagers = this.repository.findAllAirlineManagers();
+			boolean isUnique = airlineManagers.stream().noneMatch(am -> am.getIdentifierNumber().equals(code) && !am.equals(airlineManager));
 
 			if (!isUnique)
 				super.state(context, false, "*", "acme.validation.airline-manager.identifier-number.message");

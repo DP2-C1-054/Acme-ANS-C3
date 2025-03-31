@@ -40,7 +40,7 @@ public class AirportValidator extends AbstractValidator<ValidAirport, Airport> {
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 			List<Airport> airports = this.repository.findAllAirports();
-			boolean isUnique = airports.stream().filter(a -> a.getIataCode().equals(iataCode)).count() == 1;
+			boolean isUnique = airports.stream().noneMatch(a -> a.getIataCode().equals(iataCode) && !a.equals(airport));
 
 			if (!isUnique)
 				super.state(context, false, "*", "acme.validation.airport.iata-code.message");
