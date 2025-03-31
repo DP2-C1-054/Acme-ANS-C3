@@ -42,6 +42,14 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 				if (!isUnique)
 					super.state(context, false, "*", "acme.validation.booking.uniqueLocatorCode.message");
 			}
+			boolean draftMode = booking.isDraftMode();
+			if (!draftMode) {
+				if (booking.getCreditCardNibble() == null)
+					super.state(context, false, "*", "acme.validation.booking.draftModeWithouNibble.message");
+				if (this.repository.findAllPassengerByBookingId(booking.getId()).isEmpty())
+					super.state(context, false, "*", "acme.validation.booking.draftModeWithouPassenger.message");
+			}
+
 		}
 		result = !super.hasErrors(context);
 
