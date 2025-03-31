@@ -1,14 +1,23 @@
 
 package acme.constraints;
 
+import java.util.List;
+
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.realms.customer.Customer;
+import acme.realms.customer.CustomerRepository;
 
 @Validator
 public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer> {
+
+	@Autowired
+	private CustomerRepository repository;
+
 
 	@Override
 	protected void initialise(final ValidCustomer annotation) {
@@ -26,24 +35,29 @@ public class CustomerValidator extends AbstractValidator<ValidCustomer, Customer
 		else {
 			boolean codeContainsInitials = true;
 
-			try {
-				String code = customer.getIdentifier();
-				String name = customer.getUserAccount().getIdentity().getName();
-				String surname = customer.getUserAccount().getIdentity().getSurname();
-
-				char codeFirstChar = Character.toUpperCase(code.charAt(0));
-				char codeSecondChar = Character.toUpperCase(code.charAt(1));
-				char nameFirstChar = Character.toUpperCase(name.charAt(0));
-				char surnameFirstChar = Character.toUpperCase(surname.charAt(0));
+			String code = customer.getIdentifier();
+			String name = customer.getUserAccount().getIdentity().getName();
+			String surname = customer.getUserAccount().getIdentity().getSurname();
+			if (code == null || name == null || surname == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			if (!(code == null || name == null || surname == null)) {
+				char codeFirstChar = code.charAt(0);
+				char codeSecondChar = code.charAt(1);
+				char nameFirstChar = name.charAt(0);
+				char surnameFirstChar = surname.charAt(0);
 
 				if (!(codeFirstChar == nameFirstChar && codeSecondChar == surnameFirstChar))
 					codeContainsInitials = false;
 
-			} catch (Error e) {
-				codeContainsInitials = false;
+				super.state(context, codeContainsInitials, "*", "acme.validation.customer.identifier.message");
+
+				List<Customer> customers = this.repository.findAllCustomers();
+				boolean isUnique = customers.stream().noneMatch(c -> c.getIdentifier().equals(code) && !c.equals(customer));
+
+				if (!isUnique)
+					super.state(context, false, "*", "acme.validation.customer.uniqueIdentifier.message");
 			}
 
-			super.state(context, codeContainsInitials, "*", "acme.validation.customer.identifier.message");
 		}
 
 		result = !super.hasErrors(context);
