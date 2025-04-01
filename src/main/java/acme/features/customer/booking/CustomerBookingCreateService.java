@@ -68,6 +68,7 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		SelectChoices flightChoices;
 		SelectChoices travelClassChoices;
 		Dataset dataset;
+		int bookingId;
 
 		availableFlights = this.repository.findAvailableFlights();
 		flightChoices = SelectChoices.from(availableFlights, "tag", booking.getFlight());
@@ -77,7 +78,6 @@ public class CustomerBookingCreateService extends AbstractGuiService<Customer, B
 		dataset.put("travelClass", travelClassChoices.getSelected().getKey());
 		dataset.put("flights", flightChoices);
 		dataset.put("travelClasses", travelClassChoices);
-
 		super.getResponse().addData(dataset);
 	}
 

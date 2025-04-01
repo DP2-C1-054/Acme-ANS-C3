@@ -1,0 +1,12 @@
+customer.passenger.list.title = List of passengers
+customer.passenger.list.label.name = Name
+customer.passenger.list.label.passport = Passport
+customer.passenger.list.button.create = Register passenger
+customer.passenger.list.button.add = Add registered Passenger
+customer.passenger.form.title = Passenger form
+customer.passenger.form.label.name = Name
+customer.passenger.form.label.mail = Mail
+customer.passenger.form.label.passport = Passport
+customer.passenger.form.label.birthDate = Birthdate
+customer.passenger.form.label.specialNeeds = Special needs
+customer.passenger.form.button.update = Update
