@@ -1,15 +1,15 @@
-key,scheduledDeparture,scheduledArrival,key:departureAirport,key:arrivalAirport,status,key:aircraft,key:flight,flightNumber
+key,scheduledDeparture,scheduledArrival,key:departureAirport,key:arrivalAirport,status,key:aircraft,key:flight,flightNumber,draftMode
 #base_entity
-leg-00,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1234
+leg-00,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1234,false
 
 #scheduledDeparture
-leg-01,2025/01/01 00:01,2025/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI9234
-leg-02,2025/01/01 00:02,2025/01/01 02:02,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI2342
-leg-03,2029/01/01 00:00,2029/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1654
-leg-04,2029/01/01 00:01,2029/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1872
+leg-01,2025/01/01 00:01,2025/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI9234,false
+leg-02,2025/01/01 00:02,2025/01/01 02:02,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI2342,false
+leg-03,2029/01/01 00:00,2029/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1654,false
+leg-04,2029/01/01 00:01,2029/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI1872,false
 
 #status
-leg-09,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI3129
-leg-10,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,CANCELLED,aircraft-00,flight-00,REI9603
-leg-11,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,DELAYED,aircraft-00,flight-00,REI4282
-leg-12,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-00,REI9536
+leg-09,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI3129,false
+leg-10,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,CANCELLED,aircraft-00,flight-00,REI9603,false
+leg-11,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,DELAYED,aircraft-00,flight-00,REI4282,false
+leg-12,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-00,REI9536,false

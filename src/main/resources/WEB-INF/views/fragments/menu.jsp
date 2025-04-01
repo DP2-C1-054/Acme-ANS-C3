@@ -35,6 +35,11 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-system-down" action="/administrator/system/shut-down"/>
 		</acme:menu-option>
 		
+		<acme:menu-option code="master.menu.airline-manager" access="hasRealm('AirlineManager')">
+						<acme:menu-suboption code="master.menu.airline-manager.flights" action="/airline-manager/flight/list"/>
+						<acme:menu-suboption code="master.menu.airline-manager.legs" action="/airline-manager/leg/list"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
 			<acme:menu-suboption code="master.menu.customer.list-bookings" action="/customer/booking/list"/>
 		</acme:menu-option>

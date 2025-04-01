@@ -1,0 +1,25 @@
+airline-manager.flight.list.title = List of My Flights:
+airline-manager.flight.form.title = Details of Flight:
+
+airline-manager.flight.list.label.tag = Tag:
+airline-manager.flight.list.label.cost = Cost:
+airline-manager.flight.list.label.departure = Origin:
+airline-manager.flight.list.label.arrival = Destination:
+airline-manager.flight.form.label.tag = Tag:
+airline-manager.flight.form.label.selfTransfer = Self Transfer:
+airline-manager.flight.form.label.cost = Cost:
+airline-manager.flight.form.label.description = Description:
+airline-manager.flight.form.label.scheduledDeparture = Depature Scheduled:
+airline-manager.flight.form.label.scheduledArrival = Arrival Scheduled:
+airline-manager.flight.form.label.layovers = Layovers:
+airline-manager.flight.form.label.departure = Origin:
+airline-manager.flight.form.label.arrival = Destination:
+airline-manager.flight.form.label.confirmation = Confirmation all data is correct
+
+airline-manager.flight.form.button.create = Create
+airline-manager.flight.list.button.create = Create
+airline-manager.flight.form.button.update = Update
+airline-manager.flight.form.button.delete = Delete
+airline-manager.flight.form.button.publish = Publish
+
+airline-manager.leg.form.label.status = Leg Status
