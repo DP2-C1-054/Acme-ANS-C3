@@ -25,4 +25,4 @@ acme.validation.service.uniquePromotionCode.message = The promotionCode must be 
 acme.validation.flight-crew-member.code.message = The code must be unique.
 acme.validation.aircraft.registration-number.message = The registration number must be unique.
 acme.validation.technician.license-number-not-unique.message = This license number already exists.
-
+acme.validation.assistance-agent.delete.claim = You can delete a claim with trackingLogs.

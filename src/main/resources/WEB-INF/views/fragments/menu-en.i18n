@@ -43,3 +43,10 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.provider-profile = Provider profile
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.consumer-profile = Consumer profile
+
+# master.menu.assistanceAgent ##########################################################
+ 
+ master.menu.assistanceAgent = Assistance Agent
+ master.menu.assistanceAgent.list-claims = List completed claims
+ master.menu.assistanceAgent.list-claims-pending = List pending claims
+ master.menu.assistanceAgent.list-trackingLog = List Tracking logs
