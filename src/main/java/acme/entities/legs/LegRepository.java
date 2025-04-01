@@ -12,6 +12,9 @@ import acme.client.repositories.AbstractRepository;
 @Repository
 public interface LegRepository extends AbstractRepository {
 
+	@Query("SELECT l FROM Leg l")
+	List<Leg> findAllLegs();
+
 	@Query("SELECT l.scheduledDeparture FROM Leg l WHERE l.flight.id = :flightId ORDER BY l.scheduledDeparture ASC")
 	List<LocalDateTime> findScheduledDepartureByFlightId(int flightId);
 
