@@ -60,10 +60,9 @@ public class Claim extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Leg					leg;
 
-
-	public enum Status {
-		ACCEPTED, REJECTED, PENDING;
-	}
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 
 	@Transient
@@ -75,13 +74,15 @@ public class Claim extends AbstractEntity {
 		repository = SpringHelper.getBean(ClaimRepository.class);
 		trackingLog = repository.findTrackingLogsOrderByMoment(this.getId()).get(0);
 
-		return switch (trackingLog.getStatus()) {
-		case ACCEPTED -> Status.ACCEPTED;
-		case REJECTED -> Status.REJECTED;
-		case PENDING -> Status.PENDING;
-		default -> Status.PENDING;
-		};
-
+		if (trackingLog != null)
+			return switch (trackingLog.getStatus()) {
+			case ACCEPTED -> Status.ACCEPTED;
+			case REJECTED -> Status.REJECTED;
+			case PENDING -> Status.PENDING;
+			default -> Status.PENDING;
+			};
+		else
+			return Status.PENDING;
 	}
 
 }

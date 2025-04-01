@@ -49,3 +49,9 @@ master.menu.user-account.consumer-profile = Consumer profile
 
 master.menu.customer = Customer
 master.menu.customer.list-bookings = List Bookings
+# master.menu.assistanceAgent ##########################################################
+ 
+ master.menu.assistanceAgent = Assistance Agent
+ master.menu.assistanceAgent.list-claims = List completed claims
+ master.menu.assistanceAgent.list-claims-pending = List pending claims
+ master.menu.assistanceAgent.list-trackingLog = List Tracking logs

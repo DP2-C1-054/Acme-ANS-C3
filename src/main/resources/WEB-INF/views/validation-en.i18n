@@ -30,4 +30,4 @@ acme.validation.tracking-log.percentage-creciente.message = The current tracking
 acme.validation.aircraft.registration-number.message = The registration number must be unique.
 acme.validation.technician.license-number-not-unique.message = This license number already exists.
 acme.validation.booking.draftModeWithouNibble.message = It cannot be published if the last nibble of a credit card is not registered.
-acme.validation.booking.draftModeWithouPassenger.message = It cannot be published if there is no passengers
+acme.validation.booking.draftModeWithouPassenger.message = It cannot be published if there is no passengersacme.validation.assistance-agent.delete.claim = You can delete a claim with trackingLogs.
