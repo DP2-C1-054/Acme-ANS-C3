@@ -65,11 +65,6 @@ public class Claim extends AbstractEntity {
 	private boolean				draftMode;
 
 
-	public enum Status {
-		ACCEPTED, REJECTED, PENDING;
-	}
-
-
 	@Transient
 	public Status indicator() {
 

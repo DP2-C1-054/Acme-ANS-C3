@@ -10,8 +10,8 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
-import acme.entities.claims.Claim.Status;
 import acme.entities.claims.ClaimType;
+import acme.entities.claims.Status;
 import acme.entities.legs.Leg;
 import acme.realms.assistance_agents.AssistanceAgent;
 
