@@ -1,0 +1,13 @@
+customer.passenger.list.title = Listado de pasajeros
+customer.passenger.list.label.name = Nombre
+customer.passenger.list.label.passport = Pasaporte
+customer.passenger.list.button.create = Registrar Pasajero
+customer.passenger.list.button.add = Añadir Pasajero registrado
+customer.passenger.form.title = Formulario de pasajero
+customer.passenger.form.button.create = Registrar Pasajero
+customer.passenger.form.label.name = Nombre
+customer.passenger.form.label.mail = Correo electrónico
+customer.passenger.form.label.passport = Pasaporte
+customer.passenger.form.label.birthDate = Fecha de Nacimiento
+customer.passenger.form.label.specialNeeds = Necesidades especiales
+customer.passenger.form.button.update = Actualizar

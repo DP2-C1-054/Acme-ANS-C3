@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 
 import acme.client.components.basis.AbstractEntity;
@@ -16,9 +17,10 @@ import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
+import acme.client.helpers.SpringHelper;
+import acme.constraints.ValidBooking;
 import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 import lombok.Getter;
@@ -27,6 +29,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidBooking
 public class Booking extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -46,11 +49,6 @@ public class Booking extends AbstractEntity {
 	@Automapped
 	private TravelClass			travelClass;
 
-	@Mandatory
-	@ValidMoney(min = 0.00, max = 1000000.00)
-	@Automapped
-	private Money				price;
-
 	@Optional
 	@ValidNumber(min = 0, max = 9999)
 	@Automapped
@@ -65,5 +63,29 @@ public class Booking extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Customer			customer;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
+
+	@Transient
+	private Money price() {
+		BookingRepository repository;
+		Integer passengersNumber;
+
+		repository = SpringHelper.getBean(BookingRepository.class);
+		passengersNumber = repository.findNumberOfPassengersByBookingId(this.getId());
+
+		Money ticketCost = this.flight.getCost();
+
+		Money price = new Money();
+
+		price.setCurrency(ticketCost.getCurrency());
+		price.setAmount(ticketCost.getAmount() * passengersNumber);
+
+		return price;
+
+	}
 
 }

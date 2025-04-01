@@ -1,42 +1,36 @@
 key,registrationMoment,passengerEmail,description,type,key:assistanceAgent,key:leg
 #base entity
-claim-00,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
+claim-00,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
 
 #registration moment
-claim-01,2010/07/02 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-02,2000/01/01 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-03,2000/01/01 0:01,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-04,2024/12/31 23:59,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-05,2025/01/01 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
+claim-01,2010/07/02 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-02,2000/01/01 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-03,2000/01/01 0:01,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-04,2024/12/31 23:59,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-05,2025/01/01 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
 
 #passenger email
-claim-06,2023/02/02 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-07,2024/02/03 0:00,a@b.e,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-08,2024/02/04 0:00,a@b.es,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-09,2024/02/05 0:00,a@b.esx,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-10,2024/02/06 0:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-11,2024/02/07 0:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
+claim-06,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-07,2024/02/02 00:00,a@b.e,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-08,2024/02/02 00:00,a@b.es,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-09,2024/02/02 00:00,a@b.esx,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-10,2024/02/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
+claim-11,2024/02/02 00:00,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-01,leg-00
 
 #description
-claim-12,2023/02/08 0:00,acme@lorem-ipsum.org,L,SECURITY_INCIDENT,agent-00,leg-00
-claim-13,2023/02/09 0:00,acme@lorem-ipsum.org,Lo,SECURITY_INCIDENT,agent-00,leg-00
-claim-14,2023/02/10 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,SECURITY_INCIDENT,agent-00,leg-00
-claim-15,2023/02/11 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,SECURITY_INCIDENT,agent-00,leg-00
+claim-12,2024/02/02 00:00,acme@lorem-ipsum.org,L,SECURITY_INCIDENT,agent-01,leg-00
+claim-13,2024/02/02 00:00,acme@lorem-ipsum.org,Lo,SECURITY_INCIDENT,agent-01,leg-00
+claim-14,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet  consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,SECURITY_INCIDENT,agent-01,leg-00
+claim-15,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,SECURITY_INCIDENT,agent-01,leg-00
+claim-16,2024/02/02 00:00,acme@lorem-ipsum.org,โลเร็ม อิปซัม,SECURITY_INCIDENT,agent-01,leg-00
+claim-17,2024/02/02 00:00,acme@lorem-ipsum.org,لوريم إيبسوم,SECURITY_INCIDENT,agent-01,leg-00
+claim-18,2024/02/02 00:00,acme@lorem-ipsum.org,洛伦·伊普森,SECURITY_INCIDENT,agent-01,leg-00
+claim-19,2024/02/02 00:00,acme@lorem-ipsum.org,<marquee>Hacked</marquee>,SECURITY_INCIDENT,agent-01,leg-00
+claim-20,2024/02/02 00:00,acme@lorem-ipsum.org,<script>alert(‘Hacked!’);</script>,SECURITY_INCIDENT,agent-01,leg-00
+claim-21,2024/02/02 00:00,acme@lorem-ipsum.org,' or 'A' = 'A ,SECURITY_INCIDENT,agent-01,leg-00
+
 
 #type
-claim-16,2024/02/12 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,FLIGHT_ISSUES,agent-00,leg-00
-claim-17,2024/02/13 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,LUGGAGE_ISSUES,agent-00,leg-00
-claim-18,2024/02/14 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,OTHER_ISSUES,agent-00,leg-00
-
-#isAccepted
-claim-19,2024/02/15 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-claim-20,2024/02/16 0:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,SECURITY_INCIDENT,agent-00,leg-00
-
-#extras
-claim-21,2024/02/17 0:00,acme@lorem-ipsum.org,โลเร็ม อิปซัม,SECURITY_INCIDENT,agent-00,leg-00
-claim-22,2024/02/18 0:00,acme@lorem-ipsum.org,لوريم إيبسوم,SECURITY_INCIDENT,agent-00,leg-00
-claim-23,2024/02/19 0:00,acme@lorem-ipsum.org,洛伦·伊普森,SECURITY_INCIDENT,agent-00,leg-00
-claim-24,2024/02/20 0:00,acme@lorem-ipsum.org,<marquee>Hacked</marquee>,SECURITY_INCIDENT,agent-00,leg-00
-claim-25,2024/02/21 0:00,acme@lorem-ipsum.org,<script>alert(‘Hacked!’);</script>,SECURITY_INCIDENT,agent-00,leg-00
-claim-26,2024/02/22 0:00,acme@lorem-ipsum.org,' or 'A' = 'A ,SECURITY_INCIDENT,agent-00,leg-00
-
+claim-22,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,FLIGHT_ISSUES,agent-01,leg-00
+claim-23,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,LUGGAGE_ISSUES,agent-01,leg-00
+claim-24,2024/02/02 00:00,acme@lorem-ipsum.org,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,OTHER_ISSUES,agent-01,leg-00
