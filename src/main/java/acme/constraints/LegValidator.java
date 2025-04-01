@@ -40,7 +40,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
 
-			if (!StringHelper.isBlank(airlineIataCode) || !StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
+			if (StringHelper.isBlank(airlineIataCode) || StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 			Date currentDate = MomentHelper.getCurrentMoment();

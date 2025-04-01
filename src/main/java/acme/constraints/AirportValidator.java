@@ -37,7 +37,7 @@ public class AirportValidator extends AbstractValidator<ValidAirport, Airport> {
 		else {
 			String iataCode = airport.getIataCode();
 
-			if (!StringHelper.isBlank(iataCode))
+			if (StringHelper.isBlank(iataCode))
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 			List<Airport> airports = this.repository.findAllAirports();
