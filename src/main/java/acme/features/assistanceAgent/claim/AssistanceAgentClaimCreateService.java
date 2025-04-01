@@ -37,10 +37,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 
 		registrationMoment = MomentHelper.getCurrentMoment();
 		claim.setRegistrationMoment(registrationMoment);
-		claim.setPassengerEmail("");
-		claim.setDescription("");
 		claim.setAssistanceAgent(assistanceAgent);
-		claim.setType(ClaimType.FLIGHT_ISSUES);
 		claim.setDraftMode(true);
 
 		super.getBuffer().addData(claim);

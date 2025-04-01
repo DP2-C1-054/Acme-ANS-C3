@@ -7,7 +7,7 @@
 
 <acme:form>
 	<acme:input-moment code="assistanceAgent.claim.form.label.registrationMoment" path="registrationMoment"/>	
-	<acme:input-textbox code="assistanceAgent.claim.form.label.passengerEmail" path="passengerEmail"/>	
+	<acme:input-email code="assistanceAgent.claim.form.label.passengerEmail" path="passengerEmail"/>	
 	<acme:input-textarea code="assistanceAgent.claim.form.label.description" path="description"/>	
 	<acme:input-select code="assistanceAgent.claim.form.label.type" path="type" choices="${types}"/>
 	<acme:input-select code="assistanceAgent.claim.form.label.leg" path="leg" choices="${legs}"/>
