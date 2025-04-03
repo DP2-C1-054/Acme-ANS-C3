@@ -21,3 +21,4 @@ airline-manager.flight.list.button.create = Crear
 airline-manager.flight.form.button.update = Actualizar
 airline-manager.flight.form.button.delete = Borrar
 airline-manager.flight.form.button.publish = Publicar
+airline-manager.flight.form.button.legs = Legs

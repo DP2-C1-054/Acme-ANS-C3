@@ -33,4 +33,7 @@ public interface AirlineManagerFlightRepository extends AbstractRepository {
 	@Query("select t from Takes t where t.booking.flight.id = :flightId")
 	public List<Takes> findTakesByFlightId(int flightId);
 
+	@Query("select f from Flight f where f.manager.id = :managerId")
+	public List<Flight> findFlightsByManagerId(int managerId);
+
 }
