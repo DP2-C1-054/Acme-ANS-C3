@@ -1,7 +1,7 @@
 
 package acme.entities.flight;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -17,8 +17,6 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoney;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
-import acme.entities.airport.Airport;
-import acme.entities.legs.Leg;
 import acme.entities.airlines.Airline;
 import acme.entities.legs.LegRepository;
 import lombok.Getter;
@@ -56,18 +54,22 @@ public class Flight extends AbstractEntity {
 	@Automapped
 	private String				description;
 
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
 
 	@Transient
-	public LocalDateTime getScheduledDeparture() {
+	public Date getScheduledDeparture() {
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
-		List<LocalDateTime> results = repository.findScheduledDepartureByFlightId(this.getId());
+		List<Date> results = repository.findScheduledDepartureByFlightId(this.getId());
 		return results.isEmpty() ? null : results.get(0);
 	}
 
 	@Transient
-	public LocalDateTime getScheduledArrival() {
+	public Date getScheduledArrival() {
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
-		List<LocalDateTime> results = repository.findScheduledArrivalByFlightId(this.getId());
+		List<Date> results = repository.findScheduledArrivalByFlightId(this.getId());
 		return results.isEmpty() ? null : results.get(0);
 	}
 

@@ -31,3 +31,6 @@ acme.validation.aircraft.registration-number.message = The registration number m
 acme.validation.technician.license-number-not-unique.message = This license number already exists.
 acme.validation.booking.draftModeWithouNibble.message = It cannot be published if the last nibble of a credit card is not registered.
 acme.validation.booking.draftModeWithouPassenger.message = It cannot be published if there is no passengersacme.validation.assistance-agent.delete.claim = You can delete a claim with trackingLogs.
+acme.validation.takes.duplicated = The passenger is already in the booking
+acme.validation.booking.draftModeWithNotPublishedPassenger.message = You can not publish a booking with unpublished passengers
+acme.validation.booking.flight.notValid.message = The flight of a booking must be published and the departure moment must be in the future

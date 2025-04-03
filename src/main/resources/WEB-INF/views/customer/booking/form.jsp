@@ -4,11 +4,10 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form> 
-	<acme:input-textbox code="customer.booking.form.label.locatorCode" path="locatorCode"/>
-	<acme:input-moment code="customer.booking.form.label.purchaseMoment" path="purchaseMoment"/>
+	<acme:input-textbox placeholder = "acme.booking.form.textbox.placeholder" code="customer.booking.form.label.locatorCode" path="locatorCode"/>
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>	
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClasses}"/>
-	<acme:input-integer code="customer.booking.form.label.creditCardNibble" path="creditCardNibble" />	
+	<acme:input-integer placeholder = "acme.booking.form.integer.placeholder" code="customer.booking.form.label.creditCardNibble" path="creditCardNibble" />	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == false}">
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>
@@ -17,7 +16,9 @@
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>
 			<acme:submit code="customer.booking.form.button.update" action="/customer/booking/update"/>
 			<acme:submit code="customer.booking.form.button.delete" action="/customer/booking/delete"/>
-			<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
+			<jstl:if test="${canPublish == true}">
+				<acme:submit code="customer.booking.form.button.publish" action="/customer/booking/publish"/>
+			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
 			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create?bookingId=${id}"/>
