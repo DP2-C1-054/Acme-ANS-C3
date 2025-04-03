@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.StringHelper;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.aircrafts.AircraftRepository;
 
@@ -37,14 +38,14 @@ public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft
 			boolean isUnique = false;
 			String registrationNumber = aircraft.getRegistrationNumber();
 
-			if (registrationNumber == null)
+			if (StringHelper.isBlank(registrationNumber))
 				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 			else {
 				List<Aircraft> aircrafts = this.repository.findAllAircrafts();
-				isUnique = aircrafts.stream().filter(a -> a.getRegistrationNumber().equals(registrationNumber)).count() == 1;
+				isUnique = aircrafts.stream().noneMatch(a -> a.getRegistrationNumber().equals(registrationNumber) && !a.equals(aircraft));
 			}
 			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.aircraft.registration-number.message");
+				super.state(context, false, "isUnique", "acme.validation.aircraft.registration-number.message");
 		}
 
 		result = !super.hasErrors(context);
