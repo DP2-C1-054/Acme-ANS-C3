@@ -1,0 +1,15 @@
+assistance-agent.tracking-log.list.title = Tracking Logs List
+assistanceAgent.trackingLog.list.label.percentage = Resolution Percentage
+assistanceAgent.trackingLog.list.label.status = Status
+assistanceAgent.trackingLog.list.button.create = Create
+
+assistance-agent.tracking-log.form.title = Tracking Log:
+assistanceAgent.trackingLog.form.label.lastUpdateMoment = Last Update Moment
+assistanceAgent.trackingLog.form.label.step = Step
+assistanceAgent.trackingLog.form.label.percentage = Resolution Percentage
+assistanceAgent.trackingLog.form.label.status = Status
+assistanceAgent.trackingLog.form.label.resolution = Resolution
+assistanceAgent.trackingLog.form.button.create = Create
+assistanceAgent.trackingLog.form.button.update = Update
+assistanceAgent.trackingLog.form.button.delete = Delete
+assistanceAgent.trackingLog.form.button.publish = Publish

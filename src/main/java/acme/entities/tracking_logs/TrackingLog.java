@@ -59,4 +59,8 @@ public class TrackingLog extends AbstractEntity {
 	@ManyToOne(optional = false)
 	private Claim				claim;
 
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
 }

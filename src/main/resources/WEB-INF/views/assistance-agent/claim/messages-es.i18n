@@ -15,3 +15,4 @@ assistanceAgent.claim.form.button.create = Crear
 assistanceAgent.claim.form.button.publish = Publicar
 assistanceAgent.claim.form.button.delete = Eliminar
 assistanceAgent.claim.form.button.update = Actualizar
+assistanceAgent.claim.form.button.trackingLogs = Registros de Seguimiento
