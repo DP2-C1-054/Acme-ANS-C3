@@ -1,5 +1,5 @@
 
-package acme.features.maintenance;
+package acme.features.technician.task;
 
 import javax.annotation.PostConstruct;
 
@@ -7,29 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.controllers.AbstractGuiController;
 import acme.client.controllers.GuiController;
-import acme.entities.maintenance.MaintenanceRecord;
+import acme.entities.tasks.Task;
 import acme.realms.technicians.Technician;
 
 @GuiController
-public class TechnicianMaintenanceController extends AbstractGuiController<Technician, MaintenanceRecord> {
+public class TechnicianTaskController extends AbstractGuiController<Technician, Task> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private TechnicianMaintenanceRecordListService		listService;
+	private TechnicianTaskListService		listService;
 
 	@Autowired
-	private TechnicianMaintenanceRecordShowService		showService;
+	private TechnicianTaskShowService		showService;
 
 	@Autowired
-	private TechnicianMaintenanceRecordCreateService	createService;
+	private TechnicianTaskCreateService		createService;
 
 	@Autowired
-	private TechnicianMaintenanceRecordUpdateService	updateService;
+	private TechnicianTaskUpdateService		updateService;
 
 	@Autowired
-	private TechnicianMaintenanceRecordPublishService	publishService;
+	private TechnicianTaskDeleteService		deleteService;
 
 	@Autowired
-	private TechnicianMaintenanceRecordDeleteService	deleteService;
+	private TechnicianTaskPublishService	publishService;
+
+	// Constructors -----------------------------------------------------------
 
 
 	@PostConstruct
@@ -41,6 +45,6 @@ public class TechnicianMaintenanceController extends AbstractGuiController<Techn
 		super.addBasicCommand("delete", this.deleteService);
 
 		super.addCustomCommand("publish", "update", this.publishService);
-
 	}
+
 }

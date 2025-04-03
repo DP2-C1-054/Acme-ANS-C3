@@ -1,5 +1,5 @@
 
-package acme.features.maintenance;
+package acme.features.technician.maintenance;
 
 import java.util.Collection;
 
@@ -12,13 +12,14 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.MaintenanceStatus;
+import acme.entities.tasks.Task;
 import acme.realms.technicians.Technician;
 
 @GuiService
-public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<Technician, MaintenanceRecord> {
+public class TechnicianMaintenanceRecordPublishService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
 	@Autowired
-	TechnicianMaintenanceRecordRepository repository;
+	private TechnicianMaintenanceRecordRepository repository;
 
 
 	@Override
@@ -32,7 +33,7 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 		mr = this.repository.findMaintenanceRecordById(mrId);
 
 		technician = mr == null ? null : mr.getTechnician();
-		status = mr != null && super.getRequest().getPrincipal().hasRealm(technician);
+		status = mr != null && this.getRequest().getPrincipal().hasRealm(technician);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -40,12 +41,42 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 	@Override
 	public void load() {
 		MaintenanceRecord mr;
-		int id;
+		int mrId;
 
-		id = super.getRequest().getData("id", int.class);
-		mr = this.repository.findMaintenanceRecordById(id);
+		mrId = super.getRequest().getData("id", int.class);
+		mr = this.repository.findMaintenanceRecordById(mrId);
 
 		super.getBuffer().addData(mr);
+	}
+
+	@Override
+	public void bind(final MaintenanceRecord maintenanceRecord) {
+
+		int aircraftId;
+		Aircraft aircraft;
+
+		aircraftId = super.getRequest().getData("aircraft", int.class);
+		aircraft = this.repository.findAircraftById(aircraftId);
+
+		super.bindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes");
+
+		maintenanceRecord.setAircraft(aircraft);
+	}
+	@Override
+	public void validate(final MaintenanceRecord maintenanceRecord) {
+
+		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
+
+		super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
+
+		boolean hasUnpublishedTask = tasks.stream().anyMatch(Task::isDraftMode);
+		super.state(!hasUnpublishedTask, "*", "technician.maintenance-record.form.error.not-all-tasks-published");
+	}
+
+	@Override
+	public void perform(final MaintenanceRecord maintenanceRecord) {
+		maintenanceRecord.setDraftMode(false);
+		this.repository.save(maintenanceRecord);
 	}
 
 	@Override
@@ -61,12 +92,11 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 		selectedAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
 		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes", "draftMode");
-
+		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
 		dataset.put("aicraft", selectedAircrafts.getSelected().getKey());
 		dataset.put("aircrafts", selectedAircrafts);
+		dataset.put("status", choices.getSelected().getKey());
 		dataset.put("statuses", choices);
-		dataset.put("confirmation", false);
-		dataset.put("maintenanceRecordId", maintenanceRecord.getId());
 
 		super.getResponse().addData(dataset);
 

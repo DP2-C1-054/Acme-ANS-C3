@@ -1,5 +1,5 @@
 
-package acme.features.maintenance;
+package acme.features.technician.maintenance;
 
 import java.util.Collection;
 

@@ -23,5 +23,8 @@ technician.maintenance-record.form.button.delete = Eliminar
 technician.maintenance-record.form.button.publish = Publicar
 technician.maintenance-record.form.button.show.mtr = Tareas asociadas
 
-technician.maintenance-record.form.error.not-all-tasks-published = Hay tareas sin publicar
-technician.maintenance-record.form.error.zero-tasks = Este registro no tiene tareas asignadas
+technician.task.form.button.add = Añadir tarea
+
+technician.maintenance-task-relation.form.title = Asignar tarea a un registro
+technician.mtr.form.task = Tarea
+technician.mtr.form.button.create = Asignar

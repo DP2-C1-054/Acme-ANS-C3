@@ -24,5 +24,9 @@ technician.maintenance-record.form.button.delete = Delete
 technician.maintenance-record.form.button.publish = Publish
 technician.maintenance-record.form.button.show.mtr = Associated Tasks
 
-technician.maintenance-record.form.error.not-all-tasks-published = There are unpublished tasks
-technician.maintenance-record.form.error.zero-tasks = This record has no tasks assigned 
+technician.task.form.button.add = Add Task
+
+technician.maintenance-task-relation.form.title = Assign a task to a record
+technician.mtr.form.task = Task
+technician.mtr.form.button.create = Assign
+

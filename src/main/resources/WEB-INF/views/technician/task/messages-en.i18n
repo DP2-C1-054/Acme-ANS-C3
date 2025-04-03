@@ -1,0 +1,14 @@
+technician.task.list.title = Tasks
+
+technician.task.list.label.type = Task type
+technician.task.list.label.priority = Priority
+technician.task.list.label.estimatedDuration = Estimated Duration
+technician.task.list.label.description = Description
+
+
+technician.task.form.title = Task details
+
+technician.task.form.button.create = Create
+technician.task.form.button.update = Update
+technician.task.form.button.delete = Delete
+technician.task.form.button.publish = Publish
