@@ -1,0 +1,26 @@
+# messages-en.i18n
+
+administrator.aircraft.list.title = List of aircrafts
+administrator.aircraft.form.title = Aircrafts form
+
+administrator.aircraft.list.label.airline = Airline
+administrator.aircraft.list.label.model = Model
+administrator.aircraft.list.label.registrationNumber = Registration number
+administrator.aircraft.list.label.aircraftStatus = Aircraft status
+administrator.aircraft.list.label.capacity = Capacity
+administrator.aircraft.list.label.cargoWeight = Cargo weight
+administrator.aircraft.list.label.details = Aircraft details
+
+administrator.aircraft.list.button.create = Create
+administrator.aircraft.list.button.delete = Delete
+administrator.aircraft.form.label.confirmation.create = Confirm
+administrator.aircraft.form.label.confirmation.update = Confirm
+administrator.aircraft.form.button.create = Create
+administrator.aircraft.form.button.update = Update
+administrator.aircraft.form.button.disable = Disable aircraft
+administrator.aircraft.form.button.enable = Enable aircraft
+
+acme.validation.confirmation.message.aircraft.registrationNumber = There is already another aircraft with that registration number
+
+
+
