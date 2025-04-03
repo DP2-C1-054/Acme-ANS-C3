@@ -27,6 +27,6 @@ public interface LegRepository extends AbstractRepository {
 	@Query("SELECT l.arrivalAirport.city FROM Leg l WHERE l.flight.id = :flightId ORDER BY l.scheduledArrival DESC")
 	List<String> findDestinationCityByFlightId(int flightId);
 
-	@Query("SELECT COUNT(l) - 1 FROM Leg l WHERE l.flight.id = :flightId")
+	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.id = :flightId")
 	Integer findLayoversByFlightId(int flightId);
 }

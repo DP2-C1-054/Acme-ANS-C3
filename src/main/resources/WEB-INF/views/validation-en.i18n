@@ -3,10 +3,10 @@ acme.validation.assistance-agent.employee-code.message = The employee code must 
 acme.validation.tracking-log.status.message = Error with the percentage and the status of the tracking log.
 acme.validation.tracking-log.percentage.message = The percentage must be higher than the previous tracking log.
 acme.validation.role.identifier.message = The code must have 2 or 3 letters correspond to your initials and 6 digits.
-acme.validation.legs.flight-number.message = The flight number must be composed by the airline IATA code followed by four digits.
+acme.validation.legs.flight-number.iata.message = The flight number must be composed by the airline IATA code followed by four digits.
 acme.validation.legs.current-dates.message = The date of departure and arrival of the flight must be greater than the current one.
 acme.validation.legs.departure-arrival-date.message = The flight departure date must be greater than the arrival date.
-acme.validation.legs.flight-number.message = The flight number must be unique.
+acme.validation.legs.flight-number.message = The flight number must be unique
 acme.validation.tracking-log.indicator.message = Error with the percentage and the status of the tracking log.
 acme.validation.tracking-log.resolution.message = The status and the description of the tracking log do not match.
 acme.validation.service.promotionCode.message = The promotion code must follow the net pattern: 4 letters in uppercase , hyphen and 2 digits tha represents the actual year.
@@ -33,4 +33,4 @@ acme.validation.booking.draftModeWithouNibble.message = It cannot be published i
 acme.validation.booking.draftModeWithouPassenger.message = It cannot be published if there is no passengersacme.validation.assistance-agent.delete.claim = You can delete a claim with trackingLogs.
 acme.validation.takes.duplicated = The passenger is already in the booking
 acme.validation.booking.draftModeWithNotPublishedPassenger.message = You can not publish a booking with unpublished passengers
-acme.validation.booking.flight.notValid.message = The flight of a booking must be published and the departure moment must be in the future
+acme.validation.booking.flight.notValid.message = The flight of a booking must be published and the departure moment must be in the futureacme.validation.flight.cant-be-publish.message = It cannot be published if there is no legs

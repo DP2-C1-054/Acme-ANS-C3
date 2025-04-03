@@ -1,0 +1,24 @@
+airline-manager.flight.list.title = Lista de mis vuelos:
+airline-manager.flight.form.title = Detalles del vuelo:
+
+airline-manager.flight.list.label.tag = Etiqueta:
+airline-manager.flight.list.label.cost = Coste:
+airline-manager.flight.list.label.departure = Origen:
+airline-manager.flight.list.label.arrival = Destino:
+airline-manager.flight.form.label.tag = Etiqueta:
+airline-manager.flight.form.label.selfTransfer = Auto Transferencia:
+airline-manager.flight.form.label.cost = Coste:
+airline-manager.flight.form.label.description = Descripción:
+airline-manager.flight.form.label.scheduledDeparture = Hora de salida:
+airline-manager.flight.form.label.scheduledArrival = Hora de llegada:
+airline-manager.flight.form.label.layovers = Transbordos:
+airline-manager.flight.form.label.departure = Origen:
+airline-manager.flight.form.label.arrival = Destino:
+airline-manager.flight.form.label.confirmation = Confirma que todos los datos son correctos
+
+airline-manager.flight.form.button.create = Crear
+airline-manager.flight.list.button.create = Crear
+airline-manager.flight.form.button.update = Actualizar
+airline-manager.flight.form.button.delete = Borrar
+airline-manager.flight.form.button.publish = Publicar
+airline-manager.flight.form.button.legs = Legs
