@@ -1,0 +1,22 @@
+assistance-agent.claim.list.title = Claim List
+assistanceAgent.claim.list.label.passengerEmail = Passenger Email
+assistanceAgent.claim.list.label.type = Claim Type
+assistanceAgent.claim.list.label.indicator = Claim Status
+assistanceAgent.claim.list.button.create = Create
+
+assistance-agent.claim.form.title = Claim description
+assistanceAgent.claim.form.label.registrationMoment = Registration moment
+assistanceAgent.claim.form.label.passengerEmail = Passenger email
+assistanceAgent.claim.form.label.description = Description
+assistanceAgent.claim.form.label.type = Claim type
+assistanceAgent.claim.form.label.leg = Leg's flight number
+assistanceAgent.claim.form.label.indicator = Status
+assistanceAgent.claim.form.button.create = Create
+assistanceAgent.claim.form.button.publish = Publish
+assistanceAgent.claim.form.button.delete = Delete
+assistanceAgent.claim.form.button.update = Update
+assistanceAgent.claim.form.button.trackingLogs = Tracking Logs
+
+
+
+

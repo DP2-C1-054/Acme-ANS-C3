@@ -1,3 +1,5 @@
 key,key:passenger,key:booking
 takes-00,passenger-00,booking-00
 takes-01,passenger-01,booking-01
+takes-03,passenger-00,booking-13
+takes-02,passenger-27,booking-18

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
 
+import org.hibernate.internal.util.StringHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
@@ -36,14 +37,14 @@ public class AirlineValidator extends AbstractValidator<ValidAirline, Airline> {
 		else {
 			String iataCode = airline.getIataCode();
 
-			if (iataCode == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			if (iataCode != null && !StringHelper.isBlank(iataCode)) {
+				List<Airline> airlines = this.repository.findAllAirline();
+				boolean isUnique = airlines.stream().noneMatch(a -> a.getIataCode().equals(iataCode) && !a.equals(airline));
 
-			List<Airline> airlines = this.repository.findAllAirline();
-			boolean isUnique = airlines.stream().filter(a -> a.getIataCode().equals(iataCode)).count() == 1;
+				if (!isUnique)
+					super.state(context, false, "iataCode", "acme.validation.airline.iata-code.message");
+			}
 
-			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.airline.iata-code.message");
 		}
 
 		result = !super.hasErrors(context);
