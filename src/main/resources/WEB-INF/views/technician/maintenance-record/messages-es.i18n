@@ -1,4 +1,24 @@
-technician.maintenanceRecord.list.label.moment = Momento
-technician.maintenanceRecord.list.label.status = Estado
-technician.maintenanceRecord.list.label.inspectionDueDate = Proxima Inspección 
-technician.maintenanceRecord.list.label.estimatedCost = Precio estimado
+technician.maintenance-record.list.title = Lista de informes de mantenimiento
+technician.maintenance-record.form.title = Detalles del informe de mantenimiento
+
+technician.maintenance-record.list.label.status = Estado
+technician.maintenance-record.list.label.maintenanceMoment = Fecha de mantenimiento
+technician.maintenance-record.list.label.nextInspectionDue = Próxima Inspección 
+technician.maintenance-record.list.label.aircraft = Avión
+
+technician.maintenance-record.list.button.create = Crear
+
+technician.maintenance-record.list.label.status = Estado
+technician.maintenance-record.list.label.maintenanceMoment = Fecha de mantenimiento
+technician.maintenance-record.list.label.nextInspectionDue = Próxima inspección
+technician.maintenance-record.form.label.estimatedCost = Coste estimado
+technician.maintenance-record.form.label.notes = Notas
+technician.maintenance-record.form.label.aircraft = Avión
+technician.maintenance-record.form.label.confirmation = Confimación
+
+technician.maintenance-record.form.button.create = Crear
+
+technician.maintenance-record.form.button.update = Actualizar
+technician.maintenance-record.form.button.delete = Eliminar
+technician.maintenance-record.form.button.publish = Publicar
+technician.maintenance-record.form.button.show.mtr = Tareas asociadas

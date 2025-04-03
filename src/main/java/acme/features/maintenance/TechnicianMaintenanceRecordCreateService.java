@@ -1,13 +1,12 @@
 
 package acme.features.maintenance;
 
-import java.util.Date;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
-import acme.client.helpers.MomentHelper;
+import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
@@ -19,69 +18,70 @@ import acme.realms.technicians.Technician;
 public class TechnicianMaintenanceRecordCreateService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
 	@Autowired
-	protected TechnicianMaintenanceRecordRepository repository;
+	private TechnicianMaintenanceRecordRepository repository;
 
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int aircraftId;
-		Aircraft aircraft;
-		Date currentDate;
-
-		aircraftId = super.getRequest().getData("assignedAircraftId", int.class);
-		aircraft = this.repository.findAircraftById(aircraftId);
-		currentDate = MomentHelper.getCurrentMoment();
-		status = aircraft != null;
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(true);
 	}
 
 	@Override
 	public void load() {
-		MaintenanceRecord record;
+		MaintenanceRecord maintenanceRecord;
 		Technician technician;
-		int aircraftId;
-		Aircraft aircraft;
-		Date currentDate;
 
 		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-		aircraftId = super.getRequest().getData("assignedAircraftId", int.class);
+
+		maintenanceRecord = new MaintenanceRecord();
+		maintenanceRecord.setTechnician(technician);
+
+		super.getBuffer().addData(maintenanceRecord);
+	}
+	@Override
+	public void bind(final MaintenanceRecord maintenanceRecord) {
+		int aircraftId;
+		Aircraft aircraft;
+
+		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
-		currentDate = MomentHelper.getCurrentMoment();
 
-		record = new MaintenanceRecord();
-		record.setMoment(currentDate);
-		record.setStatus(MaintenanceStatus.PENDING);
-		record.setEstimatedCost(new Money());
-		record.setNotes("");
-		record.setAssignedTechnician(technician);
-
-		super.getBuffer().addData(record);
+		super.bindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes");
+		maintenanceRecord.setAircraft(aircraft);
+		maintenanceRecord.setDraftMode(true);
 	}
-
 	@Override
-	public void bind(final MaintenanceRecord record) {
-		super.bindObject(record, "moment", "status", "estimatedCost", "notes");
-	}
-
-	@Override
-	public void validate(final MaintenanceRecord record) {
+	public void validate(final MaintenanceRecord maintenanceRecord) {
 		;
 	}
-
 	@Override
-	public void perform(final MaintenanceRecord record) {
-		this.repository.save(record);
+	public void perform(final MaintenanceRecord maintenanceRecord) {
+		this.repository.save(maintenanceRecord);
 	}
 
 	@Override
-	public void unbind(final MaintenanceRecord record) {
+	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
+		SelectChoices choices;
+		SelectChoices selectedAircrafts;
+		Collection<Aircraft> aircrafts;
 
-		dataset = super.unbindObject(record, "moment", "status", "estimatedCost", "notes");
+		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
+
+		aircrafts = this.repository.findAllAircrafts();
+		selectedAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
+
+		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes", "draftMode");
+		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
+		dataset.put("aicraft", selectedAircrafts.getSelected().getKey());
+		dataset.put("aircrafts", selectedAircrafts);
+		dataset.put("status", choices.getSelected().getKey());
+		dataset.put("statuses", choices);
+
+		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
+
 	}
 
 }

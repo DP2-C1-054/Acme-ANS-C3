@@ -27,22 +27,27 @@ public class Task extends AbstractEntity {
 	private TaskType			type;
 
 	@Mandatory
-	@ValidString
+	@ValidString(min = 1, max = 255)
 	@Automapped
 	private String				description;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 10)
+	@ValidNumber(min = 0, max = 10, integer = 2)
 	@Automapped
 	private Integer				priority;
 
 	@Mandatory
-	@ValidNumber(min = 0, max = 100)
-	private Integer				estimatedDuration;
+	@ValidNumber(min = 0, max = 1000)
+	@Automapped
+	private Double				estimatedDuration;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
 
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Technician			assignedTechnician;
+	private Technician			technician;
 
 }

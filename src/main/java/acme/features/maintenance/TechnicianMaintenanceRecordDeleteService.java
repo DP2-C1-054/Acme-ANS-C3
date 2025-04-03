@@ -12,11 +12,11 @@ import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.maintenance.MaintenanceRecord;
 import acme.entities.maintenance.MaintenanceStatus;
-import acme.entities.tasks.Task;
+import acme.entities.maintenance_task_relation.MaintenanceTaskRelation;
 import acme.realms.technicians.Technician;
 
 @GuiService
-public class TechnicianMaintenanceRecordPublishService extends AbstractGuiService<Technician, MaintenanceRecord> {
+public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService<Technician, MaintenanceRecord> {
 
 	@Autowired
 	private TechnicianMaintenanceRecordRepository repository;
@@ -33,20 +33,19 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		mr = this.repository.findMaintenanceRecordById(mrId);
 
 		technician = mr == null ? null : mr.getTechnician();
-		status = mr != null && this.getRequest().getPrincipal().hasRealm(technician);
+		status = mr != null && mr.isDraftMode() && this.getRequest().getPrincipal().hasRealm(technician);
 
 		super.getResponse().setAuthorised(status);
 	}
-
 	@Override
 	public void load() {
-		MaintenanceRecord mr;
-		int mrId;
+		MaintenanceRecord maintenanceRecord;
+		int id;
 
-		mrId = super.getRequest().getData("id", int.class);
-		mr = this.repository.findMaintenanceRecordById(mrId);
+		id = super.getRequest().getData("id", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(id);
 
-		super.getBuffer().addData(mr);
+		super.getBuffer().addData(maintenanceRecord);
 	}
 
 	@Override
@@ -64,21 +63,16 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	}
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-
-		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
-
-		super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
-
-		boolean hasUnpublishedTask = tasks.stream().anyMatch(Task::isDraftMode);
-		super.state(!hasUnpublishedTask, "*", "technician.maintenance-record.form.error.not-all-tasks-published");
+		;
 	}
-
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
-		maintenanceRecord.setDraftMode(false);
-		this.repository.save(maintenanceRecord);
-	}
+		Collection<MaintenanceTaskRelation> involves;
 
+		involves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
+		this.repository.deleteAll(involves);
+		this.repository.delete(maintenanceRecord);
+	}
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
@@ -97,6 +91,8 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		dataset.put("aircrafts", selectedAircrafts);
 		dataset.put("status", choices.getSelected().getKey());
 		dataset.put("statuses", choices);
+
+		dataset.put("readonly", false);
 
 		super.getResponse().addData(dataset);
 

@@ -25,25 +25,23 @@ public class TechnicianMaintenanceRecordListService extends AbstractGuiService<T
 
 	@Override
 	public void load() {
-		Collection<MaintenanceRecord> object;
 		int technicianId;
+		Collection<MaintenanceRecord> mr;
 
 		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		object = this.repository.findMaintenanceRecordsByTechnician(technicianId);
+		mr = this.repository.findAllMaintenanceRecordByTechnicianId(technicianId);
 
-		super.getBuffer().addData(object);
-
+		super.getBuffer().addData(mr);
 	}
 
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost");
-		dataset.put("aircraft", maintenanceRecord.getAssignedAircraft().getAircraftDetails());
+		dataset = super.unbindObject(maintenanceRecord, "aircraft", "status", "maintenanceMoment", "nextInspectionDue");
+		super.addPayload(dataset, maintenanceRecord, "aircraft.model", "aircraft.registrationNumber");
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }
