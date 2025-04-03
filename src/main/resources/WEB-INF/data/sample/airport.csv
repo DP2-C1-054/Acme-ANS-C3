@@ -1,53 +1,83 @@
 key,name,operationalScope,iataCode,city,country,website,email,contactPhone
 #base entity
-airport-01,Aeropuerto Sevilla,REGIONAL,SEV,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
+airport-01,Lorem ipsum dolor sit ame,REGIONAL,SEV,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 
 #name
-airport-02,Lorem ipsum dolor sit ame,REGIONAL,SEA,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-03,L,REGIONAL,AAA,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-04,Lo,REGIONAL,AAB,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-05,Lorem ipsum dolor sit amet  consectetur adipiscin,REGIONAL,AAC,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-06,Lorem ipsum dolor sit amet  consectetur adipiscing,DOMESTIC,AAD,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-07,โลเร็ม อิปซัม,DOMESTIC,AAE,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-08,لوريم إيبسوم,DOMESTIC,AAF,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-09,โลเร็ม อิปซัม,DOMESTIC,AAG,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-10,<marquee>Hacked</marquee>,DOMESTIC,AAH,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-11,' or 'A' = 'A ,DOMESTIC,AAI,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
-airport-12,<script>alert(‘Hacked!’);</script>,INTERNATIONAL,AAK,Sevilla,España,https://aeropuertosevilla.acme.com,aesevilla@gmail.com,+34603589521
+airport-02,L,REGIONAL,AAA,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-03,Lo,REGIONAL,AAB,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-04,Lorem ipsum dolor sit amet  consectetur adipiscin,REGIONAL,AAC,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-05,Lorem ipsum dolor sit amet  consectetur adipiscing,REGIONAL,AAD,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-06,โลเร็ม อิปซัม,REGIONAL,AAE,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-07,لوريم إيبسوم,REGIONAL,AAF,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-08,โลเร็ม อิปซัม,REGIONAL,AAG,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-09,<marquee>Hacked</marquee>,REGIONAL,AAH,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-10,' or 'A' = 'A ,REGIONAL,AAI,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-11,<script>alert(‘Hacked!’);</script>,REGIONAL,AAK,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+
+#operationalScope
+
+airport-12,Lorem ipsum dolor sit ame,DOMESTIC,AHA,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-13,Lorem ipsum dolor sit ame,INTERNATIONAL,BDS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+
+#city
+
+airport-14,Lorem ipsum dolor sit ame,INTERNATIONAL,AAL,L,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-15,Lorem ipsum dolor sit ame,INTERNATIONAL,AAJ,Lo,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-16,Lorem ipsum dolor sit ame,INTERNATIONAL,AAM,Lorem ipsum dolor sit amet  consectetur adipiscin,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-17,Lorem ipsum dolor sit ame,INTERNATIONAL,AAN,Lorem ipsum dolor sit amet  consectetur adipiscing,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-18,Lorem ipsum dolor sit ame,INTERNATIONAL,AAO,โลเร็ม อิปซัม,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-19,Lorem ipsum dolor sit ame,INTERNATIONAL,AAP,لوريم إيبسوم,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-20,Lorem ipsum dolor sit ame,INTERNATIONAL,AAQ,โลเร็ม อิปซัม,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-21,Lorem ipsum dolor sit ame,INTERNATIONAL,AAR,<marquee>Hacked</marquee>,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-22,Lorem ipsum dolor sit ame,INTERNATIONAL,AAS,' or 'A' = 'A ,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-23,Lorem ipsum dolor sit ame,INTERNATIONAL,AAT,<script>alert(‘Hacked!’);</script>,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+
+#country
+
+airport-24,Lorem ipsum dolor sit ame,INTERNATIONAL,SAJ,Lorem ipsum dolor sit ame,L,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-25,Lorem ipsum dolor sit ame,INTERNATIONAL,KDS,Lorem ipsum dolor sit ame,Lo,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-26,Lorem ipsum dolor sit ame,INTERNATIONAL,SPO,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit amet  consectetur adipiscin,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-27,Lorem ipsum dolor sit ame,INTERNATIONAL,SJA,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit amet  consectetur adipiscing,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-28,Lorem ipsum dolor sit ame,INTERNATIONAL,CMN,Lorem ipsum dolor sit ame,โลเร็ม อิปซัม,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-29,Lorem ipsum dolor sit ame,INTERNATIONAL,SAK,Lorem ipsum dolor sit ame,لوريم إيبسوم,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-30,Lorem ipsum dolor sit ame,INTERNATIONAL,LDS,Lorem ipsum dolor sit ame,โลเร็ม อิปซัม,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-31,Lorem ipsum dolor sit ame,INTERNATIONAL,NDO,Lorem ipsum dolor sit ame,<marquee>Hacked</marquee>,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-32,Lorem ipsum dolor sit ame,INTERNATIONAL,OCK,Lorem ipsum dolor sit ame,' or 'A' = 'A ,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
+airport-33,Lorem ipsum dolor sit ame,INTERNATIONAL,CMD,Lorem ipsum dolor sit ame,<script>alert(‘Hacked!’);</script>,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521
 
 #website
-airport-13,Aeropuerto Sevilla,INTERNATIONAL,AAL,Sevilla,España,ftp://a,aesevilla@gmail.com,+34603589521
-airport-14,Aeropuerto Sevilla,INTERNATIONAL,AAJ,Sevilla,España,ftp://a.b,aesevilla@gmail.com,+34603589521
-airport-15,Aeropuerto Sevilla,INTERNATIONAL,AAM,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit/amett/consectetur/adipiscing/elitr/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,aesevilla@gmail.com,+34603589521
-airport-16,Aeropuerto Sevilla,INTERNATIONAL,AAN,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit/amett/consectetur/adipiscing/elite/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,aesevilla@gmail.com,+34603589521
-airport-17,Aeropuerto Sevilla,INTERNATIONAL,AAO,Sevilla,España,https://www.lorem-ipsum.org,aesevilla@gmail.com,+34603589521
-airport-18,Aeropuerto Sevilla,INTERNATIONAL,AAP,Sevilla,España,ftp://www.lorem-ipsum.org,aesevilla@gmail.com,+34603589521
-airport-19,Aeropuerto Sevilla,INTERNATIONAL,AAQ,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit.html,aesevilla@gmail.com,+34603589521
-airport-20,Aeropuerto Sevilla,INTERNATIONAL,AAR,Sevilla,España,http://www.lorem-ipsum.org/dolor/sit.html#dolor,aesevilla@gmail.com,+34603589521
-airport-21,Aeropuerto Sevilla,INTERNATIONAL,AAS,Sevilla,España,http://example.org?a=1&b=2,aesevilla@gmail.com,+34603589521
-airport-22,Aeropuerto Sevilla,INTERNATIONAL,AAT,Sevilla,España,http://example.org?,aesevilla@gmail.com,+34603589521
-airport-23,Aeropuerto Sevilla,INTERNATIONAL,AAU,Sevilla,España,http://example.org?a,aesevilla@gmail.com,+34603589521
-airport-24,Aeropuerto Sevilla,INTERNATIONAL,AAV,Sevilla,España,http://example.org/,aesevilla@gmail.com,+34603589521
-airport-25,Aeropuerto Sevilla,INTERNATIONAL,AAW,Sevilla,España,http://example.org?a&b,aesevilla@gmail.com,+34603589521
-airport-26,Aeropuerto Sevilla,INTERNATIONAL,AAX,Sevilla,España,http://example.org/a,aesevilla@gmail.com,+34603589521
-airport-27,Aeropuerto Sevilla,INTERNATIONAL,AAY,Sevilla,España,http://example.org/a/b,aesevilla@gmail.com,+34603589521
-airport-28,Aeropuerto Sevilla,INTERNATIONAL,AAZ,Sevilla,España,http://example.org/a/b?,aesevilla@gmail.com,+34603589521
-airport-29,Aeropuerto Sevilla,INTERNATIONAL,ABA,Sevilla,España,http://example.org/a/b?a&b,aesevilla@gmail.com,+34603589521
+airport-34,Lorem ipsum dolor sit ame,INTERNATIONAL,CHS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,ftp://a,acme@lorem-ipsum.org,+34603589521
+airport-35,Lorem ipsum dolor sit ame,INTERNATIONAL,GUS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,ftp://a.b,acme@lorem-ipsum.org,+34603589521
+airport-36,Lorem ipsum dolor sit ame,INTERNATIONAL,CND,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amett/consectetur/adipiscing/elitr/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/,acme@lorem-ipsum.org,+34603589521
+airport-37,Lorem ipsum dolor sit ame,INTERNATIONAL,DYN,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit/amett/consectetur/adipiscing/elite/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X,acme@lorem-ipsum.org,+34603589521
+airport-38,Lorem ipsum dolor sit ame,INTERNATIONAL,XHS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,https://www.lorem-ipsum.org,acme@lorem-ipsum.org,+34603589521
+airport-39,Lorem ipsum dolor sit ame,INTERNATIONAL,CJW,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,ftp://www.lorem-ipsum.org,acme@lorem-ipsum.org,+34603589521
+airport-40,Lorem ipsum dolor sit ame,INTERNATIONAL,MMS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html,acme@lorem-ipsum.org,+34603589521
+airport-41,Lorem ipsum dolor sit ame,INTERNATIONAL,CKD,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://www.lorem-ipsum.org/dolor/sit.html#dolor,acme@lorem-ipsum.org,+34603589521
+airport-42,Lorem ipsum dolor sit ame,INTERNATIONAL,LXP,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org?a=1&b=2,acme@lorem-ipsum.org,+34603589521
+airport-43,Lorem ipsum dolor sit ame,INTERNATIONAL,CMS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org?,acme@lorem-ipsum.org,+34603589521
+airport-44,Lorem ipsum dolor sit ame,INTERNATIONAL,SMO,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org?a,acme@lorem-ipsum.org,+34603589521
+airport-45,Lorem ipsum dolor sit ame,INTERNATIONAL,MAI,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/,acme@lorem-ipsum.org,+34603589521
+airport-46,Lorem ipsum dolor sit ame,INTERNATIONAL,CSZ,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org?a&b,acme@lorem-ipsum.org,+34603589521
+airport-47,Lorem ipsum dolor sit ame,INTERNATIONAL,CPS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a,acme@lorem-ipsum.org,+34603589521
+airport-48,Lorem ipsum dolor sit ame,INTERNATIONAL,LFN,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b,acme@lorem-ipsum.org,+34603589521
+airport-49,Lorem ipsum dolor sit ame,INTERNATIONAL,CNS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b?,acme@lorem-ipsum.org,+34603589521
+airport-50,Lorem ipsum dolor sit ame,INTERNATIONAL,CJS,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,acme@lorem-ipsum.org,+34603589521
 
 #email
-airport-30,Aeropuerto Sevilla,REGIONAL,ABB,Sevilla,España,https://aeropuertosevilla.acme.com,acme@lorem-ipsum.org,+34603589521
-airport-31,Aeropuerto Sevilla,REGIONAL,ABC,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.e,+34603589521
-airport-32,Aeropuerto Sevilla,REGIONAL,ABD,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.es,+34603589521
-airport-33,Aeropuerto Sevilla,REGIONAL,ABE,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.esx,+34603589521
-airport-34,Aeropuerto Sevilla,REGIONAL,ABF,Sevilla,España,https://aeropuertosevilla.acme.com,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,+34603589521
-airport-35,Aeropuerto Sevilla,REGIONAL,ABG,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.esx,+34603589521
+airport-51,Lorem ipsum dolor sit ame,REGIONAL,ABB,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,a@b.e,+34603589521
+airport-52,Lorem ipsum dolor sit ame,REGIONAL,ABC,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,a@b.es,+34603589521
+airport-53,Lorem ipsum dolor sit ame,REGIONAL,ABD,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,a@b.es,+34603589521
+airport-54,Lorem ipsum dolor sit ame,REGIONAL,ABE,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,a@b.esx,+34603589521
+airport-55,Lorem ipsum dolor sit ame,REGIONAL,ABF,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.doloris.edu,+34603589521
+airport-56,Lorem ipsum dolor sit ame,REGIONAL,ABG,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,lorem-ipsum@dolor.sit.amet.consectetur.adipiscing.elit.sed.do.eiusmod.tempor.incididunt.ut.labore.et.dolore.magna.aliqua.Ut.enim.ad.minim.veniam.quis.nostrud.exercitation.ullamco.laboris.nisi.ut.aliquip.ex.ea.commodo.consequat.duis.aute.irure.dolor.es.org,+34603589521
 
 #phoneNumber
-airport-36,Aeropuerto Sevilla,REGIONAL,ABH,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.e,+34603589521025
-airport-37,Aeropuerto Sevilla,REGIONAL,ACC,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.e,+346035895214521
-airport-38,Aeropuerto Sevilla,REGIONAL,AFC,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.e,+3460358
-airport-39,Aeropuerto Sevilla,REGIONAL,AGR,Sevilla,España,https://aeropuertosevilla.acme.com,a@b.e,603502457
 
+airport-57,Lorem ipsum dolor sit ame,REGIONAL,ABH,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+34603589521025
+airport-58,Lorem ipsum dolor sit ame,REGIONAL,ACC,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+346035895214521
+airport-59,Lorem ipsum dolor sit ame,REGIONAL,AFC,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,+3460358
+airport-60,Lorem ipsum dolor sit ame,REGIONAL,AGR,Lorem ipsum dolor sit ame,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,acme@lorem-ipsum.org,603502457
 
 
 

@@ -2,16 +2,25 @@
 package acme.constraints;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.StringHelper;
 import acme.entities.legs.Leg;
+import acme.entities.legs.LegRepository;
 
 @Validator
 public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
+
+	@Autowired
+	private LegRepository repository;
+
 
 	@Override
 	protected void initialise(final ValidLeg annotation) {
@@ -29,27 +38,32 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		else {
 			boolean correct;
 
-			try {
+			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
 
-				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
-				Date currentDate = MomentHelper.getCurrentMoment();
+			if (StringHelper.isBlank(airlineIataCode) || StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
-				boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
-				boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;
-				boolean correctDate = leg.getScheduledDeparture().compareTo(currentDate) > 0 && leg.getScheduledArrival().compareTo(currentDate) > 0;
+			Date currentDate = MomentHelper.getCurrentMoment();
 
-				correct = correctCode && correctDepartureArrivalDates && correctDate;
+			boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
+			boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;
+			boolean correctDate = leg.getScheduledDeparture().compareTo(currentDate) > 0 && leg.getScheduledArrival().compareTo(currentDate) > 0;
 
-				if (!correctCode)
-					super.state(context, correct, "*", "acme.validation.legs.flight-number.message");
-				if (!correctDate)
-					super.state(context, correct, "*", "acme.validation.legs.current-dates.message");
-				if (!correctDepartureArrivalDates)
-					super.state(context, correct, "*", "acme.validation.legs.departure-arrival-date.message");
+			correct = correctCode && correctDepartureArrivalDates && correctDate;
 
-			} catch (Exception e) {
-				correct = false;
-			}
+			String flightNumber = leg.getFlightNumber();
+
+			List<Leg> legs = this.repository.findAllLegs();
+			boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(flightNumber) && l.equals(legs));
+
+			if (!isUnique)
+				super.state(context, false, "*", "acme.validation.leg.flight-number.message");
+			if (!correctCode)
+				super.state(context, correct, "*", "acme.validation.legs.flight-number.message");
+			if (!correctDate)
+				super.state(context, correct, "*", "acme.validation.legs.current-dates.message");
+			if (!correctDepartureArrivalDates)
+				super.state(context, correct, "*", "acme.validation.legs.departure-arrival-date.message");
 
 		}
 		result = !super.hasErrors(context);

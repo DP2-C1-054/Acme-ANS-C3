@@ -1,0 +1,18 @@
+administrator.airline.list.title = Lista de aerolíneas
+administrator.airline.list.label.iataCode = Código Iata
+administrator.airline.list.label.name = Nombre
+administrator.airline.list.label.type = Tipo de aerolínea
+administrator.airline.list.button.create = Crear
+
+
+administrator.airline.form.title = Datos de la Aerolínea
+administrator.airline.form.label.name = Nombre
+administrator.airline.form.label.iataCode = Código Iata
+administrator.airline.form.label.website = Página Web
+administrator.airline.form.label.type = Tipo de aerolínea
+administrator.airline.form.label.foundationMoment = Momento de fundación
+administrator.airline.form.label.email = Correo
+administrator.airline.form.label.phoneNumber = Número de teléfono
+administrator.airline.form.label.confirmation = Confirmación
+administrator.airline.form.button.update = Actualizar
+administrator.airline.form.button.create = Crear
