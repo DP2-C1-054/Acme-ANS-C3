@@ -11,3 +11,7 @@ customer.passenger.form.label.passport = Pasaporte
 customer.passenger.form.label.birthDate = Fecha de Nacimiento
 customer.passenger.form.label.specialNeeds = Necesidades especiales
 customer.passenger.form.button.update = Actualizar
+customer.passenger.form.button.publish = Publicar
+customer.passenger.form.button.delete = Eliminar
+acme.passenger.form.mail.placeholder = ejemplo@ejemplo.ejemplo
+acme.passenger.form.passport.placeholder = [A-Z0-9]{6-9} Ej: A2F7G8T

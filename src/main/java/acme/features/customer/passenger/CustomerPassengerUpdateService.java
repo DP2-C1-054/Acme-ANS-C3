@@ -1,12 +1,15 @@
 
 package acme.features.customer.passenger;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.passenger.Passenger;
+import acme.entities.passenger.Takes;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -18,8 +21,19 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 
 	@Override
 	public void authorise() {
+		boolean status;
+		int passengerId;
+		Passenger passenger;
+		List<Takes> takes;
+		boolean customerHaveAnyReservationWithPassenger;
 
-		super.getResponse().setAuthorised(true);
+		passengerId = super.getRequest().getData("id", int.class);
+		passenger = this.repository.findPassengerById(passengerId);
+		takes = this.repository.findTakesByPassengerId(passengerId);
+		customerHaveAnyReservationWithPassenger = takes.stream().anyMatch(t -> super.getRequest().getPrincipal().hasRealm(t.getBooking().getCustomer()));
+
+		status = passenger != null && passenger.isDraftMode() && customerHaveAnyReservationWithPassenger;
+		super.getResponse().setAuthorised(status);
 	}
 	@Override
 	public void load() {
@@ -50,7 +64,7 @@ public class CustomerPassengerUpdateService extends AbstractGuiService<Customer,
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
-		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds");
+		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds", "draftMode");
 		super.getResponse().addData(dataset);
 	}
 }

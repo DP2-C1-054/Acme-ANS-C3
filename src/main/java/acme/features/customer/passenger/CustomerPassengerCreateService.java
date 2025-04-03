@@ -37,7 +37,7 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 		Passenger passenger;
 
 		passenger = new Passenger();
-
+		passenger.setDraftMode(true);
 		super.getBuffer().addData(passenger);
 	}
 

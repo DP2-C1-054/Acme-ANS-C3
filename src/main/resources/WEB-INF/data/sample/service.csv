@@ -1,17 +1,17 @@
 key,name,pictureUrl,averageDwellTime,promotionCode,discount
 #base entity
-service-00,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,WWHM-25,EUR 25.00
+service-00,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,WWHM-25,EUR 25.00
 
 #name
-service-01,L,http://lorem.com/ipsum,50.00,WWLM-25,EUR 25.00
-service-02,Lo,http://lorem.com/ipsum,50.00,WWDM-25,EUR 25.00
-service-03,Lorem ipsum dolor sit amet consectetur adipiscin,http://lorem.com/ipsum,50.00,WDHM-25,EUR 25.00
-service-04,Lorem ipsum dolor sit amet consectetur adipiscing,http://lorem.com/ipsum,50.00,WCHM-25,EUR 25.00
-service-05,โลเร็ม อิปซัม,http://lorem.com/ipsum,50.00,WWRM-25,EUR 25.00
-service-06,لوريم إيبسوم,http://lorem.com/ipsum,50.00,WFHM-25,EUR 25.00
+service-01,L,https://i.imgur.com/8YcXhS0.png,50.00,WWLM-25,EUR 25.00
+service-02,Lo,https://i.imgur.com/8YcXhS0.png,50.00,WWDM-25,EUR 25.00
+service-03,Lorem ipsum dolor sit amet consectetur adipiscin,https://i.imgur.com/8YcXhS0.png,50.00,WDHM-25,EUR 25.00
+service-04,Lorem ipsum dolor sit amet consectetur adipiscing,https://i.imgur.com/8YcXhS0.png,50.00,WCHM-25,EUR 25.00
+service-05,โลเร็ม อิปซัม,https://i.imgur.com/8YcXhS0.png,50.00,WWRM-25,EUR 25.00
+service-06,لوريم إيبسوم,https://i.imgur.com/8YcXhS0.png,50.00,WFHM-25,EUR 25.00
 service-07,洛伦·伊普森,http://lorem.com/ipsum,50.00,WWHP-25,EUR 25.00
-service-08,<marquee>Hacked</marquee>,http://lorem.com/ipsum,50.00,WFDM-25,EUR 25.00
-service-09,<script>alert('Hacked!');</script>,http://lorem.com/ipsum,50.00,ABHM-25,EUR 25.00
+service-08,<marquee>Hacked</marquee>,https://i.imgur.com/8YcXhS0.png,50.00,WFDM-25,EUR 25.00
+service-09,<script>alert('Hacked!');</script>,https://i.imgur.com/8YcXhS0.png,50.00,ABHM-25,EUR 25.00
 
 #pictureUrl
 service-10,Lorem ipsum dolor sit ame,ftp://a,50.00,BGHM-25,EUR 25.00
@@ -33,15 +33,25 @@ service-25,Lorem ipsum dolor sit ame,http://example.org/a/b?,50.00,FRAM-25,EUR 2
 service-26,Lorem ipsum dolor sit ame,http://example.org/a/b?a&b,50.00,XZHM-25,EUR 25.00
 
 #averageDwellTime
-service-27,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.00,CXHM-25,EUR 25.00
-service-28,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,0.01,JVHM-25,EUR 25.00
-service-29,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,99.99,WERM-25,EUR 25.00
-service-30,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,100.00,TERM-25,EUR 25.00
+service-27,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,0.00,CXHM-25,EUR 25.00
+service-28,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,0.01,JVHM-25,EUR 25.00
+service-29,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,99.99,WERM-25,EUR 25.00
+service-30,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,100.00,TERM-25,EUR 25.00
 
 #promotionCode & discount
-service-31,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,EQWE-25,EUR 25.00
-service-32,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,WUIE-25,EUR 0.00
-service-33,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,EQWS-25,EUR 0.01
-service-34,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,CHBH-25,EUR 49.99
-service-35,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,ASJH-25,EUR 50.00
-service-36,Lorem ipsum dolor sit ame,http://lorem.com/ipsum,50.00,null,null
+service-31,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,EQWE-25,EUR 25.00
+service-32,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,WUIE-25,EUR 0.00
+service-33,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,EQWS-25,EUR 0.01
+service-34,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,CHBH-25,EUR 49.99
+service-35,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,ASJH-25,EUR 50.00
+service-36,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,null,null
+#validPicture
+service-37,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,AAAA-25,EUR 25.00
+service-38,Lorem ipsum dolor sit ame,https://i.imgur.com/MtBRoNP.png,50.00,AAAB-25,EUR 25.00
+service-39,Lorem ipsum dolor sit ame,https://i.imgur.com/NGLSjk6.png,50.00,AAAC-25,EUR 25.00
+service-41,Lorem ipsum dolor sit ame,https://i.imgur.com/fihihcF.png,50.00,AAAD-25,EUR 25.00
+service-42,Lorem ipsum dolor sit ame,https://i.imgur.com/2eVF1HG.png,50.00,AAAE-25,EUR 25.00
+service-43,Lorem ipsum dolor sit ame,https://i.imgur.com/CqtMSmM.png,50.00,AAAF-25,EUR 25.00
+service-44,Lorem ipsum dolor sit ame,https://i.imgur.com/sgx1bFo.png,50.00,AAAG-25,EUR 25.00
+service-45,Lorem ipsum dolor sit ame,https://i.imgur.com/qu5SrLN.png,50.00,AAAH-25,EUR 25.00
+service-46,Lorem ipsum dolor sit ame,https://i.imgur.com/8n7KfX1.png,50.00,AAAI-25,EUR 25.00

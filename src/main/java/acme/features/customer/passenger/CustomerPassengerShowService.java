@@ -27,7 +27,7 @@ public class CustomerPassengerShowService extends AbstractGuiService<Customer, P
 		int id;
 
 		id = super.getRequest().getData("id", int.class);
-		passenger = this.repository.findPassengergById(id);
+		passenger = this.repository.findPassengerById(id);
 
 		super.getBuffer().addData(passenger);
 	}
@@ -36,7 +36,7 @@ public class CustomerPassengerShowService extends AbstractGuiService<Customer, P
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds");
+		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds", "draftMode");
 		super.getResponse().addData(dataset);
 	}
 }

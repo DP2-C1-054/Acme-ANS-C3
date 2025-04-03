@@ -11,3 +11,7 @@ customer.passenger.form.label.passport = Passport
 customer.passenger.form.label.birthDate = Birthdate
 customer.passenger.form.label.specialNeeds = Special needs
 customer.passenger.form.button.update = Update
+customer.passenger.form.button.publish = Publish
+customer.passenger.form.button.delete = Delete
+acme.passenger.form.mail.placeholder = example@example.example
+acme.passenger.form.passport.placeholder = [A-Z0-9]{6-9} Ex: A2F7G8T

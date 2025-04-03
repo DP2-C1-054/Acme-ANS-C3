@@ -5,12 +5,13 @@ customer.booking.list.button.create = Crear
 customer.booking.list.title = Lista de Reservas
 customer.booking.form.title = Formulario de Reserva
 customer.booking.form.label.locatorCode = Código de reserva
-customer.booking.form.label.purchaseMoment = Momento de compra
 customer.booking.form.label.travelClass = Tipo de viaje
 customer.booking.form.label.creditCardNibble = Últimos digitos tarjeta
-
 customer.booking.form.button.passengers = Pasajeros
 customer.booking.form.button.update = Actualizar
 customer.booking.form.button.delete = Eliminar
 customer.booking.form.button.publish = Publicar
 customer.booking.form.button.create = Crear
+customer.booking.form.label.flight = Vuelo
+acme.booking.form.textbox.placeholder = [A-Z0-9]{6-8} Ej: A2F7G8T
+acme.booking.form.integer.placeholder = 0000-9999 Ej: 498

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.booking.Booking;
 import acme.entities.passenger.Passenger;
+import acme.entities.passenger.Takes;
 
 @Repository
 public interface CustomerTakesRepository extends AbstractRepository {
@@ -21,5 +22,8 @@ public interface CustomerTakesRepository extends AbstractRepository {
 
 	@Query("select p from Passenger p where p not in (select t.passenger from Takes t where t.booking.id = :bookingId)")
 	Collection<Passenger> findAvailablePassengers(int bookingId);
+
+	@Query("select t from Takes t where t.booking.id =?1 ")
+	Collection<Takes> findTakesByBookingId(int bookingId);
 
 }
