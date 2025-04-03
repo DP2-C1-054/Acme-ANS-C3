@@ -1,7 +1,7 @@
 
 package acme.entities.flight;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -60,16 +60,16 @@ public class Flight extends AbstractEntity {
 
 
 	@Transient
-	public LocalDateTime getScheduledDeparture() {
+	public Date getScheduledDeparture() {
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
-		List<LocalDateTime> results = repository.findScheduledDepartureByFlightId(this.getId());
+		List<Date> results = repository.findScheduledDepartureByFlightId(this.getId());
 		return results.isEmpty() ? null : results.get(0);
 	}
 
 	@Transient
-	public LocalDateTime getScheduledArrival() {
+	public Date getScheduledArrival() {
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
-		List<LocalDateTime> results = repository.findScheduledArrivalByFlightId(this.getId());
+		List<Date> results = repository.findScheduledArrivalByFlightId(this.getId());
 		return results.isEmpty() ? null : results.get(0);
 	}
 

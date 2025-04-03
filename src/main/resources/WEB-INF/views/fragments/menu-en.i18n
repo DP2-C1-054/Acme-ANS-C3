@@ -25,6 +25,12 @@ master.menu.administrator.populate-db-initial = Populate DB (initial)
 master.menu.administrator.populate-db-sample = Populate DB (samples)
 master.menu.administrator.shut-system-down = Shut system down
 
+# master.menu.airline-manager ###################################################
+
+master.menu.airline-manager = Airline manager
+master.menu.airline-manager.flights = Flights
+master.menu.airline-manager.legs = Legs
+
 # master.menu.provider ########################################################
 
 master.menu.provider = Provider
