@@ -45,7 +45,7 @@ public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft
 				isUnique = aircrafts.stream().noneMatch(a -> a.getRegistrationNumber().equals(registrationNumber) && !a.equals(aircraft));
 			}
 			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.aircraft.registration-number.message");
+				super.state(context, false, "isUnique", "acme.validation.aircraft.registration-number.message");
 		}
 
 		result = !super.hasErrors(context);
