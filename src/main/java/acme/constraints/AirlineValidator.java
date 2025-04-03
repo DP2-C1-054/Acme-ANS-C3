@@ -42,7 +42,7 @@ public class AirlineValidator extends AbstractValidator<ValidAirline, Airline> {
 				boolean isUnique = airlines.stream().noneMatch(a -> a.getIataCode().equals(iataCode) && !a.equals(airline));
 
 				if (!isUnique)
-					super.state(context, false, "*", "acme.validation.airline.iata-code.message");
+					super.state(context, false, "iataCode", "acme.validation.airline.iata-code.message");
 			}
 
 		}
