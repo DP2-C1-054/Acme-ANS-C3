@@ -43,6 +43,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 
 		id = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(id);
+		booking.setPurchaseMoment(MomentHelper.getCurrentMoment());
 		super.getBuffer().addData(booking);
 	}
 
@@ -54,7 +55,7 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		flightId = super.getRequest().getData("flight", int.class);
 		flight = this.repository.findFlightById(flightId);
 
-		super.bindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble");
+		super.bindObject(booking, "locatorCode", "travelClass", "creditCardNibble");
 		booking.setFlight(flight);
 	}
 
