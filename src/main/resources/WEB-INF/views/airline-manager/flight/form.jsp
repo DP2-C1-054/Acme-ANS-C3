@@ -5,14 +5,9 @@
 
 <acme:form>
 	<acme:input-textbox code="airline-manager.flight.form.label.tag" path="tag"/>
-	<acme:input-checkbox code="airline-manager.flight.form.label.selfTransfer" path="requiresSelfTransfer"/>
 	<acme:input-money code="airline-manager.flight.form.label.cost" path="cost"/>
 	<acme:input-textarea code="airline-manager.flight.form.label.description" path="description"/>
-	<acme:input-moment code="airline-manager.flight.form.label.scheduledDeparture" path="scheduledDeparture" readonly="true"/>
-	<acme:input-moment code="airline-manager.flight.form.label.scheduledArrival" path="scheduledArrival" readonly="true"/>
-	<acme:input-textbox code="airline-manager.flight.form.label.layovers" path="layovers" readonly="true"/>
-	<acme:input-textbox code="airline-manager.flight.form.label.departure" path="departure" readonly="true"/>
-	<acme:input-textbox code="airline-manager.flight.form.label.arrival" path="arrival" readonly="true"/>
+	<acme:input-checkbox code="airline-manager.flight.form.label.selfTransfer" path="requiresSelfTransfer"/>
 	
 	<jstl:choose>
 	<jstl:when test="${_command == 'show' && draftMode == false}">
