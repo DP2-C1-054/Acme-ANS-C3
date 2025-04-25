@@ -22,6 +22,7 @@ public class AirlineManagerLegListService extends AbstractGuiService<AirlineMana
 
 	@Override
 	public void authorise() {
+
 		super.getResponse().setAuthorised(true);
 	}
 
