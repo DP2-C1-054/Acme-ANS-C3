@@ -44,6 +44,7 @@ public class BookingValidator extends AbstractValidator<ValidBooking, Booking> {
 				boolean isUnique = bookings.stream().noneMatch(b -> b.getLocatorCode().equals(locatorCode) && !b.equals(booking));
 				if (!isUnique)
 					super.state(context, false, "locatorCode", "acme.validation.booking.uniqueLocatorCode.message");
+
 			}
 			boolean draftMode = booking.isDraftMode();
 			if (!draftMode) {

@@ -34,3 +34,5 @@ acme.validation.booking.draftModeWithouPassenger.message = It cannot be publishe
 acme.validation.takes.duplicated = The passenger is already in the booking
 acme.validation.booking.draftModeWithNotPublishedPassenger.message = You can not publish a booking with unpublished passengers
 acme.validation.booking.flight.notValid.message = The flight of a booking must be published and the departure moment must be in the futureacme.validation.flight.cant-be-publish.message = It cannot be published if there is no legs
+acme.validation.booking.locatorCode.message = The code must contain between 6 and 8 numbers or uppercase letters
+acme.validation.passenger.passport.message = The passport must contain between 6 and 9 numbers or uppercase letters
