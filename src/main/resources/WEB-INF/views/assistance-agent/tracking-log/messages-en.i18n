@@ -13,3 +13,7 @@ assistanceAgent.trackingLog.form.button.create = Create
 assistanceAgent.trackingLog.form.button.update = Update
 assistanceAgent.trackingLog.form.button.delete = Delete
 assistanceAgent.trackingLog.form.button.publish = Publish
+
+assistance-agent.tracking-log.publish-percentage = You can only create a completed trackingLog after publishing all previous ones and they have the percentage completed
+assistance-agent.tracking-log.same-percentage = The percentage must be higher than the previous tracking log
+assistance-agent.tracking-log.completed-percentage = You can only have two completed tracking logs
