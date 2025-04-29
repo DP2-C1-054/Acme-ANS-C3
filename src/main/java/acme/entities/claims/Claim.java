@@ -72,7 +72,7 @@ public class Claim extends AbstractEntity {
 		TrackingLog trackingLog;
 
 		repository = SpringHelper.getBean(ClaimRepository.class);
-		trackingLog = repository.findTrackingLogsOrderByMoment(this.getId()).get(0);
+		trackingLog = repository.findTrackingLogsOrderByMoment(this.getId()).stream().findFirst().orElse(null);
 
 		if (trackingLog != null)
 			return switch (trackingLog.getStatus()) {
@@ -82,7 +82,7 @@ public class Claim extends AbstractEntity {
 			default -> Status.PENDING;
 			};
 		else
-			return Status.PENDING;
+			return null;
 	}
 
 }
