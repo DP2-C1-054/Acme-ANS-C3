@@ -34,3 +34,4 @@ acme.validation.booking.draftModeWithNotPublishedPassenger.message = You can not
 acme.validation.booking.flight.notValid.message = The flight of a booking must be published and the departure moment must be in the future
 acme.validation.flight.cant-be-publish.message = It cannot be published if there is no legs
 acme.validation.claim.registrationMoment.message = You cannot register a claim with a date prior to its corresponding flight segment
+acme.validation.trackingLog.unpublished.message = A tracking log cannot be published until its corresponding claim is published
