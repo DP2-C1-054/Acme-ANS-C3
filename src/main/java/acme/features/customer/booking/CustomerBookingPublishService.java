@@ -14,6 +14,7 @@ import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
+import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -33,7 +34,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		masterId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
-		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+		Collection<Passenger> passengers = this.repository.findPassengersByBookingId(masterId);
+		status = booking != null && booking.isDraftMode() && booking.getCreditCardNibble() != null && super.getRequest().getPrincipal().hasRealm(customer) && !passengers.isEmpty();
 		super.getResponse().setAuthorised(status);
 	}
 

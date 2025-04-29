@@ -18,9 +18,9 @@ import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidNumber;
-import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
 import acme.constraints.ValidBooking;
+import acme.constraints.ValidLocatorCode;
 import acme.entities.flight.Flight;
 import acme.realms.customer.Customer;
 import lombok.Getter;
@@ -35,7 +35,7 @@ public class Booking extends AbstractEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,8}$")
+	@ValidLocatorCode
 	@Column(unique = true)
 	private String				locatorCode;
 
@@ -70,7 +70,7 @@ public class Booking extends AbstractEntity {
 
 
 	@Transient
-	private Money price() {
+	public Money price() {
 		BookingRepository repository;
 		Integer passengersNumber;
 

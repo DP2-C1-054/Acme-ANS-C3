@@ -8,6 +8,7 @@
 	<acme:input-select code="customer.booking.form.label.flight" path="flight" choices="${flights}"/>	
 	<acme:input-select code="customer.booking.form.label.travelClass" path="travelClass" choices="${travelClasses}"/>
 	<acme:input-integer placeholder = "acme.booking.form.integer.placeholder" code="customer.booking.form.label.creditCardNibble" path="creditCardNibble" />	
+	<acme:input-money readonly="true" code ="customer.booking.form.label.price" path="price"/>
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == false}">
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>

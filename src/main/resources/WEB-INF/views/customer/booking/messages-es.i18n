@@ -15,3 +15,4 @@ customer.booking.form.button.create = Crear
 customer.booking.form.label.flight = Vuelo
 acme.booking.form.textbox.placeholder = [A-Z0-9]{6-8} Ej: A2F7G8T
 acme.booking.form.integer.placeholder = 0000-9999 Ej: 498
+customer.booking.form.label.price = Precio

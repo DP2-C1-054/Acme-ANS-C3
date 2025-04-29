@@ -33,5 +33,7 @@ acme.validation.takes.duplicated = El pasajero esta ya en la reserva
 acme.validation.booking.draftModeWithNotPublishedPassenger.message = No puedes publicar una reserva con pasajeros sin publicar
 acme.validation.booking.flight.notValid.message = El vuelo de una reserva debe ser publicado y su hora de salida debe ser en el futuro.
 acme.validation.flight.cant-be-publish.message = No puede estar publicado si no hay vuelos
+acme.validation.booking.locatorCode.message = El código tiene que contener entre 6 y 8 números o letras en mayúscula
+acme.validation.passenger.passport.message = El pasaporte tiene que contener entre 6 y 9 números o letras en mayúscula
 acme.validation.claim.registrationMoment.message = No puedes registrar una reclamación con fecha anterior a su correspondiente tramo de vuelo
 acme.validation.trackingLog.unpublished.message = No puedes publicar la tracking log hasta que se publique su reclamación correspondiente

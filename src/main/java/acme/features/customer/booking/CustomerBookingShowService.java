@@ -6,6 +6,7 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
@@ -68,8 +69,10 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		flightChoices = SelectChoices.from(availableFlights, "tag", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		canPublish = !passengers.isEmpty() && passengers.stream().noneMatch(p -> p.isDraftMode());
+		Money price = booking.price();
 
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble", "draftMode");
+		dataset.put("price", price);
 		dataset.put("canPublish", canPublish);
 		dataset.put("flight", flightChoices.getSelected().getKey());
 		dataset.put("travelClass", travelClassChoices.getSelected().getKey());

@@ -16,6 +16,7 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidPassenger;
+import acme.constraints.ValidPassport;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,7 +39,7 @@ public class Passenger extends AbstractEntity {
 	private String				mail;
 
 	@Mandatory
-	@ValidString(pattern = "^[A-Z0-9]{6,9}$")
+	@ValidPassport
 	@Column(unique = true)
 	private String				passport;
 
