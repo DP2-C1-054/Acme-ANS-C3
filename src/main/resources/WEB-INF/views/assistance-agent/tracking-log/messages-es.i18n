@@ -13,3 +13,7 @@ assistanceAgent.trackingLog.form.button.create = Crear
 assistanceAgent.trackingLog.form.button.update = Actualizar
 assistanceAgent.trackingLog.form.button.delete = Eliminar
 assistanceAgent.trackingLog.form.button.publish = Publicar
+
+assistance-agent.tracking-log.publish-percentage = Solo puedes crear un registro completado despues de publicar todos los anteriores y que estos tengan el porcentaje completado
+assistance-agent.tracking-log.same-percentage = El porcentaje debe ser mayor al del tracking log previo
+assistance-agent.tracking-log.completed-percentage = Solo puedes tener un maximo de dos registros completados

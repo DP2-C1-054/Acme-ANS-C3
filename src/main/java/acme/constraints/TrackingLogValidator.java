@@ -100,7 +100,7 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 			if (previousLog != null)
 				if (newTrackingLog.getPercentage() < previousLog.getPercentage())
 					return false;
-				else if (newTrackingLog.getPercentage() > previousLog.getPercentage())
+				else
 					return true;
 		}
 		return false;
