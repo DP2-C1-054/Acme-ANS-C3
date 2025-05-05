@@ -1,31 +1,26 @@
 key,key:userAccount,identifierNumber,experience,birthdate,key:airline,linkPicture
-
 #base entity
 airline-manager-00,user-account-manager-00,AF000000,25,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
-
 #identifierNumber
 airline-manager-01,user-account-manager-01,MN932100,25,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
 airline-manager-02,user-account-manager-02,MM000210,25,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
-
 #experience
 airline-manager-03,user-account-manager-04,JM000001,0,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
 airline-manager-04,user-account-manager-04,JM000002,1,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
 airline-manager-05,user-account-manager-04,JM000003,49,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
 airline-manager-06,user-account-manager-04,JM000004,50,2012/07/02 0:00,airline-01,http://lorem.com/ipsum
-
 #birthdate
 airline-manager-07,user-account-manager-04,JM000005,25,2000/01/01 0:00,airline-01,http://lorem.com/ipsum
 airline-manager-08,user-account-manager-04,JM000006,25,2000/01/01 0:01,airline-01,http://lorem.com/ipsum
 airline-manager-09,user-account-manager-04,JM000007,25,2024/12/31 23:59,airline-01,http://lorem.com/ipsum
 airline-manager-10,user-account-manager-04,JM000008,25,2025/01/01 0:00,airline-01,http://lorem.com/ipsum
-
 #linkPicture
-airline-manager-11,user-account-manager-04,JM000009,25,2012/07/02 0:00,airline-01,ftp://a
-airline-manager-12,user-account-manager-04,JM000010,25,2012/07/02 0:00,airline-01,ftp://a.b
+airline-manager-11,user-account-manager-04,JM000009,25,2012/07/02 0:00,airline-01,http://a.b
+airline-manager-12,user-account-manager-04,JM000010,25,2012/07/02 0:00,airline-01,http://a.b
 airline-manager-13,user-account-manager-04,JM000011,25,2012/07/02 0:00,airline-01,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/
 airline-manager-14,user-account-manager-04,JM000012,25,2012/07/02 0:00,airline-01,http://www.lorem-ipsum.org/dolor/sit/amet/consectetur/adipiscing/elit/sed/do/eiusmod/tempor/incididunt/ut/labore/et/dolore/magna/aliqua/Ut/enim/ad/minim/veniam/quis/nostrud/exercitation/ullamco/laboris/nisi/ut/aliquip/ex/ea/commodo/consequat/duis/aute/X
 airline-manager-15,user-account-manager-04,JM000013,25,2012/07/02 0:00,airline-01,https://www.lorem-ipsum.org
-airline-manager-16,user-account-manager-04,JM000014,25,2012/07/02 0:00,airline-01,ftp://www.lorem-ipsum.org
+airline-manager-16,user-account-manager-04,JM000014,25,2012/07/02 0:00,airline-01,http://www.lorem-ipsum.org
 airline-manager-17,user-account-manager-04,JM000015,25,2012/07/02 0:00,airline-01,http://www.lorem-ipsum.org/dolor/sit.html
 airline-manager-18,user-account-manager-04,JM000016,25,2012/07/02 0:00,airline-01,http://www.lorem-ipsum.org/dolor/sit.html#dolor
 airline-manager-19,user-account-manager-04,JM000017,25,2012/07/02 0:00,airline-01,http://example.org?a=1&b=2
