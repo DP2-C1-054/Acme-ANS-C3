@@ -57,13 +57,6 @@ public class AirlineManagerFlightCreateService extends AbstractGuiService<Airlin
 
 		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
 
-		dataset.put("isdraftMode", flight.isDraftMode());
-		dataset.put("origin", flight.getOriginCity());
-		dataset.put("destination", flight.getDestinationCity());
-		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
-		dataset.put("scheduledArrival", flight.getScheduledArrival());
-		dataset.put("layovers", flight.getLayovers());
-
 		super.getResponse().addData(dataset);
 	}
 

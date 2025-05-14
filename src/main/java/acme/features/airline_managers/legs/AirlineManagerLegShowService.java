@@ -90,10 +90,10 @@ public class AirlineManagerLegShowService extends AbstractGuiService<AirlineMana
 		dataset.put("flights", flightsChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);
-		dataset.put("airportDeparture", departureChoices.getSelected().getKey());
-		dataset.put("airportDepartures", departureChoices);
-		dataset.put("airportArrival", arrivalChoices.getSelected().getKey());
-		dataset.put("airportArrivals", arrivalChoices);
+		dataset.put("departureAirport", departureChoices.getSelected().getKey());
+		dataset.put("departureAirports", departureChoices);
+		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());
+		dataset.put("arrivalAirports", arrivalChoices);
 
 		super.getResponse().addData(dataset);
 	}

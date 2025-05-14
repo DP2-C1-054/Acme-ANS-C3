@@ -58,16 +58,15 @@ public class AirlineManagerLegUpdateService extends AbstractGuiService<AirlineMa
 
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-		airportArrivalId = super.getRequest().getData("airportArrival", int.class);
-		departure = this.repository.findAirportByAirportId(airportArrivalId);
-		airportDepartureId = super.getRequest().getData("airportDeparture", int.class);
-		arrival = this.repository.findAirportByAirportId(airportDepartureId);
+		airportArrivalId = super.getRequest().getData("arrivalAirport", int.class);
+		arrival = this.repository.findAirportByAirportId(airportArrivalId);
+		airportDepartureId = super.getRequest().getData("departureAirport", int.class);
+		departure = this.repository.findAirportByAirportId(airportDepartureId);
 
 		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
 		leg.setAircraft(aircraft);
 		leg.setDepartureAirport(departure);
 		leg.setArrivalAirport(arrival);
-		leg.durationInHours();
 	}
 
 	@Override
@@ -101,13 +100,13 @@ public class AirlineManagerLegUpdateService extends AbstractGuiService<AirlineMa
 
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
 		dataset.put("duration", leg.durationInHours());
-		dataset.put("statuses", statusChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
+		dataset.put("departureAirport", departureChoices.getSelected().getKey());
+		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);
-		dataset.put("airportDeparture", departureChoices.getSelected().getKey());
-		dataset.put("airportDepartures", departureChoices);
-		dataset.put("airportArrival", arrivalChoices.getSelected().getKey());
-		dataset.put("airportArrivals", arrivalChoices);
+		dataset.put("departureAirports", departureChoices);
+		dataset.put("arrivalAirports", arrivalChoices);
+		dataset.put("statuses", statusChoices);
 
 		super.getResponse().addData(dataset);
 	}

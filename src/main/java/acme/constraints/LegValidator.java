@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.client.helpers.MomentHelper;
 import acme.client.helpers.StringHelper;
+import acme.entities.aircrafts.Aircraft;
 import acme.entities.legs.Leg;
 import acme.entities.legs.LegRepository;
 
@@ -31,43 +31,45 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 	public boolean isValid(final Leg leg, final ConstraintValidatorContext context) {
 		assert context != null;
 
-		boolean result;
+		boolean result = false;
 
 		if (leg == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
 			boolean correct;
 
-			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
-
-			if (StringHelper.isBlank(airlineIataCode) || StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
-			Date currentDate = MomentHelper.getCurrentMoment();
-
-			boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
-			boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;
-			boolean correctDate = leg.getScheduledDeparture().compareTo(currentDate) > 0 && leg.getScheduledArrival().compareTo(currentDate) > 0;
-
-			correct = correctCode && correctDepartureArrivalDates && correctDate;
-
 			String flightNumber = leg.getFlightNumber();
+			Aircraft aircraft = leg.getAircraft();
+			Date scheduledDeparture = leg.getScheduledDeparture();
+			Date scheduledArrival = leg.getScheduledArrival();
 
-			List<Leg> legs = this.repository.findAllLegs();
-			boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(flightNumber) && l.equals(legs));
+			if (!StringHelper.isBlank(flightNumber) && flightNumber != null && aircraft != null && scheduledDeparture != null && scheduledArrival != null) {
 
-			if (!isUnique)
-				super.state(context, false, "flightNumber", "acme.validation.leg.flight-number.message");
-			if (!correctCode)
-				super.state(context, correct, "flightNumber", "acme.validation.legs.flight-number.iata.message");
-			if (!correctDate)
-				super.state(context, correct, "scheduledDeparture", "acme.validation.legs.current-dates.message");
-			if (!correctDepartureArrivalDates)
-				super.state(context, correct, "scheduledArrival", "acme.validation.legs.departure-arrival-date.message");
+				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+
+				boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
+				boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;
+
+				correct = correctCode && correctDepartureArrivalDates;
+
+				List<Leg> legs = this.repository.findAllLegs();
+
+				boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(flightNumber) && !l.equals(leg));
+
+				boolean departureArrivalMustBeDifferent = leg.getDepartureAirport().equals(leg.getArrivalAirport());
+
+				if (!isUnique)
+					super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.message");
+				if (departureArrivalMustBeDifferent)
+					super.state(context, false, "departureAirport", "acme.validation.legs.departureArrivalAirport.message");
+				if (!correctCode)
+					super.state(context, correct, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
+				if (!correctDepartureArrivalDates)
+					super.state(context, correct, "scheduledDeparture", "acme.validation.legs.current-dates.message");
+			}
+			result = !super.hasErrors(context);
 
 		}
-		result = !super.hasErrors(context);
-
 		return result;
 	}
 }

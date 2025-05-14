@@ -48,7 +48,6 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void bind(final Leg leg) {
-		int flightId;
 		int aircraftId;
 		int departureId;
 		int arrivalId;
@@ -58,19 +57,15 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-		departureId = super.getRequest().getData("airportDeparture", int.class);
+		departureId = super.getRequest().getData("departureAirport", int.class);
 		departure = this.repository.findAirportByAirportId(departureId);
-		arrivalId = super.getRequest().getData("airportArrival", int.class);
+		arrivalId = super.getRequest().getData("arrivalAirport", int.class);
 		arrival = this.repository.findAirportByAirportId(arrivalId);
 
-		if (aircraft == null || departure == null || arrival == null)
-			super.state(false, "flight", "acme.validation.leg.invalid-leg-not-null.message");
-		else {
-			super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
-			leg.setAircraft(aircraft);
-			leg.setDepartureAirport(departure);
-			leg.setArrivalAirport(arrival);
-		}
+		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
+		leg.setAircraft(aircraft);
+		leg.setDepartureAirport(departure);
+		leg.setArrivalAirport(arrival);
 
 	}
 
@@ -86,13 +81,12 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void unbind(final Leg leg) {
+
+		Dataset dataset;
 		SelectChoices statusChoices;
-		SelectChoices flightsChoices;
 		SelectChoices aircraftChoices;
 		SelectChoices departureChoices;
 		SelectChoices arrivalChoices;
-		Dataset dataset;
-		List<Flight> flights;
 		List<Aircraft> aircrafts;
 		List<Airport> airports;
 		int managerId;
@@ -106,13 +100,16 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
 
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
+
 		dataset.put("statuses", statusChoices);
-		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);
-		dataset.put("airportDeparture", departureChoices.getSelected().getKey());
-		dataset.put("airportDepartures", departureChoices);
-		dataset.put("airportArrival", arrivalChoices.getSelected().getKey());
-		dataset.put("airportArrivals", arrivalChoices);
+		dataset.put("departureAirports", departureChoices);
+		dataset.put("arrivalAirports", arrivalChoices);
+
+		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
+		dataset.put("departureAirport", departureChoices.getSelected().getKey());
+		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());
+
 		dataset.put("flight", leg.getFlight());
 		dataset.put("flightId", leg.getFlight().getId());
 
