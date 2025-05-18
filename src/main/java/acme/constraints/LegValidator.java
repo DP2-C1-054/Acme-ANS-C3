@@ -65,7 +65,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				if (!correctCode)
 					super.state(context, correct, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
 				if (!correctDepartureArrivalDates)
-					super.state(context, correct, "scheduledDeparture", "acme.validation.legs.current-dates.message");
+					super.state(context, correct, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");
 			}
 			result = !super.hasErrors(context);
 
