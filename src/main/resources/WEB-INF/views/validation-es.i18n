@@ -37,3 +37,7 @@ acme.validation.booking.locatorCode.message = El código tiene que contener entr
 acme.validation.passenger.passport.message = El pasaporte tiene que contener entre 6 y 9 números o letras en mayúscula
 acme.validation.claim.registrationMoment.message = No puedes registrar una reclamación con fecha anterior a su correspondiente tramo de vuelo
 acme.validation.trackingLog.unpublished.message = No puedes publicar la tracking log hasta que se publique su reclamación correspondiente
+acme.validation.claim.invalid-leg.messag = La reclamación debe ser posterior a la fecha de llegada del tramo
+acme.validation.claim.publishWithOutLogs.message = No puedes publicar una reclamación sin registros de seguimiento
+acme.validation.claim.invalid-leg.message = La leg asociada debe estar publicada
+acme.validation.tracking-log.moment.message = El registro debe estar publicado después de su correspondiente reclamación
