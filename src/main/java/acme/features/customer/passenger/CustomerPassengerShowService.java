@@ -18,7 +18,16 @@ public class CustomerPassengerShowService extends AbstractGuiService<Customer, P
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int passengerId;
+		Passenger passenger;
+
+		passengerId = super.getRequest().getData("id", int.class);
+		passenger = this.repository.findPassengerById(passengerId);
+
+		status = super.getRequest().getPrincipal().hasRealm(passenger.getCustomer());
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

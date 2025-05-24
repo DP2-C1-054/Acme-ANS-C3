@@ -1,3 +1,4 @@
-customer.takes.form.title = Añadir pasajero
+customer.takes.form.title = Gestionar pasajeros de la reserva
 customer.takes.form.label.passport = Pasaporte
 customer.takes.form.button.create = Añadir
+customer.takes.form.button.delete = Eliminar
