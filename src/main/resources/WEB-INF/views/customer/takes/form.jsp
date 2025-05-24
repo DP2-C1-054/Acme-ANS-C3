@@ -5,5 +5,14 @@
 
 <acme:form> 
 		<acme:input-select code="customer.takes.form.label.passport" path="passenger" choices="${passengers}"/>
-	<acme:submit code="customer.takes.form.button.create" action="/customer/takes/create?bookingId=${bookingId}"/>
+
+	
+		<jstl:choose>
+		<jstl:when test="${_command == 'create'}">
+			<acme:submit code="customer.takes.form.button.create" action="/customer/takes/create?bookingId=${bookingId}"/>
+		</jstl:when>		
+		<jstl:when test="${_command == 'delete'}">
+			<acme:submit code="customer.takes.form.button.delete" action="/customer/takes/delete?bookingId=${bookingId}"/>
+		</jstl:when>		
+	</jstl:choose>	
 </acme:form>

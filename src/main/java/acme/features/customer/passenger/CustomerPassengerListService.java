@@ -2,6 +2,7 @@
 package acme.features.customer.passenger;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,6 +11,7 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.passenger.Passenger;
+import acme.entities.passenger.Takes;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -58,11 +60,15 @@ public class CustomerPassengerListService extends AbstractGuiService<Customer, P
 		int bookingId;
 		Booking booking;
 		final boolean showCreate;
+		final boolean showDelete;
 
 		bookingId = super.getRequest().getData("bookingId", int.class);
+		List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
 		booking = this.repository.findBookingById(bookingId);
 		showCreate = booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
+		showDelete = booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && !takes.isEmpty();
 		super.getResponse().addGlobal("bookingId", bookingId);
 		super.getResponse().addGlobal("showCreate", showCreate);
+		super.getResponse().addGlobal("showDelete", showDelete);
 	}
 }

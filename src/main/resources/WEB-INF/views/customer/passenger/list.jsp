@@ -13,3 +13,6 @@
 	<acme:button code="customer.passenger.list.button.create" action="/customer/passenger/create?bookingId=${bookingId}"/>
 	<acme:button code="customer.passenger.list.button.add" action="/customer/takes/create?bookingId=${bookingId}"/>
 </jstl:if>
+<jstl:if test="${showDelete}">
+	<acme:button code="customer.passenger.list.button.delete" action="/customer/takes/delete?bookingId=${bookingId}"/>
+</jstl:if>

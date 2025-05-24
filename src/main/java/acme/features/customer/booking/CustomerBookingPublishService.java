@@ -42,7 +42,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		booking = this.repository.findBookingById(masterId);
 		customer = booking == null ? null : booking.getCustomer();
 		Collection<Passenger> passengers = this.repository.findPassengersByBookingId(masterId);
-		canPublish = booking != null && booking.isDraftMode() && booking.getCreditCardNibble() != null && super.getRequest().getPrincipal().hasRealm(customer) && !passengers.isEmpty();
+		boolean allPublished = passengers.stream().allMatch(p -> !p.isDraftMode());
+		canPublish = booking != null && booking.isDraftMode() && booking.getCreditCardNibble() != null && super.getRequest().getPrincipal().hasRealm(customer) && !passengers.isEmpty() && allPublished;
 
 		String method = super.getRequest().getMethod();
 

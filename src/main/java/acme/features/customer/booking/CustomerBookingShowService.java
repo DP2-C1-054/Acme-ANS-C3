@@ -31,22 +31,25 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	public void authorise() {
 		boolean status;
 		int flightId;
+		int bookingId;
+		Booking booking;
 		Flight flight;
 		String travelClass;
 		List<String> travelClasses;
-
 		String method = super.getRequest().getMethod();
-
+		bookingId = super.getRequest().getData("id", int.class);
+		booking = this.repository.findBookingById(bookingId);
 		if (method.equals("GET"))
-			status = true;
+			status = super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
 		else {
+
 			Date currentMoment;
 			currentMoment = MomentHelper.getCurrentMoment();
 			travelClass = super.getRequest().getData("travelClass", String.class);
 			travelClasses = List.of(TravelClass.values()).stream().map(t -> t.name()).toList();
 			flightId = super.getRequest().getData("flight", int.class);
 			flight = this.repository.findFlightById(flightId);
-			status = (travelClasses.contains(travelClass) || StringHelper.isEqual(travelClass, "0", false))
+			status = super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && (travelClasses.contains(travelClass) || StringHelper.isEqual(travelClass, "0", false))
 				&& (flightId == 0 || flight != null && !flight.isDraftMode() && flight.getScheduledDeparture() != null && MomentHelper.isAfter(flight.getScheduledDeparture(), currentMoment));
 		}
 		super.getResponse().setAuthorised(status);

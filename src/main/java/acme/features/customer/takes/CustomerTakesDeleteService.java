@@ -16,7 +16,7 @@ import acme.entities.passenger.Takes;
 import acme.realms.customer.Customer;
 
 @GuiService
-public class CustomerTakesCreateService extends AbstractGuiService<Customer, Takes> {
+public class CustomerTakesDeleteService extends AbstractGuiService<Customer, Takes> {
 
 	@Autowired
 	private CustomerTakesRepository repository;
@@ -35,15 +35,16 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 		int passengerId;
 		Passenger passenger;
 
-		if (method.equals("GET"))
-			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
-		else {
+		if (method.equals("GET")) {
+			List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
+			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && !takes.isEmpty();
+		} else {
 			passengerId = super.getRequest().getData("passenger", int.class);
 			passenger = this.repository.findPassengerById(passengerId);
 			List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
 			Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
 			Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
-			status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && !hasAlreadyExist;
+			status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && hasAlreadyExist;
 		}
 		super.getResponse().setAuthorised(status);
 	}
@@ -63,13 +64,15 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 
 	@Override
 	public void bind(final Takes takes) {
-		int pasengerId;
+		int passengerId;
 		Passenger passenger;
-
-		pasengerId = super.getRequest().getData("passenger", int.class);
-		passenger = this.repository.findPassengerById(pasengerId);
+		int bookingId = super.getRequest().getData("bookingId", int.class);
+		passengerId = super.getRequest().getData("passenger", int.class);
+		passenger = this.repository.findPassengerById(passengerId);
 
 		super.bindObject(takes);
+		Takes take = this.repository.findTakesByBookingAndPassengerId(bookingId, passengerId);
+		super.getBuffer().addData(take);
 		takes.setPassenger(passenger);
 	}
 
@@ -80,7 +83,7 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 
 	@Override
 	public void perform(final Takes takes) {
-		this.repository.save(takes);
+		this.repository.delete(takes);
 	}
 
 	@Override
@@ -92,7 +95,7 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 		int bookingId;
 
 		bookingId = super.getRequest().getData("bookingId", int.class);
-		availablePassengers = this.repository.findAvailablePassengers(bookingId, customer.getId());
+		availablePassengers = this.repository.findAlreadyTakesPassengers(bookingId, customer.getId());
 		passengerChoices = SelectChoices.from(availablePassengers, "passport", takes.getPassenger());
 		dataset = super.unbindObject(takes);
 		dataset.put("passenger", passengerChoices.getSelected().getKey());
