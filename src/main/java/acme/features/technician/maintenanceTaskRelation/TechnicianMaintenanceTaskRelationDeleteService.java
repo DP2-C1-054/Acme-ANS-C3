@@ -15,29 +15,30 @@ import acme.entities.tasks.Task;
 import acme.realms.technicians.Technician;
 
 @GuiService
-public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiService<Technician, MaintenanceTaskRelation> {
+public class TechnicianMaintenanceTaskRelationDeleteService extends AbstractGuiService<Technician, MaintenanceTaskRelation> {
+
+	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	private TechnicianMaintenanceTaskRelationRepository repository;
 
+	// AbstractGuiService interface -------------------------------------------
+
 
 	@Override
 	public void authorise() {
-
 		boolean statusTask = true;
 		boolean status = false;
 		int taskId;
 		Task task;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
-		Technician technician;
 		Collection<Task> tasks;
 
-		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
-		tasks = this.repository.findValidTasksToLink(maintenanceRecord, technician);
+		tasks = this.repository.findValidTasksToUnlink(maintenanceRecord);
 
 		if (super.getRequest().hasData("task", int.class)) {
 			taskId = super.getRequest().getData("task", int.class);
@@ -64,42 +65,41 @@ public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiS
 		object = new MaintenanceTaskRelation();
 		object.setMaintenanceRecord(maintenanceRecord);
 		super.getBuffer().addData(object);
-
 	}
 
 	@Override
 	public void bind(final MaintenanceTaskRelation involves) {
-
-		super.bindObject(involves, "task");
-
-	}
-
-	@Override
-	public void validate(final MaintenanceTaskRelation involves) {
 		;
 	}
 
 	@Override
-	public void perform(final MaintenanceTaskRelation involves) {
+	public void validate(final MaintenanceTaskRelation involves) {
 
-		this.repository.save(involves);
+		Task task = super.getRequest().getData("task", Task.class);
+		super.state(task != null, "task", "technician.involves.form.error.no-task-to-unlink");
+	}
+
+	@Override
+	public void perform(final MaintenanceTaskRelation involves) {
+		Task task = super.getRequest().getData("task", Task.class);
+		MaintenanceRecord maintenanceRecord = involves.getMaintenanceRecord();
+
+		this.repository.delete(this.repository.findMaintenanceTaskRelationsByMaintenanceRecordAndTask(maintenanceRecord, task));
 
 	}
 
 	@Override
 	public void unbind(final MaintenanceTaskRelation involves) {
-		Technician technician;
 		Collection<Task> tasks;
 		int maintenanceRecordId;
 		MaintenanceRecord maintenanceRecord;
 		SelectChoices choices;
 		Dataset dataset;
 
-		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 		maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
 		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
-		tasks = this.repository.findValidTasksToLink(maintenanceRecord, technician);
+		tasks = this.repository.findValidTasksToUnlink(maintenanceRecord);
 		choices = SelectChoices.from(tasks, "description", involves.getTask());
 
 		dataset = super.unbindObject(involves, "maintenanceRecord");
@@ -109,6 +109,5 @@ public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiS
 		dataset.put("aircraftRegistrationNumber", involves.getMaintenanceRecord().getAircraft().getRegistrationNumber());
 
 		super.getResponse().addData(dataset);
-
 	}
 }

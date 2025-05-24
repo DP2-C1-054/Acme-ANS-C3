@@ -25,45 +25,49 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status;
-		int mrId;
-		MaintenanceRecord mr;
+		int maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
 		Technician technician;
 
-		mrId = super.getRequest().getData("id", int.class);
-		mr = this.repository.findMaintenanceRecordById(mrId);
-
-		technician = mr == null ? null : mr.getTechnician();
-		status = mr != null && mr.isDraftMode() && this.getRequest().getPrincipal().hasRealm(technician);
-
+		status = super.getRequest().hasData("id", int.class);
+		if (status) {
+			maintenanceRecordId = super.getRequest().getData("id", int.class);
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+			technician = maintenanceRecord == null ? null : maintenanceRecord.getTechnician();
+			status = maintenanceRecord != null && maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+		}
 		super.getResponse().setAuthorised(status);
 	}
+
 	@Override
 	public void load() {
 		MaintenanceRecord maintenanceRecord;
-		int id;
+		int maintenanceRecordId;
 
-		id = super.getRequest().getData("id", int.class);
-		maintenanceRecord = this.repository.findMaintenanceRecordById(id);
+		maintenanceRecordId = super.getRequest().getData("id", int.class);
+		maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
 		super.getBuffer().addData(maintenanceRecord);
 	}
 
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
+
 		int aircraftId;
 		Aircraft aircraft;
 
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftById(aircraftId);
 
-		super.bindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes");
-
+		super.bindObject(maintenanceRecord, "moment", "status", "inspectionDueDate", "estimatedCost", "notes");
 		maintenanceRecord.setAircraft(aircraft);
 	}
+
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
 		;
 	}
+
 	@Override
 	public void perform(final MaintenanceRecord maintenanceRecord) {
 		Collection<MaintenanceTaskRelation> involves;
@@ -71,30 +75,29 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 		involves = this.repository.findInvolvesByMaintenanceRecordId(maintenanceRecord.getId());
 		this.repository.deleteAll(involves);
 		this.repository.delete(maintenanceRecord);
+
 	}
+
 	@Override
 	public void unbind(final MaintenanceRecord maintenanceRecord) {
-		Dataset dataset;
-		SelectChoices choices;
-		SelectChoices selectedAircrafts;
 		Collection<Aircraft> aircrafts;
-
-		choices = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
+		SelectChoices choicesAircrafts;
+		SelectChoices choicesStatus;
+		Dataset dataset;
 
 		aircrafts = this.repository.findAllAircrafts();
-		selectedAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
 
-		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "status", "nextInspectionDue", "estimatedCost", "notes", "draftMode");
+		choicesStatus = SelectChoices.from(MaintenanceStatus.class, maintenanceRecord.getStatus());
+		choicesAircrafts = SelectChoices.from(aircrafts, "registrationNumber", maintenanceRecord.getAircraft());
+
+		dataset = super.unbindObject(maintenanceRecord, "maintenanceMoment", "nextInspectionDue", "estimatedCost", "notes", "draftMode");
 		dataset.put("technician", maintenanceRecord.getTechnician().getIdentity().getFullName());
-		dataset.put("aicraft", selectedAircrafts.getSelected().getKey());
-		dataset.put("aircrafts", selectedAircrafts);
-		dataset.put("status", choices.getSelected().getKey());
-		dataset.put("statuses", choices);
-
-		dataset.put("readonly", false);
+		dataset.put("aircraft", choicesAircrafts.getSelected().getKey());
+		dataset.put("aircrafts", choicesAircrafts);
+		dataset.put("status", choicesStatus.getSelected().getKey());
+		dataset.put("statuses", choicesStatus);
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }

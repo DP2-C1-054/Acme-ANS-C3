@@ -7,6 +7,8 @@ import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
+import acme.entities.maintenance.MaintenanceRecord;
+import acme.entities.maintenance_task_relation.MaintenanceTaskRelation;
 import acme.entities.tasks.Task;
 import acme.entities.tasks.TaskType;
 import acme.realms.technicians.Technician;
@@ -22,27 +24,33 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
-		boolean status = true;
+		boolean status = false;
+		Integer maintenanceRecordId = null;
+		MaintenanceRecord maintenanceRecord;
+		Technician technician;
 
-		if (super.getRequest().getMethod().equals("POST")) {
-			int taskId;
-			Task task;
-			Technician technician;
+		if (super.getRequest().hasData("maintenanceRecordId")) {
+			maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", Integer.class);
 
-			taskId = super.getRequest().getData("id", int.class);
-			task = this.repository.findTaskById(taskId);
-			technician = task == null ? null : task.getTechnician();
-			status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+			if (maintenanceRecordId != null) {
+				maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
 
-		}
+				if (maintenanceRecord != null) {
+					technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
+					status = maintenanceRecord.isDraftMode() && technician.equals(maintenanceRecord.getTechnician());
+				}
+			}
+		} else
+			status = true;
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		Task task;
-
 		Technician technician;
+
 		technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 
 		task = new Task();
@@ -54,33 +62,51 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void bind(final Task task) {
-		assert task != null;
 
-		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
 		super.bindObject(task, "type", "description", "priority", "estimatedDuration");
-		task.setTechnician(technician);
-		task.setDraftMode(true);
 	}
+
 	@Override
 	public void validate(final Task task) {
 		;
 	}
+
 	@Override
 	public void perform(final Task task) {
+		Integer maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
+		MaintenanceTaskRelation involves;
+
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
+			super.getRequest().getData("maintenanceRecordId", Integer.class) : null;
+
 		this.repository.save(task);
+
+		if (maintenanceRecordId != null) {
+
+			involves = new MaintenanceTaskRelation();
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+
+			involves.setTask(task);
+			involves.setMaintenanceRecord(maintenanceRecord);
+
+			this.repository.save(involves);
+		}
 	}
+
 	@Override
 	public void unbind(final Task task) {
-		Dataset dataset;
 		SelectChoices choices;
+		Dataset dataset;
 
 		choices = SelectChoices.from(TaskType.class, task.getType());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("technician", task.getTechnician().getIdentity().getFullName());
-		dataset.put("types", choices);
 		dataset.put("type", choices.getSelected().getKey());
-		dataset.put("readonly", false);
+		dataset.put("types", choices);
+		if (super.getRequest().hasData("maintenanceRecordId"))
+			dataset.put("maintenanceRecordId", super.getRequest().getData("maintenanceRecordId", Integer.class));
 
 		super.getResponse().addData(dataset);
 	}

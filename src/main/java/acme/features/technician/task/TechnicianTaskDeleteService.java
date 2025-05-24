@@ -21,67 +21,75 @@ public class TechnicianTaskDeleteService extends AbstractGuiService<Technician, 
 	@Autowired
 	private TechnicianTaskRepository repository;
 
+
 	// AbstractGuiService interface -------------------------------------------
-
-
 	@Override
 	public void authorise() {
-		boolean status;
-		int taskId;
+		boolean status = false;
+		Integer taskId;
 		Task task;
 		Technician technician;
 
-		taskId = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(taskId);
-		technician = task == null ? null : task.getTechnician();
-		status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+		if (super.getRequest().hasData("id", Integer.class)) {
+			taskId = super.getRequest().getData("id", Integer.class);
+			if (taskId != null) {
+				task = this.repository.findTaskById(taskId);
+				if (task != null) {
+					technician = task.getTechnician();
+					status = task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+				}
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
+		int taskId;
 		Task task;
-		int id;
 
-		id = super.getRequest().getData("id", int.class);
-		task = this.repository.findTaskById(id);
+		taskId = super.getRequest().getData("id", int.class);
+		task = this.repository.findTaskById(taskId);
 
 		super.getBuffer().addData(task);
 	}
 
 	@Override
 	public void bind(final Task task) {
-		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();
-		super.bindObject(task, "type", "description", "priority", "estimatedDuration");
-		task.setTechnician(technician);
+
 	}
+
 	@Override
 	public void validate(final Task task) {
-		;
-	}
-	@Override
-	public void perform(final Task task) {
+		boolean status;
 		Collection<MaintenanceTaskRelation> involves;
 
 		involves = this.repository.findInvolvesByTaskId(task.getId());
-		this.repository.deleteAll(involves);
+
+		status = involves.isEmpty();
+		super.state(status, "*", "acme.validation.task.maintenance-record-linked.message", task);
+	}
+
+	@Override
+	public void perform(final Task task) {
+
 		this.repository.delete(task);
+
 	}
 	@Override
 	public void unbind(final Task task) {
-		Dataset dataset;
 		SelectChoices choices;
+		Dataset dataset;
 
 		choices = SelectChoices.from(TaskType.class, task.getType());
 
 		dataset = super.unbindObject(task, "type", "description", "priority", "estimatedDuration", "draftMode");
 		dataset.put("technician", task.getTechnician().getIdentity().getFullName());
-		dataset.put("types", choices);
 		dataset.put("type", choices.getSelected().getKey());
-		dataset.put("readonly", false);
+		dataset.put("types", choices);
 
 		super.getResponse().addData(dataset);
 	}
-
 }
