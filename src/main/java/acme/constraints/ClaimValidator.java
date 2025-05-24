@@ -29,9 +29,8 @@ public class ClaimValidator extends AbstractValidator<ValidClaim, Claim> {
 			if (claim.getRegistrationMoment() != null && claim.getLeg() != null && claim.getLeg().getScheduledArrival() != null) {
 				Leg leg = claim.getLeg();
 				isValid = MomentHelper.isAfter(claim.getRegistrationMoment(), leg.getScheduledArrival()) && !leg.isDraftMode();
+				super.state(context, isValid, "leg", "acme.validation.claim.invalid-leg.message");
 			}
-
-			super.state(context, isValid, "leg", "acme.validation.claim.invalid-leg.message");
 		}
 
 		result = !super.hasErrors(context);

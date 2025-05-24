@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.StringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -30,6 +29,7 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		String method;
 		Leg leg;
 		int legId;
+		AssistanceAgent assistanceAgent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
 
 		method = super.getRequest().getMethod();
 
@@ -37,11 +37,9 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 			status = true;
 		else {
 			legId = super.getRequest().getData("leg", int.class);
-			leg = this.repository.findLegById(legId);
-			String claimType = super.getRequest().getData("type", String.class);
-			List<String> types = List.of(ClaimType.values()).stream().map(t -> t.name()).toList();
+			leg = this.repository.findValidLegById(assistanceAgent.getAirline(), legId);
 
-			status = (legId == 0 || leg != null && !leg.isDraftMode()) && (types.contains(claimType) || StringHelper.isEqual(claimType, "0", false));
+			status = legId == 0 || leg != null && !leg.isDraftMode();
 
 		}
 
@@ -89,8 +87,9 @@ public class AssistanceAgentClaimCreateService extends AbstractGuiService<Assist
 		List<Leg> legs = allLegs.stream().filter(l -> (MomentHelper.isBefore(l.getScheduledArrival(), MomentHelper.getCurrentMoment()) && !l.isDraftMode() && l.getAircraft().getAirline().equals(assistanceAgent.getAirline()))).toList();
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
-		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "draftMode");
+		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "draftMode");
 		dataset.put("types", choices);
+
 		dataset.put("legs", choices2);
 
 		super.getResponse().addData(dataset);
