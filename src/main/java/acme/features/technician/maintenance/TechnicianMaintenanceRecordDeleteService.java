@@ -50,7 +50,6 @@ public class TechnicianMaintenanceRecordDeleteService extends AbstractGuiService
 
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
-
 		int aircraftId;
 		Aircraft aircraft;
 

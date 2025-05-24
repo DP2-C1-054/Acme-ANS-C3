@@ -23,7 +23,18 @@ public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiS
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int mrId;
+		MaintenanceRecord mr;
+		Technician technician;
+
+		mrId = super.getRequest().getData("maintenanceRecordId", int.class);
+		mr = this.repository.findMaintenanceRecordById(mrId);
+
+		technician = mr == null ? null : mr.getTechnician();
+		status = mr != null && mr.isDraftMode() && this.getRequest().getPrincipal().hasRealm(technician);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -41,7 +52,6 @@ public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiS
 
 	@Override
 	public void bind(final MaintenanceTaskRelation involves) {
-
 		int taskId;
 		Task task;
 
@@ -55,7 +65,11 @@ public class TechnicianMaintenanceTaskRelationCreateService extends AbstractGuiS
 
 	@Override
 	public void validate(final MaintenanceTaskRelation involves) {
-		;
+		boolean notPublished = true;
+		MaintenanceRecord mr = involves.getMaintenanceRecord();
+		if (mr != null && !mr.isDraftMode())
+			notPublished = false;
+		super.state(notPublished, "maintenanceRecord", "acme.validation.involves.invalid-involves-publish.message");
 	}
 
 	@Override

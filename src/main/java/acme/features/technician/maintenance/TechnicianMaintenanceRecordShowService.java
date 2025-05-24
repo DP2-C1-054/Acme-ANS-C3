@@ -32,7 +32,7 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 		mr = this.repository.findMaintenanceRecordById(mrId);
 
 		technician = mr == null ? null : mr.getTechnician();
-		status = mr != null && super.getRequest().getPrincipal().hasRealm(technician);
+		status = mr != null && (mr.isDraftMode() == false || super.getRequest().getPrincipal().hasRealm(technician));
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -65,11 +65,9 @@ public class TechnicianMaintenanceRecordShowService extends AbstractGuiService<T
 		dataset.put("aicraft", selectedAircrafts.getSelected().getKey());
 		dataset.put("aircrafts", selectedAircrafts);
 		dataset.put("statuses", choices);
-		dataset.put("confirmation", false);
 		dataset.put("maintenanceRecordId", maintenanceRecord.getId());
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }

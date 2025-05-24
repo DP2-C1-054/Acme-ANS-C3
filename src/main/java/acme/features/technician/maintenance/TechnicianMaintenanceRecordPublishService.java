@@ -33,7 +33,7 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		mr = this.repository.findMaintenanceRecordById(mrId);
 
 		technician = mr == null ? null : mr.getTechnician();
-		status = mr != null && this.getRequest().getPrincipal().hasRealm(technician);
+		status = mr != null && mr.isDraftMode() && this.getRequest().getPrincipal().hasRealm(technician);
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -51,7 +51,6 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 
 	@Override
 	public void bind(final MaintenanceRecord maintenanceRecord) {
-
 		int aircraftId;
 		Aircraft aircraft;
 
@@ -64,7 +63,6 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 	}
 	@Override
 	public void validate(final MaintenanceRecord maintenanceRecord) {
-
 		Collection<Task> tasks = this.repository.findTasksByMaintenanceRecordId(maintenanceRecord.getId());
 
 		super.state(!tasks.isEmpty(), "*", "technician.maintenance-record.form.error.zero-tasks");
@@ -99,7 +97,6 @@ public class TechnicianMaintenanceRecordPublishService extends AbstractGuiServic
 		dataset.put("statuses", choices);
 
 		super.getResponse().addData(dataset);
-
 	}
 
 }

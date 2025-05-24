@@ -22,7 +22,20 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = true;
+
+		if (super.getRequest().getMethod().equals("POST")) {
+			int taskId;
+			Task task;
+			Technician technician;
+
+			taskId = super.getRequest().getData("id", int.class);
+			task = this.repository.findTaskById(taskId);
+			technician = task == null ? null : task.getTechnician();
+			status = task != null && task.isDraftMode() && super.getRequest().getPrincipal().hasRealm(technician);
+
+		}
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -41,7 +54,6 @@ public class TechnicianTaskCreateService extends AbstractGuiService<Technician, 
 
 	@Override
 	public void bind(final Task task) {
-
 		assert task != null;
 
 		Technician technician = (Technician) super.getRequest().getPrincipal().getActiveRealm();

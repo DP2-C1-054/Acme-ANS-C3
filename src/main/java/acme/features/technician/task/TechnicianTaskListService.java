@@ -51,7 +51,6 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 				super.getResponse().addGlobal("draftMode", draftMode);
 			}
 			tasks = this.repository.findInvolvesByMaintenanceRecord(maintenanceRecord);
-
 		}
 		super.getBuffer().addData(tasks);
 	}
