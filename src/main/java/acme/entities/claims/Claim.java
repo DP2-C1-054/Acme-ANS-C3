@@ -17,6 +17,7 @@ import acme.client.components.validation.ValidEmail;
 import acme.client.components.validation.ValidMoment;
 import acme.client.components.validation.ValidString;
 import acme.client.helpers.SpringHelper;
+import acme.constraints.ValidClaim;
 import acme.entities.legs.Leg;
 import acme.entities.tracking_logs.TrackingLog;
 import acme.realms.assistance_agents.AssistanceAgent;
@@ -26,6 +27,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@ValidClaim
 public class Claim extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
@@ -72,7 +74,7 @@ public class Claim extends AbstractEntity {
 		TrackingLog trackingLog;
 
 		repository = SpringHelper.getBean(ClaimRepository.class);
-		trackingLog = repository.findTrackingLogsOrderByMoment(this.getId()).stream().findFirst().orElse(null);
+		trackingLog = repository.findTrackingLogsOrderByPercentageDesc(this.getId()).stream().findFirst().orElse(null);
 
 		if (trackingLog != null)
 			return switch (trackingLog.getStatus()) {

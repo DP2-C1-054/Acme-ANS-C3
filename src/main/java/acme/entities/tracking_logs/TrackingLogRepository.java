@@ -17,4 +17,13 @@ public interface TrackingLogRepository extends AbstractRepository {
 	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId ORDER BY t.lastUpdateMoment ASC")
 	List<TrackingLog> findTrackingLogsOrderByMomentASC(int claimId);
 
+	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId ORDER BY t.id ASC")
+	List<TrackingLog> findTrackingLogsOrderById(int claimId);
+
+	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId ORDER BY t.percentage ASC")
+	List<TrackingLog> findTrackingLogsOrderByPercentage(int claimId);
+
+	@Query("SELECT t FROM TrackingLog t WHERE t.claim.id = :claimId")
+	List<TrackingLog> findAllTrackingLogs(Integer claimId);
+
 }

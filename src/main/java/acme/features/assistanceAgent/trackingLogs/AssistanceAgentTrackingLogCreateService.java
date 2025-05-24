@@ -2,12 +2,14 @@
 package acme.features.assistanceAgent.trackingLogs;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -39,10 +41,13 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		Claim claim;
 		int claimId;
 
+		Date lastUpdateMoment = MomentHelper.getCurrentMoment();
+
 		claimId = super.getRequest().getData("claimId", int.class);
 		claim = this.repository.findClaimById(claimId);
 
 		trackingLog = new TrackingLog();
+		trackingLog.setLastUpdateMoment(lastUpdateMoment);
 		trackingLog.setClaim(claim);
 		trackingLog.setDraftMode(true);
 
@@ -51,7 +56,7 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "percentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "percentage", "resolution", "status");
 
 	}
 
@@ -69,6 +74,8 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 					// solo puede repetirse el 100% si está publicada
 					if (lastLog.isDraftMode())
 						super.state(false, "percentage", "assistance-agent.tracking-log.publish-percentage");
+					else if (lastLog.getStatus() != trackingLog.getStatus())
+						super.state(false, "percentage", "assistance-agent.tracking-log.status-percentage");
 				} else if (lastLog.getPercentage() == trackingLog.getPercentage() && lastLog.getPercentage() != 100.00 && trackingLog.getPercentage() != 100.00)
 					// no puede repetirse el porcentaje
 					super.state(false, "percentage", "assistance-agent.tracking-log.same-percentage");
@@ -81,6 +88,8 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
+		Date moment = MomentHelper.getCurrentMoment();
+		trackingLog.setLastUpdateMoment(moment);
 		this.repository.save(trackingLog);
 	}
 
