@@ -76,3 +76,10 @@ master.menu.customer.list-bookings = List Bookings
 master.menu.assistanceAgent = Assistance Agent
 master.menu.assistanceAgent.list-claims = List completed claims
 master.menu.assistanceAgent.list-claims-pending = List pending claims
+
+# master.menu.flightCrewMember ##########################################################
+
+master.menu.flightCrewMember = Flight Crew Member
+master.menu.flightCrewMember.list-planned-flight-assignments = List planned flight assignments
+master.menu.flightCrewMember.list-completed-flight-assignments = List completed flight assignments
+master.menu.flightCrewMember.list-activity-logs = List activity logs
