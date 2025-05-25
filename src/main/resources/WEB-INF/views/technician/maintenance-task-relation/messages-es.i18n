@@ -1,30 +1,16 @@
-technician.maintenance-record.list.title = Lista de informes de mantenimiento
-technician.maintenance-record.form.title = Detalles del informe de mantenimiento
+technician.maintenance-task-relation.form.title = Formulario de vinculación de tarea
+technician.maintenance-task-relation.list.title = Lista de tareas vinculadas
 
-technician.maintenance-record.list.label.status = Estado
-technician.maintenance-record.list.label.maintenanceMoment = Fecha de mantenimiento
-technician.maintenance-record.list.label.nextInspectionDue = Próxima Inspección 
-technician.maintenance-record.list.label.aircraft = Avión
+technician.maintenance-task-relation.form.label.task = Tarea:
+technician.maintenance-task-relation.form.label.aircraft = Aeronave asociada:
 
-technician.maintenance-record.list.button.create = Crear
 
-technician.maintenance-record.list.label.status = Estado
-technician.maintenance-record.list.label.maintenanceMoment = Fecha de mantenimiento
-technician.maintenance-record.list.label.nextInspectionDue = Próxima inspección
-technician.maintenance-record.form.label.estimatedCost = Coste estimado
-technician.maintenance-record.form.label.notes = Notas
-technician.maintenance-record.form.label.aircraft = Avión
-technician.maintenance-record.form.label.confirmation = Confimación
+technician.maintenance-task-relation.form.button.link = Añadir
+technician.maintenance-task-relation.form.button.unlink = Eliminar
 
-technician.maintenance-record.form.button.create = Crear
+technician.maintenance-task-relation.list.label.maintenanceRecord = Registro de mantenimiento
+technician.maintenance-task-relation.list.label.task = Tarea
 
-technician.maintenance-record.form.button.update = Actualizar
-technician.maintenance-record.form.button.delete = Eliminar
-technician.maintenance-record.form.button.publish = Publicar
-technician.maintenance-record.form.button.show.mtr = Tareas asociadas
+technician.maintenance-task-relation.list.button.create = Crear
 
-technician.task.form.button.add = Añadir tarea
-
-technician.maintenance-task-relation.form.title = Asignar tarea a un registro
-technician.mtr.form.task = Tarea
-technician.mtr.form.button.create = Asignar
+technician.maintenance-task-relation.form.error.no-task-to-unlink = No puede ser nulo  

@@ -1,32 +1,18 @@
-technician.maintenance-record.list.title = Maintenance record List
-technician.maintenance-record.form.title = Maintenance record Details
+technician.maintenance-task-relation.form.title = Task link form
+technician.maintenance-task-relation.list.title = Linked tasks list
 
-technician.maintenance-record.list.label.status = Status
-technician.maintenance-record.list.label.maintenanceMoment = Maintenance Moment
-technician.maintenance-record.list.label.nextInspectionDue = Next Inspection
-technician.maintenance-record.list.label.aircraft = Aircraft
+technician.maintenance-task-relation.form.label.task = Task:
+technician.maintenance-task-relation.form.label.aircraft = Aircraft associated:
 
-technician.maintenance-record.list.button.create = Create
 
-technician.maintenance-record.list.label.status = Status
-technician.maintenance-record.list.label.maintenanceMoment = Maintenance Moment
-technician.maintenance-record.list.label.nextInspectionDue = Next Inspection
+technician.maintenance-task-relation.form.button.link = Add
+technician.maintenance-task-relation.form.button.unlink = Delete
 
-technician.maintenance-record.form.label.estimatedCost = Estimated Cost
-technician.maintenance-record.form.label.notes = Notes
-technician.maintenance-record.form.label.aircraft = Aircraft
-technician.maintenance-record.form.label.confirmation = Confirmation
 
-technician.maintenance-record.form.button.create = Create
+technician.maintenance-task-relation.list.label.maintenanceRecord = Maintenance record
+technician.maintenance-task-relation.list.label.task = Task
 
-technician.maintenance-record.form.button.update = Update
-technician.maintenance-record.form.button.delete = Delete
-technician.maintenance-record.form.button.publish = Publish
-technician.maintenance-record.form.button.show.mtr = Associated Tasks
+technician.maintenance-task-relation.list.button.create = Create
 
-technician.task.form.button.add = Add Task
-
-technician.maintenance-task-relation.form.title = Assign a task to a record
-technician.mtr.form.task = Task
-technician.mtr.form.button.create = Assign
+technician.maintenance-task-relation.form.error.no-task-to-unlink = May not be null  
 

@@ -1,37 +1,33 @@
 key,type,description,priority,estimated_duration,draftMode,key:technician
-# Base entity
-task-00,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500.00,true,technician-01
-# Task type variations
-task-01,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500.00,true,technician-01
-task-02,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500.00,true,technician-01
-task-03,SYSTEM_CHECK,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500.00,true,technician-01
-# Priority variations
-task-04,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0,500.00,true,technician-01
-task-05,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",1,500.00,true,technician-01
-task-06,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10,500.00,true,technician-01
-task-07,SYSTEM_CHECK,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",6,500.00,true,technician-01
-# Estimated duration variations
-task-08,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,0.00,true,technician-01
-task-09,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,0.01,true,technician-01
-task-10,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,999.99,true,technician-01
-task-11,SYSTEM_CHECK,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1000.00,true,technician-01
-# Description variations
-task-12,MAINTENANCE,L,5,500.00,true,technician-01
-task-13,INSPECTION,Lo,5,500.00,true,technician-01
-task-14,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5,500.00,true,technician-01
-task-15,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,500.00,true,technician-01
-task-16,INSPECTION,โลเร็ม อิปซัม,5,500.00,true,technician-01
-task-17,MAINTENANCE,لوريم إيبسوم,5,500.00,true,technician-01
-task-18,INSPECTION,洛伦·伊普森,5,500.00,true,technician-01
-task-19,INSPECTION,<marquee>Hacked</marquee>,5,500.00,true,technician-01
-task-20,INSPECTION,<script>alert(‘Hacked!’);</script>,5,500.00,true,technician-01
-task-21,INSPECTION,' or 'A' = 'A,7,500.00,true,technician-01
-# Other cases
-task-22,MAINTENANCE,Critical engine component failure repair.,10,999,true,technician-01
-task-23,INSPECTION,Post-flight damage assessment.,3,1.2,true,technician-01
-task-24,REPAIR,Sensor calibration for autopilot accuracy.,5,3.5,true,technician-01
-task-25,SYSTEM_CHECK,Black box system diagnostics.,6,2.8,true,technician-01
-task-26,MAINTENANCE,Emergency fix on wing de-icing system.,9,7.5,true,technician-01
-task-27,INSPECTION,Cargo door mechanical check.,4,1.8,true,technician-01
-task-28,REPAIR,Navigation system update and recalibration.,8,5.5,true,technician-01
-task-29,SYSTEM_CHECK,Hydraulic pressure stress test.,5,4.7,true,technician-01
+# base entity
+task-000,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+# type
+task-001,MAINTENANCE,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+task-002,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+task-003,REPAIR,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+task-004,SYSTEM_CHECK,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-01
+# description
+task-005,INSPECTION,L,5,500,TRUE,technician-01
+task-006,INSPECTION,Lo,5,500,TRUE,technician-01
+task-007,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",5,500,TRUE,technician-01
+task-008,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*",5,500,TRUE,technician-01
+task-009,INSPECTION,โลเร็ม อิปซัม,5,500,TRUE,technician-01
+task-010,INSPECTION,لوريم إيبسوم,5,500,TRUE,technician-01
+task-011,INSPECTION,洛伦·伊普森,5,500,TRUE,technician-01
+task-012,INSPECTION,<marquee>Hacked</marquee>,5,500,TRUE,technician-01
+task-013,INSPECTION,<script>alert(‘Hacked!’);</script>,5,500,TRUE,technician-01
+task-014,INSPECTION,' or 'A' = 'A ,5,500,TRUE,technician-01
+# priority
+task-015,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",0,500,TRUE,technician-01
+task-016,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",1,500,TRUE,technician-01
+task-017,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",9,500,TRUE,technician-01
+task-018,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",10,500,TRUE,technician-01
+# estimatedDurationHours
+task-019,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,0,TRUE,technician-01
+task-020,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1,TRUE,technician-01
+task-021,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,999,TRUE,technician-01
+task-022,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,1000,TRUE,technician-01
+# draft-mode
+task-023,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,FALSE,technician-01
+# technician
+task-024,INSPECTION,"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*",5,500,TRUE,technician-02
