@@ -1,0 +1,21 @@
+flight-crew-member.flight-assignment.list.title = List of flight assignments
+
+flight-crew-member.flight-assignment.list.label.scheduledDeparture = Scheduled departure
+flight-crew-member.flight-assignment.list.label.flight-number = Flight number
+flight-crew-member.flight-assignment.list.label.duty = Duty
+flight-crew-member.flight-assignment.list.label.status = Status
+flight-crew-member.flight-assignment.list.label.draftMode = Draft
+
+flight-crew-member.flight-assignment.list.button.create = Create
+
+flight-crew-member.flight-assignment.form.title = Flight assignment
+
+flight-crew-member.flight-assignment.form.label.moment = Last update moment
+flight-crew-member.flight-assignment.form.label.leg = Leg
+flight-crew-member.flight-assignment.form.label.duty = Duty
+flight-crew-member.flight-assignment.form.label.status = Status
+flight-crew-member.flight-assignment.form.label.remarks = Remarks
+
+flight-crew-member.flight-assignment.form.button.create = Create
+flight-crew-member.flight-assignment.form.button.update = Update
+flight-crew-member.flight-assignment.form.button.publish = Publish

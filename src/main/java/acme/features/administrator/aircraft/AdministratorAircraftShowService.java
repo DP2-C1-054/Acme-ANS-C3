@@ -23,8 +23,18 @@ public class AdministratorAircraftShowService extends AbstractGuiService<Adminis
 
 	@Override
 	public void authorise() {
-		boolean isAdministrator = super.getRequest().getPrincipal().hasRealmOfType(Administrator.class);
-		super.getResponse().setAuthorised(isAdministrator);
+		Aircraft aircraft;
+		int aircraftId;
+		boolean status;
+
+		if (super.getRequest().hasData("id", int.class)) {
+			aircraftId = super.getRequest().getData("id", int.class);
+			aircraft = this.repository.findAircraftById(aircraftId);
+			status = aircraft != null;
+		} else
+			status = false;
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
