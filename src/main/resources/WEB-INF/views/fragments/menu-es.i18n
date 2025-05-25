@@ -60,8 +60,10 @@ master.menu.technician.list-tasks = Tareas
 
 # master.menu.user-account ####################################################
 master.menu.technician = Técnico
-master.menu.technician.list-maintenance-records = Registros de mantenimiento
-master.menu.technician.list-tasks = Tareas
+master.menu.technician.list-my-maintenance-records= Listar mis registros de mantenimiento
+master.menu.technician.list-my-tasks = Listar mis tareas
+master.menu.technician.list-maintenance-record-catalogue = Listar registros de mantenimiento publicados
+master.menu.technician.list-task-catalogue = Listar tareas publicadas
 
 # master.menu.user-account ####################################################
 
@@ -73,3 +75,10 @@ master.menu.customer.list-bookings = Ver reservas
 master.menu.assistanceAgent = Agente
 master.menu.assistanceAgent.list-claims = Listar reclamaciones completadas
 master.menu.assistanceAgent.list-claims-pending = Listar reclamaciones pendientes
+
+# master.menu.flightCrewMember ##########################################################
+
+master.menu.flightCrewMember = Tripulante de vuelo
+master.menu.flightCrewMember.list-planned-flight-assignments = Asignaciones de vuelos planeados
+master.menu.flightCrewMember.list-completed-flight-assignments = Asignaciones de vuelos completados
+master.menu.flightCrewMember.list-activity-logs = Registros de actividad

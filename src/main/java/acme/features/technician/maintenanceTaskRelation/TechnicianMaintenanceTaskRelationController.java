@@ -14,7 +14,9 @@ import acme.realms.technicians.Technician;
 public class TechnicianMaintenanceTaskRelationController extends AbstractGuiController<Technician, MaintenanceTaskRelation> {
 
 	@Autowired
-	private TechnicianMaintenanceTaskRelationCreateService createService;
+	private TechnicianMaintenanceTaskRelationCreateService	createService;
+	@Autowired
+	private TechnicianMaintenanceTaskRelationDeleteService	deleteService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -22,6 +24,7 @@ public class TechnicianMaintenanceTaskRelationController extends AbstractGuiCont
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 
 }

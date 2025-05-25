@@ -1,0 +1,10 @@
+flight-crew-member.activity-log.list.title = List of activity logs
+
+flight-crew-member.activity-log.list.label.registrationMoment = Registration moment
+flight-crew-member.activity-log.list.label.incidentType = Incident type
+flight-crew-member.activity-log.list.label.incidentDescription = Incident description
+flight-crew-member.activity-log.list.label.severityLevel = Severity level
+flight-crew-member.activity-log.list.label.flightAssignment = Flight assignment
+flight-crew-member.activity-log.list.label.draftMode = Draft
+
+flight-crew-member.activity-log.list.button.create = Create

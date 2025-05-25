@@ -1,36 +1,43 @@
-key,key:allocatedFlightCrewMember,duty,moment,status,key:leg,remarks
+key,key:allocatedFlightCrewMember,duty,moment,status,key:leg,remarks,draftMode
 # base-entity
-flight-assignment-00,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-00,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # allocatedFlightCrewMember
-flight-assignment-01,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-02,flight-crew-member-02,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-03,flight-crew-member-03,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-04,flight-crew-member-04,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-01,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-02,flight-crew-member-02,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-03,flight-crew-member-03,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-04,flight-crew-member-04,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # duty
-flight-assignment-05,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-06,flight-crew-member-02,CO_PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-07,flight-crew-member-03,LEAD_ATTENDANT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-08,flight-crew-member-04,CABIN_ATTENDANT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-05,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-06,flight-crew-member-02,CO_PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-07,flight-crew-member-03,LEAD_ATTENDANT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-08,flight-crew-member-04,CABIN_ATTENDANT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # moment
-flight-assignment-09,flight-crew-member-00,PILOT,2025/01/01 0:00,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-10,flight-crew-member-00,PILOT,2000/01/01 0:00,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-11,flight-crew-member-00,PILOT,2024/12/31 23:59,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-12,flight-crew-member-00,PILOT,2000/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-09,flight-crew-member-01,PILOT,2025/01/01 0:00,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-10,flight-crew-member-01,PILOT,2000/01/01 0:00,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-11,flight-crew-member-01,PILOT,2024/12/31 23:59,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-12,flight-crew-member-01,PILOT,2000/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # status
-flight-assignment-13,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-14,flight-crew-member-00,PILOT,2024/01/01 0:01,PENDING,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-15,flight-crew-member-00,PILOT,2024/01/01 0:01,CANCELLED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-13,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-14,flight-crew-member-01,PILOT,2024/01/01 0:01,PENDING,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-15,flight-crew-member-01,PILOT,2024/01/01 0:01,CANCELLED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # leg
-flight-assignment-16,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
+flight-assignment-16,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-17,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-18,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-10,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-19,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-11,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-20,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-12,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
 # remarks
-flight-assignment-17,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,
-flight-assignment-18,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,L
-flight-assignment-19,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*
-flight-assignment-20,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-flight-assignment-21,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*
-flight-assignment-22,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,โลเร็ม อิปซัม
-flight-assignment-23,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,لوريم إيبسوم
-flight-assignment-24,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,洛伦·伊普森
-flight-assignment-25,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,<marquee>Hacked</marquee>
-flight-assignment-26,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,<script>alert(‘Hacked!’);</script>
-flight-assignment-27,flight-crew-member-00,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,' or 'A' = 'A 
+flight-assignment-21,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,,false
+flight-assignment-22,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,L,false
+flight-assignment-23,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-24,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor,false
+flight-assignment-25,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,false
+flight-assignment-26,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,โลเร็ม อิปซัม,false
+flight-assignment-27,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,لوريم إيبسوم,false
+flight-assignment-28,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,洛伦·伊普森,false
+flight-assignment-29,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,<marquee>Hacked</marquee>,false
+flight-assignment-30,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,<script>alert(‘Hacked!’);</script>,false
+flight-assignment-31,flight-crew-member-01,PILOT,2024/01/01 0:01,PENDING,leg-00,' or 'A' = 'A ,false
+# draftMode
+flight-assignment-32,flight-crew-member-01,PILOT,2024/01/01 0:01,PENDING,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,false
+flight-assignment-33,flight-crew-member-01,PILOT,2024/01/01 0:01,CONFIRMED,leg-00,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,true

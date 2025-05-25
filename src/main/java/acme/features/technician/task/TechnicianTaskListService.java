@@ -23,46 +23,77 @@ public class TechnicianTaskListService extends AbstractGuiService<Technician, Ta
 	// AbstractGuiService interface -------------------------------------------
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+
+		boolean status;
+		Integer maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord = null;
+
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
+
+		if (maintenanceRecordId != null) {
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+			status = maintenanceRecord != null && //
+				(!maintenanceRecord.isDraftMode() || //
+					super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician()));
+
+		} else
+			status = true;
+
+		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
 	public void load() {
+
 		Collection<Task> tasks;
-		int maintenanceRecordId;
-		boolean draftMode;
-		MaintenanceRecord maintenanceRecord;
-		boolean showCreate;
-		int technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Integer maintenanceRecordId;
+		boolean mine;
+		int technicianId;
 
-		if (super.getRequest().getData().isEmpty())
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ? super.getRequest().getData("maintenanceRecordId", int.class) : null;
+		mine = super.getRequest().hasData("mine");
+		technicianId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+		if (maintenanceRecordId != null)
+			tasks = this.repository.findTasksByMasterId(maintenanceRecordId);
+		else if (mine)
 			tasks = this.repository.findTasksByTechnicianId(technicianId);
-		else {
-			maintenanceRecordId = super.getRequest().getData("maintenanceRecordId", int.class);
-			super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
+		else
+			tasks = this.repository.findPublishedTasks();
 
-			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
-			super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
-
-			showCreate = maintenanceRecord.isDraftMode() && super.getRequest().getPrincipal().hasRealm(maintenanceRecord.getTechnician());
-			super.getResponse().addGlobal("showCreate", showCreate);
-			if (super.getRequest().hasData("draftMode")) {
-				draftMode = super.getRequest().getData("draftMode", boolean.class);
-				super.getResponse().addGlobal("draftMode", draftMode);
-			}
-			tasks = this.repository.findInvolvesByMaintenanceRecord(maintenanceRecord);
-
-		}
 		super.getBuffer().addData(tasks);
+
 	}
 
 	@Override
 	public void unbind(final Task task) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(task, "type", "priority", "estimatedDuration");
+		dataset = super.unbindObject(task, "type", "priority", "description");
+		super.addPayload(dataset, task, "estimatedDuration", "draftMode");
 
 		super.getResponse().addData(dataset);
+	}
 
+	@Override
+	public void unbind(final Collection<Task> tasks) {
+		Integer maintenanceRecordId;
+		MaintenanceRecord maintenanceRecord;
+		boolean showCreate = false;
+		boolean mine;
+
+		maintenanceRecordId = super.getRequest().hasData("maintenanceRecordId") ?//
+			super.getRequest().getData("maintenanceRecordId", int.class) : null;
+		mine = super.getRequest().hasData("mine");
+
+		if (maintenanceRecordId != null) {
+			maintenanceRecord = this.repository.findMaintenanceRecordById(maintenanceRecordId);
+			showCreate = maintenanceRecord.isDraftMode();
+		} else if (mine)
+			showCreate = true;
+
+		super.getResponse().addGlobal("maintenanceRecordId", maintenanceRecordId);
+		super.getResponse().addGlobal("showCreate", showCreate);
 	}
 }

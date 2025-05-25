@@ -1,10 +1,13 @@
 
 package acme.features.assistanceAgent.trackingLogs;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -49,7 +52,7 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "percentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "percentage", "status", "resolution");
 
 	}
 
@@ -60,6 +63,8 @@ public class AssistanceAgentTrackingLogUpdateService extends AbstractGuiService<
 
 	@Override
 	public void perform(final TrackingLog trackingLog) {
+		Date moment = MomentHelper.getCurrentMoment();
+		trackingLog.setLastUpdateMoment(moment);
 		this.repository.save(trackingLog);
 	}
 

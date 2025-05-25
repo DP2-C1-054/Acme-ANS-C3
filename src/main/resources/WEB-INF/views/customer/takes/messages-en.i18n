@@ -1,3 +1,4 @@
-customer.takes.form.title = Add Passenger
+customer.takes.form.title = Manage booking passengers
 customer.takes.form.label.passport = Passport
 customer.takes.form.button.create = Add
+customer.takes.form.button.delete = Delete

@@ -45,7 +45,12 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 			if (!StringHelper.isBlank(flightNumber) && flightNumber != null && aircraft != null && scheduledDeparture != null && scheduledArrival != null) {
 
-				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+
+			if (StringHelper.isBlank(airlineIataCode) || StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
+				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+
+			Date currentDate = MomentHelper.getCurrentMoment();
 
 				boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
 				boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;

@@ -2,11 +2,13 @@
 package acme.features.assistanceAgent.claim;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.claims.Claim;
@@ -66,13 +68,15 @@ public class AssistanceAgentClaimDeleteService extends AbstractGuiService<Assist
 
 	@Override
 	public void unbind(final Claim claim) {
-		Collection<Leg> legs;
+		Collection<Leg> allLegs;
 		SelectChoices choices;
 		SelectChoices choices2;
 		Dataset dataset;
+		AssistanceAgent assistanceAgent = (AssistanceAgent) super.getRequest().getPrincipal().getActiveRealm();
 
 		choices = SelectChoices.from(ClaimType.class, claim.getType());
-		legs = this.repository.findAllLegs();
+		allLegs = this.repository.findAllLegs();
+		List<Leg> legs = allLegs.stream().filter(l -> (MomentHelper.isBefore(l.getScheduledArrival(), MomentHelper.getCurrentMoment()) && !l.isDraftMode() && l.getAircraft().getAirline().equals(assistanceAgent.getAirline()))).toList();
 		choices2 = SelectChoices.from(legs, "flightNumber", claim.getLeg());
 
 		dataset = super.unbindObject(claim, "registrationMoment", "passengerEmail", "description", "type", "leg", "draftMode");

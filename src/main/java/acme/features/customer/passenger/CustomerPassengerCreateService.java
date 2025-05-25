@@ -35,9 +35,10 @@ public class CustomerPassengerCreateService extends AbstractGuiService<Customer,
 	@Override
 	public void load() {
 		Passenger passenger;
-
+		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
 		passenger = new Passenger();
 		passenger.setDraftMode(true);
+		passenger.setCustomer(customer);
 		super.getBuffer().addData(passenger);
 	}
 

@@ -31,7 +31,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 		trackingLog = this.repository.findTrackingLogById(id);
 		claim = trackingLog == null ? null : trackingLog.getClaim();
 		assistanceAgent = claim == null ? null : trackingLog.getClaim().getAssistanceAgent();
-		status = super.getRequest().getPrincipal().hasRealm(assistanceAgent) && claim != null && claim.isDraftMode() && trackingLog != null && trackingLog.isDraftMode();
+		status = super.getRequest().getPrincipal().hasRealm(assistanceAgent) && claim != null && trackingLog != null && trackingLog.isDraftMode();
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -49,7 +49,7 @@ public class AssistanceAgentTrackingLogDeleteService extends AbstractGuiService<
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "percentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "percentage", "status", "resolution");
 
 	}
 

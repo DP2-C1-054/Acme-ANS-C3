@@ -94,4 +94,14 @@ public class Flight extends AbstractEntity {
 		LegRepository repository = SpringHelper.getBean(LegRepository.class);
 		return repository.findLayoversByFlightId(this.getId());
 	}
+
+	@Transient
+	public String getDescription() {
+		String aux = "-";
+		String scheduleDeparture = this.getScheduledDeparture() == null ? "" : this.getScheduledDeparture().toLocaleString();
+		String scheduleArrival = this.getScheduledArrival() == null ? "" : this.getScheduledArrival().toLocaleString();
+		String originCity = this.getOriginCity() == null ? "" : this.getOriginCity();
+		String destinationCity = this.getDestinationCity() == null ? "" : this.getDestinationCity();
+		return scheduleDeparture + "-" + originCity + "-" + scheduleArrival + "-" + destinationCity;
+	}
 }
