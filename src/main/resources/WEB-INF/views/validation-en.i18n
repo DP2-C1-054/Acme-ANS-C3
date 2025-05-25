@@ -40,7 +40,8 @@ acme.validation.trackingLog.unpublished.message = A tracking log cannot be publi
 acme.validation.claim.invalid-leg.message = The claim must be made after the arrival date of the leg
 acme.validation.claim.publishWithOutLogs.message = You can not publish a claim without tracking logs
 acme.validation.claim.invalid-leg.messag = The corresponding leg must be published
-acme.validation.tracking-log.moment.message = The tracking log must be published after its corresponding claimacme.validation.technician.duplicated-license-number.message = This license number is already in use
+acme.validation.tracking-log.moment.message = The tracking log must be published after its corresponding claim
+acme.validation.technician.duplicated-license-number.message = This license number is already in use
 acme.validation.technician.license-number.message  	= Must have your initials and then six figures (e.g., AB123456 or ABC987654)
 acme.validation.technician.phone-number.message = must have between 6 and 15 digits, optionally starting with '+'. (e.g: +123456789 or 987654321)
 acme.validation.maintenance-record.inspection-due-date.message = The next inspection must be set after the actual maintenance takes place
