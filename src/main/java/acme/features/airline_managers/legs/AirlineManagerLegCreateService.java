@@ -3,6 +3,7 @@ package acme.features.airline_managers.legs;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,7 +31,46 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean authorised = false;
+
+		if (super.getRequest().hasData("flightId", int.class)) {
+			int flightId = super.getRequest().getData("flightId", int.class);
+			Flight flight = this.flightRepository.findFlightById(flightId);
+
+			if (flight != null && flight.isDraftMode()) {
+				int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+				Optional<Flight> optionalFlight = this.repository.findByIdAndManagerId(flightId, managerId);
+
+				if (optionalFlight.isPresent()) {
+					authorised = true;
+
+					if (super.getRequest().hasData("id", boolean.class)) {
+						int legId = super.getRequest().getData("id", int.class);
+						if (legId != 0)
+							authorised = false;
+					}
+
+					if (authorised && "POST".equals(super.getRequest().getMethod())) {
+						int aircraftId = super.getRequest().getData("aircraft", int.class);
+						int departureId = super.getRequest().getData("departureAirport", int.class);
+						int arrivalId = super.getRequest().getData("arrivalAirport", int.class);
+
+						Aircraft aircraft = this.repository.findAircraftByAircraftId(aircraftId);
+						Airport departure = this.repository.findAirportByAirportId(departureId);
+						Airport arrival = this.repository.findAirportByAirportId(arrivalId);
+
+						List<Aircraft> managerAircrafts = this.repository.findAllAircraftsByManagerId(managerId);
+						List<Airport> allAirports = this.repository.findAllAirports();
+
+						if (aircraftId != 0 && (aircraft == null || !managerAircrafts.contains(aircraft)) || departureId != 0 && (departure == null || !allAirports.contains(departure))
+							|| arrivalId != 0 && (arrival == null || !allAirports.contains(arrival)))
+							authorised = false;
+					}
+				}
+			}
+		}
+
+		super.getResponse().setAuthorised(authorised);
 	}
 
 	@Override

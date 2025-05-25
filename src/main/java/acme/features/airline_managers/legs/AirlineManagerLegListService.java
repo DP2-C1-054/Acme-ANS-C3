@@ -11,18 +11,32 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight.Flight;
 import acme.entities.legs.Leg;
+import acme.features.airline_managers.flights.AirlineManagerFlightRepository;
 import acme.realms.airline_managers.AirlineManager;
 
 @GuiService
 public class AirlineManagerLegListService extends AbstractGuiService<AirlineManager, Leg> {
 
 	@Autowired
-	private AirlineManagerLegRepository repository;
+	private AirlineManagerLegRepository		repository;
+
+	@Autowired
+	private AirlineManagerFlightRepository	flightRepository;
 
 
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status = false;
+
+		if (super.getRequest().hasData("flightId", int.class)) {
+			int flightId = super.getRequest().getData("flightId", int.class);
+			int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+			if (this.flightRepository.findFlightById(flightId) != null && this.repository.findByIdAndManagerId(flightId, managerId).isPresent())
+				status = true;
+		}
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override

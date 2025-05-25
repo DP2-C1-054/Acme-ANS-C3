@@ -2,6 +2,7 @@
 package acme.features.airline_managers.legs;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,15 +26,49 @@ public class AirlineManagerLegDeleteService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int legId;
-		Leg leg;
-		AirlineManager manager;
+		boolean status = false;
 
-		legId = super.getRequest().getData("id", int.class);
-		leg = this.repository.findLegByLegId(legId);
-		manager = leg == null ? null : leg.getFlight().getManager();
-		status = leg != null && super.getRequest().getPrincipal().hasRealm(manager);
+		if (super.getRequest().hasData("id")) {
+			int legId = super.getRequest().getData("id", int.class);
+			int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+			Optional<Leg> optionalLeg = this.repository.findByLegId(legId);
+
+			if (optionalLeg.isPresent()) {
+				Leg leg = optionalLeg.get();
+
+				if (leg.isDraftMode() && this.repository.findByIdAndManagerId(leg.getFlight().getId(), managerId).isPresent()) {
+					status = true;
+
+					if (super.getRequest().hasData("aircraft")) {
+						int aircraftId = super.getRequest().getData("aircraft", int.class);
+						Aircraft aircraft = this.repository.findAircraftByAircraftId(aircraftId);
+						List<Aircraft> aircrafts = this.repository.findAllAircraftsByManagerId(managerId);
+
+						if (aircraftId != 0 && aircraft == null || aircraft != null && !aircrafts.contains(aircraft))
+							status = false;
+					}
+
+					List<Airport> airports = this.repository.findAllAirports();
+
+					if (super.getRequest().hasData("departureAirport")) {
+						int departureId = super.getRequest().getData("departureAirport", int.class);
+						Airport departure = this.repository.findAirportByAirportId(departureId);
+
+						if (departureId != 0 && departure == null || departure != null && !airports.contains(departure))
+							status = false;
+					}
+
+					if (super.getRequest().hasData("arrivalAirport")) {
+						int arrivalId = super.getRequest().getData("arrivalAirport", int.class);
+						Airport arrival = this.repository.findAirportByAirportId(arrivalId);
+
+						if (arrivalId != 0 && arrival == null || arrival != null && !airports.contains(arrival))
+							status = false;
+					}
+				}
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}

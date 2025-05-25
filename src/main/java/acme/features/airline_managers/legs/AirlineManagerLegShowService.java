@@ -2,6 +2,7 @@
 package acme.features.airline_managers.legs;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -28,15 +29,21 @@ public class AirlineManagerLegShowService extends AbstractGuiService<AirlineMana
 
 	@Override
 	public void authorise() {
-		boolean status;
-		int legId;
-		Leg leg;
-		AirlineManager manager;
+		boolean status = false;
 
-		legId = super.getRequest().getData("id", int.class);
-		leg = this.repository.findLegByLegId(legId);
-		manager = leg == null ? null : leg.getFlight().getManager();
-		status = super.getRequest().getPrincipal().hasRealm(manager) && leg != null;
+		if (super.getRequest().hasData("id")) {
+			int legId = super.getRequest().getData("id", int.class);
+			int managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+
+			Optional<Leg> optionalLeg = this.repository.findByLegId(legId);
+
+			if (optionalLeg.isPresent()) {
+				Leg leg = optionalLeg.get();
+				Optional<Flight> flight = this.repository.findByIdAndManagerId(leg.getFlight().getId(), managerId);
+
+				status = flight.isPresent();
+			}
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
