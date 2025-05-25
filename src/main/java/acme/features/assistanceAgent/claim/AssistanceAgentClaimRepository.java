@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.airlines.Airline;
 import acme.entities.claims.Claim;
 import acme.entities.legs.Leg;
 import acme.entities.tracking_logs.TrackingLog;
@@ -34,5 +35,11 @@ public interface AssistanceAgentClaimRepository extends AbstractRepository {
 
 	@Query("SELECT tl FROM TrackingLog tl WHERE tl.claim.id = :claimId")
 	Collection<TrackingLog> findAllTrackingLogsByClaimId(int claimId);
+
+	@Query("SELECT l FROM Leg l WHERE l.id = :id")
+	Leg findLegById(int id);
+
+	@Query("SELECT l from Leg l WHERE l.scheduledArrival < CURRENT_TIMESTAMP and l.draftMode = false and l.aircraft.airline = :agentAirline and l.id = :id")
+	Leg findValidLegById(Airline agentAirline, int id);
 
 }

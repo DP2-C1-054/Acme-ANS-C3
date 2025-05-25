@@ -50,10 +50,15 @@ public class FlightAssignment extends AbstractEntity {
 	@Mandatory
 	@Valid
 	@ManyToOne(optional = false)
-	private Leg				leg;
+	private Leg					leg;
 
 	@Optional
 	@ValidString
 	@Automapped
 	private String				remarks;
+
+	@Mandatory
+	@Automapped
+	private boolean				draftMode;
+
 }

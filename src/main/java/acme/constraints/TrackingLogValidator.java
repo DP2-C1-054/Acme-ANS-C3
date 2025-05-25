@@ -1,6 +1,7 @@
 
 package acme.constraints;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
+import acme.entities.claims.Claim;
 import acme.entities.tracking_logs.TrackingLog;
 import acme.entities.tracking_logs.TrackingLogRepository;
 import acme.entities.tracking_logs.TrackingLogStatus;
@@ -63,6 +66,15 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			// /////////////////////////////////////////////////////
 
+			boolean correctDate = false;
+			Claim claim = trackingLog.getClaim();
+			Date lastMoment = trackingLog.getLastUpdateMoment();
+			if (lastMoment != null && claim != null && claim.getRegistrationMoment() != null)
+				correctDate = MomentHelper.isAfter(lastMoment, claim.getRegistrationMoment());
+
+			super.state(context, correctDate, "lastUpdateMoment", "acme.validation.tracking-log.moment.message");
+
+			// ////////////////////////////////////////////////////
 			boolean estaOrdenada = this.aux_func(trackingLog);
 			if (!estaOrdenada)
 				super.state(context, false, "percentage", "acme.validation.tracking-log.percentage-creciente.message");
@@ -76,12 +88,15 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 	private boolean aux_func(final TrackingLog newTrackingLog) {
 		if (newTrackingLog != null && newTrackingLog.getClaim() != null && newTrackingLog.getPercentage() != null) {
-			List<TrackingLog> existingLogs = this.repository.findTrackingLogsOrderByMomentASC(newTrackingLog.getClaim().getId());
+			List<TrackingLog> existingLogs = this.repository.findTrackingLogsOrderByPercentage(newTrackingLog.getClaim().getId());
 
 			if (existingLogs.isEmpty())
 				return true;
 
-			TrackingLog previousLog = existingLogs.get(existingLogs.size() - 1);
+			TrackingLog previusLog = existingLogs.get(existingLogs.size() - 1);
+
+			if (!existingLogs.contains(newTrackingLog))
+				existingLogs.add(newTrackingLog);
 
 			Integer newId = newTrackingLog.getId();
 			if (newId != null) {
@@ -91,14 +106,22 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 						currentIndex = i;
 						break;
 					}
-				if (currentIndex > 0)
-					previousLog = existingLogs.get(currentIndex - 1);
-				else if (currentIndex == 0)
+
+				if (currentIndex == 0)
 					return true;
+				if (currentIndex > 0)
+					previusLog = existingLogs.get(currentIndex - 1);
 			}
 
-			if (previousLog != null)
-				if (newTrackingLog.getPercentage() < previousLog.getPercentage())
+			if (newTrackingLog.getPercentage() == 100.00 && previusLog != null)
+				return true; // esta restriccion se valida en el servicio
+
+			for (TrackingLog log : existingLogs)
+				if (!log.equals(newTrackingLog) && log.getPercentage().equals(newTrackingLog.getPercentage()))
+					return false;
+
+			if (previusLog != null)
+				if (previusLog.getPercentage() >= newTrackingLog.getPercentage())
 					return false;
 				else
 					return true;

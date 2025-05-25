@@ -49,7 +49,7 @@ public class AssistanceAgentTrackingLogPublishService extends AbstractGuiService
 
 	@Override
 	public void bind(final TrackingLog trackingLog) {
-		super.bindObject(trackingLog, "lastUpdateMoment", "step", "percentage", "status", "resolution");
+		super.bindObject(trackingLog, "step", "percentage", "status", "resolution");
 
 	}
 

@@ -14,11 +14,15 @@ import acme.realms.customer.Customer;
 public class CustomerTakesController extends AbstractGuiController<Customer, Takes> {
 
 	@Autowired
-	private CustomerTakesCreateService createService;
+	private CustomerTakesCreateService	createService;
+
+	@Autowired
+	private CustomerTakesDeleteService	deleteService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("delete", this.deleteService);
 	}
 }

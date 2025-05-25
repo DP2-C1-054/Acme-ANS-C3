@@ -47,9 +47,10 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 			boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
 			boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;
-			boolean correctDate = leg.getScheduledDeparture().compareTo(currentDate) > 0 && leg.getScheduledArrival().compareTo(currentDate) > 0;
+			//boolean correctDate = leg.getScheduledDeparture().compareTo(currentDate) > 0 && leg.getScheduledArrival().compareTo(currentDate) > 0;
 
-			correct = correctCode && correctDepartureArrivalDates && correctDate;
+			correct = correctCode && correctDepartureArrivalDates;
+			//&& correctDate;
 
 			String flightNumber = leg.getFlightNumber();
 
@@ -60,8 +61,8 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 				super.state(context, false, "flightNumber", "acme.validation.leg.flight-number.message");
 			if (!correctCode)
 				super.state(context, correct, "flightNumber", "acme.validation.legs.flight-number.iata.message");
-			if (!correctDate)
-				super.state(context, correct, "scheduledDeparture", "acme.validation.legs.current-dates.message");
+			//			if (!correctDate)
+			//				super.state(context, correct, "scheduledDeparture", "acme.validation.legs.current-dates.message");
 			if (!correctDepartureArrivalDates)
 				super.state(context, correct, "scheduledArrival", "acme.validation.legs.departure-arrival-date.message");
 

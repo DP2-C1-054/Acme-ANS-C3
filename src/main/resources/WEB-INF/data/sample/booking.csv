@@ -1,26 +1,26 @@
 key,locatorCode,purchaseMoment,travelClass,creditCardNibble,key:flight,key:customer,draftMode
 #base-entity
-booking-00,95UJ6K9,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
+booking-00,95UJ6K9,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
 #locatorCode
-booking-01,AAAZZZ,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-02,ZZZAAA,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-03,999000,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-04,000999,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-05,AAA999,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-06,000ZZZ,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-07,999AAA,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-08,ZZZ000,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-09,95UJ6K9T,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,true
+booking-01,AAAZZZ,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-02,ZZZAAA,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-03,999000,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-04,000999,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-05,AAA999,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-06,000ZZZ,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-07,999AAA,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-08,ZZZ000,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-09,95UJ6K9T,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
 #purchaseMoment
-booking-10,95UJ6K91,2025/01/01 0:00,ECONOMY,4999,flight-01,customer-01,true
-booking-11,95UJ6K92,2000/01/01 0:00,ECONOMY,4999,flight-01,customer-01,true
+booking-10,95UJ6K91,2025/01/01 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-11,95UJ6K92,2000/01/01 0:00,ECONOMY,4999,flight-03,customer-01,true
 #travelClass
-booking-12,95UJ6K93,2012/07/02 0:00,BUSINESS,4999,flight-01,customer-01,true
+booking-12,95UJ6K93,2012/07/02 0:00,BUSINESS,4999,flight-03,customer-01,true
 #creditCardNibble
-booking-13,95UJ6KA2,2012/07/02 0:00,ECONOMY,null,flight-01,customer-01,true
-booking-14,95UJ6K98,2012/07/02 0:00,ECONOMY,0,flight-01,customer-01,true
-booking-15,95UJ6K99,2012/07/02 0:00,ECONOMY,1,flight-01,customer-01,true
-booking-16,95UJ6K90,2012/07/02 0:00,ECONOMY,9998,flight-01,customer-01,true
-booking-17,95UJ6K01,2012/07/02 0:00,ECONOMY,9999,flight-01,customer-01,true
+booking-13,95UJ6KA2,2012/07/02 0:00,ECONOMY,null,flight-03,customer-01,true
+booking-14,95UJ6K98,2012/07/02 0:00,ECONOMY,0,flight-03,customer-01,true
+booking-15,95UJ6K99,2012/07/02 0:00,ECONOMY,1,flight-03,customer-01,true
+booking-16,95UJ6K90,2012/07/02 0:00,ECONOMY,9998,flight-03,customer-01,true
+booking-17,95UJ6K01,2012/07/02 0:00,ECONOMY,9999,flight-03,customer-01,true
 #draftMode
-booking-18,95UJ6K02,2012/07/02 0:00,ECONOMY,4999,flight-01,customer-01,false
+booking-18,95UJ6K02,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,false

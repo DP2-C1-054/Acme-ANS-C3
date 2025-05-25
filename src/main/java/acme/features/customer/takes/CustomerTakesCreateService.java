@@ -2,6 +2,7 @@
 package acme.features.customer.takes;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,11 +28,23 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 		int bookingId;
 		Booking booking;
 		Customer customer;
-
+		String method = super.getRequest().getMethod();
 		bookingId = super.getRequest().getData("bookingId", int.class);
 		booking = this.repository.findBookingById(bookingId);
 		customer = booking == null ? null : booking.getCustomer();
-		status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+		int passengerId;
+		Passenger passenger;
+
+		if (method.equals("GET"))
+			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+		else {
+			passengerId = super.getRequest().getData("passenger", int.class);
+			passenger = this.repository.findPassengerById(passengerId);
+			List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
+			Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
+			Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
+			status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && !hasAlreadyExist;
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -73,12 +86,13 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 	@Override
 	public void unbind(final Takes takes) {
 		Collection<Passenger> availablePassengers;
+		Customer customer = (Customer) super.getRequest().getPrincipal().getActiveRealm();
 		SelectChoices passengerChoices;
 		Dataset dataset;
 		int bookingId;
 
 		bookingId = super.getRequest().getData("bookingId", int.class);
-		availablePassengers = this.repository.findAvailablePassengers(bookingId);
+		availablePassengers = this.repository.findAvailablePassengers(bookingId, customer.getId());
 		passengerChoices = SelectChoices.from(availablePassengers, "passport", takes.getPassenger());
 		dataset = super.unbindObject(takes);
 		dataset.put("passenger", passengerChoices.getSelected().getKey());
