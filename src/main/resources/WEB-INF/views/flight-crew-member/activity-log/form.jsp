@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
-	<jstl:if test="${acme:anyOf(_command, 'show|create') && draftMode == false}">
+	<jstl:if test="${acme:anyOf(_command, 'show|create|update') && draftMode == false}">
 		<acme:input-moment code="flight-crew-member.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
 	</jstl:if>
 	

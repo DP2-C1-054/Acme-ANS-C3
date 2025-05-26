@@ -29,11 +29,15 @@ public class ActivityLogValidator extends AbstractValidator<ValidActivityLog, Ac
 
 		if (flightAssignment != null) {
 
-			boolean assignmentIsPublished = !flightAssignment.isDraftMode();
-			super.state(context, assignmentIsPublished, "flightAssignment", "acme.validation.activity-log.flight-assignment-not-published.message");
+			if (flightAssignment.isDraftMode()) {
+				super.state(context, false, "flightAssignment", "acme.validation.activity-log.flight-assignment-not-published.message");
+				return false;
+			}
 
-			boolean assignmentIsConfirmed = AssignmentStatus.CONFIRMED.equals(flightAssignment.getStatus());
-			super.state(context, assignmentIsConfirmed, "flightAssignment", "acme.validation.activity-log.flight-assignment-not-confirmed.message");
+			if (!AssignmentStatus.CONFIRMED.equals(flightAssignment.getStatus())) {
+				super.state(context, false, "flightAssignment", "acme.validation.activity-log.flight-assignment-not-confirmed.message");
+				return false;
+			}
 
 		}
 
