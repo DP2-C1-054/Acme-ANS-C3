@@ -2,7 +2,6 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -56,12 +55,8 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 		Dataset dataset;
 		boolean canPublish;
 		Collection<Passenger> passengers;
-		Date currentMoment;
-		Collection<Flight> publishedFlights;
 
-		publishedFlights = this.repository.findPublishedFlights();
-		currentMoment = MomentHelper.getCurrentMoment();
-		availableFlights = publishedFlights.stream().filter(f -> f.getScheduledDeparture() != null && MomentHelper.isAfter(f.getScheduledDeparture(), currentMoment)).toList();
+		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		passengers = this.repository.findPassengersByBookingId(booking.getId());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());

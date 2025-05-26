@@ -106,9 +106,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		Collection<Passenger> passengers;
 		Collection<Flight> publishedFlights;
 
-		publishedFlights = this.repository.findPublishedFlights();
-		currentMoment = MomentHelper.getCurrentMoment();
-		availableFlights = publishedFlights.stream().filter(f -> f.getScheduledDeparture() != null && MomentHelper.isAfter(f.getScheduledDeparture(), currentMoment)).toList();
+		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		passengers = this.repository.findPassengersByBookingId(booking.getId());
