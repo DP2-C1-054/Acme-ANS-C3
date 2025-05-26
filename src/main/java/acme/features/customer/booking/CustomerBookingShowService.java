@@ -3,7 +3,6 @@ package acme.features.customer.booking;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +10,6 @@ import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
-import acme.client.helpers.StringHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -30,28 +28,12 @@ public class CustomerBookingShowService extends AbstractGuiService<Customer, Boo
 	@Override
 	public void authorise() {
 		boolean status;
-		int flightId;
 		int bookingId;
 		Booking booking;
-		Flight flight;
-		String travelClass;
-		List<String> travelClasses;
-		String method = super.getRequest().getMethod();
 		bookingId = super.getRequest().getData("id", int.class);
 		booking = this.repository.findBookingById(bookingId);
-		if (method.equals("GET"))
-			status = super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
-		else {
+		status = super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
 
-			Date currentMoment;
-			currentMoment = MomentHelper.getCurrentMoment();
-			travelClass = super.getRequest().getData("travelClass", String.class);
-			travelClasses = List.of(TravelClass.values()).stream().map(t -> t.name()).toList();
-			flightId = super.getRequest().getData("flight", int.class);
-			flight = this.repository.findFlightById(flightId);
-			status = super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && (travelClasses.contains(travelClass) || StringHelper.isEqual(travelClass, "0", false))
-				&& (flightId == 0 || flight != null && !flight.isDraftMode() && flight.getScheduledDeparture() != null && MomentHelper.isAfter(flight.getScheduledDeparture(), currentMoment));
-		}
 		super.getResponse().setAuthorised(status);
 	}
 
