@@ -14,7 +14,7 @@ import acme.entities.flight_assignments.FlightAssignment;
 import acme.realms.flight_crew_members.FlightCrewMember;
 
 @GuiService
-public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
+public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService<FlightCrewMember, ActivityLog> {
 
 	@Autowired
 	private FlightCrewMemberActivityLogRepository repository;
@@ -22,9 +22,7 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 
 	@Override
 	public void authorise() {
-
 		super.getResponse().setAuthorised(true);
-
 	}
 
 	@Override
@@ -39,15 +37,33 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 	}
 
 	@Override
+	public void bind(final ActivityLog activityLog) {
+
+		super.bindObject(activityLog, "incidentType", "incidentDescription", "severityLevel", "flightAssignment");
+	}
+
+	@Override
+	public void validate(final ActivityLog activityLog) {
+		;
+	}
+
+	@Override
+	public void perform(final ActivityLog activityLog) {
+		this.repository.save(activityLog);
+	}
+
+	@Override
 	public void unbind(final ActivityLog activityLog) {
+		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
 
 		Dataset dataset;
 		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "incidentDescription", "severityLevel", "flightAssignment", "draftMode");
 
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMemberId(activityLog.getFlightAssignment().getAllocatedFlightCrewMember().getId());
-		FlightAssignment currentAssignment = activityLog.getFlightAssignment();
-		if (currentAssignment != null && !flightAssignments.contains(currentAssignment))
-			flightAssignments.add(currentAssignment);
+		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMemberId(flightCrewMember.getId());
+
+		FlightAssignment selected = activityLog.getFlightAssignment();
+		if (selected != null && !flightAssignments.contains(selected))
+			flightAssignments.add(selected);
 
 		SelectChoices assignmentChoices = SelectChoices.from(flightAssignments, "id", activityLog.getFlightAssignment());
 		dataset.put("assignments", assignmentChoices);

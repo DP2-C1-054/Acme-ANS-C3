@@ -9,6 +9,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.client.repositories.AbstractRepository;
+import acme.entities.flight_assignments.Duty;
 import acme.entities.flight_assignments.FlightAssignment;
 import acme.entities.legs.Leg;
 
@@ -34,5 +35,14 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.id = :id AND fa.draftMode = true AND fa.allocatedFlightCrewMember.id = :flightCrewMemberId")
 	Optional<FlightAssignment> findByIdAndFlightCrewMemberId(Integer id, Integer flightCrewMemberId);
+
+	@Query("SELECT COUNT(fa) = 0 FROM FlightAssignment fa WHERE fa.id <> :flightAssignmentId AND fa.draftMode = false AND fa.status = 'CONFIRMED' AND fa.allocatedFlightCrewMember.id = :flightCrewMemberId AND fa.leg.scheduledDeparture <= :arrivalDate AND fa.leg.scheduledArrival >= :departureDate")
+	Boolean isCrewMemberAvailable(Integer flightAssignmentId, Integer flightCrewMemberId, Date departureDate, Date arrivalDate);
+
+	@Query("SELECT COUNT(fa) = 0 FROM FlightAssignment fa WHERE fa.id <> :flightAssignmentId AND fa.draftMode = false AND fa.status <> 'CANCELLED' AND fa.leg.id = :legId AND fa.allocatedFlightCrewMember.id = :flightCrewMemberId AND fa.duty = :duty")
+	Boolean isLegMemberDutyUnique(Integer flightAssignmentId, Integer legId, Integer flightCrewMemberId, Duty duty);
+
+	@Query("SELECT COUNT(fa) = 0 FROM FlightAssignment fa WHERE fa.id <> :flightAssignmentId AND fa.draftMode = false AND fa.status = 'CONFIRMED' AND fa.leg.id = :legId AND fa.duty = :duty")
+	Boolean isDutyFree(Integer flightAssignmentId, Integer legId, Duty duty);
 
 }
