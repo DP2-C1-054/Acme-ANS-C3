@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.client.helpers.MomentHelper;
 import acme.client.helpers.StringHelper;
 import acme.entities.aircrafts.Aircraft;
 import acme.entities.legs.Leg;
@@ -50,8 +49,6 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 
 				if (StringHelper.isBlank(airlineIataCode) || StringHelper.isBlank(leg.getFlightNumber()) || leg.getScheduledArrival() == null || leg.getScheduledDeparture() == null)
 					super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
-				Date currentDate = MomentHelper.getCurrentMoment();
 
 				boolean correctCode = leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode);
 				boolean correctDepartureArrivalDates = leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) < 0;

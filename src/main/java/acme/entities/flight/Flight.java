@@ -102,7 +102,6 @@ public class Flight extends AbstractEntity {
 
 	@Transient
 	public String getDescription() {
-		String aux = "-";
 		String scheduleDeparture = this.getScheduledDeparture() == null ? "" : this.getScheduledDeparture().toLocaleString();
 		String scheduleArrival = this.getScheduledArrival() == null ? "" : this.getScheduledArrival().toLocaleString();
 		String originCity = this.getOriginCity() == null ? "" : this.getOriginCity();

@@ -101,10 +101,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		SelectChoices flightChoices;
 		SelectChoices travelClassChoices;
 		Dataset dataset;
-		Date currentMoment;
 		boolean canPublish;
 		Collection<Passenger> passengers;
-		Collection<Flight> publishedFlights;
 
 		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
