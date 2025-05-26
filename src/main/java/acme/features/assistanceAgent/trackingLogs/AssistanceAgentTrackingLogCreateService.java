@@ -70,15 +70,12 @@ public class AssistanceAgentTrackingLogCreateService extends AbstractGuiService<
 		if (!previousLogs.isEmpty()) {
 			TrackingLog lastLog = previousLogs.get(0);
 			if (lastLog.getPercentage() != null && trackingLog.getPercentage() != null)
-				if (lastLog.getPercentage() == 100.00 && trackingLog.getPercentage() == 100.00) {
+				if (lastLog.getPercentage() == 100.00 && trackingLog.getPercentage() == 100.00)
 					// solo puede repetirse el 100% si está publicada
 					if (lastLog.isDraftMode())
 						super.state(false, "percentage", "assistance-agent.tracking-log.publish-percentage");
 					else if (lastLog.getStatus() != trackingLog.getStatus())
-						super.state(false, "percentage", "assistance-agent.tracking-log.status-percentage");
-				} else if (lastLog.getPercentage() == trackingLog.getPercentage() && lastLog.getPercentage() != 100.00 && trackingLog.getPercentage() != 100.00)
-					// no puede repetirse el porcentaje
-					super.state(false, "percentage", "assistance-agent.tracking-log.same-percentage");
+						super.state(false, "status", "assistance-agent.tracking-log.status-percentage");
 
 		}
 		if (logsWith100.size() + 1 > 2)
