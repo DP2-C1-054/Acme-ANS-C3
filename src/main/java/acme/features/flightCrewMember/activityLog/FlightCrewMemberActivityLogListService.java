@@ -21,6 +21,7 @@ public class FlightCrewMemberActivityLogListService extends AbstractGuiService<F
 	@Override
 	public void authorise() {
 		super.getResponse().setAuthorised(true);
+
 	}
 
 	@Override
