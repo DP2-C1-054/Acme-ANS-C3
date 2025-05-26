@@ -2,6 +2,7 @@
 package acme.features.flightCrewMember.activityLog;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,7 +24,13 @@ public class FlightCrewMemberActivityLogShowService extends AbstractGuiService<F
 	@Override
 	public void authorise() {
 
-		super.getResponse().setAuthorised(true);
+		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+
+		int activityLogId = super.getRequest().getData("id", int.class);
+		Optional<ActivityLog> activityLog = this.repository.findByIdAndFlightCrewMemberId(activityLogId, flightCrewMember.getId());
+
+		boolean status = activityLog.isPresent();
+		super.getResponse().setAuthorised(status);
 
 	}
 

@@ -28,9 +28,12 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 	public void authorise() {
 
 		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		boolean status = super.getRequest().getPrincipal().getActiveRealm() instanceof FlightCrewMember;
 
-		super.getResponse().setAuthorised(flightCrewMember.getAvailability().equals(AvailabilityStatus.AVAILABLE));
-
+		if (status == true)
+			super.getResponse().setAuthorised(flightCrewMember.getAvailability().equals(AvailabilityStatus.AVAILABLE));
+		else
+			super.getResponse().setAuthorised(false);
 	}
 
 	@Override

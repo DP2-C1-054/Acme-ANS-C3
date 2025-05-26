@@ -12,7 +12,6 @@ import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_logs.ActivityLog;
 import acme.entities.flight_assignments.FlightAssignment;
-import acme.realms.flight_crew_members.AvailabilityStatus;
 import acme.realms.flight_crew_members.FlightCrewMember;
 
 @GuiService
@@ -25,9 +24,9 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 	@Override
 	public void authorise() {
 
-		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		boolean status = super.getRequest().getPrincipal().getActiveRealm() instanceof FlightCrewMember;
 
-		super.getResponse().setAuthorised(flightCrewMember.getAvailability().equals(AvailabilityStatus.AVAILABLE));
+		super.getResponse().setAuthorised(status);
 
 	}
 

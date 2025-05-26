@@ -2,6 +2,7 @@
 package acme.features.flightCrewMember.flightAssignment;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,9 +24,23 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 	private FlightCrewMemberFlightAssignmentRepository repository;
 
 
+	public boolean authoriseFlightAssignment(final FlightAssignment flightAssignment) {
+		return flightAssignment.isDraftMode();
+	}
+
 	@Override
 	public void authorise() {
-		super.getResponse().setAuthorised(true);
+		boolean status;
+		int assignmentId;
+		Optional<FlightAssignment> flightAssignment;
+
+		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+
+		assignmentId = super.getRequest().getData("id", int.class);
+		flightAssignment = this.repository.findByIdAndFlightCrewMemberId(assignmentId, flightCrewMember.getId());
+		status = flightAssignment.map(this::authoriseFlightAssignment).orElse(false);
+
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
@@ -66,6 +81,8 @@ public class FlightCrewMemberFlightAssignmentUpdateService extends AbstractGuiSe
 
 		Dataset dataset;
 		dataset = super.unbindObject(flightAssignment, "moment", "remarks", "duty", "status", "draftMode");
+
+		dataset.put("draftMode", flightAssignment.isDraftMode());
 
 		Collection<Leg> legList = this.repository.findAllLegs();
 		SelectChoices legs = SelectChoices.from(legList, "flightNumber", flightAssignment.getLeg());

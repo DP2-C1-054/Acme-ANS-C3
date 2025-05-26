@@ -2,6 +2,7 @@
 package acme.features.flightCrewMember.flightAssignment;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,7 +26,12 @@ public class FlightCrewMemberFlightAssignmentShowService extends AbstractGuiServ
 	@Override
 	public void authorise() {
 
-		super.getResponse().setAuthorised(true);
+		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		int flightAssignmentId = super.getRequest().getData("id", int.class);
+		Optional<FlightAssignment> flightAssignment = this.repository.findByIdAndFlightCrewMemberId(flightAssignmentId, flightCrewMember.getId());
+
+		boolean status = flightAssignment.isPresent();
+		super.getResponse().setAuthorised(status);
 
 	}
 
