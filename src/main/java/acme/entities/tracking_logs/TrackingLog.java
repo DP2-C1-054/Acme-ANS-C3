@@ -27,7 +27,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Table(indexes = {
-	@Index(columnList = "claim_id, percentage")
+	@Index(columnList = "claim_id")
 })
 @ValidTrackingLog
 public class TrackingLog extends AbstractEntity {
