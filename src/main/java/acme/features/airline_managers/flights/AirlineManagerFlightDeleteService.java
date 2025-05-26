@@ -57,7 +57,15 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 
 	@Override
 	public void validate(final Flight flight) {
-		;
+		boolean isPublished;
+		isPublished = true;
+		if (this.repository.findLegsByFlightId(flight.getId()).size() > 0) {
+			List<Leg> legs = this.repository.findLegsByFlightId(flight.getId());
+			for (Leg leg : legs)
+				if (!leg.isDraftMode())
+					isPublished = leg.isDraftMode();
+		}
+		super.state(isPublished, "tag", "acme.validation.flight.unable-to-delete-flight-published-leg.message");
 	}
 
 	@Override
@@ -80,8 +88,8 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 	public void unbind(final Flight flight) {
 		Dataset dataset;
 
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "drafMode");
-		dataset.put("isdraftMode", flight.isDraftMode());
+		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
+
 		dataset.put("departure", flight.getOriginCity());
 		dataset.put("arrival", flight.getDestinationCity());
 		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
