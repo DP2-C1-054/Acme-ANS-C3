@@ -155,6 +155,8 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 		dataset.put("departureAirports", departureChoices);
 		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());
 		dataset.put("arrivalAirports", arrivalChoices);
+		dataset.put("flight", leg.getFlight());
+		dataset.put("flightId", leg.getFlight().getId());
 
 		super.getResponse().addData(dataset);
 	}

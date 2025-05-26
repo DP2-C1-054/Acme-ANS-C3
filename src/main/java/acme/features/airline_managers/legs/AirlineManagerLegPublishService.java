@@ -96,9 +96,9 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-		airportArrivalId = super.getRequest().getData("airportArrival", int.class);
+		airportArrivalId = super.getRequest().getData("arrivalAirport", int.class);
 		departure = this.repository.findAirportByAirportId(airportArrivalId);
-		airportDepartureId = super.getRequest().getData("airportDeparture", int.class);
+		airportDepartureId = super.getRequest().getData("departureAirport", int.class);
 		arrival = this.repository.findAirportByAirportId(airportDepartureId);
 
 		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
