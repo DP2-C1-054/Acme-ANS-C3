@@ -6,8 +6,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
@@ -127,37 +125,6 @@ public class AirlineManagerLegDeleteService extends AbstractGuiService<AirlineMa
 		this.repository.delete(leg);
 	}
 
-	@Override
-	public void unbind(final Leg leg) {
-		SelectChoices statusChoices;
-		SelectChoices aircraftChoices;
-		SelectChoices departureChoices;
-		SelectChoices arrivalChoices;
-		Dataset dataset;
-		List<Aircraft> aircrafts;
-		List<Airport> airports;
-		int managerId;
-
-		statusChoices = SelectChoices.from(Leg.Status.class, leg.getStatus());
-		managerId = super.getRequest().getPrincipal().getActiveRealm().getId();
-
-		aircrafts = this.repository.findAllAircraftsByManagerId(managerId);
-		aircraftChoices = SelectChoices.from(aircrafts, "registrationNumber", leg.getAircraft());
-		airports = this.repository.findAllAirports();
-		departureChoices = SelectChoices.from(airports, "name", leg.getDepartureAirport());
-		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
-
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
-		dataset.put("duration", leg.durationInHours());
-		dataset.put("statuses", statusChoices);
-		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
-		dataset.put("aircrafts", aircraftChoices);
-		dataset.put("departureAirport", departureChoices.getSelected().getKey());
-		dataset.put("departureAirports", departureChoices);
-		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());
-		dataset.put("arrivalAirports", arrivalChoices);
-
-		super.getResponse().addData(dataset);
-	}
+	// Este servicio no tiene unbind, debido a que no se utilizaría en ninguna condición ya que no debes volver a renderizar la página tras eliminar un tramo. 
 
 }
