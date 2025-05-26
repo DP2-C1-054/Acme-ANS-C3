@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import acme.client.repositories.AbstractRepository;
 import acme.entities.activity_logs.ActivityLog;
+import acme.entities.flight_assignments.FlightAssignment;
 
 public interface FlightCrewMemberActivityLogRepository extends AbstractRepository {
 
@@ -19,4 +20,11 @@ public interface FlightCrewMemberActivityLogRepository extends AbstractRepositor
 
 	@Query("SELECT al FROM ActivityLog al WHERE al.id = :id")
 	Optional<ActivityLog> findActivityLogById(Integer id);
+
+	@Query("SELECT al FROM ActivityLog al WHERE al.id = :activityLogId AND al.flightAssignment.allocatedFlightCrewMember.id = :flightCrewMemberId")
+	Optional<ActivityLog> findByIdAndFlightCrewMemberId(Integer activityLogId, Integer flightCrewMemberId);
+
+	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.allocatedFlightCrewMember.id = :id AND fa.draftMode = true")
+	Collection<FlightAssignment> findFlightAssignmentsByCrewMemberId(Integer id);
+
 }
