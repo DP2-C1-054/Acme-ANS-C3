@@ -1,7 +1,7 @@
 
 package acme.features.administrator.airport;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -25,8 +25,10 @@ public class AdministratorAirportListService extends AbstractGuiService<Administ
 
 	@Override
 	public void load() {
-		Collection<Airport> airports;
+		List<Airport> airports;
+
 		airports = this.repository.findAllAirports();
+
 		super.getBuffer().addData(airports);
 	}
 
