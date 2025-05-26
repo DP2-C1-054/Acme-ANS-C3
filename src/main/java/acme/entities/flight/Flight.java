@@ -30,7 +30,7 @@ import lombok.Setter;
 @Setter
 @ValidFlight
 @Table(indexes = {
-	@Index(columnList = "draftMode")
+	@Index(columnList = "draftMode"), @Index(columnList = "manager_id")
 })
 public class Flight extends AbstractEntity {
 
