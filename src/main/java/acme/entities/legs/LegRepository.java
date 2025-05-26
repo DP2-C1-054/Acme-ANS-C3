@@ -29,4 +29,7 @@ public interface LegRepository extends AbstractRepository {
 
 	@Query("SELECT COUNT(l) FROM Leg l WHERE l.flight.id = :flightId")
 	Integer findLayoversByFlightId(int flightId);
+
+	@Query("select case when count(l) > 0 then true else false end from Leg l where l.id != :legId and l.flight.id = :flightId and (l.scheduledDeparture <= :scheduledArrival and l.scheduledArrival >= :scheduledDeparture)")
+	public boolean isLegOverlapping(Integer legId, Integer flightId, Date scheduledDeparture, Date scheduledArrival);
 }

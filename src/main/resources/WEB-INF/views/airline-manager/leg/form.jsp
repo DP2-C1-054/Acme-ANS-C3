@@ -11,6 +11,9 @@
 	<acme:input-select code="airline-manager.leg.form.label.aircraft" path="aircraft" choices="${aircrafts}"/>
 	<acme:input-select code="airline-manager.leg.form.label.airportDeparture" path="departureAirport" choices="${departureAirports}"/>
 	<acme:input-select code="airline-manager.leg.form.label.airportArrival" path="arrivalAirport" choices="${arrivalAirports}"/>
+	<input type="hidden" name="flightId" value="${flightId}" />
+
+	
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
