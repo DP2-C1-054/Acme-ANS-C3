@@ -33,23 +33,22 @@ public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft
 
 		if (aircraft == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-
 		else {
-			boolean isUnique = false;
-			String registrationNumber = aircraft.getRegistrationNumber();
 
-			if (StringHelper.isBlank(registrationNumber))
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
-			else {
-				List<Aircraft> aircrafts = this.repository.findAllAircrafts();
-				isUnique = aircrafts.stream().noneMatch(a -> a.getRegistrationNumber().equals(registrationNumber) && !a.equals(aircraft));
+			String registrationNumber = aircraft.getRegistrationNumber();
+			boolean isBlank = StringHelper.isBlank(registrationNumber);
+			super.state(context, !isBlank, "registrationNumber", "javax.validation.constraints.NotBlank.message");
+
+			if (!isBlank) {
+				List<Aircraft> aircrafts = this.repository.findAllByRegistrationNumber(aircraft.getId(), registrationNumber);
+				boolean isUnique = aircrafts.isEmpty();
+				super.state(context, isUnique, "registrationNumber", "acme.validation.aircraft.registration-number");
 			}
-			if (!isUnique)
-				super.state(context, false, "isUnique", "acme.validation.aircraft.registration-number.message");
+
 		}
 
 		result = !super.hasErrors(context);
-
 		return result;
 	}
+
 }

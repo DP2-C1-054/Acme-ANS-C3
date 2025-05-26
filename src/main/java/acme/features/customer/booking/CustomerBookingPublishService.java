@@ -43,7 +43,7 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		customer = booking == null ? null : booking.getCustomer();
 		Collection<Passenger> passengers = this.repository.findPassengersByBookingId(masterId);
 		boolean allPublished = passengers.stream().allMatch(p -> !p.isDraftMode());
-		canPublish = booking != null && booking.isDraftMode() && booking.getCreditCardNibble() != null && super.getRequest().getPrincipal().hasRealm(customer) && !passengers.isEmpty() && allPublished;
+		canPublish = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && !passengers.isEmpty() && allPublished;
 
 		String method = super.getRequest().getMethod();
 
@@ -85,7 +85,8 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 
 	@Override
 	public void validate(final Booking booking) {
-		;
+		boolean isValid = booking.getCreditCardNibble() != null;
+		super.state(isValid, "creditCardNibble", "acme.validation.booking.draftModeWithouNibble.message");
 	}
 
 	@Override
@@ -101,16 +102,19 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		SelectChoices travelClassChoices;
 		Dataset dataset;
 		Date currentMoment;
+		boolean canPublish;
+		Collection<Passenger> passengers;
 		Collection<Flight> publishedFlights;
 
-		publishedFlights = this.repository.findPublishedFlights();
-		currentMoment = MomentHelper.getCurrentMoment();
-		availableFlights = publishedFlights.stream().filter(f -> f.getScheduledDeparture() == null || MomentHelper.isAfter(currentMoment, f.getScheduledDeparture())).toList();
+		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
+		passengers = this.repository.findPassengersByBookingId(booking.getId());
+		canPublish = !passengers.isEmpty() && passengers.stream().noneMatch(p -> p.isDraftMode());
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble", "draftMode");
 		dataset.put("flight", flightChoices.getSelected().getKey());
 		dataset.put("travelClass", travelClassChoices.getSelected().getKey());
+		dataset.put("canPublish", canPublish);
 		dataset.put("flights", flightChoices);
 		dataset.put("travelClasses", travelClassChoices);
 

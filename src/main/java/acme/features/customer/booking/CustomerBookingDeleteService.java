@@ -2,7 +2,6 @@
 package acme.features.customer.booking;
 
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -77,16 +76,12 @@ public class CustomerBookingDeleteService extends AbstractGuiService<Customer, B
 
 	@Override
 	public void unbind(final Booking booking) {
-		Collection<Flight> publishedFlights;
 		Collection<Flight> availableFlights;
 		SelectChoices flightChoices;
 		SelectChoices travelClassChoices;
 		Dataset dataset;
-		Date currentMoment;
 
-		publishedFlights = this.repository.findPublishedFlights();
-		currentMoment = MomentHelper.getCurrentMoment();
-		availableFlights = publishedFlights.stream().filter(f -> f.getScheduledDeparture() == null || MomentHelper.isAfter(currentMoment, f.getScheduledDeparture())).toList();
+		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble", "draftMode");
