@@ -59,3 +59,4 @@ acme.validation.technician.phone-number.message =  Debe tener entre 6 y 15 dígi
 acme.validation.maintenance-record.inspection-due-date.message = La fecha de la siguiente inspección debe ser posterior a la finalización del matenimiento actual
 acme.validation.maintenance-record.future-inspection-due-date.message = La fecha de la siguiente inspección debe ser en el futuro
 acme.validation.task.maintenance-record-linked.message = Para borrar una tarea, esta no debe tener registros de mantenimiento vinculados
+acme.validation.promotion-code.message = El código debe tener 4 letras y 2 números

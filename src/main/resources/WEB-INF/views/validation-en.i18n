@@ -59,3 +59,4 @@ acme.validation.technician.phone-number.message = must have between 6 and 15 dig
 acme.validation.maintenance-record.inspection-due-date.message = The next inspection must be set after the actual maintenance takes place
 acme.validation.maintenance-record.future-inspection-due-date.message = The next inspection must be set in the future
 acme.validation.task.maintenance-record-linked.message = In order to delete a task it must not have any maintenance records linked
+acme.validation.promotion-code.message = The code must be 4 letters and 2 numbers
