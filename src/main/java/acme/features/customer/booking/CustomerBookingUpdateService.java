@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
@@ -16,6 +17,7 @@ import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
 import acme.entities.booking.TravelClass;
 import acme.entities.flight.Flight;
+import acme.entities.passenger.Passenger;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -90,15 +92,23 @@ public class CustomerBookingUpdateService extends AbstractGuiService<Customer, B
 		SelectChoices flightChoices;
 		SelectChoices travelClassChoices;
 		Dataset dataset;
+		boolean canPublish;
+		Collection<Passenger> passengers;
 
 		availableFlights = this.repository.findPublishedFlights(MomentHelper.getCurrentMoment());
 		flightChoices = SelectChoices.from(availableFlights, "description", booking.getFlight());
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
+		passengers = this.repository.findPassengersByBookingId(booking.getId());
+		canPublish = !passengers.isEmpty() && passengers.stream().noneMatch(p -> p.isDraftMode());
+		Money price = booking.price();
+
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble", "draftMode");
 		dataset.put("flight", flightChoices.getSelected().getKey());
 		dataset.put("travelClass", travelClassChoices.getSelected().getKey());
+		dataset.put("canPublish", canPublish);
 		dataset.put("flights", flightChoices);
 		dataset.put("travelClasses", travelClassChoices);
+		dataset.put("price", price);
 
 		super.getResponse().addData(dataset);
 	}
