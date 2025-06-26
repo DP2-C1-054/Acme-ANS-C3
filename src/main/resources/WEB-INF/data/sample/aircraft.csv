@@ -22,6 +22,9 @@ aircraft-16,Emirates-A380,' or 'A' = 'A,200,20000,ACTIVE,airline-01,Lorem ipsum 
 # capacity
 aircraft-17,Emirates-A380,76591309,1,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
 aircraft-18,Emirates-A380,76591310,2,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-37,Emirates-A380,76591329,20,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-38,Emirates-A380,76591330,253,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
+aircraft-39,Emirates-A380,76591331,254,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
 aircraft-19,Emirates-A380,76591311,255,20000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
 # cargoWeight
 aircraft-20,Emirates-A380,76591312,200,2000,ACTIVE,airline-01,Lorem ipsum dolor sit amet- consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua!
