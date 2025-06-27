@@ -11,6 +11,7 @@ import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_logs.ActivityLog;
+import acme.entities.flight_assignments.AssignmentStatus;
 import acme.entities.flight_assignments.FlightAssignment;
 import acme.realms.flight_crew_members.FlightCrewMember;
 
@@ -23,13 +24,29 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
+		boolean status = true;
+		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		int assignmentMemberId;
 
-		int activityLogId = super.getRequest().getData("id", int.class);
-		Optional<ActivityLog> activityLog = this.repository.findByIdAndFlightCrewMemberId(activityLogId, flightCrewMember.getId());
+		if (super.getRequest().hasData("memberId")) {
+			assignmentMemberId = super.getRequest().getData("memberId", int.class);
+			status = userId == assignmentMemberId;
+		}
 
-		boolean status = activityLog.isPresent();
-
+		if (super.getRequest().getMethod().equals("POST")) {
+			if (super.getRequest().hasData("flightAssignment")) {
+				int assignmentId = super.getRequest().getData("flightAssignment", int.class);
+				if (assignmentId != 0) {
+					Optional<FlightAssignment> optionalAssignment = this.repository.findFlightAssignmentById(assignmentId);
+					if (optionalAssignment.isEmpty() || !optionalAssignment.get().getStatus().equals(AssignmentStatus.CONFIRMED) || optionalAssignment.get().getAllocatedFlightCrewMember().getId() != userId || optionalAssignment.get().isDraftMode())
+						status = false;
+				}
+			}
+		} else if (super.getRequest().hasData("activityLogId")) {
+			int activityLogId = super.getRequest().getData("id", int.class);
+			Optional<ActivityLog> activityLog = this.repository.findByIdAndFlightCrewMemberId(activityLogId, userId);
+			status = activityLog.isPresent();
+		}
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -67,7 +84,7 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 		Dataset dataset;
 		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "incidentDescription", "severityLevel", "flightAssignment", "draftMode");
 
-		Collection<FlightAssignment> flightAssignments = this.repository.findFlightAssignmentsByCrewMemberId(flightCrewMember.getId());
+		Collection<FlightAssignment> flightAssignments = this.repository.findConfirmedFlightAssignmentsByCrewMemberId(flightCrewMember.getId());
 
 		FlightAssignment selected = activityLog.getFlightAssignment();
 		if (selected != null && !flightAssignments.contains(selected))
@@ -75,6 +92,9 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 		SelectChoices assignmentChoices = SelectChoices.from(flightAssignments, "id", activityLog.getFlightAssignment());
 		dataset.put("assignments", assignmentChoices);
+
+		dataset.put("activityLogId", activityLog.getId());
+		dataset.put("memberId", super.getRequest().getPrincipal().getActiveRealm().getId());
 
 		super.getResponse().addData(dataset);
 	}

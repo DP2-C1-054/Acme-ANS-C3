@@ -81,4 +81,3 @@ master.menu.assistanceAgent.list-claims-pending = Listar reclamaciones pendiente
 master.menu.flightCrewMember = Tripulante de vuelo
 master.menu.flightCrewMember.list-planned-flight-assignments = Asignaciones de vuelos planeados
 master.menu.flightCrewMember.list-completed-flight-assignments = Asignaciones de vuelos completados
-master.menu.flightCrewMember.list-activity-logs = Registros de actividad

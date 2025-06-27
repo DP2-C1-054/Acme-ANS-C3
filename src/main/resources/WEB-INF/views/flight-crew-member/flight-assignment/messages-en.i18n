@@ -7,6 +7,7 @@ flight-crew-member.flight-assignment.list.label.status = Status
 flight-crew-member.flight-assignment.list.label.draftMode = Draft
 
 flight-crew-member.flight-assignment.list.button.create = Create
+flight-crew-member.flight-assignment.list.button.list-activity-logs = List activity logs
 
 flight-crew-member.flight-assignment.form.title = Flight assignment
 
