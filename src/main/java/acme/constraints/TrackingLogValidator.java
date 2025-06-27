@@ -1,7 +1,6 @@
 
 package acme.constraints;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.ConstraintValidatorContext;
@@ -11,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.client.helpers.MomentHelper;
-import acme.entities.claims.Claim;
 import acme.entities.tracking_logs.TrackingLog;
 import acme.entities.tracking_logs.TrackingLogRepository;
 import acme.entities.tracking_logs.TrackingLogStatus;
@@ -66,13 +63,13 @@ public class TrackingLogValidator extends AbstractValidator<ValidTrackingLog, Tr
 
 			// /////////////////////////////////////////////////////
 
-			boolean correctDate = false;
-			Claim claim = trackingLog.getClaim();
-			Date lastMoment = trackingLog.getLastUpdateMoment();
-			if (lastMoment != null && claim != null && claim.getRegistrationMoment() != null)
-				correctDate = MomentHelper.isAfter(lastMoment, claim.getRegistrationMoment());
-
-			super.state(context, correctDate, "lastUpdateMoment", "acme.validation.tracking-log.moment.message");
+			//			boolean correctDate = false;
+			//			Claim claim = trackingLog.getClaim();
+			//			Date lastMoment = trackingLog.getLastUpdateMoment();
+			//			if (lastMoment != null && claim != null && claim.getRegistrationMoment() != null)
+			//				correctDate = MomentHelper.isAfter(lastMoment, claim.getRegistrationMoment());
+			//
+			//			super.state(context, correctDate, "lastUpdateMoment", "acme.validation.tracking-log.moment.message");
 
 			// ////////////////////////////////////////////////////
 			boolean estaOrdenada = this.aux_func(trackingLog);
