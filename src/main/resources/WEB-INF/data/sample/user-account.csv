@@ -50,6 +50,7 @@ user-account-customer-39,true,"UserIdentity{name: 'Customer', surname: 'ThirtyNi
 user-account-customer-40,true,"UserIdentity{name: 'Customer', surname: 'Forty', email: 'customer40@acme.com'}",customer40,customer40
 user-account-customer-41,true,"UserIdentity{name: 'Customer', surname: 'FortyOne', email: 'customer41@acme.com'}",customer41,customer41
 user-account-customer-42,true,"UserIdentity{name: 'Customer', surname: 'FortyTwo', email: 'customer42@acme.com'}",customer42,customer42
+user-account-customer-43,true,"UserIdentity{name: 'Customer', surname: 'FortyThree', email: 'customer43@acme.com'}",customer43,customer43
 user-account-agent-01,true,"UserIdentity{name: 'María', surname: 'López', email: 'mariaL@acme.com'}",agent1,agent1
 user-account-agent-02,true,"UserIdentity{name: 'Paco', surname: 'García', email: 'pacoG@acme.com'}",agent2,agent2
 user-account-agent-03,true,"UserIdentity{name: 'Agustín', surname: 'Gomez', email: 'agus@acme.com'}",agent3,agent3

@@ -12,11 +12,12 @@ import javax.validation.ReportAsSingleViolation;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-@Constraint(validatedBy = PhoneNumberValidator.class)
+@Constraint(validatedBy = PromotionCodeValidator.class)
 @ReportAsSingleViolation
-public @interface ValidPhoneNumber {
 
-	String message() default "{acme.validation.phone-number.message}";
+public @interface ValidPromotionCode {
+
+	String message() default "{acme.validation.promotion-code.message}";
 
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
