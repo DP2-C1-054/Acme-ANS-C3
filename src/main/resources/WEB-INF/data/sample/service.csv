@@ -40,7 +40,8 @@ service-32,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,WUIE-
 service-33,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,EQWS-25,EUR 0.01
 service-34,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,CHBH-25,EUR 49.99
 service-35,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,ASJH-25,EUR 50.00
-service-36,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,null,null
+service-36,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,"",null
+service-47,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,null,null
 #validPicture
 service-37,Lorem ipsum dolor sit ame,https://i.imgur.com/8YcXhS0.png,50.00,AAAA-25,EUR 25.00
 service-38,Lorem ipsum dolor sit ame,https://i.imgur.com/MtBRoNP.png,50.00,AAAB-25,EUR 25.00

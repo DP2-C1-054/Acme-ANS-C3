@@ -47,3 +47,4 @@ aircraft-33,Emirates-A380,76591325,200,20000,ACTIVE,airline-01,洛伦·伊普森
 aircraft-34,Emirates-A380,76591326,200,20000,ACTIVE,airline-01,<marquee>Hacked</marquee>
 aircraft-35,Emirates-A380,76591327,200,20000,ACTIVE,airline-01,<script>alert(‘Hacked!’);</script>
 aircraft-36,Emirates-A380,76591328,200,20000,ACTIVE,airline-01,' or 'A' = 'A
+aircraft-40,Emirates-A380,76591332,200,20000,ACTIVE,airline-01,null
