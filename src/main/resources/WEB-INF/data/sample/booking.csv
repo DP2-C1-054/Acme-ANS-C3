@@ -14,6 +14,8 @@ booking-09,95UJ6K9T,2012/07/02 0:00,ECONOMY,4999,flight-03,customer-01,true
 #purchaseMoment
 booking-10,95UJ6K91,2025/01/01 0:00,ECONOMY,4999,flight-03,customer-01,true
 booking-11,95UJ6K92,2000/01/01 0:00,ECONOMY,4999,flight-03,customer-01,true
+booking-19,95UJ6K94,2024/12/31 23:59,ECONOMY,4999,flight-03,customer-02,true
+booking-20,95UJ6K95,2000/01/01 0:01,ECONOMY,4999,flight-03,customer-02,true
 #travelClass
 booking-12,95UJ6K93,2012/07/02 0:00,BUSINESS,4999,flight-03,customer-01,true
 #creditCardNibble

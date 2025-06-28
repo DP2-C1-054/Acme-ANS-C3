@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
 import acme.client.helpers.MomentHelper;
+import acme.client.helpers.StringHelper;
 import acme.entities.service.Service;
 import acme.entities.service.ServiceRepository;
 
@@ -37,7 +38,7 @@ public class ServiceValidator extends AbstractValidator<ValidService, Service> {
 		else {
 			boolean codeContainsActualYear = true;
 			boolean hasDiscountAndCode = true;
-			if (service.getDiscount() != null && service.getPromotionCode() != null) {
+			if (service.getDiscount() != null && !StringHelper.isBlank(service.getPromotionCode())) {
 				List<Service> services = this.repository.findAllServices();
 				String discountCode = service.getPromotionCode();
 				boolean isUnique = services.stream().noneMatch(s -> s.getPromotionCode() != null && s.getPromotionCode().equals(discountCode) && !s.equals(service));
@@ -47,7 +48,7 @@ public class ServiceValidator extends AbstractValidator<ValidService, Service> {
 				if (!isUnique)
 					super.state(context, false, "*", "acme.validation.service.uniquePromotionCode.message");
 				codeContainsActualYear = Objects.equals(yearInCode, actualYear);
-			} else if (service.getDiscount() != null && service.getPromotionCode() == null || service.getDiscount() == null && service.getPromotionCode() != null) {
+			} else if (service.getDiscount() != null && StringHelper.isBlank(service.getPromotionCode()) || service.getDiscount() == null && !StringHelper.isBlank(service.getPromotionCode())) {
 				codeContainsActualYear = false;
 				hasDiscountAndCode = false;
 			}

@@ -42,7 +42,7 @@ public class AircraftValidator extends AbstractValidator<ValidAircraft, Aircraft
 			if (!isBlank) {
 				List<Aircraft> aircrafts = this.repository.findAllByRegistrationNumber(aircraft.getId(), registrationNumber);
 				boolean isUnique = aircrafts.isEmpty();
-				super.state(context, isUnique, "registrationNumber", "acme.validation.aircraft.registration-number");
+				super.state(context, isUnique, "registrationNumber", "acme.validation.aircraft.registration-number.message");
 			}
 
 		}

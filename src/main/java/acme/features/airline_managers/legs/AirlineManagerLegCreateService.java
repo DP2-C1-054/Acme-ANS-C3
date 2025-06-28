@@ -23,11 +23,10 @@ import acme.realms.airline_managers.AirlineManager;
 public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineManager, Leg> {
 
 	@Autowired
-	private AirlineManagerLegRepository		repository;
+	private AirlineManagerLegRepository repository;
 
 	@Autowired
-	private AirlineManagerFlightRepository	flightRepository;
-
+	private AirlineManagerFlightRepository flightRepository;
 
 	@Override
 	public void authorise() {
@@ -62,8 +61,9 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 						List<Aircraft> managerAircrafts = this.repository.findAllAircraftsByManagerId(managerId);
 						List<Airport> allAirports = this.repository.findAllAirports();
 
-						if (aircraftId != 0 && (aircraft == null || !managerAircrafts.contains(aircraft)) || departureId != 0 && (departure == null || !allAirports.contains(departure))
-							|| arrivalId != 0 && (arrival == null || !allAirports.contains(arrival)))
+						if (aircraftId != 0 && (aircraft == null || !managerAircrafts.contains(aircraft))
+								|| departureId != 0 && (departure == null || !allAirports.contains(departure))
+								|| arrivalId != 0 && (arrival == null || !allAirports.contains(arrival)))
 							authorised = false;
 					}
 				}
@@ -115,11 +115,12 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 	public void validate(final Leg leg) {
 		Date currentDate = MomentHelper.getBaseMoment();
 
-		boolean isValidScheduledDeparture = MomentHelper.isBefore(currentDate, leg.getScheduledDeparture());
+		if (leg.getScheduledDeparture() != null) {
+			boolean isValidScheduledDeparture = MomentHelper.isBefore(currentDate, leg.getScheduledDeparture());
 
-		if (!isValidScheduledDeparture)
-			super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
-
+			if (!isValidScheduledDeparture)
+				super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
+		}
 	}
 
 	@Override
@@ -147,7 +148,8 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 		departureChoices = SelectChoices.from(airports, "name", leg.getDepartureAirport());
 		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
 
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status",
+				"draftMode");
 		dataset.put("statuses", statusChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);

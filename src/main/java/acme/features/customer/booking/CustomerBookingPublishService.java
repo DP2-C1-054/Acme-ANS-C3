@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import acme.client.components.datatypes.Money;
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.MomentHelper;
@@ -109,12 +110,15 @@ public class CustomerBookingPublishService extends AbstractGuiService<Customer, 
 		travelClassChoices = SelectChoices.from(TravelClass.class, booking.getTravelClass());
 		passengers = this.repository.findPassengersByBookingId(booking.getId());
 		canPublish = !passengers.isEmpty() && passengers.stream().noneMatch(p -> p.isDraftMode());
+		Money price = booking.price();
+
 		dataset = super.unbindObject(booking, "locatorCode", "purchaseMoment", "travelClass", "creditCardNibble", "draftMode");
 		dataset.put("flight", flightChoices.getSelected().getKey());
 		dataset.put("travelClass", travelClassChoices.getSelected().getKey());
 		dataset.put("canPublish", canPublish);
 		dataset.put("flights", flightChoices);
 		dataset.put("travelClasses", travelClassChoices);
+		dataset.put("price", price);
 
 		super.getResponse().addData(dataset);
 	}
