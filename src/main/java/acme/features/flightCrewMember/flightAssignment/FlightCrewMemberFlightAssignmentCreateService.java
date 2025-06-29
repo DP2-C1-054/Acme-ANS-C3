@@ -26,20 +26,11 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 	private FlightCrewMemberFlightAssignmentRepository repository;
 
 
-	protected boolean flightAssignmentDraftMode(final FlightAssignment flightAssignment) {
-		return flightAssignment.isDraftMode();
-	}
-
 	@Override
 	public void authorise() {
-		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
-		int assignmentMemberId;
+
 		boolean status = true;
 
-		if (super.getRequest().hasData("memberId")) {
-			assignmentMemberId = super.getRequest().getData("memberId", int.class);
-			status = userId == assignmentMemberId;
-		}
 		if (super.getRequest().getMethod().equals("POST")) {
 			if (super.getRequest().hasData("leg")) {
 				int legId = super.getRequest().getData("leg", int.class);
@@ -108,7 +99,8 @@ public class FlightCrewMemberFlightAssignmentCreateService extends AbstractGuiSe
 		Dataset dataset;
 		dataset = super.unbindObject(flightAssignment, "moment", "remarks", "duty", "status", "draftMode");
 
-		Collection<Leg> legList = this.repository.findAllLegs();
+		Collection<Status> legStatuses = List.of(Status.ON_TIME, Status.DELAYED);
+		Collection<Leg> legList = this.repository.findAllLegsAvailables(legStatuses);
 		SelectChoices legs = SelectChoices.from(legList, "flightNumber", flightAssignment.getLeg());
 		dataset.put("legs", legs);
 
