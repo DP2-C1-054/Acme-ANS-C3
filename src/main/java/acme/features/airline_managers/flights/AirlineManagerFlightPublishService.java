@@ -55,11 +55,15 @@ public class AirlineManagerFlightPublishService extends AbstractGuiService<Airli
 
 	@Override
 	public void validate(final Flight flight) {
-		boolean canBePublish = false;
+		boolean canBePublish = true;
+		boolean someLegs = true;
 		List<Leg> legs = this.repository.findLegsByFlightId(flight.getId());
 		if (!legs.isEmpty())
 			canBePublish = legs.stream().allMatch(l -> !l.isDraftMode());
+		else
+			someLegs = false;
 		super.state(canBePublish, "tag", "acme.validation.flight.cant-be-publish.message");
+		super.state(someLegs, "tag", "acme.validation.flight.cant-be-publish-empty-legs.message");
 	}
 
 	@Override

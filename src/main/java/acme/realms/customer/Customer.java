@@ -11,8 +11,8 @@ import acme.client.components.validation.Optional;
 import acme.client.components.validation.ValidNumber;
 import acme.client.components.validation.ValidString;
 import acme.constraints.ValidCustomer;
-import acme.constraints.ValidRoleIdentifier;
 import acme.constraints.ValidPhoneNumber;
+import acme.constraints.ValidRoleIdentifier;
 import lombok.Getter;
 import lombok.Setter;
 
