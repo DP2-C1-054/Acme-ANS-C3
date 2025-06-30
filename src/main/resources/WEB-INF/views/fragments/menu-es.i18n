@@ -76,6 +76,7 @@ master.menu.customer.list-passengers = Ver pasajeros
 master.menu.assistanceAgent = Agente
 master.menu.assistanceAgent.list-claims = Listar reclamaciones completadas
 master.menu.assistanceAgent.list-claims-pending = Listar reclamaciones pendientes
+master.menu.assistanceAgent.show-dashboard = Tablero de agente de asistencia
 
 # master.menu.flightCrewMember ##########################################################
 

@@ -80,6 +80,7 @@ master.menu.customer.list-passengers = List Passengers
 master.menu.assistanceAgent = Assistance Agent
 master.menu.assistanceAgent.list-claims = List completed claims
 master.menu.assistanceAgent.list-claims-pending = List pending claims
+master.menu.assistanceAgent.show-dashboard = Assistance agent dashboard
 
 # master.menu.flightCrewMember ##########################################################
 
