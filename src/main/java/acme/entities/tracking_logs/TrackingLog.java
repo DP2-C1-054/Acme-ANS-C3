@@ -27,9 +27,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @ValidTrackingLog
-//@Table(indexes = {
-//	@Index(columnList = "claim_id, percentage"), @Index(columnList = "claim_id, lastUpdateMoment, status")
-//})
+@Table(indexes = {
+	@Index(columnList = "claim_id, percentage"), @Index(columnList = "claim_id, lastUpdateMoment, status")
+})
 public class TrackingLog extends AbstractEntity {
 
 	private static final long	serialVersionUID	= 1L;
