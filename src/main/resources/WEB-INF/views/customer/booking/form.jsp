@@ -15,7 +15,7 @@
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == false}">
-			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/list?bookingId=${id}"/>
+			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/bookingList?bookingId=${id}"/>
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="customer.booking.form.button.passengers" action="/customer/passenger/bookingList?bookingId=${id}"/>
@@ -26,7 +26,7 @@
 			</jstl:if>
 		</jstl:when>
 		<jstl:when test="${_command == 'create'}">
-			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create?bookingId=${id}"/>
+			<acme:submit code="customer.booking.form.button.create" action="/customer/booking/create"/>
 		</jstl:when>		
 	</jstl:choose>
 </acme:form>

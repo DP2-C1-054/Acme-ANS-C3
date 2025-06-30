@@ -40,11 +40,15 @@ public class CustomerTakesDeleteService extends AbstractGuiService<Customer, Tak
 			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && !takes.isEmpty();
 		} else {
 			passengerId = super.getRequest().getData("passenger", int.class);
-			passenger = this.repository.findPassengerById(passengerId);
-			List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
-			Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
-			Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
-			status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && hasAlreadyExist;
+			if (passengerId == 0)
+				status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+			else {
+				passenger = this.repository.findPassengerById(passengerId);
+				List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
+				Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
+				Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
+				status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && hasAlreadyExist;
+			}
 		}
 		super.getResponse().setAuthorised(status);
 	}
@@ -68,12 +72,20 @@ public class CustomerTakesDeleteService extends AbstractGuiService<Customer, Tak
 		Passenger passenger;
 		int bookingId = super.getRequest().getData("bookingId", int.class);
 		passengerId = super.getRequest().getData("passenger", int.class);
-		passenger = this.repository.findPassengerById(passengerId);
 
-		super.bindObject(takes);
-		Takes take = this.repository.findTakesByBookingAndPassengerId(bookingId, passengerId);
-		super.getBuffer().addData(take);
-		takes.setPassenger(passenger);
+		if (passengerId == 0) {
+			passenger = null;
+			super.bindObject(takes);
+			takes.setPassenger(passenger);
+		} else {
+			passenger = this.repository.findPassengerById(passengerId);
+
+			super.bindObject(takes);
+			Takes take = this.repository.findTakesByBookingAndPassengerId(bookingId, passengerId);
+			super.getBuffer().addData(take);
+			takes.setPassenger(passenger);
+		}
+
 	}
 
 	@Override
@@ -83,7 +95,8 @@ public class CustomerTakesDeleteService extends AbstractGuiService<Customer, Tak
 
 	@Override
 	public void perform(final Takes takes) {
-		this.repository.delete(takes);
+		if (takes.getPassenger() != null)
+			this.repository.delete(takes);
 	}
 
 	@Override
