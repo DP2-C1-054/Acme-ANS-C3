@@ -1,7 +1,7 @@
-assistance-agent.assistance-agent-dashboard.form.title = Assistance Agent dashboard
+assistance-agent.assistance-agent-dashboard.form.title = Assistance Agent Dashboard
 	
-assistanceAgent.dashboard.form.title.general-indicators = General indicators
-assistanceAgent.dashboard.form.title.log-statistics-indicators = Total tracking logs statistics indicators
+assistanceAgent.dashboard.form.title.general-indicators = General
+assistanceAgent.dashboard.form.title.log-statistics-indicators = Tracking logs statistics indicators
 assistanceAgent.dashboard.form.title.log-statistics-month-indicators = Tracking logs statistics indicators during the last month
 	
 assistanceAgent.dashboard.form.label.resolved-claims =  Ratio of claims that have been resolved successfully

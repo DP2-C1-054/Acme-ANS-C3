@@ -1,12 +1,12 @@
-assistance-agent.assistance-agent-dashboard.form.title = Tablero de agente de asistencia
+assistance-agent.assistance-agent-dashboard.form.title = Tablero de Agente de Asistencia
 
-assistanceAgent.dashboard.form.title.general-indicators = Indicadores generales
-assistanceAgent.dashboard.form.title.log-statistics-indicators = Indicadores estadísticos de registros de seguimiento totales
-assistanceAgent.dashboard.form.title.log-statistics-month-indicators = Indicadores estadísticos de registros de seguimiento durante el último mes
+assistanceAgent.dashboard.form.title.general-indicators = General
+assistanceAgent.dashboard.form.title.log-statistics-indicators = Indicadores estadísticos de registros de seguimiento
+assistanceAgent.dashboard.form.title.log-statistics-month-indicators = Indicadores estadísticos de registros de seguimiento del último mes
 
 assistanceAgent.dashboard.form.label.resolved-claims =  Ratio de reclamaciones que se han resuelto con éxito
-assistanceAgent.dashboard.form.label.rejected-claims =  Ratio de solicitudes que han sido rechazadas
-assistanceAgent.dashboard.form.label.top-three-months = Los tres meses con el mayor número de reclamaciones
+assistanceAgent.dashboard.form.label.rejected-claims =  Ratio de reclamaciones que han sido rechazadas
+assistanceAgent.dashboard.form.label.top-three-months = Top tres meses con el mayor número de reclamaciones
 
 assistanceAgent.dashboard.form.label.claim-logs-statistics-average = Media
 assistanceAgent.dashboard.form.label.claim-logs-statistics-minimum = Mínimo
