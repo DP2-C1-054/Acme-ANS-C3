@@ -1,6 +1,7 @@
 
 package acme.features.assistanceAgent.dashboard;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,26 +16,24 @@ import acme.realms.assistance_agents.AssistanceAgent;
 public interface AssistanceAgentDashboardRepository extends AbstractRepository {
 
 	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.lastUpdateMoment = (SELECT MAX(t2.lastUpdateMoment) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'ACCEPTED' AND c.assistanceAgent.id = :agentId)")
-	List<Claim> findAllAcceptedClaimsByAgentId(int agentId);
+	Collection<Claim> findAllAcceptedClaimsByAgentId(int agentId);
 
-	@Query("SELECT c FROM Claim c WHERE c.assistanceAgent = :agent")
-	List<Claim> findAllClaims(AssistanceAgent agent);
+	@Query("SELECT c FROM Claim c WHERE c.assistanceAgent.id = :agentId")
+	Collection<Claim> findAllClaims(int agentId);
 
 	default Double resolvedRatio(final AssistanceAgent assistanceAgent) {
-		int total = this.findAllClaims(assistanceAgent).size();
+		int total = this.findAllClaims(assistanceAgent.getId()).size();
 		int res = this.findAllAcceptedClaimsByAgentId(assistanceAgent.getId()).size();
-		double ratio = 100.0 * (res / total);
-		return total > 0 ? ratio : 0.0;
+		return total > 0 ? 100.0 * ((double) res / total) : 0.0;
 	}
 
 	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.lastUpdateMoment = (SELECT MAX(t2.lastUpdateMoment) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'REJECTED' AND c.assistanceAgent.id = :agentId)")
 	List<Claim> findAllRejectedClaimsByAgentId(int agentId);
 
 	default Double rejectedRatio(final AssistanceAgent assistanceAgent) {
-		int total = this.findAllClaims(assistanceAgent).size();
+		int total = this.findAllClaims(assistanceAgent.getId()).size();
 		int res = this.findAllRejectedClaimsByAgentId(assistanceAgent.getId()).size();
-		double ratio = 100.0 * (res / total);
-		return total > 0 ? ratio : 0.0;
+		return total > 0 ? 100.0 * ((double) res / total) : 0.0;
 	}
 
 	@Query("SELECT FUNCTION('MONTHNAME', c.registrationMoment) as month, COUNT(c) as count " + "FROM Claim c WHERE c.assistanceAgent = :agent " + "GROUP BY FUNCTION('MONTH', c.registrationMoment), month " + "ORDER BY COUNT(c) DESC")
