@@ -50,13 +50,13 @@ public class AssistanceAgentValidator extends AbstractValidator<ValidAssistanceA
 						codeContainsInitials = false;
 				}
 
-			super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
+			super.state(context, codeContainsInitials, "employeeCode", "acme.validation.role.identifier.message");
 
 			List<AssistanceAgent> assistanceAgents = this.repository.findAllAssistanceAgent();
 			boolean isUnique = assistanceAgents.stream().noneMatch(a -> a.getEmployeeCode().equals(code) && !a.equals(assistanceAgent));
 
 			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.assistance-agent.code.message");
+				super.state(context, false, "employeeCode", "acme.validation.assistance-agent.code.message");
 
 		}
 

@@ -2,13 +2,13 @@
 package acme.features.authenticated.assistanceAgent;
 
 import java.util.Collection;
-import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Authenticated;
 import acme.client.components.principals.UserAccount;
 import acme.client.components.views.SelectChoices;
-import acme.client.helpers.MomentHelper;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
@@ -18,6 +18,7 @@ import acme.realms.assistance_agents.AssistanceAgent;
 @GuiService
 public class AuthenticatedAssistanceAgentCreateService extends AbstractGuiService<Authenticated, AssistanceAgent> {
 
+	@Autowired
 	private AuthenticatedAssistanceAgentRepository repository;
 
 
@@ -44,17 +45,14 @@ public class AuthenticatedAssistanceAgentCreateService extends AbstractGuiServic
 	@Override
 	public void load() {
 		AssistanceAgent assistanceAgent;
-		Date moment;
 		int userAccountId;
 		UserAccount userAccount;
 
-		moment = MomentHelper.getCurrentMoment();
 		userAccountId = super.getRequest().getPrincipal().getAccountId();
 		userAccount = this.repository.findUserAccountById(userAccountId);
 
 		assistanceAgent = new AssistanceAgent();
 		assistanceAgent.setUserAccount(userAccount);
-		assistanceAgent.setMoment(moment);
 
 		super.getBuffer().addData(assistanceAgent);
 	}
