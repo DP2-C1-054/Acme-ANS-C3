@@ -1,12 +1,15 @@
 
 package acme.features.customer.passenger;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.passenger.Passenger;
+import acme.entities.passenger.Takes;
 import acme.realms.customer.Customer;
 
 @GuiService
@@ -44,8 +47,15 @@ public class CustomerPassengerShowService extends AbstractGuiService<Customer, P
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
+		Boolean showDelete;
+		int masterId;
+		List<Takes> takes;
+		masterId = super.getRequest().getData("id", int.class);
+		takes = this.repository.findTakesByPassengerId(masterId);
+		showDelete = takes.isEmpty();
 
 		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds", "draftMode");
+		dataset.put("showDelete", showDelete);
 		super.getResponse().addData(dataset);
 	}
 }
