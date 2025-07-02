@@ -33,7 +33,6 @@ master.menu.administrator.shut-system-down = Parar el sistema
 master.menu.airline-manager = Gerente de aerolínea
 master.menu.airline-manager.flights = Vuelos
 master.menu.airline-manager.legs = Tramos
-master.menu.airline-manager.show-dashboard = Mostrar panel
 
 # master.menu.provider ########################################################
 
