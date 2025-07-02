@@ -34,16 +34,22 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 		customer = booking == null ? null : booking.getCustomer();
 		int passengerId;
 		Passenger passenger;
-
+		Collection<Passenger> allCustomerPassengers = this.repository.findPassengersByCustomerId(customer.getId());
+		Collection<Passenger> passengersInBooking = this.repository.findAlreadyTakesPassengers(bookingId, customer.getId());
 		if (method.equals("GET"))
-			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer);
+			status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && !passengersInBooking.containsAll(allCustomerPassengers);
 		else {
 			passengerId = super.getRequest().getData("passenger", int.class);
-			passenger = this.repository.findPassengerById(passengerId);
-			List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
-			Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
-			Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
-			status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && !hasAlreadyExist;
+			if (passengerId == 0)
+				status = booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && !passengersInBooking.containsAll(allCustomerPassengers);
+			else {
+				passenger = this.repository.findPassengerById(passengerId);
+				List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
+				Customer passengerCustomer = passenger == null ? null : passenger.getCustomer();
+				Boolean hasAlreadyExist = takes.stream().anyMatch(t -> t.getPassenger().equals(passenger));
+				status = passenger != null && booking != null && booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(customer) && super.getRequest().getPrincipal().hasRealm(passengerCustomer) && !hasAlreadyExist
+					&& !passengersInBooking.containsAll(allCustomerPassengers);
+			}
 		}
 		super.getResponse().setAuthorised(status);
 	}
@@ -67,10 +73,17 @@ public class CustomerTakesCreateService extends AbstractGuiService<Customer, Tak
 		Passenger passenger;
 
 		pasengerId = super.getRequest().getData("passenger", int.class);
-		passenger = this.repository.findPassengerById(pasengerId);
+		if (pasengerId == 0) {
+			passenger = null;
+			super.bindObject(takes);
+			takes.setPassenger(passenger);
+		} else {
+			passenger = this.repository.findPassengerById(pasengerId);
 
-		super.bindObject(takes);
-		takes.setPassenger(passenger);
+			super.bindObject(takes);
+			takes.setPassenger(passenger);
+		}
+
 	}
 
 	@Override

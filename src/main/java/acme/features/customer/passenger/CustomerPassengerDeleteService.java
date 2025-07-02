@@ -26,13 +26,11 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 		int masterId;
 		Passenger passenger;
 		List<Takes> takes;
-		boolean customerHaveAnyReservationWithPassenger;
 
 		masterId = super.getRequest().getData("id", int.class);
 		passenger = this.repository.findPassengerById(masterId);
 		takes = this.repository.findTakesByPassengerId(masterId);
-		customerHaveAnyReservationWithPassenger = takes.stream().anyMatch(t -> super.getRequest().getPrincipal().hasRealm(t.getBooking().getCustomer()));
-		status = passenger != null && passenger.isDraftMode() && customerHaveAnyReservationWithPassenger;
+		status = passenger != null && super.getRequest().getPrincipal().hasRealm(passenger.getCustomer()) && passenger.isDraftMode() && takes.isEmpty();
 		super.getResponse().setAuthorised(status);
 	}
 
@@ -70,8 +68,15 @@ public class CustomerPassengerDeleteService extends AbstractGuiService<Customer,
 	@Override
 	public void unbind(final Passenger passenger) {
 		Dataset dataset;
+		Boolean showDelete;
+		int masterId;
+		List<Takes> takes;
+		masterId = super.getRequest().getData("id", int.class);
+		takes = this.repository.findTakesByPassengerId(masterId);
+		showDelete = takes.isEmpty();
 
 		dataset = super.unbindObject(passenger, "name", "mail", "passport", "birthDate", "specialNeeds", "draftMode");
+		dataset.put("showDelete", showDelete);
 
 		super.getResponse().addData(dataset);
 	}

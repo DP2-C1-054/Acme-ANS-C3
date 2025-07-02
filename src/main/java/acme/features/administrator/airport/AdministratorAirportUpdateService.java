@@ -21,14 +21,23 @@ public class AdministratorAirportUpdateService extends AbstractGuiService<Admini
 	@Override
 	public void authorise() {
 		boolean status = true;
-		if (!super.getRequest().hasData("id"))
-			status = false;
+		if (super.getRequest().getMethod().equals("GET"))
+			status = true;
 		else {
-			int id = super.getRequest().getData("id", int.class);
-			Airport airport = this.repository.findAirportById(id);
-			if (airport == null)
+			if (!super.getRequest().hasData("id"))
 				status = false;
+			else {
+				int id = super.getRequest().getData("id", int.class);
+				Airport airport = this.repository.findAirportById(id);
+				if (airport == null)
+					status = false;
+			}
+			if (status && super.getRequest().hasData("operationalScope")) {
+				String scope = super.getRequest().getData("operationalScope", String.class);
+				status = scope.equals("0") || scope.equals("INTERNATIONAL") || scope.equals("DOMESTIC") || scope.equals("REGIONAL");
+			}
 		}
+
 		super.getResponse().setAuthorised(status);
 	}
 

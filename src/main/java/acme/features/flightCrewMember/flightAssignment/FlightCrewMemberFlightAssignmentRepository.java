@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.flight_assignments.FlightAssignment;
 import acme.entities.legs.Leg;
+import acme.entities.legs.Leg.Status;
 
 public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepository {
 
@@ -26,6 +27,9 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 	@Query("SELECT l FROM Leg l WHERE l.scheduledDeparture > date")
 	Collection<Leg> findAllLegsAfterDate(Date date);
 
+	@Query("SELECT l FROM Leg l WHERE l.draftMode = true")
+	Collection<Leg> findAllUnpublishedLegs();
+
 	@Query("SELECT l from Leg l WHERE l.id = :id")
 	Optional<Leg> findLegById(Integer id);
 
@@ -34,5 +38,8 @@ public interface FlightCrewMemberFlightAssignmentRepository extends AbstractRepo
 
 	@Query("SELECT fa FROM FlightAssignment fa WHERE fa.id = :id AND fa.allocatedFlightCrewMember.id = :flightCrewMemberId")
 	Optional<FlightAssignment> findByIdAndFlightCrewMemberId(Integer id, Integer flightCrewMemberId);
+
+	@Query("SELECT l FROM Leg l WHERE l.status IN :statuses AND l.draftMode = false")
+	Collection<Leg> findAllLegsAvailables(Collection<Status> statuses);
 
 }
