@@ -110,6 +110,7 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 
 	@Override
 	public void validate(final Leg leg) {
+		;
 	}
 
 	@Override

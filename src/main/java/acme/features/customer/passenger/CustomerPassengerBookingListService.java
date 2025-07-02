@@ -61,11 +61,15 @@ public class CustomerPassengerBookingListService extends AbstractGuiService<Cust
 		Booking booking;
 		final boolean showAdd;
 		final boolean showDelete;
+		int customerId;
 
 		bookingId = super.getRequest().getData("bookingId", int.class);
 		List<Takes> takes = this.repository.findTakesByBookingId(bookingId);
+		customerId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		Collection<Passenger> allCustomerPassengers = this.repository.findPassengersByCustomerId(customerId);
+
 		booking = this.repository.findBookingById(bookingId);
-		showAdd = booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer());
+		showAdd = booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && !passengers.containsAll(allCustomerPassengers);
 		showDelete = booking.isDraftMode() && super.getRequest().getPrincipal().hasRealm(booking.getCustomer()) && !takes.isEmpty();
 		super.getResponse().addGlobal("bookingId", bookingId);
 		super.getResponse().addGlobal("showAdd", showAdd);

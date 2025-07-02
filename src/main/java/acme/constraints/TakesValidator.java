@@ -33,7 +33,7 @@ public class TakesValidator extends AbstractValidator<ValidTakes, Takes> {
 		if (takes == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else if (takes.getPassenger() == null || takes.getBooking() == null)
-			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
+			super.state(context, false, "passenger", "javax.validation.constraints.NotNull.message");
 		else {
 			List<Takes> takeses = this.repository.findAllTakes();
 			boolean alreadyExist = takeses.stream().anyMatch(t -> !t.equals(takes) && t.getBooking().equals(takes.getBooking()) && t.getPassenger().equals(takes.getPassenger()));

@@ -21,12 +21,15 @@ public class AdministratorAirportCreateService extends AbstractGuiService<Admini
 	@Override
 	public void authorise() {
 		boolean status = true;
-		if (super.getRequest().hasData("id")) {
-			int id = super.getRequest().getData("id", int.class);
-			if (id != 0)
-				status = false;
-		}
+
+		if (super.getRequest().getMethod().equals("POST"))
+			if (status && super.getRequest().hasData("operationalScope")) {
+				String scope = super.getRequest().getData("operationalScope", String.class);
+				status = scope.equals("0") || scope.equals("INTERNATIONAL") || scope.equals("DOMESTIC") || scope.equals("REGIONAL");
+			}
+
 		super.getResponse().setAuthorised(status);
+
 	}
 
 	@Override
