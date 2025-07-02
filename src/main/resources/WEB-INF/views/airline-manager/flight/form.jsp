@@ -13,7 +13,7 @@
 	<jstl:when test="${_command == 'show' && draftMode == false}">
 		<acme:button code="airline-manager.flight.form.button.legs" action="/airline-manager/leg/list?flightId=${id}" />
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(_command, 'show|update|delete') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(_command, 'show|update|delete|publish') && draftMode == true}">
 			<acme:button code="airline-manager.flight.form.button.legs" action="/airline-manager/leg/list?flightId=${id}" />
 			<acme:submit code="airline-manager.flight.form.button.update" action="/airline-manager/flight/update"/>
 			<acme:submit code="airline-manager.flight.form.button.delete" action="/airline-manager/flight/delete"/>
