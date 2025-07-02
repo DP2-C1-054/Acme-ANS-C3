@@ -1,0 +1,14 @@
+administrator.passenger.list.title = Listado de pasajeros
+administrator.passenger.list.label.name = Nombre
+administrator.passenger.list.label.passport = Pasaporte
+administrator.passenger.list.button.create = Registrar Pasajero
+administrator.passenger.list.button.add = Añadir Pasajero registrado
+administrator.passenger.form.title = Formulario de pasajero
+administrator.passenger.form.button.create = Registrar Pasajero
+administrator.passenger.form.label.name = Nombre
+administrator.passenger.form.label.mail = Correo electrónico
+administrator.passenger.form.label.passport = Pasaporte
+administrator.passenger.form.label.birthDate = Fecha de Nacimiento
+administrator.passenger.form.label.specialNeeds = Necesidades especiales
+acme.passenger.form.mail.placeholder = ejemplo@ejemplo.ejemplo
+acme.passenger.form.passport.placeholder = [A-Z0-9]{6-9} Ej: A2F7G8T
