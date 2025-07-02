@@ -4,7 +4,7 @@ package acme.forms;
 import java.util.List;
 
 import acme.client.components.basis.AbstractForm;
-import acme.datatypes.Statistics;
+import acme.datatypes.StatisticsAssistanceAgent;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +21,7 @@ public class AssistanceAgentDashboard extends AbstractForm {
 	Double						resolvedClaims;
 	Double						rejectedClaims;
 	List<String>				topThreeMonths;
-	Statistics					logsStatistics;
-	Statistics					assistedStatistics;
+	StatisticsAssistanceAgent					logsStatistics;
+	StatisticsAssistanceAgent					assistedStatistics;
 
 }

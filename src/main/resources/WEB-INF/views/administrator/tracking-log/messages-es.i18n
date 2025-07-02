@@ -1,0 +1,10 @@
+administrator.tracking-log.list.title = Lista de Registros de Seguimiento
+administrator.trackingLog.list.label.percentage = Porcentaje de resolución
+administrator.trackingLog.list.label.status = Estado
+
+administrator.tracking-log.form.title = Registro de Seguimiento:
+administrator.trackingLog.form.label.lastUpdateMoment = Último momento de actualización
+administrator.trackingLog.form.label.step = Paso en curso
+administrator.trackingLog.form.label.percentage = Porcentaje de resolución
+administrator.trackingLog.form.label.status = Estado
+administrator.trackingLog.form.label.resolution = Resolución

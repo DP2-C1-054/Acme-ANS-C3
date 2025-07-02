@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Statistics extends AbstractDatatype {
+public class StatisticsAssistanceAgent extends AbstractDatatype {
 
 	private static final long	serialVersionUID	= 1L;
 
@@ -24,7 +24,11 @@ public class Statistics extends AbstractDatatype {
 
 	@Override
 	public String toString() {
-		return String.format("Statistics [average=%.2f, minimum=%.2f, maximum=%.2f, deviation=%.2f, count=%s]", this.average, this.minimum, this.maximum, this.deviation, this.count);
+		return String.format("StatisticsAssistanceAgent [average=%.2f, minimum=%.2f, maximum=%.2f, deviation=%.2f, count=%s]", this.average, this.minimum, this.maximum, this.deviation, this.count);
+	}
+
+	public StatisticsAssistanceAgent() {
+
 	}
 
 }

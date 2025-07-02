@@ -1,0 +1,14 @@
+administrator.claim.list.title = Claim List
+administrator.claim.list.label.passengerEmail = Passenger Email
+administrator.claim.list.label.type = Claim Type
+administrator.claim.list.label.indicator = Claim Status
+
+administrator.claim.form.title = Claim description
+administrator.claim.form.label.registrationMoment = Registration moment
+administrator.claim.form.label.passengerEmail = Passenger email
+administrator.claim.form.label.description = Description
+administrator.claim.form.label.type = Claim type
+administrator.claim.form.label.leg = Leg's flight number
+administrator.claim.form.label.indicator = Status
+
+administrator.claim.form.button.trackingLogs = Tracking Logs

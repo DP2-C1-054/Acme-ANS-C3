@@ -14,7 +14,7 @@ import acme.client.components.models.Dataset;
 import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.datatypes.Statistics;
+import acme.datatypes.StatisticsAssistanceAgent;
 import acme.forms.AssistanceAgentDashboard;
 import acme.realms.assistance_agents.AssistanceAgent;
 
@@ -56,7 +56,7 @@ public class AssistanceAgentDashboardShowService extends AbstractGuiService<Assi
 		topThreeMonths = this.repository.topThreeMonths(agent);
 
 		//The average, minimum, maximum, and standard deviation of the number of logs their claims have.
-		Statistics logsStatistics = new Statistics();
+		StatisticsAssistanceAgent logsStatistics = new StatisticsAssistanceAgent();
 		logsStatistics.setAverage(this.repository.averageNumberOfLogs(agent));
 		logsStatistics.setMinimum(this.repository.minimumNumberOfLogs(agent));
 		logsStatistics.setMaximum(this.repository.maximumNumberOfLogs(agent));
@@ -89,7 +89,7 @@ public class AssistanceAgentDashboardShowService extends AbstractGuiService<Assi
 
 		List<Double> counts = monthlyCounts.stream().map(obj -> ((Number) obj[2]).doubleValue()).collect(Collectors.toList());
 
-		Statistics statsClaimsLastMonth = new Statistics();
+		StatisticsAssistanceAgent statsClaimsLastMonth = new StatisticsAssistanceAgent();
 
 		if (!counts.isEmpty()) {
 			DoubleSummaryStatistics stats = counts.stream().mapToDouble(Double::doubleValue).summaryStatistics();
