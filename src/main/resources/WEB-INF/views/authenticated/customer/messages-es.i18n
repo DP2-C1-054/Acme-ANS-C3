@@ -1,0 +1,15 @@
+
+
+authenticated.customer.form.title = Detalles de Cliente
+
+authenticated.customer.form.label.identifier = Identificador
+authenticated.customer.form.label.phoneNumber = Número de teléfono
+authenticated.customer.form.label.address = Dirección
+authenticated.customer.form.label.city = Ciudad
+authenticated.customer.form.label.country = País
+
+acme.customer.form.identifier.placeholder = Inicales + 6 dígitos EJ: PP123456
+acme.customer.form.phoneNumber.placeholder = ^\\+?\\d{6,15}$ EJ: +123456/ 123456
+
+authenticated.consumer.form.button.create = Registrar
+authenticated.consumer.form.button.update = Actualizar

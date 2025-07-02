@@ -1,0 +1,15 @@
+
+
+authenticated.customer.form.title = Customer form
+
+authenticated.customer.form.label.identifier = Identifier
+authenticated.customer.form.label.phoneNumber = Phone Number
+authenticated.customer.form.label.address = Address
+authenticated.customer.form.label.city = City
+authenticated.customer.form.label.country = Country
+
+acme.customer.form.identifier.placeholder = Initials + 6 digits EJ: PP123456
+acme.customer.form.phoneNumber.placeholder = ^\\+?\\d{6,15}$ EJ: +123456 / 123456
+
+authenticated.consumer.form.button.create = Register
+authenticated.consumer.form.button.update = Update
