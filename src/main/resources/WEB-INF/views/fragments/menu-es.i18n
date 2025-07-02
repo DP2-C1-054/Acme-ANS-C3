@@ -70,6 +70,7 @@ master.menu.technician.list-task-catalogue = Listar tareas publicadas
 master.menu.customer = Cliente
 master.menu.customer.list-bookings = Ver reservas
 master.menu.customer.list-passengers = Ver pasajeros
+master.menu.customer.dashboard = Dashboard
 
 # master.menu.assistanceAgent ##########################################################
 
