@@ -34,6 +34,7 @@ master.menu.administrator.shut-system-down = Shut system down
 master.menu.airline-manager = Airline manager
 master.menu.airline-manager.flights = Flights
 master.menu.airline-manager.legs = Legs
+master.menu.airline-manager.show-dashboard = Show dashboard
 
 # master.menu.provider ########################################################
 

@@ -1,0 +1,18 @@
+airline-manager.dashboard.form.title = Panel de manager
+
+airline-manager.dashboard.form.title.general-indicators = Indicadores generales
+
+airline-manager.dashboard.form.label.ranking-manager-by-experience = Clasificación de Gerente Según la Experiencia:
+airline-manager.dashboard.form.label.years-to-retire = Años Hasta la Jubilación:
+airline-manager.dashboard.form.label.ratio-on-time-legs = Relación de Trayectos A Tiempo:
+airline-manager.dashboard.form.label.ratio-delayed-legs = Relación de Trayectos Retrasados:
+airline-manager.dashboard.form.label.most-popular = Aeropuerto Más Popular:
+airline-manager.dashboard.form.label.less-popular = Aeropuerto Menos Popular:
+airline-manager.dashboard.form.label.number-of-on-time = Número de Trayectos A Tiempo:
+airline-manager.dashboard.form.label.number-of-delayed = Número de Trayectos Retrasados:
+airline-manager.dashboard.form.label.number-of-cancelled = Número de Trayectos Cancelados:
+airline-manager.dashboard.form.label.number-of-landed = Número de Trayectos Aterrizados:
+airline-manager.dashboard.form.label.cost-average-flights = Coste Promedio de Mis Vuelos:
+airline-manager.dashboard.form.label.cost-min-flights = Menor Coste de Mis Vuelos:
+airline-manager.dashboard.form.label.cost-max-flights = Mayor Coste de Mis Vuelos:
+airline-manager.dashboard.form.label.cost-deviation-flights = Desviación Estándar del Coste de Mis Vuelos:
