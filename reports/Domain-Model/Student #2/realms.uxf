@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>13</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>234</y>
+      <w>624</w>
+      <h>221</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Role&gt;&gt;
+Customer
+--
++ identifier: String {Mandatory, Column(unique=true), @ValidRoleIdentifier}
++ phoneNumber: String {Mandatory, ValidPhoneNumber, Automapped}
++ address: String {Mandatory, ValidString, Automapped}
++ city: String {Mandatory, ValidString(max = 50), Automapped}
++ country: String {Mandatory, ValidString(max = 50), Automapped}
+- earnedPoints: Integer {Optional, ValidNumber(min = 0, max = 500000), Automapped}
+bg=pink
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
