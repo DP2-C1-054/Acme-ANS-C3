@@ -1,0 +1,14 @@
+flight-crew-member.flight-crew-member-dashboard.form.title = Mi dashboard
+
+flight-crew-member.flight-crew-member-dashboard.label.last-five-destinations = Últimos 5 destinos
+flight-crew-member.flight-crew-member-dashboard.label.fcm-assigned = Miembros de tripulación de vuelo en el último tramo
+
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-confirmed = Asignaciones de vuelo confirmadas
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-pending = Asignaciones de vuelo pendientes
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-cancelled = Asignaciones de vuelo canceladas
+
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-status-03 = Número de tramos con un registro de actividad de gravedad baja 0-3 
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-status-47 = Número de tramos con un registro de actividad de gravedad media 4-7
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-status-810 = Número de tramos con un registro de actividad de gravedad alta 8-10 
+
+flight-crew-member.flight-crew-member-dashboard.label.statistics = Estadísticas del último mes

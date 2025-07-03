@@ -1,0 +1,15 @@
+flight-crew-member.flight-crew-member-dashboard.form.title = My Dashboard
+
+flight-crew-member.flight-crew-member-dashboard.label.last-five-destinations = Last 5 destinations
+
+flight-crew-member.flight-crew-member-dashboard.label.fcm-assigned = Flight Crew Members in last Leg
+
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-confirmed = Confirmed flight assignments
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-pending = Pending flight assignments
+flight-crew-member.flight-crew-member-dashboard.label.grouped-by-status-cancelled = Cancelled flight assignments
+
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-low-severity = Number of legs with a low severity (0-3) activity log
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-mid-severity = Number of legs with a mid severity (4-7) activity log
+flight-crew-member.flight-crew-member-dashboard.label.legs-with-high-severity = Number of legs with a high severity (8-10) activity log
+
+flight-crew-member.flight-crew-member-dashboard.label.statistics = Last month statistics

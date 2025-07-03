@@ -1,4 +1,4 @@
-acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.
+acme.validation.customer.identifier.message = El identificador debe contener 2 o 3 letras siendo tus inciales y 6 dígitos
 acme.validation.assistance-agent.employee-code.message = El código de empleado debe contener 2 o 3 letras siendo tus inciales y 6 dígitos
 acme.validation.tracking-log.status.message = El estado no puede ser pending si el porcentaje es 100% y no puede ser accepted/rejected si es menor a 100%
 acme.validation.role.identifier.message = El código debe contener 2 o 3 letras siendo tus inciales y 6 dígitos.

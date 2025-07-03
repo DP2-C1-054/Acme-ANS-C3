@@ -1,0 +1,14 @@
+administrator.passenger.list.title = List of passengers
+administrator.passenger.list.label.name = Name
+administrator.passenger.list.label.passport = Passport
+administrator.passenger.list.button.create = Register passenger
+administrator.passenger.list.button.add = Add registered Passenger
+administrator.passenger.form.title = Passenger form
+administrator.passenger.form.button.create = Register a Passenger
+administrator.passenger.form.label.name = Name
+administrator.passenger.form.label.mail = Mail
+administrator.passenger.form.label.passport = Passport
+administrator.passenger.form.label.birthDate = Birthdate
+administrator.passenger.form.label.specialNeeds = Special needs
+acme.passenger.form.mail.placeholder = example@example.example
+acme.passenger.form.passport.placeholder = [A-Z0-9]{6-9} Ex: A2F7G8T

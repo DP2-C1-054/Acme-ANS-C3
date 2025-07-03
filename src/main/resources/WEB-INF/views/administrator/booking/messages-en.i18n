@@ -1,0 +1,13 @@
+administrator.booking.list.label.locatorCode = locator code
+administrator.booking.list.label.travelClass = travel class
+administrator.booking.list.label.purchaseMoment = purchase moment
+administrator.booking.list.title = List of bookings
+administrator.booking.form.title = Form of booking
+administrator.booking.form.label.locatorCode = Locator code
+administrator.booking.form.label.travelClass = Travel Class
+administrator.booking.form.label.creditCardNibble = Credit card nibble
+administrator.booking.form.button.passengers = Passengers
+administrator.booking.form.label.flight = Flight
+acme.booking.form.textbox.placeholder = [A-Z0-9]{6-8} Ex: A2F7G8T
+acme.booking.form.integer.placeholder = 0000-9999 Ex: 498
+administrator.booking.form.label.price = Price

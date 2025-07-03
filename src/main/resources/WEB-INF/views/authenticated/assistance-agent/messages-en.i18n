@@ -1,0 +1,12 @@
+authenticated.assistance-agent.form.title = Assistance Agent
+
+authenticated.assistanceAgent.form.label.employeeCode = Employee Code 
+authenticated.assistanceAgent.form.label.spokenLanguages = Spoken Languages
+authenticated.assistanceAgent.form.label.moment = Moment
+authenticated.assistanceAgent.form.label.bio = Bio
+authenticated.assistanceAgent.form.label.salary = Salary
+authenticated.assistanceAgent.form.label.photoUrl = Photo Url
+authenticated.assistanceAgent.form.label.airline = Airline
+
+authenticated.assistanceAgent.form.button.create = Create
+authenticated.assistanceAgent.form.button.update = Update

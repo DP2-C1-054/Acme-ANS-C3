@@ -1,0 +1,14 @@
+administrator.claim.list.title = Lista de reclamaciones
+administrator.claim.list.label.passengerEmail = Correo del pasajero
+administrator.claim.list.label.type = Tipo de reclamación
+administrator.claim.list.label.indicator = Estado de la reclamación
+
+administrator.claim.form.title = Detalles de reclamación
+administrator.claim.form.label.registrationMoment = Fecha de Registro
+administrator.claim.form.label.passengerEmail = Correo del pasajero
+administrator.claim.form.label.description = Descripción
+administrator.claim.form.label.type = Tipo de incidencia
+administrator.claim.form.label.leg = Número de vuelo del tramo
+administrator.claim.form.label.indicator = Estado
+
+administrator.claim.form.button.trackingLogs = Registros de Seguimiento

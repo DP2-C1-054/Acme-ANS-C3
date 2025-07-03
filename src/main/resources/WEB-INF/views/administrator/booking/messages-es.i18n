@@ -1,0 +1,13 @@
+administrator.booking.list.label.locatorCode = Código de reserva
+administrator.booking.list.label.travelClass = Tipo de viaje
+administrator.booking.list.label.purchaseMoment = Momento de compra
+administrator.booking.list.title = Lista de Reservas
+administrator.booking.form.title = Formulario de Reserva
+administrator.booking.form.label.locatorCode = Código de reserva
+administrator.booking.form.label.travelClass = Tipo de viaje
+administrator.booking.form.label.creditCardNibble = Últimos digitos tarjeta
+administrator.booking.form.button.passengers = Pasajeros
+administrator.booking.form.label.flight = Vuelo
+acme.booking.form.textbox.placeholder = [A-Z0-9]{6-8} Ej: A2F7G8T
+acme.booking.form.integer.placeholder = 0000-9999 Ej: 498
+administrator.booking.form.label.price = Precio
