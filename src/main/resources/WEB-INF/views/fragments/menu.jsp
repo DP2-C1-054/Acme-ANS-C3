@@ -28,6 +28,7 @@
 		
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.list-published-flight-assignments" action="/any/flight-assignment/list" />
+			<acme:menu-suboption code="master.menu.any.list-published-flights" action="/any/flight/list" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
