@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>168</y>
+      <w>144</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Realm&gt;&gt;
+FlightCrewMember
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>176</y>
+      <w>376</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>represented by  &gt;
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>450.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>304</y>
+      <w>416</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+FlightAssigment
+--
++ duty: Duty {Mandatory, Valid, Automapped}
++ moment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.DATE)}
++ currentStatus: Status {Mandatory, Valid, Automapped}
++ remarks: String {Optional, ValidString, Automapped}
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>392</y>
+      <w>88</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>belongs to v
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>496</y>
+      <w>192</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Leg
+
+
+
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>496</x>
+      <y>336</y>
+      <w>240</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>logs v
+lt=x-&gt;
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>10.0;20.0;280.0;20.0;280.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>472</x>
+      <y>488</y>
+      <w>520</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+ActivityLog
+--
++ registrationMoment: Date {Mandatory, ValidMoment(past = true), Temporal(TemporalType.DATE))}
++ typeOfIncident: String {Mandatory, ValidString, Automapped}
++ description: String {Mandatory, ValidString, Automapped}
++ severityLevel: Integer {Mandatory, ValidSeverityLevel, Automapped}
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>864</x>
+      <y>264</y>
+      <w>480</w>
+      <h>136</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+Airline
+--
++ name: String {Mandatory, ValidString, Automapped}
++ iataCode: String {Mandatory, ValidIataCode, Automapped}
++ website: String {Mandatory, ValidUrl, Automapped}
++ type: AirlineType {Mandatory, Valid, Automapped}
++ foundationMoment: Date {Mandatory, ValidMoment(past = true), Temporal(Temporal.DATE)}
++ email: String {Optional, ValidEmail, Automapped}
++ phoneNumber: Phone {Optional, ValidPhoneNumber, Automapped}
+
+
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>784</x>
+      <y>176</y>
+      <w>344</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>working for v
+lt=&lt;-x
+m1=1
+m2=*
+
+</panel_attributes>
+    <additional_attributes>400.0;110.0;400.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>

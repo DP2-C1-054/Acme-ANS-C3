@@ -17,6 +17,11 @@ master.menu.anonymous.favourite-link-manzurfer = **76**24X: Zurita Fernández, M
 master.menu.anonymous.favourite-link-adrdiavaz = **93**29S: Díaz Vázquez, Adrián
 master.menu.anonymous.favourite-link-kevamacal = **82**02R: Amador Calzadilla, Kevin
 
+# master.menu.any #######################################################
+
+master.menu.any = Any
+master.menu.any.list-published-flight-assignments = Published flight assignments
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
@@ -59,6 +64,8 @@ master.menu.user-account.become-assistanceAgent = Become an assistance agent
 master.menu.user-account.assistanceAgent-profile = Assistance Agent profile
 master.menu.user-account.become-customer = Become a customer
 master.menu.user-account.customer-profile = Customer profile
+master.menu.user-account.become-flight-crew-member = Become a flight crew member
+master.menu.user-account.flight-crew-member-profile = Flight crew member profile
 
 # master.menu.user-account ####################################################
 master.menu.technician = Technician
@@ -94,3 +101,4 @@ master.menu.assistanceAgent.show-dashboard = Assistance agent dashboard
 master.menu.flightCrewMember = Flight Crew Member
 master.menu.flightCrewMember.list-planned-flight-assignments = List planned flight assignments
 master.menu.flightCrewMember.list-completed-flight-assignments = List completed flight assignments
+master.menu.flightCrewMember.flight-crew-member-dashboard = Dashboard

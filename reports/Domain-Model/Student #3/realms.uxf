@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>20</y>
+      <w>510</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Entity&gt;&gt;
+FlightCrewMembers
+--
++ employeeCode: String {Mandatory, ValidRoleIdentifier, Column(unique = true)}
++ phoneNumber: Phone {Mandatory, ValidPhoneNumber, Automapped}
++ languageSkills: OperationalScope {Mandatory, ValidString, Automapped}
++ availability: AvailabilityStatus {Mandatory, Valid, Automapped}
++ salary: Money {Mandatory, ValidMoney, Automapped}
++ experienceYears: Integer {Mandaroy, ValidNumber, Automapped}
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
