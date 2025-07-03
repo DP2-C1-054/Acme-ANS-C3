@@ -1,0 +1,10 @@
+administrator.tracking-log.list.title = Tracking Logs List
+administrator.trackingLog.list.label.percentage = Resolution Percentage
+administrator.trackingLog.list.label.status = Status
+
+administrator.tracking-log.form.title = Tracking Log:
+administrator.trackingLog.form.label.lastUpdateMoment = Last Update Moment
+administrator.trackingLog.form.label.step = Step
+administrator.trackingLog.form.label.percentage = Resolution Percentage
+administrator.trackingLog.form.label.status = Status
+administrator.trackingLog.form.label.resolution = Resolution
