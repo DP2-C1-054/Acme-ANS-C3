@@ -15,7 +15,7 @@ import acme.realms.assistance_agents.AssistanceAgent;
 @Repository
 public interface AssistanceAgentDashboardRepository extends AbstractRepository {
 
-	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.lastUpdateMoment = (SELECT MAX(t2.lastUpdateMoment) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'ACCEPTED' AND c.assistanceAgent.id = :agentId)")
+	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.percentage = (SELECT MAX(t2.percentage) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'ACCEPTED' AND c.assistanceAgent.id = :agentId)")
 	Collection<Claim> findAllAcceptedClaimsByAgentId(int agentId);
 
 	@Query("SELECT c FROM Claim c WHERE c.assistanceAgent.id = :agentId")
@@ -27,7 +27,7 @@ public interface AssistanceAgentDashboardRepository extends AbstractRepository {
 		return total > 0 ? 100.0 * ((double) res / total) : 0.0;
 	}
 
-	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.lastUpdateMoment = (SELECT MAX(t2.lastUpdateMoment) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'REJECTED' AND c.assistanceAgent.id = :agentId)")
+	@Query("SELECT DISTINCT c FROM Claim c JOIN TrackingLog t ON t.claim.id = c.id WHERE t.percentage = (SELECT MAX(t2.percentage) FROM TrackingLog t2 WHERE t2.claim = c) AND (t.status = 'REJECTED' AND c.assistanceAgent.id = :agentId)")
 	List<Claim> findAllRejectedClaimsByAgentId(int agentId);
 
 	default Double rejectedRatio(final AssistanceAgent assistanceAgent) {
