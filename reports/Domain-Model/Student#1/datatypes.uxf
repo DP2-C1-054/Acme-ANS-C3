@@ -4,18 +4,57 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>228</y>
+      <x>552</x>
+      <y>420</y>
+      <w>216</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+AirportType
+--
++ INTERNATIONAL
++ DOMESTIC
++ REGIONAL
+
+
+bg=orange
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>456</x>
+      <y>252</y>
       <w>144</w>
       <h>132</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Enum&gt;&gt;
-Leg.Status
+Status
 --
 + ON_TIME
 + DELAYED
 + CANCELLED
 + LANDED
+
+
+bg=orange
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>276</y>
+      <w>216</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+AircraftStatus
+--
++ ACTIVE
++ UNDER_MAINTENANCE
 
 
 bg=orange

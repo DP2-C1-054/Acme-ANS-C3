@@ -15,7 +15,7 @@ import javax.validation.constraints.Pattern;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {})
 @ReportAsSingleViolation
-@Pattern(regexp = "^[A-Z]{3}$")
+@Pattern(regexp = "^[A-Z]{2,3}\\d{4}$")
 public @interface ValidFlightNumber {
 
 	String message() default "{acme.validation.flight-number.message}";

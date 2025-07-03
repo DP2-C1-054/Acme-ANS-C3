@@ -20,7 +20,6 @@ import acme.client.components.basis.AbstractEntity;
 import acme.client.components.mappings.Automapped;
 import acme.client.components.validation.Mandatory;
 import acme.client.components.validation.ValidMoment;
-import acme.client.components.validation.ValidString;
 import acme.client.helpers.MomentHelper;
 import acme.constraints.ValidFlightNumber;
 import acme.constraints.ValidLeg;
@@ -45,7 +44,6 @@ public class Leg extends AbstractEntity {
 
 	@Mandatory
 	@ValidFlightNumber
-	@ValidString(pattern = "^[A-Z]{2,3}\\d{4}$", message = "El número de vuelo debe tener entre 2 y 3 letras mayúsculas seguidas de 4 dígitos.")
 	@Column(unique = true)
 	private String				flightNumber;
 

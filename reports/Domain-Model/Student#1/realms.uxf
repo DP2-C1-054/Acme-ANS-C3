@@ -4,18 +4,17 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>234</x>
-      <y>234</y>
+      <x>286</x>
+      <y>286</y>
       <w>702</w>
-      <h>182</h>
+      <h>143</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Role&gt;&gt;
 AirlineManager
 --
-+ identifierNumber: String {Mandatory, Column(unique=true), @ValidRoleIdentifier}
++ identifierNumber: String {Mandatory, ValidRoleIdentifier, Column(unique=true)}
 + experience: Integer {Mandatory, ValidNumber(min = 0, max  = 50), Automapped}
 + birthdate	: String {Mandatory, ValidMoment(past = true), Automapped}
-+ airline: String {Mandatory, Valid, ManyToOne}
 - linkPicture: String {Optional, ValidUrl, Automapped}
 bg=white
 
