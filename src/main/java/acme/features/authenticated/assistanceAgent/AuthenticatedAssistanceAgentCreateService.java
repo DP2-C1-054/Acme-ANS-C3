@@ -64,9 +64,7 @@ public class AuthenticatedAssistanceAgentCreateService extends AbstractGuiServic
 
 	@Override
 	public void validate(final AssistanceAgent assistanceAgent) {
-		String cod = assistanceAgent.getEmployeeCode();
-		AssistanceAgent agent = this.repository.findAssistanceAgentByEmployeeCode(cod);
-		super.state(agent == null, "employeeCode", "acme.validation.assistance-agent.code.message");
+		;
 	}
 
 	@Override
