@@ -85,6 +85,7 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 		dataset.put("activityLogId", activityLog.getId());
 		dataset.put("memberId", super.getRequest().getPrincipal().getActiveRealm().getId());
 
+
 		super.getResponse().addData(dataset);
 	}
 
