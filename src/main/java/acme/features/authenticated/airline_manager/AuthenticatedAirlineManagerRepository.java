@@ -19,4 +19,7 @@ public interface AuthenticatedAirlineManagerRepository extends AbstractRepositor
 	@Query("select a from Airline a")
 	List<Airline> findAllAirlines();
 
+	@Query("select a from Airline a where a.id = :id")
+	Airline findAirlineById(Integer id);
+
 }

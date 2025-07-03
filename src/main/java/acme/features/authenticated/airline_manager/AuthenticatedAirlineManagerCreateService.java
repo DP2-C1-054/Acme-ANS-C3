@@ -24,11 +24,24 @@ public class AuthenticatedAirlineManagerCreateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		boolean status;
+		{
+			boolean status;
+			String method = super.getRequest().getMethod();
+			Airline airline = null;
+			int airlineId = 0;
 
-		status = !super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class);
+			if (method.equals("POST")) {
+				airlineId = super.getRequest().getData("airline", int.class);
+				airline = this.repository.findAirlineById(airlineId);
+			}
 
-		super.getResponse().setAuthorised(status);
+			boolean validAirline = airline != null && this.repository.findAllAirlines().contains(airline);
+
+			status = method.equals("GET") ? !super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class) : validAirline && !super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class);
+
+			super.getResponse().setAuthorised(status);
+		}
+
 	}
 
 	@Override
