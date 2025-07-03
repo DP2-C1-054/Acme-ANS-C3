@@ -55,6 +55,7 @@ master.menu.user-account.provider-profile = Perfil de proveedor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
 master.menu-user-account.become-airline-manager = Hazte gerente de aerolínea
+master.menu.user-account.airline-manager-profile = Perfil gerente de aerolínea
 
 # master.menu.user-account ####################################################
 master.menu.technician = Técnico

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.principals.Authenticated;
-import acme.client.components.principals.UserAccount;
 import acme.client.components.views.SelectChoices;
 import acme.client.helpers.PrincipalHelper;
 import acme.client.services.AbstractGuiService;
@@ -16,7 +15,7 @@ import acme.entities.airlines.Airline;
 import acme.realms.airline_managers.AirlineManager;
 
 @GuiService
-public class AuthenticatedAirlineManagerCreateService extends AbstractGuiService<Authenticated, AirlineManager> {
+public class AuthenticatedAirlineManagerUpdateService extends AbstractGuiService<Authenticated, AirlineManager> {
 
 	@Autowired
 	private AuthenticatedAirlineManagerRepository repository;
@@ -24,56 +23,36 @@ public class AuthenticatedAirlineManagerCreateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		{
-			boolean status;
-			String method = super.getRequest().getMethod();
-			Airline airline = null;
-			int airlineId = 0;
+		boolean status;
 
-			if (method.equals("POST")) {
-				airlineId = super.getRequest().getData("airline", int.class);
-				airline = this.repository.findAirlineById(airlineId);
-			}
+		status = super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class);
 
-			boolean validAirline = airline != null && this.repository.findAllAirlines().contains(airline);
-
-			status = method.equals("GET") ? !super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class) : validAirline && !super.getRequest().getPrincipal().hasRealmOfType(AirlineManager.class);
-
-			super.getResponse().setAuthorised(status);
-		}
-
+		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
 		AirlineManager object;
 		int userAccountId;
-		UserAccount userAccount;
 
 		userAccountId = super.getRequest().getPrincipal().getAccountId();
-		userAccount = this.repository.findUserAccountById(userAccountId);
-
-		object = new AirlineManager();
-		object.setUserAccount(userAccount);
+		object = this.repository.findAirlineManagerByUserAccountId(userAccountId);
 
 		super.getBuffer().addData(object);
 	}
 
 	@Override
-	public void bind(final AirlineManager object) {
-		assert object != null;
-		super.bindObject(object, "identifierNumber", "experience", "birthdate", "airline", "linkPicture");
+	public void bind(final AirlineManager airlineManager) {
+		super.bindObject(airlineManager, "identifierNumber", "experience", "birthdate", "airline", "linkPicture");
 	}
 
 	@Override
 	public void validate(final AirlineManager airlineManager) {
-		assert airlineManager != null;
+		;
 	}
 
 	@Override
 	public void perform(final AirlineManager airlineManager) {
-		assert airlineManager != null;
-
 		this.repository.save(airlineManager);
 	}
 

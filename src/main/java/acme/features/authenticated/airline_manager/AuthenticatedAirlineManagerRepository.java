@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.client.components.principals.UserAccount;
 import acme.client.repositories.AbstractRepository;
 import acme.entities.airlines.Airline;
+import acme.realms.airline_managers.AirlineManager;
 
 @Repository
 public interface AuthenticatedAirlineManagerRepository extends AbstractRepository {
@@ -21,5 +22,8 @@ public interface AuthenticatedAirlineManagerRepository extends AbstractRepositor
 
 	@Query("select a from Airline a where a.id = :id")
 	Airline findAirlineById(Integer id);
+
+	@Query("select am from AirlineManager am where am.userAccount.id = :id")
+	AirlineManager findAirlineManagerByUserAccountId(int id);
 
 }

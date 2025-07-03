@@ -14,11 +14,15 @@ import acme.realms.airline_managers.AirlineManager;
 public class AuthenticatedAirlineManagerController extends AbstractGuiController<Authenticated, AirlineManager> {
 
 	@Autowired
-	private AuthenticatedAirlineManagerCreateService createService;
+	private AuthenticatedAirlineManagerCreateService	createService;
+
+	@Autowired
+	private AuthenticatedAirlineManagerUpdateService	updateService;
 
 
 	@PostConstruct
 	protected void initialise() {
 		super.addBasicCommand("create", this.createService);
+		super.addBasicCommand("update", this.updateService);
 	}
 }
