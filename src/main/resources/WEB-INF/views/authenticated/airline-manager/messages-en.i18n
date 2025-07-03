@@ -1,0 +1,16 @@
+authenticated.airline-manager.form.title = Customer form
+
+authenticated.airline-manager.form.label.identifierNumber = Identifier
+authenticated.airline-manager.form.label.experience = Experience
+authenticated.airline-manager.form.label.birthdate = Birthdate
+authenticated.airline-manager.form.label.airline = Airline
+authenticated.airline-manager.form.label.linkPicture = Link picture
+
+acme.airline-manager.form.identifierNumber.placeholder = Initials + 6 digits EJ: PP123456
+acme.airline-manager.form.experience.placeholder = Enter your years of experience
+acme.airline-manager.form.birthdate.placeholder = Enter your birthdate EJ: 2000/01/01 00:00
+acme.airline-manager.form.airline.placeholder = Select your airline
+acme.airline-manager.form.linkPicture.placeholder = Optional: Enter your link picture
+
+authenticated.airline-manager.form.button.create = Register
+authenticated.airline-manager.form.button.update = Update

@@ -28,6 +28,7 @@
 		
 		<acme:menu-option code="master.menu.any">
 			<acme:menu-suboption code="master.menu.any.list-published-flight-assignments" action="/any/flight-assignment/list" />
+			<acme:menu-suboption code="master.menu.any.list-published-flights" action="/any/flight/list" />
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRealm('Administrator')">
@@ -46,7 +47,8 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.airline-manager" access="hasRealm('AirlineManager')">
-						<acme:menu-suboption code="master.menu.airline-manager.flights" action="/airline-manager/flight/list"/>
+			<acme:menu-suboption code="master.menu.airline-manager.flights" action="/airline-manager/flight/list"/>
+			<acme:menu-suboption code="master.menu.airline-manager.show-dashboard" action="/airline-manager/airline-manager-dashboard/show"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.customer" access="hasRealm('Customer')">
@@ -97,6 +99,8 @@
 			<acme:menu-suboption code="master.menu.user-account.customer-profile" action="/authenticated/customer/update" access="hasRealm('Customer')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-flight-crew-member" action="/authenticated/flight-crew-member/create" access="!hasRealm('FlightCrewMember')"/>
 			<acme:menu-suboption code="master.menu.user-account.flight-crew-member-profile" action="/authenticated/flight-crew-member/update" access="hasRealm('FlightCrewMember')"/>
+			<acme:menu-suboption code="master.menu-user-account.become-airline-manager" action="/authenticated/airline-manager/create" access="!hasRealm('AirlineManager')"/>
+			<acme:menu-suboption code="master.menu.user-account.airline-manager-profile" action="/authenticated/airline-manager/update" access="hasRealm('AirlineManager')"/>
 		</acme:menu-option>
 	</acme:menu-right>
 </acme:menu-bar>	
