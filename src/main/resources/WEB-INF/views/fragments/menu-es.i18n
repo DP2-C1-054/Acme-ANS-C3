@@ -24,6 +24,8 @@ master.menu.administrator.list-user-accounts = Ver cuentas de usuario
 master.menu.administrator.list-aircrafts = Ver aviones
 master.menu.administrator.list-airlines = Ver aerolíneas
 master.menu.administrator.list-airports = Ver aeropuertos
+master.menu.administrator.list-claims = Ver reclamaciones
+
 master.menu.administrator.populate-db-initial = Poblar BD (inicial)
 master.menu.administrator.populate-db-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-system-down = Parar el sistema
@@ -52,6 +54,8 @@ master.menu.user-account.become-provider = Hacerse proveedor
 master.menu.user-account.provider-profile = Perfil de proveedor
 master.menu.user-account.become-consumer = Hazte consumidor
 master.menu.user-account.consumer-profile = Perfil de consumidor
+master.menu.user-account.become-assistanceAgent = Hacerse agente de asistencia
+master.menu.user-account.assistanceAgent-profile = Perfil de agente de asistencia
 
 # master.menu.user-account ####################################################
 master.menu.technician = Técnico
@@ -76,6 +80,7 @@ master.menu.customer.list-passengers = Ver pasajeros
 master.menu.assistanceAgent = Agente
 master.menu.assistanceAgent.list-claims = Listar reclamaciones completadas
 master.menu.assistanceAgent.list-claims-pending = Listar reclamaciones pendientes
+master.menu.assistanceAgent.show-dashboard = Tablero de agente de asistencia
 
 # master.menu.flightCrewMember ##########################################################
 
