@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
-import acme.client.helpers.StringHelper;
 import acme.realms.airline_managers.AirlineManager;
 import acme.realms.airline_managers.AirlineManagerRepository;
 
@@ -34,25 +33,14 @@ public class AirlineManagerValidator extends AbstractValidator<ValidAirlineManag
 		if (airlineManager == null)
 			super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 		else {
-			boolean codeContainsInitials = true;
 
 			String code = airlineManager.getIdentifierNumber();
-			String name = airlineManager.getUserAccount().getIdentity().getName();
-			String surname = airlineManager.getUserAccount().getIdentity().getSurname();
-
-			if (!StringHelper.isBlank(code) && !StringHelper.isBlank(name) && !StringHelper.isBlank(surname) && code.length() > 1 && name.length() > 0 && surname.length() > 0)
-				codeContainsInitials = code.charAt(0) == name.charAt(0) && code.charAt(1) == surname.charAt(0);
-			else
-				super.state(context, false, "*", "javax.validation.constraints.NotNull.message");
 
 			List<AirlineManager> airlineManagers = this.repository.findAllAirlineManagers();
 			boolean isUnique = airlineManagers.stream().noneMatch(am -> am.getIdentifierNumber().equals(code) && !am.equals(airlineManager));
 
 			if (!isUnique)
-				super.state(context, false, "*", "acme.validation.airline-manager.identifier-number.message");
-
-			if (!codeContainsInitials)
-				super.state(context, codeContainsInitials, "*", "acme.validation.role.identifier.message");
+				super.state(context, false, "identifierNumber", "acme.validation.airline-manager.identifier-number.message");
 
 		}
 

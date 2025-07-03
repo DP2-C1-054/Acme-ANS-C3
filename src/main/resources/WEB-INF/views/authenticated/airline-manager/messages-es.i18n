@@ -1,0 +1,16 @@
+authenticated.airline-manager.form.title = Detalles de Cliente
+
+authenticated.airline-manager.form.label.identifierNumber = Identificador
+authenticated.airline-manager.form.label.experience = Experiencia
+authenticated.airline-manager.form.label.birthdate = Fecha de nacimiento
+authenticated.airline-manager.form.label.airline = Aerolínea
+authenticated.airline-manager.form.label.linkPicture = Enlace de imagen
+
+acme.airline-manager.form.identifierNumber.placeholder = Inicales + 6 dígitos EJ: PP123456
+acme.airline-manager.form.experience.placeholder = Introduzca sus años de experiencia
+acme.airline-manager.form.birthdate.placeholder = Introduzca su fecha de nacimiento EJ: 2000/01/01 00:00
+acme.airline-manager.form.airline.placeholder = Seleccione su aerolínea
+acme.airline-manager.form.linkPicture.placeholder = Opcional: Introduzca un link a su foto 
+
+authenticated.airline-manager.form.button.create = Registrar
+authenticated.airline-manager.form.button.update = Actualizar
