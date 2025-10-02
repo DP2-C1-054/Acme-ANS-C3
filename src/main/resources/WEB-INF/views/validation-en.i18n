@@ -9,6 +9,7 @@ acme.validation.legs.flightNumber.message = The flight number must be unique
 acme.validation.legs.airline.flightNumber = To put the flight number first you need to select an aircraft
 acme.validation.legs.departureArrivalAirport.message = The departure airport must be different from the arrival airport
 acme.validation.legs.scheduledDeparture.message = The scheduled departure must be after the current date
+acme.validation.legs.aircraft.message = First you need to choose a valid aircraft
 acme.validation.leg.overlapping-legs.message = This leg overlapps other legs
 acme.validation.flight.unable-to-delete-flight-published-leg.message = Flights with published legs cannot be deleted
 acme.validation.invalid-currency.message = The currency identifier must be higher than 3 letters
