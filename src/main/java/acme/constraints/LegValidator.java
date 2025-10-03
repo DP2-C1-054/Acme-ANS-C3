@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.validation.AbstractValidator;
 import acme.client.components.validation.Validator;
+import acme.client.helpers.MomentHelper;
 import acme.client.helpers.StringHelper;
 import acme.entities.legs.Leg;
 import acme.entities.legs.LegRepository;
@@ -34,16 +35,22 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		if (leg.getFlightNumber() != null)
 			if (StringHelper.isBlank(leg.getFlightNumber()))
 				super.state(context, false, "flightNumber", "javax.validation.constraints.NotBlank.message");
-		if (leg.getAircraft() == null)
-			super.state(context, false, "flightNumber", "acme.validation.legs.aircraft.message");
-		else if (leg.getAircraft() != null && leg.getFlightNumber() != null) {
-			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
-			if (!leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode))
-				super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
-			boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(leg.getFlightNumber()) && !l.equals(leg));
-			if (!isUnique)
-				super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.message");
-		}
+			else if (leg.getAircraft() == null)
+				super.state(context, false, "flightNumber", "acme.validation.legs.aircraft.message");
+			else if (leg.getAircraft() != null && leg.getFlightNumber() != null) {
+				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+				if (!leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode))
+					super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
+				boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(leg.getFlightNumber()) && !l.equals(leg));
+				if (!isUnique)
+					super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.message");
+			}
+
+		if (leg.getScheduledArrival() != null && MomentHelper.getCurrentMoment().compareTo(leg.getScheduledArrival()) >= 0)
+			super.state(context, false, "scheduledArrival", "acme.validation.legs.scheduledArrival.message");
+
+		if (leg.getScheduledDeparture() != null && MomentHelper.getCurrentMoment().compareTo(leg.getScheduledDeparture()) >= 0)
+			super.state(context, false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
 
 		if (leg.getDepartureAirport() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
 			super.state(context, false, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");

@@ -56,7 +56,7 @@ public interface AirlineManagerLegRepository extends AbstractRepository {
 	@Query("select a from Airport a")
 	public List<Airport> findAllAirports();
 
-	@Query("select distinct l.aircraft from Leg l where l.flight.manager.id = :id")
+	@Query("select a from Aircraft a where a.airline in (select m.airline from AirlineManager m where m.id = :id)")
 	public List<Aircraft> findAllAircraftsByManagerId(int id);
 
 	@Query("select l from Leg l where l.flight.id = :id")
