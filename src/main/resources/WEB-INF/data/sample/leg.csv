@@ -1,12 +1,12 @@
 key,scheduledDeparture,scheduledArrival,key:departureAirport,key:arrivalAirport,status,key:aircraft,key:flight,flightNumber,draftMode
 #base_entity
 leg-00,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-01,REI1234,FALSE
-#scheduledDeparture
+#scheduledDeparture,""
 leg-01,2025/01/01 00:01,2025/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-02,REI9234,FALSE
 leg-02,2025/01/01 00:02,2025/01/01 02:02,airport-01,airport-02,ON_TIME,aircraft-00,flight-03,REI2342,FALSE
 leg-03,2029/01/01 00:00,2029/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-04,REI1654,FALSE
 leg-04,2029/01/01 00:01,2029/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-05,REI1872,FALSE
-#scheduleArrival
+#scheduleArrival,""
 leg-05,2027/01/01 00:00,2027/01/01 00:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-06,REI1235,FALSE
 leg-06,2029/01/01 02:00,2029/01/01 02:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-07,REI1236,FALSE
 leg-07,2027/01/01 00:00,2027/01/01 00:01,airport-01,airport-02,ON_TIME,aircraft-00,flight-08,REI1237,FALSE
@@ -16,7 +16,7 @@ leg-09,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-
 leg-10,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,CANCELLED,aircraft-00,flight-11,REI9603,FALSE
 leg-11,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,DELAYED,aircraft-00,flight-12,REI4282,FALSE
 leg-12,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-13,REI9536,FALSE
-#extras
+#extras,"","","","",""
 leg-13,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-14,REI1223,FALSE
 leg-14,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-15,REI1224,FALSE
 leg-15,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-16,REI1225,FALSE
@@ -33,6 +33,6 @@ leg-24,2000/01/01 00:00,2000/01/01 02:00,airport-01,airport-02,LANDED,aircraft-0
 leg-25,2001/05/05 00:00,2001/05/05 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-26,REI4444,FALSE
 leg-26,2000/01/01 00:00,2000/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-27,REI5555,FALSE
 #draftMode
-leg-27,2000/01/01 00:00,2000/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-28,REI6666,TRUE
-leg-28,2005/02/01 00:00,2005/02/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-28,REI7777,TRUE
+leg-27,2000/01/01 00:00,2000/01/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-28,REI6666,FALSE
+leg-28,2005/02/01 00:00,2005/02/01 02:00,airport-01,airport-02,LANDED,aircraft-00,flight-28,REI7777,FALSE
 leg-29,2027/01/01 00:00,2027/01/01 02:00,airport-01,airport-02,ON_TIME,aircraft-00,flight-00,REI8888,TRUE

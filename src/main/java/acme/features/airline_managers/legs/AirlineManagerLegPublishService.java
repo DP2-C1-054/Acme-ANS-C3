@@ -1,6 +1,7 @@
 
 package acme.features.airline_managers.legs;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
@@ -110,7 +112,21 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		Date currentDate = MomentHelper.getBaseMoment();
+
+		if (leg.getScheduledDeparture() != null) {
+			boolean isValidScheduledDeparture = MomentHelper.isBefore(currentDate, leg.getScheduledDeparture());
+
+			if (!isValidScheduledDeparture)
+				super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
+		}
+
+		if (leg.getScheduledArrival() != null) {
+			boolean isValidScheduledArrival = MomentHelper.isBefore(currentDate, leg.getScheduledArrival());
+
+			if (!isValidScheduledArrival)
+				super.state(false, "scheduledArrival", "acme.validation.legs.scheduledArrival.message");
+		}
 	}
 
 	@Override
