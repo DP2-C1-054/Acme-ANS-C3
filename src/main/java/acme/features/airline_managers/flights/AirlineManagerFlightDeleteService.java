@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.booking.Booking;
@@ -84,19 +83,5 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 		this.repository.delete(flight);
 	}
 
-	@Override
-	public void unbind(final Flight flight) {
-		Dataset dataset;
-
-		dataset = super.unbindObject(flight, "tag", "requiresSelfTransfer", "cost", "description", "draftMode");
-
-		dataset.put("departure", flight.getOriginCity());
-		dataset.put("arrival", flight.getDestinationCity());
-		dataset.put("scheduledDeparture", flight.getScheduledDeparture());
-		dataset.put("scheduledArrival", flight.getScheduledArrival());
-		dataset.put("layovers", flight.getLayovers());
-
-		super.getResponse().addData(dataset);
-	}
-
+	// Este servicio no tiene unbind, debido a que no se utilizaría en ninguna condición ya que no debes volver a renderizar la página tras eliminar un tramo.
 }
