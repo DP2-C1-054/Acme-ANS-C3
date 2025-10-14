@@ -20,40 +20,32 @@ public class FlightCrewMemberActivityLogDeleteService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-
 		int activityLogId = super.getRequest().getData("id", int.class);
 		Optional<ActivityLog> activityLog = this.repository.findByIdAndFlightCrewMemberId(activityLogId, flightCrewMember.getId());
-
-		boolean status = activityLog.isPresent();
-
-		super.getResponse().setAuthorised(status);
+		super.getResponse().setAuthorised(activityLog.isPresent());
 	}
 
 	@Override
 	public void load() {
-		int activityLogId;
-		ActivityLog activityLog;
-
-		activityLogId = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(activityLogId).get();
-
+		int activityLogId = super.getRequest().getData("id", int.class);
+		ActivityLog activityLog = this.repository.findActivityLogById(activityLogId).get();
 		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
-	public void bind(final ActivityLog activityLog) {
-
-		super.bindObject(activityLog, "incidentType", "incidentDescription", "severityLevel", "flightAssignment");
-	}
-
-	@Override
 	public void validate(final ActivityLog activityLog) {
-		;
 	}
 
 	@Override
 	public void perform(final ActivityLog activityLog) {
-		this.repository.delete(activityLog);
+		ActivityLog managed = this.repository.findActivityLogById(activityLog.getId()).orElse(null);
+		if (managed != null)
+			this.repository.delete(managed);
+	}
+
+	@Override
+	public void bind(final ActivityLog object) {
+		;
 	}
 
 }

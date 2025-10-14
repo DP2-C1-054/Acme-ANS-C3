@@ -64,6 +64,8 @@ public class FlightCrewMemberFlightAssignmentShowService extends AbstractGuiServ
 		statuses = SelectChoices.from(AssignmentStatus.class, flightAssignment.getStatus());
 		dataset.put("statuses", statuses);
 
+		super.addPayload(dataset, flightAssignment, "id", "remarks");
+
 		super.getResponse().addData(dataset);
 	}
 
