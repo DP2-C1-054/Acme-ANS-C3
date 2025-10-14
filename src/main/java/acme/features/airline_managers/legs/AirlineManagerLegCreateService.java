@@ -128,6 +128,10 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 			if (!isValidScheduledArrival)
 				super.state(false, "scheduledArrival", "acme.validation.legs.scheduledArrival.message");
 		}
+
+		if (leg.getDepartureAirport() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
+			super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");
+
 	}
 
 	@Override
