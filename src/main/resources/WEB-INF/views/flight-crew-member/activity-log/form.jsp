@@ -4,6 +4,7 @@
 <%@taglib prefix="acme" uri="http://acme-framework.org/"%>
 
 <acme:form>
+	<input type="hidden" name="flightAssignment" value="${flightAssignment}"/>
 	<jstl:if test="${acme:anyOf(_command, 'show|create|update') && draftMode == false}">
 		<acme:input-moment code="flight-crew-member.activity-log.form.label.registrationMoment" path="registrationMoment" readonly="true"/>
 	</jstl:if>
@@ -11,7 +12,6 @@
 	<acme:input-textarea code="flight-crew-member.activity-log.form.label.incidentType" path="incidentType" readonly="${draftMode==false}"/>
 	<acme:input-textarea code="flight-crew-member.activity-log.form.label.incidentDescription" path="incidentDescription" readonly="${draftMode==false}"/>
 	<acme:input-integer code="flight-crew-member.activity-log.form.label.severityLevel" path="severityLevel" readonly="${draftMode==false}"/>
-	<acme:input-select code="flight-crew-member.activity-log.form.label.flightAssignment" path="flightAssignment" choices="${assignments}" readonly="${draftMode==false}"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(_command, 'create')}">

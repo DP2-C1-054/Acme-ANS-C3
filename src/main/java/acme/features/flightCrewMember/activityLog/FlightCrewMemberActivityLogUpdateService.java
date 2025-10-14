@@ -1,13 +1,11 @@
 
 package acme.features.flightCrewMember.activityLog;
 
-import java.util.Collection;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
-import acme.client.components.views.SelectChoices;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.activity_logs.ActivityLog;
@@ -24,41 +22,36 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 	@Override
 	public void authorise() {
-		boolean status = true;
 		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
+		int activityLogId = super.getRequest().getData("id", int.class);
+		Optional<ActivityLog> opt = this.repository.findActivityLogById(activityLogId);
 
-		if (super.getRequest().getMethod().equals("POST"))
-			if (super.getRequest().hasData("flightAssignment")) {
-				int assignmentId = super.getRequest().getData("flightAssignment", int.class);
-				if (assignmentId != 0) {
-					Optional<FlightAssignment> optionalAssignment = this.repository.findFlightAssignmentById(assignmentId);
-					if (optionalAssignment.isEmpty() || !optionalAssignment.get().getStatus().equals(AssignmentStatus.CONFIRMED) || optionalAssignment.get().getAllocatedFlightCrewMember().getId() != userId || optionalAssignment.get().isDraftMode())
-						status = false;
-				}
-			}
+		boolean status = false;
+		if (opt.isPresent()) {
+			ActivityLog log = opt.get();
+			FlightAssignment assignment = log.getFlightAssignment();
+
+			if (assignment != null && assignment.getAllocatedFlightCrewMember().getId() == userId && assignment.getStatus().equals(AssignmentStatus.CONFIRMED) && !assignment.isDraftMode() && log.isDraftMode())
+				status = true;
+		}
+
 		super.getResponse().setAuthorised(status);
 	}
 
 	@Override
 	public void load() {
-		int activityLogId;
-		ActivityLog activityLog;
-
-		activityLogId = super.getRequest().getData("id", int.class);
-		activityLog = this.repository.findActivityLogById(activityLogId).get();
-
+		int activityLogId = super.getRequest().getData("id", int.class);
+		ActivityLog activityLog = this.repository.findActivityLogById(activityLogId).get();
 		super.getBuffer().addData(activityLog);
 	}
 
 	@Override
 	public void bind(final ActivityLog activityLog) {
-
-		super.bindObject(activityLog, "incidentType", "incidentDescription", "severityLevel", "flightAssignment");
+		super.bindObject(activityLog, "incidentType", "incidentDescription", "severityLevel");
 	}
 
 	@Override
 	public void validate(final ActivityLog activityLog) {
-		;
 	}
 
 	@Override
@@ -68,25 +61,9 @@ public class FlightCrewMemberActivityLogUpdateService extends AbstractGuiService
 
 	@Override
 	public void unbind(final ActivityLog activityLog) {
-		FlightCrewMember flightCrewMember = (FlightCrewMember) super.getRequest().getPrincipal().getActiveRealm();
-
-		Dataset dataset;
-		dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "incidentDescription", "severityLevel", "flightAssignment", "draftMode");
-
-		Collection<FlightAssignment> flightAssignments = this.repository.findConfirmedFlightAssignmentsByCrewMemberId(flightCrewMember.getId());
-
-		FlightAssignment selected = activityLog.getFlightAssignment();
-		if (selected != null && !flightAssignments.contains(selected))
-			flightAssignments.add(selected);
-
-		SelectChoices assignmentChoices = SelectChoices.from(flightAssignments, "id", activityLog.getFlightAssignment());
-		dataset.put("assignments", assignmentChoices);
-
+		Dataset dataset = super.unbindObject(activityLog, "registrationMoment", "incidentType", "incidentDescription", "severityLevel", "draftMode");
 		dataset.put("activityLogId", activityLog.getId());
 		dataset.put("memberId", super.getRequest().getPrincipal().getActiveRealm().getId());
-
-
 		super.getResponse().addData(dataset);
 	}
-
 }

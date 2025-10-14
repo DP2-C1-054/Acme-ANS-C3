@@ -31,6 +31,19 @@ public class FlightCrewMemberFlightAssignmentPublishService extends AbstractGuiS
 
 		boolean status = true;
 
+		if (super.getRequest().hasData("id")) {
+			int id = super.getRequest().getData("id", int.class);
+			Optional<FlightAssignment> optional = this.repository.findFlightAssignmentById(id);
+			if (optional.isPresent()) {
+				FlightAssignment fa = optional.get();
+				if (!fa.isDraftMode())
+					status = false;
+			} else
+				status = false;
+		}
+
+		super.getResponse().setAuthorised(status);
+
 		if (super.getRequest().getMethod().equals("POST")) {
 			if (super.getRequest().hasData("leg")) {
 				int legId = super.getRequest().getData("leg", int.class);
