@@ -20,3 +20,4 @@ flight-crew-member.flight-assignment.form.label.remarks = Observaciones
 flight-crew-member.flight-assignment.form.button.create = Crear
 flight-crew-member.flight-assignment.form.button.update = Actualizar
 flight-crew-member.flight-assignment.form.button.publish = Publicar
+flight-crew-member.flight-assignment.form.button.delete = Borrar

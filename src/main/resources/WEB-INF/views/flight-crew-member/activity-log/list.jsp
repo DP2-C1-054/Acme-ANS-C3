@@ -8,9 +8,9 @@
 	<acme:list-column code = "flight-crew-member.activity-log.list.label.incidentType" path= "incidentType"/>
 	<acme:list-column code = "flight-crew-member.activity-log.list.label.incidentDescription" path= "incidentDescription"/>
 	<acme:list-column code = "flight-crew-member.activity-log.list.label.severityLevel" path= "severityLevel"/>
-	<acme:list-column code = "flight-crew-member.activity-log.list.label.flightAssignment" path= "flightAssignment"/>
+	<acme:list-column code = "flight-crew-member.activity-log.list.label.flightAssignment" path= "moment"/>
 	<acme:list-column code = "flight-crew-member.activity-log.list.label.draftMode" path= "draftMode"/>
 	<acme:list-payload path="payload"/>
 </acme:list>
 
-<acme:button code="flight-crew-member.activity-log.list.button.create" action="/flight-crew-member/activity-log/create"/>
+<acme:button code="flight-crew-member.activity-log.list.button.create" action="/flight-crew-member/activity-log/create?id=${id}"/>
