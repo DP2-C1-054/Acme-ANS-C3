@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
-import acme.entities.aircrafts.Aircraft;
-import acme.entities.airport.Airport;
 import acme.entities.claims.Claim;
 import acme.entities.flight_assignments.FlightAssignment;
 import acme.entities.legs.Leg;
@@ -35,36 +33,10 @@ public class AirlineManagerLegDeleteService extends AbstractGuiService<AirlineMa
 			if (optionalLeg.isPresent()) {
 				Leg leg = optionalLeg.get();
 
-				if (leg.isDraftMode() && this.repository.findByIdAndManagerId(leg.getFlight().getId(), managerId).isPresent()) {
-					status = true;
+				boolean isOwner = this.repository.findByIdAndManagerId(leg.getFlight().getId(), managerId).isPresent();
+				boolean isDraft = leg.isDraftMode();
 
-					if (super.getRequest().hasData("aircraft")) {
-						int aircraftId = super.getRequest().getData("aircraft", int.class);
-						Aircraft aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-						List<Aircraft> aircrafts = this.repository.findAllAircraftsByManagerId(managerId);
-
-						if (aircraftId != 0 && aircraft == null || aircraft != null && !aircrafts.contains(aircraft))
-							status = false;
-					}
-
-					List<Airport> airports = this.repository.findAllAirports();
-
-					if (super.getRequest().hasData("departureAirport")) {
-						int departureId = super.getRequest().getData("departureAirport", int.class);
-						Airport departure = this.repository.findAirportByAirportId(departureId);
-
-						if (departureId != 0 && departure == null || departure != null && !airports.contains(departure))
-							status = false;
-					}
-
-					if (super.getRequest().hasData("arrivalAirport")) {
-						int arrivalId = super.getRequest().getData("arrivalAirport", int.class);
-						Airport arrival = this.repository.findAirportByAirportId(arrivalId);
-
-						if (arrivalId != 0 && arrival == null || arrival != null && !airports.contains(arrival))
-							status = false;
-					}
-				}
+				status = isOwner && isDraft;
 			}
 		}
 
@@ -84,25 +56,7 @@ public class AirlineManagerLegDeleteService extends AbstractGuiService<AirlineMa
 
 	@Override
 	public void bind(final Leg leg) {
-		int aircraftId;
-		int airportArrivalId;
-		int airportDepartureId;
-		Aircraft aircraft;
-		Airport departure;
-		Airport arrival;
-
-		aircraftId = super.getRequest().getData("aircraft", int.class);
-		aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-		airportArrivalId = super.getRequest().getData("arrivalAirport", int.class);
-		departure = this.repository.findAirportByAirportId(airportArrivalId);
-		airportDepartureId = super.getRequest().getData("departureAirport", int.class);
-		arrival = this.repository.findAirportByAirportId(airportDepartureId);
-
-		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
-		leg.setAircraft(aircraft);
-		leg.setDepartureAirport(departure);
-		leg.setArrivalAirport(arrival);
-		leg.durationInHours();
+		;
 	}
 
 	@Override
@@ -125,6 +79,9 @@ public class AirlineManagerLegDeleteService extends AbstractGuiService<AirlineMa
 		this.repository.delete(leg);
 	}
 
-	// Este servicio no tiene unbind, debido a que no se utilizaría en ninguna condición ya que no debes volver a renderizar la página tras eliminar un tramo. 
+	@Override
+	public void unbind(final Leg leg) {
+		;
+	}
 
 }

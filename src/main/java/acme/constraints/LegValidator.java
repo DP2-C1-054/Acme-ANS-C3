@@ -34,21 +34,21 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		if (leg.getFlightNumber() != null)
 			if (StringHelper.isBlank(leg.getFlightNumber()))
 				super.state(context, false, "flightNumber", "javax.validation.constraints.NotBlank.message");
-		if (leg.getAircraft() == null)
-			super.state(context, false, "flightNumber", "acme.validation.legs.aircraft.message");
-		else if (leg.getAircraft() != null && leg.getFlightNumber() != null) {
-			String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
-			if (!leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode))
-				super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
-			boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(leg.getFlightNumber()) && !l.equals(leg));
-			if (!isUnique)
-				super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.message");
-		}
+			else if (leg.getAircraft() == null)
+				super.state(context, false, "flightNumber", "acme.validation.legs.aircraft.message");
+			else if (leg.getAircraft() != null && leg.getFlightNumber() != null) {
+				String airlineIataCode = leg.getAircraft().getAirline().getIataCode();
+				if (!leg.getFlightNumber().substring(0, 3).equalsIgnoreCase(airlineIataCode))
+					super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.iata.message");
+				boolean isUnique = legs.stream().noneMatch(l -> l.getFlightNumber().equals(leg.getFlightNumber()) && !l.equals(leg));
+				if (!isUnique)
+					super.state(context, false, "flightNumber", "acme.validation.legs.flightNumber.message");
+			}
 
-		if (leg.getDepartureAirport() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
+		if (leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
 			super.state(context, false, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");
 
-		if (leg.getArrivalAirport() != null && leg.getArrivalAirport() != null && leg.getDepartureAirport().equals(leg.getArrivalAirport()))
+		if (leg.getDepartureAirport() != null && leg.getArrivalAirport() != null && leg.getDepartureAirport().equals(leg.getArrivalAirport()))
 			super.state(context, false, "departureAirport", "acme.validation.legs.departureArrivalAirport.message");
 
 		if (leg.getFlight() != null) {

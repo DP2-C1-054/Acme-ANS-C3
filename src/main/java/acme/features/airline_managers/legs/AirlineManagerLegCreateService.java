@@ -23,10 +23,11 @@ import acme.realms.airline_managers.AirlineManager;
 public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineManager, Leg> {
 
 	@Autowired
-	private AirlineManagerLegRepository repository;
+	private AirlineManagerLegRepository		repository;
 
 	@Autowired
-	private AirlineManagerFlightRepository flightRepository;
+	private AirlineManagerFlightRepository	flightRepository;
+
 
 	@Override
 	public void authorise() {
@@ -61,9 +62,8 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 						List<Aircraft> managerAircrafts = this.repository.findAllAircraftsByManagerId(managerId);
 						List<Airport> allAirports = this.repository.findAllAirports();
 
-						if (aircraftId != 0 && (aircraft == null || !managerAircrafts.contains(aircraft))
-								|| departureId != 0 && (departure == null || !allAirports.contains(departure))
-								|| arrivalId != 0 && (arrival == null || !allAirports.contains(arrival)))
+						if (aircraftId != 0 && (aircraft == null || !managerAircrafts.contains(aircraft)) || departureId != 0 && (departure == null || !allAirports.contains(departure))
+							|| arrivalId != 0 && (arrival == null || !allAirports.contains(arrival)))
 							authorised = false;
 					}
 				}
@@ -121,6 +121,17 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 			if (!isValidScheduledDeparture)
 				super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
 		}
+
+		if (leg.getScheduledArrival() != null) {
+			boolean isValidScheduledArrival = MomentHelper.isBefore(currentDate, leg.getScheduledArrival());
+
+			if (!isValidScheduledArrival)
+				super.state(false, "scheduledArrival", "acme.validation.legs.scheduledArrival.message");
+		}
+
+		if (leg.getDepartureAirport() != null && leg.getScheduledArrival() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
+			super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");
+
 	}
 
 	@Override
@@ -148,8 +159,7 @@ public class AirlineManagerLegCreateService extends AbstractGuiService<AirlineMa
 		departureChoices = SelectChoices.from(airports, "name", leg.getDepartureAirport());
 		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
 
-		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status",
-				"draftMode");
+		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
 		dataset.put("statuses", statusChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);

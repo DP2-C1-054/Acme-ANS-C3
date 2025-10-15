@@ -27,10 +27,10 @@ flight-19,Lorem ipsum dolor sit ame,true,EUR 1000.00,Lorem ipsum dolor sit amet 
 flight-20,Lorem ipsum dolor sit ame,true,EUR 1000.00,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut enim ad minim veniam? Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor*,airline-manager-01,false
 flight-21,Lorem ipsum dolor sit ame,true,EUR 1000.00,โลเร็ม อิปซัม,airline-manager-01,false
 flight-22,Lorem ipsum dolor sit ame,true,EUR 1000.00,لوريم إيبسوم,airline-manager-01,false
-flight-23,Lorem ipsum dolor sit ame,true,EUR 1000.00,洛伦·伊普森,airline-manager-01,false
-flight-24,Lorem ipsum dolor sit ame,true,EUR 1000.00,<marquee>Hacked</marquee>,airline-manager-01,false
-flight-25,Lorem ipsum dolor sit ame,true,EUR 1000.00,<script>alert('Hacked!');</script>,airline-manager-01,false
-flight-26,Lorem ipsum dolor sit ame,true,EUR 1000.00,'or 'A' = 'A,airline-manager-01,false
-flight-27,Lorem ipsum dolor sit ame,true,EUR 1000.00,null,airline-manager-01,false
+flight-23,Lorem ipsum dolor sit ame,true,EUR 1000.00,洛伦·伊普森,airline-manager-01,true
+flight-24,Lorem ipsum dolor sit ame,true,EUR 1000.00,<marquee>Hacked</marquee>,airline-manager-01,true
+flight-25,Lorem ipsum dolor sit ame,true,EUR 1000.00,<script>alert('Hacked!');</script>,airline-manager-01,true
+flight-26,Lorem ipsum dolor sit ame,true,EUR 1000.00,'or 'A' = 'A,airline-manager-01,true
+flight-27,Lorem ipsum dolor sit ame,true,EUR 1000.00,null,airline-manager-01,true
 #draftMode
 flight-28,Lorem ipsum dolor sit ame,true,EUR 1000.00,Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do: eiusmod tempor incididunt ut labore et dolore magna aliqua! Ut*,airline-manager-01,true

@@ -1,6 +1,7 @@
 
 package acme.features.airline_managers.legs;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import acme.client.components.models.Dataset;
 import acme.client.components.views.SelectChoices;
+import acme.client.helpers.MomentHelper;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.aircrafts.Aircraft;
@@ -96,21 +98,35 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 
 		aircraftId = super.getRequest().getData("aircraft", int.class);
 		aircraft = this.repository.findAircraftByAircraftId(aircraftId);
-		airportArrivalId = super.getRequest().getData("arrivalAirport", int.class);
-		departure = this.repository.findAirportByAirportId(airportArrivalId);
 		airportDepartureId = super.getRequest().getData("departureAirport", int.class);
-		arrival = this.repository.findAirportByAirportId(airportDepartureId);
+		airportArrivalId = super.getRequest().getData("arrivalAirport", int.class);
+		departure = this.repository.findAirportByAirportId(airportDepartureId);
+		arrival = this.repository.findAirportByAirportId(airportArrivalId);
 
 		super.bindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status");
 		leg.setAircraft(aircraft);
 		leg.setDepartureAirport(departure);
 		leg.setArrivalAirport(arrival);
-		leg.durationInHours();
+
 	}
 
 	@Override
 	public void validate(final Leg leg) {
-		;
+		Date currentDate = MomentHelper.getBaseMoment();
+
+		if (leg.getScheduledDeparture() != null) {
+			boolean isValidScheduledDeparture = MomentHelper.isBefore(currentDate, leg.getScheduledDeparture());
+
+			if (!isValidScheduledDeparture)
+				super.state(false, "scheduledDeparture", "acme.validation.legs.scheduledDeparture.message");
+		}
+
+		if (leg.getScheduledArrival() != null) {
+			boolean isValidScheduledArrival = MomentHelper.isBefore(currentDate, leg.getScheduledArrival());
+
+			if (!isValidScheduledArrival)
+				super.state(false, "scheduledArrival", "acme.validation.legs.scheduledArrival.message");
+		}
 	}
 
 	@Override
@@ -139,7 +155,6 @@ public class AirlineManagerLegPublishService extends AbstractGuiService<AirlineM
 		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
 
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
-		dataset.put("duration", leg.durationInHours());
 		dataset.put("statuses", statusChoices);
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("aircrafts", aircraftChoices);
