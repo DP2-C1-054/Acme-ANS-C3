@@ -152,7 +152,6 @@ public class AirlineManagerLegUpdateService extends AbstractGuiService<AirlineMa
 		arrivalChoices = SelectChoices.from(airports, "name", leg.getArrivalAirport());
 
 		dataset = super.unbindObject(leg, "flightNumber", "scheduledDeparture", "scheduledArrival", "status", "draftMode");
-		dataset.put("duration", leg.durationInHours());
 		dataset.put("aircraft", aircraftChoices.getSelected().getKey());
 		dataset.put("departureAirport", departureChoices.getSelected().getKey());
 		dataset.put("arrivalAirport", arrivalChoices.getSelected().getKey());

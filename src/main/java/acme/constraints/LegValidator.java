@@ -48,7 +48,7 @@ public class LegValidator extends AbstractValidator<ValidLeg, Leg> {
 		if (leg.getScheduledArrival() != null && leg.getScheduledDeparture() != null && leg.getScheduledDeparture().compareTo(leg.getScheduledArrival()) >= 0)
 			super.state(context, false, "scheduledDeparture", "acme.validation.legs.scheduledArrivalDeparture.message");
 
-		if (leg.getArrivalAirport() != null && leg.getArrivalAirport() != null && leg.getDepartureAirport().equals(leg.getArrivalAirport()))
+		if (leg.getDepartureAirport() != null && leg.getArrivalAirport() != null && leg.getDepartureAirport().equals(leg.getArrivalAirport()))
 			super.state(context, false, "departureAirport", "acme.validation.legs.departureArrivalAirport.message");
 
 		if (leg.getFlight() != null) {
