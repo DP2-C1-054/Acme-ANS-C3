@@ -24,9 +24,10 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 	@Override
 	public void authorise() {
 		boolean status = true;
+		Integer flightAssignmentId = 0;
 		int userId = super.getRequest().getPrincipal().getActiveRealm().getId();
 
-		if (super.getRequest().getMethod().equals("POST"))
+		if (super.getRequest().getMethod().equals("POST")) {
 			if (super.getRequest().hasData("flightAssignment")) {
 				int assignmentId = super.getRequest().getData("flightAssignment", int.class);
 				if (assignmentId != 0) {
@@ -35,6 +36,15 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 						status = false;
 				}
 			}
+		}
+
+		else {
+			if (super.getRequest().hasData("id"))
+				flightAssignmentId = super.getRequest().getData("id", int.class);
+
+			if (this.repository.findFlightAssignmentById(flightAssignmentId).get().getAllocatedFlightCrewMember().getId() != userId)
+				status = false;
+		}
 
 		super.getResponse().setAuthorised(status);
 	}
@@ -45,9 +55,7 @@ public class FlightCrewMemberActivityLogCreateService extends AbstractGuiService
 		FlightAssignment flightAssignment = null;
 
 		Integer assignmentId = null;
-		if (super.getRequest().hasData("flightAssignmentId"))
-			assignmentId = super.getRequest().getData("flightAssignmentId", Integer.class);
-		else if (super.getRequest().hasData("id"))
+		if (super.getRequest().hasData("id"))
 			assignmentId = super.getRequest().getData("id", Integer.class);
 
 		if (assignmentId != null && assignmentId > 0)
