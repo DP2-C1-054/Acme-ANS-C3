@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import acme.client.components.models.Dataset;
 import acme.client.services.AbstractGuiService;
 import acme.client.services.GuiService;
 import acme.entities.flight_assignments.FlightAssignment;
@@ -50,9 +49,7 @@ public class FlightCrewMemberFlightAssignmentDeleteService extends AbstractGuiSe
 
 	@Override
 	public void unbind(final FlightAssignment assignment) {
-		Dataset dataset = super.unbindObject(assignment, "id", "moment", "remarks", "duty", "status", "draftMode");
-		dataset.put("memberId", super.getRequest().getPrincipal().getActiveRealm().getId());
-		super.getResponse().addData(dataset);
+		;
 	}
 
 }
