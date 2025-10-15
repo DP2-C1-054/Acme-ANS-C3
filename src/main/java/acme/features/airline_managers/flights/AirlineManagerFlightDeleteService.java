@@ -98,5 +98,4 @@ public class AirlineManagerFlightDeleteService extends AbstractGuiService<Airlin
 
 		super.getResponse().addData(dataset);
 	}
-
 }
